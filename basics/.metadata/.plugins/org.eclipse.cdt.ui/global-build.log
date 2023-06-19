@@ -1,0 +1,14 @@
+20:41:17 **** Incremental Build of configuration Debug for project 004LedBlinking ****
+make -j8 all 
+arm-none-eabi-size   004LedBlinking.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1568	   2372	    944	004LedBlinking.elf
+Finished building: default.size.stdout
+ 
+20:41:29 **** Incremental Build of configuration Debug for project 004LedBlinking ****
+make -j8 all 
+arm-none-eabi-size   004LedBlinking.elf 
+   text	   data	    bss	    dec	    hex	filename
+    796	      8	   1568	   2372	    944	004LedBlinking.elf
+Finished building: default.size.stdout
+ 
