@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;011GPIODriver/Src/dma_&apos; to &apos;dma_test_1.c&apos;" description="Rename resource &apos;dma_&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/dma_" name="dma_test_1.c" stamp="1698304292162" updateReferences="true"/>
+</session>

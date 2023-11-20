@@ -1,0 +1,85 @@
+/*
+ * task_scheduler.c
+ *
+ *  Created on: 11-Sep-2023
+ *      Author: naveen
+ */
+
+
+#include "gpio_driver.h"
+
+#define GPIO_PIN_LED_1	GPIO_PIN_12
+#define GPIO_PIN_LED_2	GPIO_PIN_13
+#define GPIO_PIN_LED_3	GPIO_PIN_14
+#define GPIO_PIN_LED_4	GPIO_PIN_15
+
+uint32_t tick_count = 0;
+
+void configure_leds(void);
+void configure_systick_timer(void);
+void enable_systick_timer(void);
+void SysTick_Handler(void);
+void task0(void);
+void task1(void);
+void task2(void);
+void task3(void);
+
+int main(void)
+{
+
+	configure_leds();
+	configure_systick_timer();
+
+	task0();
+
+	enable_systick_timer();
+
+	while(1);
+
+	return 0;
+}
+
+void task0(void)
+{
+
+}
+
+void task1(void)
+{
+
+}
+
+void task2(void)
+{
+
+}
+
+void task3(void)
+{
+
+}
+
+void configure_leds(void)
+{
+
+}
+
+void configure_systick_timer(void)
+{
+
+}
+
+void enable_systick_timer(void)
+{
+
+}
+
+void SysTick_Handler(void)
+{
+
+}
+
+void PendSV_Handler(void)
+{
+
+}

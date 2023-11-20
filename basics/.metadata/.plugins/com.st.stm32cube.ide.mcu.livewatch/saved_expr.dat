@@ -1,0 +1,4 @@
+task_stack[0]
+task0_stack
+&task0_stack
+&task0_stack[1023]

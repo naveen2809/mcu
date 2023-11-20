@@ -1,0 +1,11 @@
+../Driver/Src/usart_driver.c:17:6:USART_Init	16	static
+../Driver/Src/usart_driver.c:91:6:USART_PeripheralEnable	16	static
+../Driver/Src/usart_driver.c:96:6:USART_PeripheralDisable	16	static
+../Driver/Src/usart_driver.c:101:9:USART_GetFlagStatus	16	static
+../Driver/Src/usart_driver.c:111:6:USART_ClearFlag	16	static
+../Driver/Src/usart_driver.c:117:6:USART_SendData	24	static
+../Driver/Src/usart_driver.c:131:6:USART_ReceiveData	24	static
+../Driver/Src/usart_driver.c:143:6:USART_SetBaudRate	24	static
+../Driver/Src/usart_driver.c:153:6:USART_IRQHandling	16	static
+../Driver/Src/usart_driver.c:167:6:USART_EnableRXNEInterrupt	16	static
+../Driver/Src/usart_driver.c:172:6:USART_EnableTXEInterrupt	16	static

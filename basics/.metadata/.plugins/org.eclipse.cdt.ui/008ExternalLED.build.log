@@ -1,0 +1,10 @@
+15:47:13 **** Build of configuration Debug for project 008ExternalLED ****
+make -j8 all 
+arm-none-eabi-size   008ExternalLED.elf 
+   text	   data	    bss	    dec	    hex	filename
+    800	      8	   1568	   2376	    948	008ExternalLED.elf
+Finished building: default.size.stdout
+ 
+
+15:47:13 Build Finished. 0 errors, 0 warnings. (took 256ms)
+

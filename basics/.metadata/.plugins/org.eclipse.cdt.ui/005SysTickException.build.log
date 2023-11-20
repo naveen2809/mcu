@@ -1,4 +1,4 @@
-20:36:00 **** Incremental Build of configuration Debug for project 005SysTickException ****
+15:47:12 **** Build of configuration Debug for project 005SysTickException ****
 make -j8 all 
 arm-none-eabi-size   005SysTickException.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   005SysTickException.elf
 Finished building: default.size.stdout
  
 
-20:36:00 Build Finished. 0 errors, 0 warnings. (took 164ms)
+15:47:12 Build Finished. 0 errors, 0 warnings. (took 220ms)
 

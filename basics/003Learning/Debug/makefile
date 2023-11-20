@@ -33,34 +33,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := 003Learning
+BUILD_ARTIFACT_NAME := 003InterruptPriority
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-003Learning.elf \
+003InterruptPriority.elf \
 
 MAP_FILES += \
-003Learning.map \
+003InterruptPriority.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-003Learning.list \
+003InterruptPriority.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: 003Learning.elf secondary-outputs
+main-build: 003InterruptPriority.elf secondary-outputs
 
 # Tool invocations
-003Learning.elf 003Learning.map: $(OBJS) $(USER_OBJS) /home/naveen/Code/mcu/basics/003Learning/STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "003Learning.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/003Learning/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="003Learning.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+003InterruptPriority.elf 003InterruptPriority.map: $(OBJS) $(USER_OBJS) /home/naveen/Code/mcu/basics/003Learning/STM32F407VGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "003InterruptPriority.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/003Learning/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="003InterruptPriority.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +69,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-003Learning.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "003Learning.list"
+003InterruptPriority.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "003InterruptPriority.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) 003Learning.elf 003Learning.list 003Learning.map default.size.stdout
+	-$(RM) 003InterruptPriority.elf 003InterruptPriority.list 003InterruptPriority.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

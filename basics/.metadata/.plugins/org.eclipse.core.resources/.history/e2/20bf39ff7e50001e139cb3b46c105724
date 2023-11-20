@@ -1,0 +1,136 @@
+/*
+ * task_scheduler.c
+ *
+ *  Created on: 11-Sep-2023
+ *      Author: naveen
+ */
+
+
+#include "gpio_driver.h"
+
+#define GPIO_PIN_LED_0		GPIO_PIN_12
+#define GPIO_PIN_LED_1		GPIO_PIN_13
+#define GPIO_PIN_LED_2		GPIO_PIN_14
+#define GPIO_PIN_LED_3		GPIO_PIN_15
+#define MAX_TASKS			4
+#define TICK_COUNT_TASK_0	0xFFFFU
+#define TICK_COUNT_TASK_1	0xFFFFU
+#define TICK_COUNT_TASK_2   0xFFFFU
+#define TICK_COUNT_TASK_3   0xFFFFU
+
+uint32_t tick_count = 0;
+uint32_t current_task, next_task;
+
+void configure_leds(void);
+void configure_systick_timer(void);
+void enable_systick_timer(void);
+void SysTick_Handler(void);
+void task0(void);
+void task1(void);
+void task2(void);
+void task3(void);
+
+int main(void)
+{
+
+	configure_leds();
+	configure_systick_timer();
+
+	current_task = 0;
+	task0();
+
+	enable_systick_timer();
+
+	while(1);
+
+	return 0;
+}
+
+void task0(void)
+{
+	static uint32_t target_tick_count_0 = TICK_COUNT_TASK_0;
+
+	while(1)
+	{
+		if(target_tick_count_0 <= tick_count)
+		{
+			target_tick_count_0 += TICK_COUNT_TASK_0;
+			GPIOTogglePin(GPIOD, GPIO_PIN_LED_0);
+		}
+	}
+}
+
+void task1(void)
+{
+	static uint32_t target_tick_count_1 = TICK_COUNT_TASK_1;
+
+	while(1)
+	{
+		if(target_tick_count_1 <= tick_count)
+		{
+			target_tick_count_1 += TICK_COUNT_TASK_1;
+			GPIOTogglePin(GPIOD, GPIO_PIN_LED_1);
+		}
+	}
+}
+
+void task2(void)
+{
+	static uint32_t target_tick_count_2 = TICK_COUNT_TASK_2;
+
+	while(1)
+	{
+		if(target_tick_count_2 <= tick_count)
+		{
+			target_tick_count_2 += TICK_COUNT_TASK_2;
+			GPIOTogglePin(GPIOD, GPIO_PIN_LED_2);
+		}
+	}
+}
+
+void task3(void)
+{
+	static uint32_t target_tick_count_3 = TICK_COUNT_TASK_3;
+
+	while(1)
+	{
+		if(target_tick_count_3 <= tick_count)
+		{
+			target_tick_count_3 += TICK_COUNT_TASK_3;
+			GPIOTogglePin(GPIOD, GPIO_PIN_LED_3);
+		}
+	}
+}
+
+void configure_leds(void)
+{
+	EnablePeriClk(GPIOD);
+	GPIOSetMode(GPIOD, GPIO_PIN_LED_0, GPIO_MODE_OUTPUT);
+	GPIOSetMode(GPIOD, GPIO_PIN_LED_1, GPIO_MODE_OUTPUT);
+	GPIOSetMode(GPIOD, GPIO_PIN_LED_2, GPIO_MODE_OUTPUT);
+	GPIOSetMode(GPIOD, GPIO_PIN_LED_3, GPIO_MODE_OUTPUT);
+}
+
+void configure_systick_timer(void)
+{
+
+}
+
+void enable_systick_timer(void)
+{
+
+}
+
+void SysTick_Handler(void)
+{
+	tick_count++;
+	next_task = (current_task)%(MAX_TASKS);
+}
+
+void PendSV_Handler(void)
+{
+	current_task = next_task;
+}
+
+
+

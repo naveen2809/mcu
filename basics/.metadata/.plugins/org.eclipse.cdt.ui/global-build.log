@@ -1,21 +1,28 @@
-15:39:11 **** Incremental Build of configuration Debug for project 007GPIOButtonInterrupt ****
+19:36:23 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "007GPIOButtonInterrupt.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/007GPIOButtonInterrupt/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="007GPIOButtonInterrupt.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 007GPIOButtonInterrupt.elf
+arm-none-eabi-gcc "../Src/dma_test_1.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/dma_test_1.d" -MT"Src/dma_test_1.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/dma_test_1.o"
+arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 011GPIODriver.elf
  
-arm-none-eabi-size   007GPIOButtonInterrupt.elf 
-arm-none-eabi-objdump -h -S  007GPIOButtonInterrupt.elf  > "007GPIOButtonInterrupt.list"
+arm-none-eabi-size   011GPIODriver.elf 
+arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-   1004	      8	   1568	   2580	    a14	007GPIOButtonInterrupt.elf
+   3588	     32	   1656	   5276	   149c	011GPIODriver.elf
 Finished building: default.size.stdout
  
-Finished building: 007GPIOButtonInterrupt.list
+Finished building: 011GPIODriver.list
  
-15:39:19 **** Incremental Build of configuration Debug for project 007GPIOButtonInterrupt ****
+19:36:28 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
-arm-none-eabi-size   007GPIOButtonInterrupt.elf 
+arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-   1004	      8	   1568	   2580	    a14	007GPIOButtonInterrupt.elf
+   3588	     32	   1656	   5276	   149c	011GPIODriver.elf
+Finished building: default.size.stdout
+ 
+19:38:03 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+make -j8 all 
+arm-none-eabi-size   011GPIODriver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3588	     32	   1656	   5276	   149c	011GPIODriver.elf
 Finished building: default.size.stdout
  

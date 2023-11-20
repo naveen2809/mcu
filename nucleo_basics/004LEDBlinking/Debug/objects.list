@@ -1,0 +1,6 @@
+"./Driver/Src/gpio_driver.o"
+"./Driver/Src/stm32f4xx.o"
+"./Src/main.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f446retx.o"

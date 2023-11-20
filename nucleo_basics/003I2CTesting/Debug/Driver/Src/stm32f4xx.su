@@ -1,0 +1,4 @@
+../Driver/Src/stm32f4xx.c:15:6:EnablePeriClk	24	static
+../Driver/Src/stm32f4xx.c:105:6:DisablePeriClk	24	static
+../Driver/Src/stm32f4xx.c:196:6:NVIC_EnableIRQ	32	static
+../Driver/Src/stm32f4xx.c:207:6:NVIC_DisableIRQ	32	static

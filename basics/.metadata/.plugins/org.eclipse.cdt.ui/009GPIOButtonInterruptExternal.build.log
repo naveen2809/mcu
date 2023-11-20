@@ -1,0 +1,10 @@
+15:47:13 **** Build of configuration Debug for project 009GPIOButtonInterruptExternal ****
+make -j8 all 
+arm-none-eabi-size   009GPIOButtonInterruptExternal.elf 
+   text	   data	    bss	    dec	    hex	filename
+    996	      8	   1568	   2572	    a0c	009GPIOButtonInterruptExternal.elf
+Finished building: default.size.stdout
+ 
+
+15:47:13 Build Finished. 0 errors, 0 warnings. (took 222ms)
+

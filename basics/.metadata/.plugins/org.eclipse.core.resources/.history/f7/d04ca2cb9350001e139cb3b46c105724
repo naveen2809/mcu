@@ -1,0 +1,54 @@
+/*
+ * assembly.s
+ *
+ *  Created on: 11-Sep-2023
+ *      Author: naveen
+ */
+
+
+.syntax unified
+.cpu cortex-m4
+.fpu softvfp
+.thumb
+
+.equ AHB1ENR_ADDR, 0x40023830U
+.equ GPIOD_MODE_REG_ADDR, 0x40020C00U
+.equ GPIOD_ODR_ADDR, 0x40020C14U
+.equ ICSR_ADDR, 0xE000ED04U
+.equ SYT_RLV_REG_ADDR, 0xE000E014U
+.equ SYT_CNT_REG_ADDR, 0xE000E010U
+.equ GPIOD_PERI_CLK_ENB_VAL, 0x8U
+.equ GPIOD_MODE_SET_VAL, 0x40000000U
+.equ GPIOD_MODE_CLR_VAL, 0x3FFFFFFFU
+.equ GPIOD_ODR_TOG_VAL, 0x00008000U
+.equ SYT_RELOAD_VALUE, 0x0FFFFFU
+.equ SYT_CONTROL_VALUE, 0x6U
+.equ ICSR_VALUE, 0x10000000U
+
+.extern current_task
+.extern next_task
+.extern current_sp
+
+.global PendSV_Handler
+
+.align 4
+.section .text.PendSV_Handler
+.weak PendSV_Handler
+.type PendSV_Handler, %function
+PendSV_Handler:
+		/* Save Context of Previous Task */
+		MRS R0, PSP
+		STMDB R0!, {R4-R11}
+
+		LDR R1,=GPIOD_ODR_TOG_VAL
+		LDR R2, [R0]
+		EOR R2, R1
+		STR R2, [R0]
+
+		/* Restore Context of Next Task */
+
+
+		/* Make current task equal to next task */
+
+		/* Exit Handler */
+		BX LR

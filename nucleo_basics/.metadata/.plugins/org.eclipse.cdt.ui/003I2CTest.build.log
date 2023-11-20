@@ -1,0 +1,40 @@
+12:16:56 **** Incremental Build of configuration Debug for project 003I2CTest ****
+make -j8 all 
+arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -I/home/naveen/Code/mcu/nucleo_basics/003I2CTest/Driver/Inc -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
+arm-none-eabi-gcc "../Src/gpio_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/gpio_test.d" -MT"Src/gpio_test.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/gpio_test.o"
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/syscalls.o"
+arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/sysmem.o"
+arm-none-eabi-gcc "../Driver/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/gpio_driver.d" -MT"Driver/Src/gpio_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Driver/Src/gpio_driver.o"
+arm-none-eabi-gcc "../Driver/Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/i2c_driver.d" -MT"Driver/Src/i2c_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Driver/Src/i2c_driver.o"
+arm-none-eabi-gcc "../Driver/Src/spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/spi_driver.d" -MT"Driver/Src/spi_driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Driver/Src/spi_driver.o"
+../Src/gpio_test.c:20:10: fatal error: stm32f4xx.h: No such file or directory
+   20 | #include "stm32f4xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+arm-none-eabi-gcc "../Driver/Src/stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/stm32f4xx.d" -MT"Driver/Src/stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Driver/Src/stm32f4xx.o"
+make: *** [Src/subdir.mk:25: Src/gpio_test.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Driver/Src/i2c_driver.c:9:10: fatal error: stm32f4xx.h: No such file or directory
+    9 | #include "stm32f4xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Driver/Src/subdir.mk:31: Driver/Src/i2c_driver.o] Error 1
+../Driver/Src/gpio_driver.c:9:10: fatal error: gpio_driver.h: No such file or directory
+    9 | #include "gpio_driver.h"
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Driver/Src/subdir.mk:31: Driver/Src/gpio_driver.o] Error 1
+../Driver/Src/spi_driver.c:8:10: fatal error: spi_driver.h: No such file or directory
+    8 | #include "spi_driver.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Driver/Src/subdir.mk:31: Driver/Src/spi_driver.o] Error 1
+../Driver/Src/stm32f4xx.c:9:10: fatal error: stm32f4xx.h: No such file or directory
+    9 | #include "stm32f4xx.h"
+      |          ^~~~~~~~~~~~~
+compilation terminated.
+make: *** [Driver/Src/subdir.mk:31: Driver/Src/stm32f4xx.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+12:16:56 Build Failed. 11 errors, 0 warnings. (took 287ms)
+

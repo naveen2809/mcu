@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;012AssemblyCode/Src/assembly_4.c&apos; to &apos;assembly_4.s&apos;" description="Rename resource &apos;assembly_4.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/assembly_4.c" name="assembly_4.s" stamp="1694365010530" updateReferences="true"/>
+</session>

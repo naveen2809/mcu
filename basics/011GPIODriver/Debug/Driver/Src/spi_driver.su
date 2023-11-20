@@ -1,0 +1,11 @@
+../Driver/Src/spi_driver.c:10:6:SPIPeriConfig	24	static
+../Driver/Src/spi_driver.c:51:6:SPIEnable	24	static
+../Driver/Src/spi_driver.c:59:6:SPIDisable	24	static
+../Driver/Src/spi_driver.c:67:9:SPIGetFlags	24	static
+../Driver/Src/spi_driver.c:75:6:SPISendData	32	static
+../Driver/Src/spi_driver.c:94:6:SPIRecvData	32	static
+../Driver/Src/spi_driver.c:111:6:SPIMasterSendDataIT	24	static
+../Driver/Src/spi_driver.c:125:6:SPIMasterRecvDataIT	24	static
+../Driver/Src/spi_driver.c:142:6:SPISlaveSendDataIT	24	static
+../Driver/Src/spi_driver.c:156:6:SPISlaveRecvDataIT	32	static
+../Driver/Src/spi_driver.c:180:6:SPI_IRQ_Handler	24	static

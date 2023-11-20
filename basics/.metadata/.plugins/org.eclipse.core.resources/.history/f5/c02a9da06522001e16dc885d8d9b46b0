@@ -1,0 +1,54 @@
+/*
+ * i2c_test.c
+ *
+ *  Created on: 11-Jul-2023
+ *      Author: naveen
+ */
+
+
+#include "stm32f4xx.h"
+#include "i2c_driver.h"
+#include <stdint.h>
+#include <string.h>
+
+#define I2C_CONFIG_PERI_FREQ			0x10
+#define I2C_CONFIG_CCR_VALUE			0x50
+
+int main(void)
+{
+
+
+	struct I2C_Config_t I2C_Config;
+	struct I2C_RegDef_t *pI2CPeri = (struct I2C_RegDef_t *)I2C1;
+
+	memset(&I2C_Config,0,sizeof(I2C_Config));
+
+	I2C_Config.I2C_PeriFreq = I2C_CONFIG_PERI_FREQ;
+	I2C_Config.I2C_SpeedMode = I2C_MODE_FM;
+	I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_1;
+	I2C_Config.I2C_CCRValue = I2C_CONFIG_CCR_VALUE;
+	I2C_Config.I2C_AckControl = I2C_ACK_ENABLE;
+
+	EnablePeriClk(I2C1);
+	EnablePeriClk(I2C2);
+	EnablePeriClk(I2C3);
+
+	I2CPeriConfig(I2C1,&I2C_Config);
+
+
+	I2CEnable(I2C1);
+	I2CEnable(I2C2);
+	I2CEnable(I2C3);
+
+	pI2CPeri->I2C_CR1 |= (1 << I2C_CR1_ACK);
+
+	I2CDisable(I2C1);
+	I2CDisable(I2C2);
+	I2CDisable(I2C3);
+
+	DisablePeriClk(I2C1);
+	DisablePeriClk(I2C2);
+	DisablePeriClk(I2C3);
+
+	return 0;
+}
