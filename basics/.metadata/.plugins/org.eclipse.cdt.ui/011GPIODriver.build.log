@@ -1,10 +1,10 @@
-10:11:33 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+17:05:53 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-   2944	      8	   1608	   4560	   11d0	011GPIODriver.elf
+   2952	      8	   1608	   4568	   11d8	011GPIODriver.elf
 Finished building: default.size.stdout
  
 
-10:11:33 Build Finished. 0 errors, 0 warnings. (took 174ms)
+17:05:53 Build Finished. 0 errors, 0 warnings. (took 224ms)
 

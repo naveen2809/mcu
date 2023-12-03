@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;011GPIODriver/Src/general_purpose_timer_test_1.c&apos; to &apos;general_purpose_timer_test_pwm.c&apos;" description="Rename resource &apos;general_purpose_timer_test_1.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/general_purpose_timer_test_1.c" name="general_purpose_timer_test_pwm.c" stamp="1701602305404" updateReferences="true"/>
+</session>
