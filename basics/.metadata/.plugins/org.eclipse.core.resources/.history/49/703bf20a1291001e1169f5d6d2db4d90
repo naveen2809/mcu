@@ -1,0 +1,22 @@
+/*
+ * rgb_led.c
+ *
+ *  Created on: 02-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+
+#define GPIO_RED_LED
+#define GPIO_GREEN_LED
+#define GPIO_BLUE_LED
+
+int main(void)
+{
+
+
+
+	return 0;
+}

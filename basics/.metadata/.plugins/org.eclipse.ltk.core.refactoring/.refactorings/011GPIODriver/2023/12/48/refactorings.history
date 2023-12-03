@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;011GPIODriver/Src/rgb_led.c&apos; to &apos;general_purpose_timer_test_1.c&apos;" description="Rename resource &apos;rgb_led.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Src/rgb_led.c" name="general_purpose_timer_test_1.c" stamp="1701527936031" updateReferences="true"/>
+</session>

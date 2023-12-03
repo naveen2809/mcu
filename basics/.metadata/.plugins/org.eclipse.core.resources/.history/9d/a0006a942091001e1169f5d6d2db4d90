@@ -1,0 +1,36 @@
+/*
+ * rgb_led.c
+ *
+ *  Created on: 02-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+
+#define GPIO_RED_LED		1
+#define GPIO_GREEN_LED		3
+#define GPIO_BLUE_LED		5
+#define SLEEP_COUNT			5000
+
+void delay(void)
+{
+	uint32_t j;
+	for(j=0;j<SLEEP_COUNT;j++);
+}
+
+int main(void)
+{
+
+	EnablePeriClk(GPIOD);
+	GPIOSetMode(GPIOD, GPIO_RED_LED, GPIO_MODE_OUTPUT);
+
+	while(1)
+	{
+		GPIOTogglePin(GPIOD, GPIO_RED_LED);
+		delay();
+	}
+
+	return 0;
+}

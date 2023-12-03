@@ -1,0 +1,49 @@
+/*
+ * rgb_led.c
+ *
+ *  Created on: 02-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "general_purpose_timer.h"
+
+#define GPIO_RED_LED		1
+#define GPIO_GREEN_LED		3
+#define GPIO_BLUE_LED		5
+#define SLEEP_COUNT			50000
+
+struct General_Purpose_Timer_Handle_t TIM2_Handle;
+
+void delay(void)
+{
+	uint32_t j;
+	for(j=0;j<SLEEP_COUNT;j++);
+}
+
+int main(void)
+{
+
+	TIM2_Handle.pGeneral_Purpose_Timer = (General_Purpose_Timer_RegDef_t *) TIM2;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0xFF;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_AutoReloadValue = 0xFF;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_Channel_1_Status = TIMER_CHANNEL_ENABLED;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_Channel_1_Mode = TIMER_CHANNEL_MODE_OUTPUT_TOGGLE;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_Channel_1_OutputCompareRegisterValue = 0x FF;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_Channel_2_Status = TIMER_CHANNEL_DISABLED;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_Channel_3_Status = TIMER_CHANNEL_DISABLED;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_Channel_4_Status = TIMER_CHANNEL_DISABLED;
+
+	EnablePeriClk(GPIOD);
+	GPIOSetMode(GPIOD, GPIO_RED_LED, GPIO_MODE_OUTPUT);
+
+	while(1)
+	{
+		GPIOTogglePin(GPIOD, GPIO_RED_LED);
+		delay();
+	}
+
+	return 0;
+}

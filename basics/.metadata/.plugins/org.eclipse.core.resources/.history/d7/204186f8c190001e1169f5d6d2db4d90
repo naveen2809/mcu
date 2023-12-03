@@ -1,0 +1,13 @@
+/*
+ * general_purpose_timer.h
+ *
+ *  Created on: 02-Dec-2023
+ *      Author: naveen
+ */
+
+#ifndef INC_GENERAL_PURPOSE_TIMER_H_
+#define INC_GENERAL_PURPOSE_TIMER_H_
+
+
+
+#endif /* INC_GENERAL_PURPOSE_TIMER_H_ */

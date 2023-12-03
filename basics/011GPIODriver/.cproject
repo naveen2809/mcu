@@ -71,13 +71,13 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.39134843" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.507700087" name="uart_printf.c" rcbsApplicability="disable" resourcePath="Src/uart_printf.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.793192714">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.793192714" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904"/>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.1856227694" name="dma_test_1.c" rcbsApplicability="disable" resourcePath="Src/dma_test_1.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.1489157223">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.1489157223" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904"/>
 					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Driver"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="uart_printf.c|task_scheduler_3.c|basic_timer_test3.c|usart_test.c|svc_testing.c|task_scheduler_2.c|assembly.s|task_scheduler.c|basic_timer_test2.c|basic_timer_test.c|spi_board_comm_slave_tx_test_it.c|spi_board_comm_slave_rx_test_it.c|spi_board_comm_rx_test.c|usart_board_comm_rx_test.c|i2c_master_rx_test.c|i2c_master_tx_test.c|i2c_test.c|spi_test.c|gpio_test.c|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="dma_test_1.c|uart_printf.c|task_scheduler_3.c|basic_timer_test3.c|usart_test.c|svc_testing.c|task_scheduler_2.c|assembly.s|task_scheduler.c|basic_timer_test2.c|basic_timer_test.c|spi_board_comm_slave_tx_test_it.c|spi_board_comm_slave_rx_test_it.c|spi_board_comm_rx_test.c|usart_board_comm_rx_test.c|i2c_master_rx_test.c|i2c_master_tx_test.c|i2c_test.c|spi_test.c|gpio_test.c|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 					</sourceEntries>
 				</configuration>

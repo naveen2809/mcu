@@ -68,6 +68,10 @@
 
 #define TIM6_RCC_PERI_CLK_BIT_POS		4
 #define TIM7_RCC_PERI_CLK_BIT_POS		5
+#define TIM2_RCC_PERI_CLK_BIT_POS		0
+#define TIM3_RCC_PERI_CLK_BIT_POS		1
+#define TIM4_RCC_PERI_CLK_BIT_POS		2
+#define TIM5_RCC_PERI_CLK_BIT_POS		3
 
 #define DMA1_RCC_PERI_CLK_BIT_POS		21
 #define DMA2_RCC_PERI_CLK_BIT_POS		22
@@ -108,11 +112,23 @@
 #define UART5							(uint32_t*)UART5_BASE_ADDR
 #define USART6							(uint32_t*)USART6_BASE_ADDR
 
+/* Basic Timers */
 #define TIM6_BASE_ADDR					0x40001000UL
 #define TIM7_BASE_ADDR					0x40001400UL
 
 #define TIM6							(uint32_t*)TIM6_BASE_ADDR
 #define TIM7							(uint32_t*)TIM7_BASE_ADDR
+
+/* General Purpose Timers - TIM2 to TIM5 */
+#define TIM2_BASE_ADDR					0x40000000UL
+#define TIM3_BASE_ADDR					0x40000400UL
+#define TIM4_BASE_ADDR					0x40000800UL
+#define TIM5_BASE_ADDR					0x40000C00UL
+
+#define TIM2							(uint32_t*)TIM2_BASE_ADDR
+#define TIM3							(uint32_t*)TIM3_BASE_ADDR
+#define TIM4							(uint32_t*)TIM4_BASE_ADDR
+#define TIM5							(uint32_t*)TIM5_BASE_ADDR
 
 #define DMA1_BASE_ADDR					0x40026000UL
 #define DMA2_BASE_ADDR					0x40026400UL

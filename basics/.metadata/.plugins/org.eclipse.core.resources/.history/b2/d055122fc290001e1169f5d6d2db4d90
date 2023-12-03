@@ -1,0 +1,41 @@
+/*
+ * general_purpose_timer.h
+ *
+ *  Created on: 02-Dec-2023
+ *      Author: naveen
+ */
+
+#ifndef INC_GENERAL_PURPOSE_TIMER_H_
+#define INC_GENERAL_PURPOSE_TIMER_H_
+
+#include "stm32f4xx.h"
+
+
+struct General_Purpose_Timer_RegDef_t
+{
+	uint32_t TIMx_CR1;
+	uint32_t TIMx_CR2;
+	uint32_t TIMx_SMCR;
+	uint32_t TIMx_DIER;
+	uint32_t TIMx_SR;
+	uint32_t TIMx_EGR;
+	uint32_t TIMx_CCMR1;
+	uint32_t TIMx_CCMR2;
+	uint32_t TIMx_CCER;
+	uint32_t TIMx_CNT;
+	uint32_t TIMx_PSC;
+	uint32_t TIMx_ARR;
+	uint32_t Reserved1;
+	uint32_t TIMx_CCR1;
+	uint32_t TIMx_CCR2;
+	uint32_t TIMx_CCR3;
+	uint32_t TIMx_CCR4;
+	uint32_t TIMx_DCR;
+	uint32_t TIMx_DMAR;
+	uint32_t TIM2_OR;
+	uint32_t TIM5_OR;
+};
+
+
+
+#endif /* INC_GENERAL_PURPOSE_TIMER_H_ */

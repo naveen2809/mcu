@@ -1,0 +1,83 @@
+/*
+ * general_purpose_timer.c
+ *
+ *  Created on: 02-Dec-2023
+ *      Author: naveen
+ */
+
+//#include "general_purpose_timer_driver.h"
+
+extern void General_Purpose_Timer_Interrupt_Callback(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle);
+
+void General_Purpose_Timer_Init(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+
+	//1. Configure the PreScaler Value
+
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_PSC = pGeneral_Purpose_Timer_Handle->General_Purpose_Timer_Config.Timer_PreScalerValue;
+
+	//2. Configure the Auto Reload Value
+
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_ARR = pGeneral_Purpose_Timer_Handle->General_Purpose_Timer_Config.Timer_AutoReloadValue;
+
+
+	//3. Channel 1 Configuration
+
+	//4. Channel 2 Configuration
+
+	//5. Channel 3 Configuration
+
+	//6. Channel 4 Configuration
+
+	/*
+	//4. Enable/Disable the Update Event Interrupt
+
+	if(pGeneral_Purpose_Timer_Handle->General_Purpose_Timer_Config.Timer_UpdateInterruptConfig == TIMER_UPDATE_INTERRUPT_ENABLE)
+	{
+		pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_DIER |= (1 << TIMx_DIER_UIE);
+	}
+	else if(pGeneral_Purpose_Timer_Handle->General_Purpose_Timer_Config.Timer_UpdateInterruptConfig == TIMER_UPDATE_INTERRUPT_DISABLE)
+	{
+		pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_DIER &= ~(1 << TIMx_DIER_UIE);
+	}
+	*/
+
+}
+
+void General_Purpose_Timer_PeripheralEnable(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_CR1 |= (1 << TIMx_CR1_CEN);
+}
+
+void General_Purpose_Timer_PeripheralDisable(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_CR1 &= ~(1 << TIMx_CR1_CEN);
+}
+
+void General_Purpose_Timer_EnableUpdateEventInterrupt(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_DIER |= (1 << TIMx_DIER_UIE);
+}
+
+void General_Purpose_Timer_DisableUpdateEventInterrupt(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_DIER &= ~(1 << TIMx_DIER_UIE);
+}
+
+void General_Purpose_Timer_ClearUpdateEventFlag(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_SR &= ~(1 << TIMx_SR_UIF);
+}
+
+void General_Purpose_Timer_SetARPEFlag(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_CR1 |= (1 << TIMx_CR1_ARPE);
+}
+
+/*
+void General_Purpose_Timer_IRQHandling(struct General_Purpose_Timer_Handle_t *pGeneral_Purpose_Timer_Handle)
+{
+	Basic_Timer_Interrupt_Callback(pBasic_Timer_Handle);
+}
+*/
+
