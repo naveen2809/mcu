@@ -1,0 +1,6 @@
+"./Src/gpio_driver.o"
+"./Src/mcu_clock_source_out_lse.o"
+"./Src/stm32f4xx.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f446retx.o"

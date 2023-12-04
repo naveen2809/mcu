@@ -1,21 +1,14 @@
-22:41:24 **** Incremental Build of configuration Debug for project 004LEDBlinking ****
+10:50:36 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/naveen/Code/mcu/nucleo_basics/004LEDBlinking/Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "004LEDBlinking.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/nucleo_basics/004LEDBlinking/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="004LEDBlinking.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 004LEDBlinking.elf
- 
-arm-none-eabi-size   004LEDBlinking.elf 
-arm-none-eabi-objdump -h -S  004LEDBlinking.elf  > "004LEDBlinking.list"
+arm-none-eabi-size   005MCOClockOutput.elf 
    text	   data	    bss	    dec	    hex	filename
-   1656	      8	   1568	   3232	    ca0	004LEDBlinking.elf
+   1968	      8	   1568	   3544	    dd8	005MCOClockOutput.elf
 Finished building: default.size.stdout
  
-Finished building: 004LEDBlinking.list
- 
-22:41:33 **** Incremental Build of configuration Debug for project 004LEDBlinking ****
+10:50:42 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
 make -j8 all 
-arm-none-eabi-size   004LEDBlinking.elf 
+arm-none-eabi-size   005MCOClockOutput.elf 
    text	   data	    bss	    dec	    hex	filename
-   1656	      8	   1568	   3232	    ca0	004LEDBlinking.elf
+   1968	      8	   1568	   3544	    dd8	005MCOClockOutput.elf
 Finished building: default.size.stdout
  

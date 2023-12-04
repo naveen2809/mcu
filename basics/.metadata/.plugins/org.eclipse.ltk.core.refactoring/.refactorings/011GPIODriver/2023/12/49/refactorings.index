@@ -1,1 +1,5 @@
 1701602305404	Rename resource 'general_purpose_timer_test_1.c'
+1701661296637	Rename resource 'mcu_clock_source_out.c'
+1701663438368	Rename resource 'mcu_clock_source_out_lse.c'
+1701663450085	Rename resource 'mcu_clock_source_out_hse.c'
+1701663475504	Rename resource 'mcu_clock_source_out_hse_1.c'
