@@ -10360,3 +10360,994 @@
 2023-12-06 12:55:49,147 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
 2023-12-06 12:55:49,148 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
 2023-12-06 12:55:49,148 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:34:52,464 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:34:52,465 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:34:52,466 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:34:57,084 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:34:57,084 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:34:57,085 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:37:35,490 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:37:35,491 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:37:35,491 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:37:40,583 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:37:40,584 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:37:40,584 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:41:02,358 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:41:02,359 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:41:02,359 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:41:07,794 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:41:07,795 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:41:07,795 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:43:44,199 [INFO] MainUpdater:2800 - connection check result : 10
+2023-12-06 13:43:44,200 [INFO] MainUpdater:2800 - connection check result : 10
+2023-12-06 13:43:44,293 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 13:43:44,293 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 13:43:44,294 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 13:43:44,298 [INFO] MicroXplorer:451 - Change Database Path : 
+2023-12-06 13:43:44,298 [INFO] MicroXplorer:481 - Change Database Version : DB.6.0.70
+2023-12-06 13:43:44,324 [WARN] ThirdParty:845 - waiting for thirdparty lock release [close project]
+2023-12-06 13:43:44,324 [INFO] ThirdParty:847 - entering critical section [close project]
+2023-12-06 13:43:44,324 [INFO] ThirdParty:857 - exiting critical section [close project]
+2023-12-06 13:43:44,326 [INFO] PinOutPanel:1477 - setPackage(No Configuration,No Configuration)
+2023-12-06 13:43:44,359 [WARN] IpParametersView:148 - Warning: This peripheral hasn't parameters
+2023-12-06 13:43:44,378 [WARN] MainPanel:253 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-12-06 13:43:44,396 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 608093256 Bytes (642777088)
+2023-12-06 13:43:44,396 [INFO] MicroXplorer:451 - Change Database Path : 
+2023-12-06 13:43:44,396 [INFO] MicroXplorer:481 - Change Database Version : DB.6.0.70
+2023-12-06 13:43:44,396 [INFO] OpenFileManager:307 - Change cursor
+2023-12-06 13:43:44,404 [INFO] Mcu:1925 - Initializing MCU STM32F407V(E-G)Tx STM32F407VGTx STM32F407VGT6
+2023-12-06 13:43:45,508 [INFO] Context:654 - Trying to add GPIOservice into a context  which must be forbidden
+2023-12-06 13:43:46,309 [INFO] RtosManager:489 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2023-12-06 13:43:46,310 [INFO] RtosManager:489 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2023-12-06 13:43:46,310 [INFO] RtosManager:489 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2023-12-06 13:43:46,310 [INFO] RtosManager:489 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2023-12-06 13:43:46,310 [WARN] ModelIntegratedComponent:185 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2023-12-06 13:43:46,334 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,334 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,334 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,334 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,335 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,336 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:43:46,590 [INFO] ThirdPartyModel:294 - Start build external matchings
+2023-12-06 13:43:47,690 [INFO] ThirdPartyModel:310 - End build external matchings
+2023-12-06 13:43:47,709 [INFO] ImportTextPane:193 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2023-12-06 13:43:47,858 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 626568088 Bytes (838860800)
+2023-12-06 13:43:47,865 [WARN] ThirdParty:807 - waiting for thirdparty lock release [change project]
+2023-12-06 13:43:47,865 [INFO] ThirdParty:809 - entering critical section [change project]
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 1.1.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :RoweBots I-CUBE-UNISONRTOS 5.5.0-4
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.0.1
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.1
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.4
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.4.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 7.3.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.6.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.2.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.8.0
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.2
+2023-12-06 13:43:47,866 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.4
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 1.1.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.1.3
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 2.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.0.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.2
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.1.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 1.1.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.5.1
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 3.0.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2023-12-06 13:43:47,867 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 1.3.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.3.1
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 1.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.5.4
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 1.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 10.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.1.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.22.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.1
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.22.1
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 1.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.1.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.5.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-SMARTAG2 1.2.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 1.1.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.1.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2023-12-06 13:43:47,868 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2023-12-06 13:43:47,869 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2023-12-06 13:43:47,869 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2023-12-06 13:43:47,869 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.0
+2023-12-06 13:43:47,869 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.2.0
+2023-12-06 13:43:47,869 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2023-12-06 13:43:47,869 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.0.0
+2023-12-06 13:43:47,869 [INFO] ThirdParty:815 - exiting critical section [change project]
+2023-12-06 13:43:48,240 [INFO] PinOutPanel:1477 - setPackage(No Configuration,No Configuration)
+2023-12-06 13:43:48,241 [INFO] PinOutPanel:1477 - setPackage(STM32F407VGTx,LQFP100)
+2023-12-06 13:43:48,514 [INFO] UtilMem:74 - Before build in PCC Used Memory: 698048216 Bytes (838860800)
+2023-12-06 13:43:48,773 [INFO] UtilMem:74 - After build in PCC Used Memory: 636545664 Bytes (838860800)
+2023-12-06 13:43:48,782 [INFO] ApiDbMcu:505 - Load IP Config File for USB_HOST
+2023-12-06 13:43:48,783 [WARN] BspModel:442 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2023-12-06 13:43:48,803 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,803 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,803 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,803 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,803 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,804 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,805 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,806 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,807 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,807 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,807 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,807 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,807 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,807 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,808 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,809 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,810 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,810 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,811 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,811 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,811 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:43:48,813 [INFO] ApiDbMcu:505 - Load IP Config File for PDM2PCM
+2023-12-06 13:43:48,814 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:43:48,814 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:43:48,816 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 13:43:48,816 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 13:43:48,816 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 13:43:48,877 [INFO] CADModel:164 - CPN selected for project levelSTM32F407VGT6
+2023-12-06 13:43:48,877 [INFO] CADModel:113 - Register for checkConnection events
+2023-12-06 13:43:48,916 [INFO] OpenFileManager:327 - Restore cursor
+2023-12-06 13:43:48,977 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:43:48,978 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:43:48,978 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:43:48,978 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:24,022 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:44:24,022 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:44:24,023 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:44:24,082 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:24,082 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:24,083 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:24,083 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:36,277 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:44:36,277 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:44:36,278 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:44:36,329 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:36,329 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:36,329 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:36,329 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:45,505 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:44:45,505 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:44:45,505 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:44:45,567 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:45,567 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:45,567 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:44:45,567 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:18,185 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:18,185 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:18,186 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:18,231 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:18,231 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:18,231 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:18,231 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:27,127 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:27,128 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:27,133 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:27,173 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:27,174 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:27,174 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:27,174 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:32,760 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:32,760 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:32,761 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:32,814 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:32,814 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:32,815 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:32,815 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:37,989 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:37,989 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:37,994 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:38,044 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:38,044 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:38,044 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:38,044 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:42,920 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:42,920 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:42,920 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:42,973 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:42,974 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:42,974 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:42,974 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:51,682 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:51,682 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:51,688 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:51,730 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:51,730 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:51,731 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:51,731 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:54,969 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:54,970 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:54,970 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:55,019 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:55,019 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:55,020 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:55,020 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:58,448 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:45:58,448 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:45:58,448 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:45:58,499 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:58,499 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:58,500 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:45:58,500 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:01,152 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:46:01,152 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:46:01,153 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:46:01,206 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:01,207 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:01,207 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:01,207 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:07,917 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:46:07,917 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:46:07,918 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:46:07,934 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:07,934 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:07,934 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:07,934 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:17,718 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:46:17,718 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:46:17,719 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:46:17,733 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:17,734 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:17,734 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:17,734 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:48,138 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:46:48,139 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:46:48,139 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:46:48,193 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:48,194 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:48,194 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:46:48,194 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:02,173 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:47:02,173 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:47:02,173 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:47:02,198 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:02,198 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:02,198 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:02,198 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:10,276 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:47:10,277 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:47:10,277 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:47:10,335 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:10,335 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:10,335 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:10,335 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:20,450 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:47:20,451 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:47:20,451 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:47:20,509 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:20,509 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:20,509 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:20,510 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:28,995 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:47:28,995 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:47:28,995 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:47:29,055 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:29,055 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:29,055 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:29,055 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:33,119 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:47:33,119 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:47:33,119 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:47:33,176 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:33,176 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:33,176 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:47:33,176 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:51:59,622 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:51:59,623 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:51:59,623 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:52:16,565 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:52:16,566 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:52:16,566 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:55:52,836 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:55:52,837 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:55:52,837 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:56:13,596 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:56:13,597 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:56:13,597 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 13:59:42,983 [INFO] MainUpdater:2800 - connection check result : 10
+2023-12-06 13:59:42,984 [INFO] MainUpdater:2800 - connection check result : 10
+2023-12-06 13:59:43,012 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 13:59:43,012 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 13:59:43,013 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 13:59:43,015 [INFO] MicroXplorer:451 - Change Database Path : 
+2023-12-06 13:59:43,015 [INFO] MicroXplorer:481 - Change Database Version : DB.6.0.70
+2023-12-06 13:59:43,039 [WARN] ThirdParty:845 - waiting for thirdparty lock release [close project]
+2023-12-06 13:59:43,039 [INFO] ThirdParty:847 - entering critical section [close project]
+2023-12-06 13:59:43,039 [INFO] ThirdParty:857 - exiting critical section [close project]
+2023-12-06 13:59:43,041 [INFO] PinOutPanel:1477 - setPackage(No Configuration,No Configuration)
+2023-12-06 13:59:43,050 [WARN] IpParametersView:148 - Warning: This peripheral hasn't parameters
+2023-12-06 13:59:43,056 [WARN] MainPanel:253 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-12-06 13:59:43,059 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 608323392 Bytes (838860800)
+2023-12-06 13:59:43,059 [INFO] MicroXplorer:451 - Change Database Path : 
+2023-12-06 13:59:43,060 [INFO] MicroXplorer:481 - Change Database Version : DB.6.0.70
+2023-12-06 13:59:43,060 [INFO] OpenFileManager:307 - Change cursor
+2023-12-06 13:59:43,070 [INFO] Mcu:1925 - Initializing MCU STM32F407V(E-G)Tx STM32F407VGTx STM32F407VGT6
+2023-12-06 13:59:43,919 [INFO] Context:654 - Trying to add GPIOservice into a context  which must be forbidden
+2023-12-06 13:59:44,747 [INFO] RtosManager:489 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2023-12-06 13:59:44,747 [INFO] RtosManager:489 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2023-12-06 13:59:44,747 [INFO] RtosManager:489 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2023-12-06 13:59:44,747 [INFO] RtosManager:489 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2023-12-06 13:59:44,747 [WARN] ModelIntegratedComponent:185 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,757 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,758 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 13:59:44,888 [INFO] ThirdPartyModel:294 - Start build external matchings
+2023-12-06 13:59:45,873 [INFO] ThirdPartyModel:310 - End build external matchings
+2023-12-06 13:59:45,913 [INFO] ImportTextPane:193 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2023-12-06 13:59:46,061 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 655322280 Bytes (838860800)
+2023-12-06 13:59:46,063 [WARN] ThirdParty:807 - waiting for thirdparty lock release [change project]
+2023-12-06 13:59:46,063 [INFO] ThirdParty:809 - entering critical section [change project]
+2023-12-06 13:59:46,063 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 1.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :RoweBots I-CUBE-UNISONRTOS 5.5.0-4
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.0.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.4
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.4.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 7.3.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.6.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.2.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.8.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.2
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.4
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 1.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.1.3
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 2.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.0.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.2
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.1.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 1.1.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.5.1
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 3.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2023-12-06 13:59:46,064 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 1.3.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.3.1
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 1.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.5.4
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 1.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 10.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.1.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.22.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.1
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.22.1
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 1.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.1.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.5.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-SMARTAG2 1.2.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 1.1.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.1.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.2.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.0.0
+2023-12-06 13:59:46,065 [INFO] ThirdParty:815 - exiting critical section [change project]
+2023-12-06 13:59:46,297 [INFO] PinOutPanel:1477 - setPackage(No Configuration,No Configuration)
+2023-12-06 13:59:46,298 [INFO] PinOutPanel:1477 - setPackage(STM32F407VGTx,LQFP100)
+2023-12-06 13:59:46,479 [INFO] UtilMem:74 - Before build in PCC Used Memory: 697238360 Bytes (838860800)
+2023-12-06 13:59:46,695 [INFO] UtilMem:74 - After build in PCC Used Memory: 606672216 Bytes (838860800)
+2023-12-06 13:59:46,705 [INFO] ApiDbMcu:505 - Load IP Config File for USB_HOST
+2023-12-06 13:59:46,706 [WARN] BspModel:442 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,723 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,724 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,725 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,726 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,727 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,728 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,729 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,729 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,729 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,730 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,730 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 13:59:46,732 [INFO] ApiDbMcu:505 - Load IP Config File for PDM2PCM
+2023-12-06 13:59:46,732 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:59:46,732 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:59:46,734 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 13:59:46,734 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 13:59:46,734 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 13:59:46,780 [INFO] CADModel:164 - CPN selected for project levelSTM32F407VGT6
+2023-12-06 13:59:46,780 [INFO] CADModel:113 - Register for checkConnection events
+2023-12-06 13:59:46,818 [INFO] OpenFileManager:327 - Restore cursor
+2023-12-06 13:59:46,868 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:59:46,869 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 13:59:46,869 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 13:59:46,869 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:07:46,617 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:07:46,618 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:07:46,618 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:14:28,022 [INFO] MainUpdater:2800 - connection check result : 10
+2023-12-06 14:14:28,023 [INFO] MainUpdater:2800 - connection check result : 10
+2023-12-06 14:14:28,039 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:14:28,040 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:14:28,041 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:14:28,041 [INFO] MicroXplorer:451 - Change Database Path : 
+2023-12-06 14:14:28,042 [INFO] MicroXplorer:481 - Change Database Version : DB.6.0.70
+2023-12-06 14:14:28,057 [WARN] ThirdParty:845 - waiting for thirdparty lock release [close project]
+2023-12-06 14:14:28,057 [INFO] ThirdParty:847 - entering critical section [close project]
+2023-12-06 14:14:28,057 [INFO] ThirdParty:857 - exiting critical section [close project]
+2023-12-06 14:14:28,058 [INFO] PinOutPanel:1477 - setPackage(No Configuration,No Configuration)
+2023-12-06 14:14:28,065 [WARN] IpParametersView:148 - Warning: This peripheral hasn't parameters
+2023-12-06 14:14:28,069 [WARN] MainPanel:253 - <html><b><center>Warning: This peripheral has no parameters to be configured<br></b></html>
+2023-12-06 14:14:28,072 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 700532032 Bytes (838860800)
+2023-12-06 14:14:28,073 [INFO] MicroXplorer:451 - Change Database Path : 
+2023-12-06 14:14:28,073 [INFO] MicroXplorer:481 - Change Database Version : DB.6.0.70
+2023-12-06 14:14:28,073 [INFO] OpenFileManager:307 - Change cursor
+2023-12-06 14:14:28,079 [INFO] Mcu:1925 - Initializing MCU STM32F407V(E-G)Tx STM32F407VGTx STM32F407VGT6
+2023-12-06 14:14:28,850 [INFO] Context:654 - Trying to add GPIOservice into a context  which must be forbidden
+2023-12-06 14:14:29,230 [INFO] RtosManager:489 - Registered RTOS mode: class=CMSIS, group=RTOS, mode=CMSIS_V1, owner=FREERTOS
+2023-12-06 14:14:29,230 [INFO] RtosManager:489 - Registered RTOS mode: class=CMSIS, group=RTOS2, mode=CMSIS_V2, owner=FREERTOS
+2023-12-06 14:14:29,230 [INFO] RtosManager:489 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V1, owner=FREERTOS
+2023-12-06 14:14:29,230 [INFO] RtosManager:489 - Registered RTOS mode: class=RTOS, group=Core, mode=CMSIS_V2, owner=FREERTOS
+2023-12-06 14:14:29,230 [WARN] ModelIntegratedComponent:185 - Missing modes for component STMicroelectronics:FreeRTOS:0.0.1:STMicroelectronics:RTOS:FreeRTOS:Core:::10.2.0:
+2023-12-06 14:14:29,240 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,241 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,242 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,242 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,242 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,242 [WARN] ModelIntegratedComponent:64 - No mode defined for component null
+2023-12-06 14:14:29,373 [INFO] ThirdPartyModel:294 - Start build external matchings
+2023-12-06 14:14:30,397 [INFO] ThirdPartyModel:310 - End build external matchings
+2023-12-06 14:14:30,414 [INFO] ImportTextPane:193 - (OptionalMessage_ERROR) IP (RCC) : Parameter (RTCHSEDivFreq_Value) has invalid value (4000000)
+2023-12-06 14:14:30,558 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 651941608 Bytes (838860800)
+2023-12-06 14:14:30,564 [WARN] ThirdParty:807 - waiting for thirdparty lock release [change project]
+2023-12-06 14:14:30,564 [INFO] ThirdParty:809 - entering critical section [change project]
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ISPU 1.1.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :RoweBots I-CUBE-UNISONRTOS 5.5.0-4
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 6.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 2.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F4 1.1.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics LIBJPEG 8.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SMBUS 2.1.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 3.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 2.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.0.1
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.1
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-F7 1.1.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.21.4
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 2.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.4.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 2.0.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 7.3.0
+2023-12-06 14:14:30,564 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.6.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.2.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :ITTIA_DB I-CUBE-ITTIADB 8.8.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.2
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENV1 4.3.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.3.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 6.2.4
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L5 1.1.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G0 1.1.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :emotas I-CUBE-CANOPEN 1.1.3
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 2.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.0.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 3.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 5.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics STM32_WPAN 1.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.0.3
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-FLIGHT1 5.0.2
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_HOST 1.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 2.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.1.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.1.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.3.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 1.1.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :Infineon AIROC-Wi-Fi-Bluetooth-STM32 1.5.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 3.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.3.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-DISPLAY 3.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLEMGR 1.3.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-MOTENVWB1 1.3.1
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 7.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-SIGFOX1 3.2.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-G4 1.0.0
+2023-12-06 14:14:30,565 [INFO] ThirdParty:999 - CMSIS Pack Vendor :wolfSSL I-CUBE-wolfSSL 5.5.4
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 1.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics HAL Drivers 0.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.16.2
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 10.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-FREERTOS 1.1.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.22.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.1
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics MBEDTLS 2.14.1
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC7 1.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.22.1
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 1.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC6 3.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-EEPRMA1 4.1.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :portGmbH I-Cube-SoM-uGOAL 1.1.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALS 1.0.1
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 9.5.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics ThreadX 1.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-SNS-SMARTAG2 1.2.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WB 1.1.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-WL 2.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.1
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics USB_DEVICE 1.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 8.1.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :SEGGER I-CUBE-embOS 1.3.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-L4 2.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics ThreadX 0.0.2
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :WES I-CUBE-Cesium 1.3.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics FP-ATR-ASTRA1 2.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics lwIP 2.1.2
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SFXS2LP1 4.0.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 3.3.0
+2023-12-06 14:14:30,566 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.4.0
+2023-12-06 14:14:30,567 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOF1 3.2.0
+2023-12-06 14:14:30,567 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics PDM2PCM 3.2.0
+2023-12-06 14:14:30,567 [INFO] ThirdParty:999 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AZRTOS-H7 3.0.0
+2023-12-06 14:14:30,567 [INFO] ThirdParty:815 - exiting critical section [change project]
+2023-12-06 14:14:30,766 [INFO] PinOutPanel:1477 - setPackage(No Configuration,No Configuration)
+2023-12-06 14:14:30,767 [INFO] PinOutPanel:1477 - setPackage(STM32F407VGTx,LQFP100)
+2023-12-06 14:14:30,986 [INFO] UtilMem:74 - Before build in PCC Used Memory: 700818832 Bytes (838860800)
+2023-12-06 14:14:31,141 [INFO] UtilMem:74 - After build in PCC Used Memory: 621181248 Bytes (838860800)
+2023-12-06 14:14:31,154 [INFO] ApiDbMcu:505 - Load IP Config File for USB_HOST
+2023-12-06 14:14:31,154 [WARN] BspModel:442 - BSP dependency skipped because of component: name='IOExpander', api='Unknown'
+2023-12-06 14:14:31,176 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,177 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,177 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,177 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,177 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,177 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,177 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,178 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,179 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,179 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,179 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,179 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,179 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,180 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,180 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,180 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,180 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,181 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,181 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,181 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,181 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,181 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,182 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,182 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,182 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,183 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,183 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,184 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,184 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,184 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,184 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,185 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,185 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,185 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,185 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,185 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,185 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,186 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,187 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,187 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,188 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,188 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,188 [INFO] IPUIPlugin:79 - create IPUIPlugin
+2023-12-06 14:14:31,190 [INFO] ApiDbMcu:505 - Load IP Config File for PDM2PCM
+2023-12-06 14:14:31,191 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:14:31,191 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:14:31,193 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:14:31,193 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:14:31,193 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:14:31,269 [INFO] CADModel:164 - CPN selected for project levelSTM32F407VGT6
+2023-12-06 14:14:31,269 [INFO] CADModel:113 - Register for checkConnection events
+2023-12-06 14:14:31,307 [INFO] OpenFileManager:327 - Restore cursor
+2023-12-06 14:14:31,360 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:14:31,360 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:14:31,366 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:14:31,366 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:04,148 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:15:04,149 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:15:04,149 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:15:04,206 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:04,206 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:04,206 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:04,206 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:09,887 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:15:09,887 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:15:09,887 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:15:09,934 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:09,935 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:09,935 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:09,935 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:18,494 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:15:18,494 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:15:18,495 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:15:18,552 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:18,552 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:18,553 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:18,553 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:24,133 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:15:24,133 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:15:24,134 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:15:24,180 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:24,180 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:24,180 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:24,180 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:29,965 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:15:29,965 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:15:30,003 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:15:30,062 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:30,062 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:30,072 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:30,072 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:45,632 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:15:45,632 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:15:45,633 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:15:45,649 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:45,649 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:45,650 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:45,650 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:57,443 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:15:57,444 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:15:57,444 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:15:57,493 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:57,493 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:57,493 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:15:57,493 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:24,856 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:16:24,856 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:16:24,857 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:16:24,876 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:24,876 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:24,876 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:24,876 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:28,257 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:16:28,257 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:16:28,258 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:16:28,311 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:28,311 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:28,311 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:28,311 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:37,828 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:16:37,828 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:16:37,829 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:16:37,845 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:37,845 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:37,845 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:37,845 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:42,706 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:16:42,706 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:16:42,707 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:16:42,761 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:42,762 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:42,762 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:42,762 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:59,436 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:16:59,436 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:16:59,436 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:16:59,450 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:59,450 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:59,451 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:16:59,451 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:19,735 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:17:19,735 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:17:19,735 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:17:19,752 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:19,752 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:19,752 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:19,752 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:23,212 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:17:23,213 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:17:23,213 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:17:23,230 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:23,230 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:23,230 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:23,230 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:29,893 [INFO] I2sManager:630 - 9.6E7
+2023-12-06 14:17:29,893 [INFO] I2sManager:183 - I2S Clock Value : 9.6E7
+2023-12-06 14:17:29,894 [INFO] I2sManager:524 - AudioClock : 93750Divider : 2Odd : 0
+2023-12-06 14:17:29,908 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:29,908 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:29,909 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:29,909 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:34,597 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:17:34,598 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:17:34,598 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:17:34,657 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:34,657 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:34,657 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:34,657 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:47,301 [INFO] I2sManager:630 - 1.92E8
+2023-12-06 14:17:47,301 [INFO] I2sManager:183 - I2S Clock Value : 1.92E8
+2023-12-06 14:17:47,302 [INFO] I2sManager:524 - AudioClock : 93750Divider : 4Odd : 0
+2023-12-06 14:17:47,319 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:47,319 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:47,319 [WARN] IP:2112 - I2C_Coeff_DF not found: check if there is a RefParameter without a condition.
+2023-12-06 14:17:47,319 [WARN] IP:2112 - Analog_Filter not found: check if there is a RefParameter without a condition.
+2023-12-06 14:19:18,664 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:19:18,665 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:19:18,665 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:19:23,385 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:19:23,385 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:19:23,385 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:23:02,115 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:23:02,116 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:23:02,116 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:23:06,159 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:23:06,160 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-06 14:23:06,160 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
