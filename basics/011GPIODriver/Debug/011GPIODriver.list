@@ -856,7 +856,7 @@ int main(void)
  80006fe:	f443 3280 	orr.w	r2, r3, #65536	; 0x10000
  8000702:	697b      	ldr	r3, [r7, #20]
  8000704:	601a      	str	r2, [r3, #0]
-	while(!(*pRCC_CR & (1 << HSE_CHECK_BITPOS)));			//Checking whether HSE Oscillator is turned on and is stable
+	while(!(*pRCC_CR & (1 << HSE_CHECK_BITPOS)));		//Checking whether HSE Oscillator is turned on and is stable
  8000706:	bf00      	nop
  8000708:	697b      	ldr	r3, [r7, #20]
  800070a:	681b      	ldr	r3, [r3, #0]
@@ -931,13 +931,13 @@ int main(void)
  800077c:	601a      	str	r2, [r3, #0]
 
 	// 2. Turning on the PLL Oscillator
-	*pRCC_CR |= (1 << PLL_ON_BITPOS);					//Turning on the HSE Oscillator
+	*pRCC_CR |= (1 << PLL_ON_BITPOS);					//Turning on the PLL Oscillator
  800077e:	697b      	ldr	r3, [r7, #20]
  8000780:	681b      	ldr	r3, [r3, #0]
  8000782:	f043 7280 	orr.w	r2, r3, #16777216	; 0x1000000
  8000786:	697b      	ldr	r3, [r7, #20]
  8000788:	601a      	str	r2, [r3, #0]
-	while(!(*pRCC_CR & (1 << PLL_CHECK_BITPOS)));			//Checking whether HSE Oscillator is turned on and is stable
+	while(!(*pRCC_CR & (1 << PLL_CHECK_BITPOS)));		//Checking whether PLL Oscillator is turned on and is stable
  800078a:	bf00      	nop
  800078c:	697b      	ldr	r3, [r7, #20]
  800078e:	681b      	ldr	r3, [r3, #0]

@@ -87,7 +87,7 @@ int main(void)
 
 	//Turning on the HSE Oscillator as the PLL Source
 	*pRCC_CR |= (1 << HSE_ON_BITPOS);					//Turning on the HSE Oscillator
-	while(!(*pRCC_CR & (1 << HSE_CHECK_BITPOS)));		//Checking whether HSE Oscillator is turned on and is stable
+	while(!(*pRCC_CR & (1 << HSE_CHECK_BITPOS)));			//Checking whether HSE Oscillator is turned on and is stable
 
 	//Configuring the PLL Oscillator
 	// 1. Configuring the PLL Configuration Register (RCC_PLLCFGR)
@@ -108,8 +108,8 @@ int main(void)
 	*pRCC_PLLCFGR |= (PLL_SOURCE << PLL_SRC_BITPOS);
 
 	// 2. Turning on the PLL Oscillator
-	*pRCC_CR |= (1 << PLL_ON_BITPOS);					//Turning on the PLL Oscillator
-	while(!(*pRCC_CR & (1 << PLL_CHECK_BITPOS)));		//Checking whether PLL Oscillator is turned on and is stable
+	*pRCC_CR |= (1 << PLL_ON_BITPOS);					//Turning on the HSE Oscillator
+	while(!(*pRCC_CR & (1 << PLL_CHECK_BITPOS)));			//Checking whether HSE Oscillator is turned on and is stable
 
 	while(1)
 	{
