@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/mcu_clock_source_out_hse.c \
+../Src/mcu_clock_source_out_pll.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/mcu_clock_source_out_hse.o \
+./Src/mcu_clock_source_out_pll.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/mcu_clock_source_out_hse.d \
+./Src/mcu_clock_source_out_pll.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/mcu_clock_source_out_hse.d ./Src/mcu_clock_source_out_hse.o ./Src/mcu_clock_source_out_hse.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/mcu_clock_source_out_pll.d ./Src/mcu_clock_source_out_pll.o ./Src/mcu_clock_source_out_pll.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 
