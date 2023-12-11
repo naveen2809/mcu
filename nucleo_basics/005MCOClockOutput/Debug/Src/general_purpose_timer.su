@@ -1,0 +1,7 @@
+../Src/general_purpose_timer.c:10:6:General_Purpose_Timer_Init	16	static
+../Src/general_purpose_timer.c:189:6:General_Purpose_Timer_PeripheralEnable	16	static
+../Src/general_purpose_timer.c:194:6:General_Purpose_Timer_PeripheralDisable	16	static
+../Src/general_purpose_timer.c:199:6:General_Purpose_Timer_EnableUpdateEventInterrupt	16	static
+../Src/general_purpose_timer.c:204:6:General_Purpose_Timer_DisableUpdateEventInterrupt	16	static
+../Src/general_purpose_timer.c:209:6:General_Purpose_Timer_ClearUpdateEventFlag	16	static
+../Src/general_purpose_timer.c:214:6:General_Purpose_Timer_SetARPEFlag	16	static

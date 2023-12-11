@@ -1,0 +1,2 @@
+../Src/general_purpose_timer_toggle_36MHz.c:48:6:delay	16	static
+../Src/general_purpose_timer_toggle_36MHz.c:54:5:main	40	static

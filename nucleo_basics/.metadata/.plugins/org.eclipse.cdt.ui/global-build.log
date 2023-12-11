@@ -1,14 +1,21 @@
-10:50:36 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
+14:11:35 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
 make -j8 all 
+arm-none-eabi-gcc "../Src/general_purpose_timer_toggle_36MHz.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/general_purpose_timer_toggle_36MHz.d" -MT"Src/general_purpose_timer_toggle_36MHz.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/general_purpose_timer_toggle_36MHz.o"
+arm-none-eabi-gcc -o "005MCOClockOutput.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/nucleo_basics/005MCOClockOutput/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="005MCOClockOutput.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 005MCOClockOutput.elf
+ 
 arm-none-eabi-size   005MCOClockOutput.elf 
+arm-none-eabi-objdump -h -S  005MCOClockOutput.elf  > "005MCOClockOutput.list"
    text	   data	    bss	    dec	    hex	filename
-   1968	      8	   1568	   3544	    dd8	005MCOClockOutput.elf
+   3532	      8	   1608	   5148	   141c	005MCOClockOutput.elf
 Finished building: default.size.stdout
  
-10:50:42 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
+Finished building: 005MCOClockOutput.list
+ 
+14:11:41 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
 make -j8 all 
 arm-none-eabi-size   005MCOClockOutput.elf 
    text	   data	    bss	    dec	    hex	filename
-   1968	      8	   1568	   3544	    dd8	005MCOClockOutput.elf
+   3532	      8	   1608	   5148	   141c	005MCOClockOutput.elf
 Finished building: default.size.stdout
  

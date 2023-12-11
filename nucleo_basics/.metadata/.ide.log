@@ -5505,3 +5505,84 @@
 2023-12-04 10:52:12,672 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.readByte(SWVClient.java:295)
 2023-12-04 10:52:12,672 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.getNextByte(SWVClient.java:278)
 2023-12-04 10:52:12,672 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.run(SWVClient.java:312)
+2023-12-07 10:26:53,452 [INFO] Activator:179 - 
+
+
+2023-12-07 10:26:53,454 [INFO] Activator:180 - !SESSION log4j initialized
+2023-12-07 10:26:58,239 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:26:58,241 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:26:58,242 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:27:18,999 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-12-07 10:27:18,999 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-12-07 10:27:18,999 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-12-07 10:27:41,608 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:27:41,608 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:27:41,609 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:32:09,233 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:32:09,235 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:32:09,236 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:36:46,201 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:36:46,202 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 10:36:46,202 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:41:21,870 [INFO] Activator:179 - 
+
+
+2023-12-07 11:41:21,872 [INFO] Activator:180 - !SESSION log4j initialized
+2023-12-07 11:41:26,377 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:41:26,378 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:41:26,379 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:41:47,048 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-12-07 11:41:47,049 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-12-07 11:41:47,049 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-12-07 11:42:07,025 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:42:07,026 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:42:07,027 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:42:12,800 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:42:12,801 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:42:12,801 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:46:00,457 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:46:00,458 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-07 11:46:00,458 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:43:21,417 [INFO] Activator:179 - 
+
+
+2023-12-08 13:43:21,418 [INFO] Activator:180 - !SESSION log4j initialized
+2023-12-08 13:43:26,075 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:43:26,076 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:43:26,076 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:43:46,669 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2023-12-08 13:43:46,669 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2023-12-08 13:43:46,669 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+2023-12-08 13:46:37,910 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:46:37,911 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:46:37,911 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:51:13,990 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:51:13,991 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:51:13,992 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:51:19,892 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:51:19,892 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:51:19,892 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:56:33,925 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:56:33,926 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:56:33,926 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:56:40,260 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:56:40,261 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:56:40,261 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:57:35,943 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:57:35,945 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 13:57:35,945 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:06:54,063 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:06:54,064 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:06:54,065 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:07:01,496 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:07:01,496 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:07:01,497 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:11:36,441 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:11:36,442 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:11:36,443 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:11:42,241 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:11:42,241 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:11:42,242 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:12:26,992 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:12:26,992 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2023-12-08 14:12:26,992 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com

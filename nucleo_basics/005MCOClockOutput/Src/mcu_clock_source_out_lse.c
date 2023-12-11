@@ -41,7 +41,7 @@ int main(void)
 	uint32_t *pPWR_CR = (uint32_t *) PWR_CR_REG_ADDR;
 	uint32_t *pAPB1ENR = (uint32_t *) RCC_APB1ENR_REG_ADDR;
 	uint8_t MCO1_SOURCE = MCO1_SOURCE_LSE;
-	uint8_t MCO1_PRESCALAR = MCO_PRESCALAR_1;
+	uint8_t MCO1_PRESCALAR = MCO_PRESCALAR_5;
 
 	//Configure GPIO Pins for MCO1
 	EnablePeriClk(GPIOA);

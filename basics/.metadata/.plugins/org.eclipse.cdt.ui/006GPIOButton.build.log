@@ -1,4 +1,4 @@
-08:58:12 **** Build of configuration Debug for project 006GPIOButton ****
+19:07:55 **** Build of configuration Debug for project 006GPIOButton ****
 make -j8 all 
 arm-none-eabi-size   006GPIOButton.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   006GPIOButton.elf
 Finished building: default.size.stdout
  
 
-08:58:12 Build Finished. 0 errors, 0 warnings. (took 228ms)
+19:07:55 Build Finished. 0 errors, 0 warnings. (took 166ms)
 

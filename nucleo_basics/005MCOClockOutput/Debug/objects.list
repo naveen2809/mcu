@@ -1,5 +1,6 @@
+"./Src/general_purpose_timer.o"
+"./Src/general_purpose_timer_toggle_36MHz.o"
 "./Src/gpio_driver.o"
-"./Src/mcu_clock_source_out_lse.o"
 "./Src/stm32f4xx.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
