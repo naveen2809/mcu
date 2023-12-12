@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/seven_segment_display.c \
+../Src/seven_segment_display_4_digits_simultaneous.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/seven_segment_display.o \
+./Src/seven_segment_display_4_digits_simultaneous.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/seven_segment_display.d \
+./Src/seven_segment_display_4_digits_simultaneous.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/seven_segment_display.d ./Src/seven_segment_display.o ./Src/seven_segment_display.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/seven_segment_display_4_digits_simultaneous.d ./Src/seven_segment_display_4_digits_simultaneous.o ./Src/seven_segment_display_4_digits_simultaneous.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

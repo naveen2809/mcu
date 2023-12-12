@@ -6,7 +6,7 @@
 "./Driver/Src/stm32f4xx.o"
 "./Driver/Src/timer_driver.o"
 "./Driver/Src/usart_driver.o"
-"./Src/seven_segment_display.o"
+"./Src/seven_segment_display_4_digits_simultaneous.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
 "./Startup/startup_stm32f407vgtx.o"

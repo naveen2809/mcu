@@ -1,0 +1,3 @@
+../Src/seven_segment_display_4_digits_simultaneous.c:48:5:main	8	static
+../Src/seven_segment_display_4_digits_simultaneous.c:94:6:TIM6_DAC_IRQHandler	8	static
+../Src/seven_segment_display_4_digits_simultaneous.c:99:6:Basic_Timer_Interrupt_Callback	16	static

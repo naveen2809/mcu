@@ -1,21 +1,14 @@
-09:23:31 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+12:33:30 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/seven_segment_display.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/seven_segment_display.d" -MT"Src/seven_segment_display.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/seven_segment_display.o"
+arm-none-eabi-gcc "../Src/seven_segment_display_4_digits_simultaneous.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/seven_segment_display_4_digits_simultaneous.d" -MT"Src/seven_segment_display_4_digits_simultaneous.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/seven_segment_display_4_digits_simultaneous.o"
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011GPIODriver.elf
  
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-   2328	     52	   1580	   3960	    f78	011GPIODriver.elf
+   2460	     64	   1584	   4108	   100c	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
- 
-09:23:37 **** Incremental Build of configuration Debug for project 011GPIODriver ****
-make -j8 all 
-arm-none-eabi-size   011GPIODriver.elf 
-   text	   data	    bss	    dec	    hex	filename
-   2328	     52	   1580	   3960	    f78	011GPIODriver.elf
-Finished building: default.size.stdout
  
