@@ -71,13 +71,13 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.39134843" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.1942588458" name="seven_segment_display_4_digits.c" rcbsApplicability="disable" resourcePath="Src/seven_segment_display_4_digits.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.442450992">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.442450992" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904"/>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.279914430" name="seven_segment_display_4_digits_simultaneous.c" rcbsApplicability="disable" resourcePath="Src/seven_segment_display_4_digits_simultaneous.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.192759544">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.192759544" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904"/>
 					</fileInfo>
 					<sourceEntries>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Driver"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="seven_segment_display_4_digits.c|seven_segment_display.c|led_train.c|74HC595N_test.c|basic_timer_test2.c|general_purpose_timer_toggle_36MHz.c|general_purpose_timer_test_input_capture.c|general_purpose_timer_test_pwm.c|system_clock_change.c|mcu_clock_source_out_pll.c|mcu_clock_source_out_hse.c|mcu_clock_source_out_lse.c|general_purpose_timer_test_toggle.c|dma_test_1.c|uart_printf.c|task_scheduler_3.c|basic_timer_test3.c|usart_test.c|svc_testing.c|task_scheduler_2.c|assembly.s|task_scheduler.c|basic_timer_test.c|spi_board_comm_slave_tx_test_it.c|spi_board_comm_slave_rx_test_it.c|spi_board_comm_rx_test.c|usart_board_comm_rx_test.c|i2c_master_rx_test.c|i2c_master_tx_test.c|i2c_test.c|spi_test.c|gpio_test.c|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="seven_segment_display_4_digits_simultaneous.c|seven_segment_display_4_digits.c|seven_segment_display.c|led_train.c|74HC595N_test.c|basic_timer_test2.c|general_purpose_timer_toggle_36MHz.c|general_purpose_timer_test_input_capture.c|general_purpose_timer_test_pwm.c|system_clock_change.c|mcu_clock_source_out_pll.c|mcu_clock_source_out_hse.c|mcu_clock_source_out_lse.c|general_purpose_timer_test_toggle.c|dma_test_1.c|uart_printf.c|task_scheduler_3.c|basic_timer_test3.c|usart_test.c|svc_testing.c|task_scheduler_2.c|assembly.s|task_scheduler.c|basic_timer_test.c|spi_board_comm_slave_tx_test_it.c|spi_board_comm_slave_rx_test_it.c|spi_board_comm_rx_test.c|usart_board_comm_rx_test.c|i2c_master_rx_test.c|i2c_master_tx_test.c|i2c_test.c|spi_test.c|gpio_test.c|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 					</sourceEntries>
 				</configuration>

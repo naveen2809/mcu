@@ -1,0 +1,2 @@
+../Driver/Src/common_utilities.c:16:6:delay_us	16	static
+../Driver/Src/common_utilities.c:22:6:configure_delay_timer	8	static

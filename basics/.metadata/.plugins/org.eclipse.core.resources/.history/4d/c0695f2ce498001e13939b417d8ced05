@@ -1,0 +1,65 @@
+/*
+ * delay_us.c
+ * TIM2 is used as the time base generation unit
+ * Default configuration is assumed: HSI Clock at 16 MHz and thus TIM2 Clock frequency of 16 MHz
+ *  Created on: 12-Dec-2023
+ *      Author: naveen
+ */
+
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "general_purpose_timer.h"
+
+#define GPIO_1				GPIO_PIN_0
+
+void delay_us(uint32_t delay);
+void configure_delay_timer(void);
+void test_delay_us(uint32_t delay);
+
+struct General_Purpose_Timer_Handle_t TIM2_Handle;
+
+int main(void)
+{
+	configure_delay_timer();
+	test_delay_us(1);
+
+	while(1);
+
+	return 0;
+}
+
+void delay_us(uint32_t delay)
+{
+	TIM2_Handle.pGeneral_Purpose_Timer->TIMx_CNT = 0;
+	while(TIM2_Handle.pGeneral_Purpose_Timer->TIMx_CNT < 16*delay);
+}
+
+void configure_delay_timer(void)
+{
+	//TIM2 Configuration
+	TIM2_Handle.pGeneral_Purpose_Timer = (struct General_Purpose_Timer_RegDef_t *) TIM2;
+	memset(&TIM2_Handle.General_Purpose_Timer_Config,0,sizeof(TIM2_Handle.General_Purpose_Timer_Config));
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0x0;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_AutoReloadValue = 0xFFFFFFFF;
+
+	EnablePeriClk(TIM2);
+	General_Purpose_Timer_Init(&TIM2_Handle);
+	General_Purpose_Timer_PeripheralEnable(&TIM2_Handle);
+}
+
+void test_delay_us(uint32_t delay)
+{
+	struct GPIO_RegDef_t *pGPIO = (struct GPIO_RegDef_t *) GPIOA;
+
+	//GPIO Configuration for Seven Segment LEDs
+	EnablePeriClk(GPIOA);
+	GPIOSetMode(GPIOA, GPIO_1, GPIO_MODE_OUTPUT);
+
+	//Initialize Seven Segment LED GPIOs to HIGH (Common Anode)
+	GPIOWritePin(GPIOA, GPIO_1,GPIO_LOW);
+
+	pGPIO->ODR ^= (1 << GPIO_1);
+	delay_us(delay);
+	pGPIO->ODR ^= (1 << GPIO_1);
+}
