@@ -1,8 +1,8 @@
 /*
- * delay_us.c
- * TIM2 is used as the time base generation unit
- * Default configuration is assumed: HSI Clock at 16 MHz and thus TIM2 Clock frequency of 16 MHz
- *  Created on: 12-Dec-2023
+ * dht11_sensor_driver.c
+ * Reference: DHT11 Sensor Driver and Test Program
+ * Reference: https://controllerstech.com/using-dht11-sensor-with-stm32/
+ *  Created on: 13-Dec-2023
  *      Author: naveen
  */
 
@@ -18,8 +18,9 @@
 #define DHT11_SENSOR_DATA_PIN		GPIO_PIN_0
 #define DHT11_SENSOR_PORT			GPIOA
 
-#define UART_TX_PIN			GPIO_PIN_2
-#define UART_RX_PIN			GPIO_PIN_3
+#define UART_GPIO_PORT		GPIOD
+#define UART_TX_PIN			GPIO_PIN_5
+#define UART_RX_PIN			GPIO_PIN_6
 
 struct USART_Handle_t Test_USART;
 
@@ -131,17 +132,17 @@ uint8_t read_dht11_sensor(uint8_t *data)
 void configure_uart(void)
 {
 	//GPIO Pin Configuration
-	EnablePeriClk(GPIOA);
-	GPIOSetMode(GPIOA,UART_TX_PIN,GPIO_MODE_ALTFN);
-	GPIOSetMode(GPIOA,UART_RX_PIN,GPIO_MODE_ALTFN);
-	GPIOSetAltFn(GPIOA,UART_TX_PIN,GPIO_ALTFN_7);
-	GPIOSetAltFn(GPIOA,UART_RX_PIN,GPIO_ALTFN_7);
-	GPIOSetOutputType(GPIOA,UART_TX_PIN,GPIO_OPTYPE_PP);
-	GPIOSetOutputType(GPIOA,UART_RX_PIN,GPIO_OPTYPE_PP);
-	GPIOSetOutputSpeed(GPIOA,UART_TX_PIN,GPIO_OPSPEED_HIGH);
-	GPIOSetOutputSpeed(GPIOA,UART_RX_PIN,GPIO_OPSPEED_HIGH);
-	GPIOSetPullUpDownConfig(GPIOA,UART_TX_PIN,GPIO_PULL_UP);
-	GPIOSetPullUpDownConfig(GPIOA,UART_RX_PIN,GPIO_PULL_UP);
+	EnablePeriClk(UART_GPIO_PORT);
+	GPIOSetMode(UART_GPIO_PORT,UART_TX_PIN,GPIO_MODE_ALTFN);
+	GPIOSetMode(UART_GPIO_PORT,UART_RX_PIN,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(UART_GPIO_PORT,UART_TX_PIN,GPIO_ALTFN_7);
+	GPIOSetAltFn(UART_GPIO_PORT,UART_RX_PIN,GPIO_ALTFN_7);
+	GPIOSetOutputType(UART_GPIO_PORT,UART_TX_PIN,GPIO_OPTYPE_PP);
+	GPIOSetOutputType(UART_GPIO_PORT,UART_RX_PIN,GPIO_OPTYPE_PP);
+	GPIOSetOutputSpeed(UART_GPIO_PORT,UART_TX_PIN,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(UART_GPIO_PORT,UART_RX_PIN,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(UART_GPIO_PORT,UART_TX_PIN,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(UART_GPIO_PORT,UART_RX_PIN,GPIO_PULL_UP);
 
 	//USART Configuration
 	Test_USART.pUSART = (struct USART_RegDef_t *) USART2;
