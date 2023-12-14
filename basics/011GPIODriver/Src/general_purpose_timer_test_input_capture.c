@@ -176,8 +176,8 @@ int main(void)
 	*pRCC_CFGR |= (MCO2_PRESCALAR << MCO2_PRESCALAR_BITPOS);
 
 	//Configuring the HSE Oscillator
-	*pRCC_CR |= (1 << 16);					//Turning on the HSE Oscillator
-	while(!(*pRCC_CR & (1 << 17)));			//Checking whether HSE Oscillator is turned on and is stable
+	*pRCC_CR |= (1 << HSE_ON_BITPOS);					//Turning on the HSE Oscillator
+	while(!(*pRCC_CR & (1 << HSE_CHECK_BITPOS)));		//Checking whether HSE Oscillator is turned on and is stable
 
 	//Configuring the PLL Oscillator
 	// 1. Configuring the PLL Configuration Register (RCC_PLLCFGR)
