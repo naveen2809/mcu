@@ -9,7 +9,6 @@
 #include "stm32f4xx.h"
 #include "gpio_driver.h"
 #include "general_purpose_timer.h"
-#include "usart_driver.h"
 
 #define TIM2_CH2_GPIO		1
 #define TIM2_CH3_GPIO		2
@@ -59,13 +58,46 @@
 #define PLL_Q_BITPOS					24
 #define PLL_SRC_BITPOS					22
 
+#define PLL_P_DIV_2						0
+#define PLL_P_DIV_4						1
+#define PLL_P_DIV_6						2
+#define PLL_P_DIV_8						3
+
+#define APB_PRESCALAR_1					0
+#define APB_PRESCALAR_2					4
+#define APB_PRESCALAR_4					5
+#define APB_PRESCALAR_8					6
+#define APB_PRESCALAR_16				7
+
+#define AHB_PRESCALAR_1					0
+#define AHB_PRESCALAR_2					8
+#define AHB_PRESCALAR_4					9
+#define AHB_PRESCALAR_8					10
+#define AHB_PRESCALAR_16				11
+#define AHB_PRESCALAR_64				12
+#define AHB_PRESCALAR_128				13
+#define AHB_PRESCALAR_256				14
+#define AHB_PRESCALAR_512				15
+
 #define HSE_ON_BITPOS					16
 #define HSE_CHECK_BITPOS				17
 #define PLL_ON_BITPOS					24
 #define PLL_CHECK_BITPOS				25
 
+#define RCC_CFGR_HPRE_BITPOS			4
 #define RCC_CFGR_PPRE1_BITPOS			10
 #define RCC_CFGR_PPRE2_BITPOS			13
+
+#define FLASH_LATENCY_0_WS				0
+#define FLASH_LATENCY_1_WS				1
+#define FLASH_LATENCY_2_WS				2
+#define FLASH_LATENCY_3_WS				3
+#define FLASH_LATENCY_4_WS				4
+#define FLASH_LATENCY_5_WS				5
+#define FLASH_LATENCY_6_WS				6
+#define FLASH_LATENCY_7_WS				7
+
+#define FLASH_LATENCY_MASK				0x7
 
 #define TIM2_IRQ_NUM					28
 
@@ -110,11 +142,14 @@ int main(void)
 
 	uint16_t PLL_M_VALUE = 4;
 	uint16_t PLL_N_VALUE = 72;
-	uint16_t PLL_P_VALUE = 1;
+	uint16_t PLL_P_VALUE = PLL_P_DIV_4;
 	uint16_t PLL_Q_VALUE = 3;
 
-	uint8_t PPRE1_VALUE = 4;
-	uint8_t PPRE2_VALUE = 4;
+	uint8_t HPRE_VALUE = AHB_PRESCALAR_1;
+	uint8_t PPRE1_VALUE = APB_PRESCALAR_2;
+	uint8_t PPRE2_VALUE = APB_PRESCALAR_2;
+
+	uint8_t FLASH_LATENCY_VALUE = FLASH_LATENCY_2_WS;
 
 	TIM2_Handle.pGeneral_Purpose_Timer = (struct General_Purpose_Timer_RegDef_t *) TIM2;
 
@@ -171,13 +206,15 @@ int main(void)
 	while(!(*pRCC_CR & (1 << PLL_CHECK_BITPOS)));		//Checking whether PLL Oscillator is turned on and is stable
 
 	//Changing the FLASH Latency
-	*pFLASH_ACR |= 0x2;						//Changing the FLASH Latency
-	while(!(*pFLASH_ACR & 0x2));
+	*pFLASH_ACR |= FLASH_LATENCY_VALUE;						//Changing the FLASH Latency
+	while((*pFLASH_ACR & FLASH_LATENCY_MASK) != FLASH_LATENCY_VALUE);
 
-	// Changing the System Clock (SYSCLK)
+	//Switching the System Clock (SYSCLK)
 	*pRCC_CFGR &= ~(0x3 << SYSCLK_SW_BITPOS);
 	*pRCC_CFGR |= (SYSCLK_SRC << SYSCLK_SW_BITPOS);
-	//Changing the APB1 and APB2 Pre-Scalers
+
+	//Changing the AHB, APB1 and APB2 Pre-Scalers
+	*pRCC_CFGR |= (HPRE_VALUE << RCC_CFGR_HPRE_BITPOS);
 	*pRCC_CFGR |= (PPRE1_VALUE << RCC_CFGR_PPRE1_BITPOS);
 	*pRCC_CFGR |= (PPRE2_VALUE << RCC_CFGR_PPRE2_BITPOS);
 
