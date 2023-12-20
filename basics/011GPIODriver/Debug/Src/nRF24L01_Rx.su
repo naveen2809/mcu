@@ -1,0 +1,16 @@
+../Src/nRF24L01_Rx.c:259:5:main	72	static
+../Src/nRF24L01_Rx.c:317:6:configure_spi	24	static
+../Src/nRF24L01_Rx.c:347:6:configure_nrf_radio	24	static
+../Src/nRF24L01_Rx.c:474:9:nrf_radio_transmit_packet	16	static
+../Src/nRF24L01_Rx.c:493:6:nrf_radio_receive_packet_callback	16	static
+../Src/nRF24L01_Rx.c:509:6:nrf_radio_interrupt_callback	16	static
+../Src/nRF24L01_Rx.c:546:9:nrf_radio_get_status_register	16	static
+../Src/nRF24L01_Rx.c:563:9:nrf_radio_get_interrupt_source	16	static
+../Src/nRF24L01_Rx.c:586:6:nrf_radio_retreive_packet_from_fifo	16	static
+../Src/nRF24L01_Rx.c:607:9:nrf_radio_get_rx_packet_length	16	static
+../Src/nRF24L01_Rx.c:625:6:nrf_radio_send_packet_to_fifo	24	static
+../Src/nRF24L01_Rx.c:649:6:nrf_radio_cmd_write	16	static
+../Src/nRF24L01_Rx.c:656:6:configure_uart	8	static
+../Src/nRF24L01_Rx.c:685:6:UART_SendChar	16	static
+../Src/nRF24L01_Rx.c:690:6:configure_radio_interrupts	8	static
+../Src/nRF24L01_Rx.c:695:6:EXTI0_IRQHandler	16	static

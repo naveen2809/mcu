@@ -6,24 +6,27 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Src/general_purpose_timer.c \
-../Src/general_purpose_timer_toggle_36MHz.c \
 ../Src/gpio_driver.c \
+../Src/i2c_driver.c \
+../Src/mcu_clock_source_out_lse.c \
 ../Src/stm32f4xx.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
 ./Src/general_purpose_timer.o \
-./Src/general_purpose_timer_toggle_36MHz.o \
 ./Src/gpio_driver.o \
+./Src/i2c_driver.o \
+./Src/mcu_clock_source_out_lse.o \
 ./Src/stm32f4xx.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
 ./Src/general_purpose_timer.d \
-./Src/general_purpose_timer_toggle_36MHz.d \
 ./Src/gpio_driver.d \
+./Src/i2c_driver.d \
+./Src/mcu_clock_source_out_lse.d \
 ./Src/stm32f4xx.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
@@ -36,7 +39,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/general_purpose_timer.d ./Src/general_purpose_timer.o ./Src/general_purpose_timer.su ./Src/general_purpose_timer_toggle_36MHz.d ./Src/general_purpose_timer_toggle_36MHz.o ./Src/general_purpose_timer_toggle_36MHz.su ./Src/gpio_driver.d ./Src/gpio_driver.o ./Src/gpio_driver.su ./Src/stm32f4xx.d ./Src/stm32f4xx.o ./Src/stm32f4xx.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/general_purpose_timer.d ./Src/general_purpose_timer.o ./Src/general_purpose_timer.su ./Src/gpio_driver.d ./Src/gpio_driver.o ./Src/gpio_driver.su ./Src/i2c_driver.d ./Src/i2c_driver.o ./Src/i2c_driver.su ./Src/mcu_clock_source_out_lse.d ./Src/mcu_clock_source_out_lse.o ./Src/mcu_clock_source_out_lse.su ./Src/stm32f4xx.d ./Src/stm32f4xx.o ./Src/stm32f4xx.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

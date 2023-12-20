@@ -1,0 +1,2 @@
+../Driver/Src/external_interrupt_config.c:14:6:configure_external_interrupt	32	static
+../Driver/Src/external_interrupt_config.c:57:16:gpio_port_name_to_num	24	static

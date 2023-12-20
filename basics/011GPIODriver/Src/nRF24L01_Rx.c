@@ -1,5 +1,5 @@
 /*
- * nRF24L01_Tx.c
+ * nRF24L01_Rx.c
  *
  *  Created on: 18-Dec-2023
  *      Author: naveen
@@ -259,7 +259,7 @@ struct USART_Handle_t Test_USART;
 int main(void)
 {
 	struct NRF_RADIO_CONFIG_t radio_config;
-	uint8_t status;
+
 	uint8_t addr[] = {0xA1,0xA2,0xA3,0xA4,0xA5};
 
 	tx_packet_length = strlen(tx_buffer);
@@ -278,7 +278,7 @@ int main(void)
 
 	//3. Configure the NRF24L01 Radio
 	memset(&radio_config,0,sizeof(radio_config));
-	radio_config.radio_mode = NRF_RADIO_MODE_TX;
+	radio_config.radio_mode = NRF_RADIO_MODE_RX;
 	radio_config.radio_channel = 10;
 	radio_config.radio_data_rate = NRF_RADIO_DATA_RATE_250K;
 	radio_config.radio_pa_level = NRF_RADIO_PA_LEVEL_0;
@@ -295,19 +295,6 @@ int main(void)
 	radio_config.radio_dynamic_ack_feature = NRF_RADIO_DYNAMIC_ACK_FEATURE_ENABLE;
 
 	configure_nrf_radio(&radio_config);
-
-	//4. Transmit a Packet
-	status = nrf_radio_transmit_packet((uint8_t *)tx_buffer,tx_packet_length,NRF_RADIO_NO_ACK);
-	if(status == NRF_RADIO_PKT_TX_COMPLETE)
-	{
-		//Print Message
-		printf("Packet Transmitted Successfully\r\n");
-	}
-	else if(status == NRF_RADIO_PKT_TX_FAIL)
-	{
-		//Print Message
-		printf("Packet Transmission Failed\r\n");
-	}
 
 	while(1);
 

@@ -108,6 +108,35 @@ void SPIRecvData(uint32_t *SPIAddress, uint8_t *RxBuf, uint8_t len)
 	}
 }
 
+void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uint8_t len)
+{
+	struct SPI_RegDef_t *pSPI = (struct SPI_RegDef_t *) SPIAddress;
+
+	//uint8_t ConfiguredDataFrameFormat =  ((1 << SPI_CR1_DFF) & pSPI->SPI_CR1) >> SPI_CR1_DFF;
+
+	//Clearing the SPI receive buffer before transmitting the data
+	while(!SPIGetFlags(SPIAddress,SPI_SR_TXE));
+
+	while(SPIGetFlags(SPIAddress,SPI_SR_RXNE))
+		*RxBuf = pSPI->SPI_DR;
+
+	while(len > 0) {
+
+		// Waiting for TX Buffer to be empty
+		while(!SPIGetFlags(SPIAddress,SPI_SR_TXE));
+
+		pSPI->SPI_DR = *TxBuf;
+		TxBuf++;
+
+		// Waiting for RX Buffer to be full
+		while(!SPIGetFlags(SPIAddress,SPI_SR_RXNE));
+
+		*RxBuf = pSPI->SPI_DR;
+		RxBuf++;
+		len--;
+	}
+}
+
 void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t len)
 {
 	//1. Wait until SPI Peripheral is ready

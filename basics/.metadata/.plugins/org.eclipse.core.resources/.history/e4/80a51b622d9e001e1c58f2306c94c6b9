@@ -1,0 +1,21 @@
+/*
+ * external_interrupt_config.h
+ *
+ *  Created on: 19-Dec-2023
+ *      Author: naveen
+ */
+
+#ifndef INC_EXTERNAL_INTERRUPT_CONFIG_H_
+#define INC_EXTERNAL_INTERRUPT_CONFIG_H_
+
+#define BUTTON_PIN						PIO_PIN_0
+#define BUTTON_IRQ_NO					6
+#define SYSCFG_EXTI_CR_ADDR				(0x40013800UL + 0x08UL)
+#define EXTI_IMR_ADDR					0x40013C00UL
+#define EXTI_PR_ADDR					(0x40013C00UL + 0x14UL)
+#define EXTI_RTSR_ADDR					(0x40013C00UL + 0x08UL)
+#define EXTI_INTERRUPT_PIN_NUM			0
+
+void configure_interrupt(void);
+
+#endif /* INC_EXTERNAL_INTERRUPT_CONFIG_H_ */

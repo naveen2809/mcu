@@ -1,0 +1,128 @@
+/*
+ * nRF24L01_Tx.c
+ *
+ *  Created on: 18-Dec-2023
+ *      Author: naveen
+ */
+
+
+#include <stdint.h>
+#include "spi_driver.h"
+#include "gpio_driver.h"
+#include <string.h>
+
+#define MAX_DATA 500
+#define SLEEP_COUNT 10000
+
+#define SPI_DEV			SPI2
+#define SPI_PORT		GPIOB
+#define SPI_PIN_MOSI	15
+#define SPI_PIN_MISO	14
+#define SPI_PIN_CLK		13
+#define SPI_PIN_SS		12
+
+#define RADIO_PORT		GPIOA
+#define PTX_CE			0
+#define PTX_IRQ			1
+
+#define NRF_RADIO_MODE_TX				0
+#define NRF_RADIO_MODE_RX				1
+#define NRF_RADIO_DATA_RATE_250K		0
+#define NRF_RADIO_DATA_RATE_1M			1
+#define NRF_RADIO_DATA_RATE_2M			2
+#define NRF_RADIO_TX_DS_IRQ_ENABLE 		0
+#define NRF_RADIO_TX_DS_IRQ_DISABLE 	1
+#define NRF_RADIO_RX_DR_IRQ_ENABLE 		0
+#define NRF_RADIO_RX_DR_IRQ_DISABLE 	1
+#define NRF_RADIO_ACK					0
+#define NRF_RADIO_NO_ACK				1
+
+struct NRF_RADIO_CONFIG_t
+{
+	uint8_t radio_mode;
+	uint8_t radio_channel;
+	uint8_t radio_data_rate;
+	uint8_t	radio_auto_acknowledgement;
+};
+
+void delay(void)
+{
+	uint32_t j;
+	for(j=0;j<SLEEP_COUNT;j++);
+}
+
+void configure_spi(void);
+void configure_nrf_radio(void);
+void nrf_radio_transmit_packet(uint8_t *buffer,uint8_t length,uint8_t ack_policy);
+void nrf_radio_receive_packet_callback(uint8_t *buffer, uint8_t length);
+
+int main(void)
+{
+	char send_data[] = "A small world after all";
+	char recv_data[MAX_DATA];
+	uint8_t data_len = 11;
+
+	configure_spi();
+
+	SPISendData(SPI2,&data_len,1);
+	delay();
+	SPISendData(SPI2,(uint8_t*)send_data,strlen(send_data));
+
+	//SPIRecvData(SPI2,(uint8_t*)recv_data,strlen(recv_data));
+
+	while(1);
+
+	return 0;
+
+}
+
+void configure_spi(void)
+{
+	struct SPI_Config_t SPI_Dev_Config;
+
+	//Configuring the GPIO Pins for the SPI Port
+	EnablePeriClk(SPI_PORT);
+	GPIOSetMode(SPI_PORT,SPI_PIN_MOSI,GPIO_MODE_ALTFN);
+	GPIOSetMode(SPI_PORT,SPI_PIN_MISO,GPIO_MODE_ALTFN);
+	GPIOSetMode(SPI_PORT,SPI_PIN_CLK,GPIO_MODE_ALTFN);
+	GPIOSetMode(SPI_PORT,SPI_PIN_SS,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_MOSI,GPIO_ALTFN_5);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_MISO,GPIO_ALTFN_5);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_CLK,GPIO_ALTFN_5);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_SS,GPIO_ALTFN_5);
+
+	//Configuring the SPI Peripheral
+	SPI_Dev_Config.SPIDeviceMode = SPI_DEVICE_MODE_MASTER;
+	SPI_Dev_Config.SPIClockPol = SPI_CLK_POL_0;
+	SPI_Dev_Config.SPIClockPhase = SPI_CLK_PHA_LE;
+	SPI_Dev_Config.SPIClockFreq = SPI_CLK_FREQ_DIV4;
+	SPI_Dev_Config.SPIDataFrameFormat = SPI_DFF_8_BITS;
+	SPI_Dev_Config.SPISoftwareSlaveManagement = SPI_SW_SLAVE_MGNT_DI;
+	SPI_Dev_Config.SPISSIFlag = SPI_SSI_1;
+	SPI_Dev_Config.SPISSOEFlag = SPI_SSOE_EN;
+
+	EnablePeriClk(SPI_DEV);
+	SPIPeriConfig(SPI_DEV, &SPI_Dev_Config);
+	SPIEnable(SPI_DEV);
+}
+
+void configure_nrf_radio(void)
+{
+
+}
+
+void nrf_radio_transmit_packet(uint8_t *buffer,uint8_t length,uint8_t ack_policy)
+{
+
+	//1. Send packet to radio using SPI interface
+
+	//2. Pulse the PTX CE line for more than 10us
+
+	//3. Wait for confirmation of packet transmission
+
+}
+
+void nrf_radio_receive_packet_callback(uint8_t *buffer, uint8_t length)
+{
+	//Print message to UART
+}

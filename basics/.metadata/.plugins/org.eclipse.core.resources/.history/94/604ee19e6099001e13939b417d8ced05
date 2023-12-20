@@ -1,0 +1,36 @@
+/*
+ * delay_us.c
+ * TIM2 is used as the time base generation unit
+ * Default configuration is assumed: HSI Clock at 16 MHz and thus TIM2 Clock frequency of 16 MHz
+ *  Created on: 12-Dec-2023
+ *      Author: naveen
+ */
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "general_purpose_timer.h"
+#include "common_utilities.h"
+
+#define DHT11_SENSOR_DATA_PIN		GPIO_PIN_0
+#define DHT11_SENSOR_PORT			GPIOA
+
+int main(void)
+{
+	//Configure the Timer
+	configure_delay_timer();
+
+	//GPIO Configuration for Sensor Data Pin
+	EnablePeriClk(DHT11_SENSOR_PORT);
+	GPIOSetMode(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN, GPIO_MODE_OUTPUT);
+	GPIOSetOutputType(DHT11_SENSOR_PORT,DHT11_SENSOR_DATA_PIN,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(DHT11_SENSOR_PORT,DHT11_SENSOR_DATA_PIN,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(DHT11_SENSOR_PORT,DHT11_SENSOR_DATA_PIN,GPIO_PULL_UP);
+
+	//Triggering the Sensor
+	delay_us(18000);
+	GPIOSetMode(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN, GPIO_MODE_INPUT);
+
+	while(1);
+
+	return 0;
+}

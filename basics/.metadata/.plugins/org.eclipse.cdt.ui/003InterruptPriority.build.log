@@ -1,4 +1,4 @@
-19:07:54 **** Build of configuration Debug for project 003InterruptPriority ****
+13:37:36 **** Incremental Build of configuration Debug for project 003InterruptPriority ****
 make -j8 all 
 arm-none-eabi-size   003InterruptPriority.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   003InterruptPriority.elf
 Finished building: default.size.stdout
  
 
-19:07:54 Build Finished. 0 errors, 0 warnings. (took 166ms)
+13:37:37 Build Finished. 0 errors, 0 warnings. (took 216ms)
 
