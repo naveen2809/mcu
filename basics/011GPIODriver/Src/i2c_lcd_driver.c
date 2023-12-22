@@ -46,7 +46,7 @@
 #define RCC_CFGR_PPRE2_BITPOS			13
 
 struct I2C_Config_t I2C_Config;
-uint8_t SlaveAddress = 0x27;
+uint8_t SlaveAddress = 0x3F;
 
 void i2c_lcd_init(void);
 void i2c_lcd_send_char(uint8_t c);
@@ -97,7 +97,7 @@ int main(void)
 
 	i2c_lcd_send_message(message,strlen(message));
 
-	/*
+
 	delay_us(5000);
 	i2c_lcd_send_char(ch);
 	delay_us(5000);
@@ -108,7 +108,7 @@ int main(void)
 	i2c_lcd_send_char(ch);
 	delay_us(5000);
 	i2c_lcd_send_message(message,strlen(message));
-*/
+
 	while(1)
 	{
 

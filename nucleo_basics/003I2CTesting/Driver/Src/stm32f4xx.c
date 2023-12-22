@@ -53,52 +53,84 @@ void EnablePeriClk(uint32_t *PeripheralAddress)
 		*pRCCPeriClkReg |= (1 << GPIOI_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == SPI1) {
-			pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
-			*pRCCPeriClkReg |= (1 << SPI1_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << SPI1_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == SPI2) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << SPI2_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << SPI2_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == SPI3) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << SPI3_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << SPI3_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == I2C1) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << I2C1_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << I2C1_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == I2C2) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << I2C2_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << I2C2_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == I2C3) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << I2C3_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << I2C3_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART1) {
-				pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << USART1_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << USART1_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART2) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << USART2_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << USART2_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART3) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << USART3_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << USART3_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == UART4) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << UART4_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << UART4_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == UART5) {
-				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << UART5_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << UART5_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART6) {
-				pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
-				*pRCCPeriClkReg |= (1 << USART6_RCC_PERI_CLK_BIT_POS);
+		pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << USART6_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM6) {
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << TIM6_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM7) {
+		pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << TIM7_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == DMA1) {
+		pRCCPeriClkReg = (uint32_t *) AHB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << DMA1_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == DMA2) {
+		pRCCPeriClkReg = (uint32_t *) AHB1_ENR_ADDR;
+		*pRCCPeriClkReg |= (1 << DMA2_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM2) {
+			pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+			*pRCCPeriClkReg |= (1 << TIM2_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM3) {
+			pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+			*pRCCPeriClkReg |= (1 << TIM3_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM4) {
+			pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+			*pRCCPeriClkReg |= (1 << TIM4_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM5) {
+			pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+			*pRCCPeriClkReg |= (1 << TIM5_RCC_PERI_CLK_BIT_POS);
 	}
 }
 
@@ -167,30 +199,61 @@ void DisablePeriClk(uint32_t *PeripheralAddress)
 				*pRCCPeriClkReg &= ~(1 << I2C3_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART1) {
-					pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
-					*pRCCPeriClkReg &= ~(1 << USART1_RCC_PERI_CLK_BIT_POS);
+				pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << USART1_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART2) {
-						pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-						*pRCCPeriClkReg &= ~(1 << USART2_RCC_PERI_CLK_BIT_POS);
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << USART2_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART3) {
-						pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-						*pRCCPeriClkReg &= ~(1 << USART3_RCC_PERI_CLK_BIT_POS);
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << USART3_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == UART4) {
-						pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-						*pRCCPeriClkReg &= ~(1 << UART4_RCC_PERI_CLK_BIT_POS);
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << UART4_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == UART5) {
-						pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
-						*pRCCPeriClkReg &= ~(1 << UART5_RCC_PERI_CLK_BIT_POS);
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << UART5_RCC_PERI_CLK_BIT_POS);
 	}
 	else if (PeripheralAddress == USART6) {
-						pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
-						*pRCCPeriClkReg &= ~(1 << USART6_RCC_PERI_CLK_BIT_POS);
+				pRCCPeriClkReg = (uint32_t *) APB2_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << USART6_RCC_PERI_CLK_BIT_POS);
 	}
-
+	else if (PeripheralAddress == TIM6) {
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << TIM6_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM7) {
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << TIM7_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == DMA1) {
+			pRCCPeriClkReg = (uint32_t *) AHB1_ENR_ADDR;
+			*pRCCPeriClkReg &= ~(1 << DMA1_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == DMA2) {
+			pRCCPeriClkReg = (uint32_t *) AHB1_ENR_ADDR;
+			*pRCCPeriClkReg &= ~(1 << DMA2_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM2) {
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << TIM2_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM3) {
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << TIM3_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM4) {
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << TIM4_RCC_PERI_CLK_BIT_POS);
+	}
+	else if (PeripheralAddress == TIM5) {
+				pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
+				*pRCCPeriClkReg &= ~(1 << TIM5_RCC_PERI_CLK_BIT_POS);
+	}
 }
 
 void NVIC_EnableIRQ(uint8_t IRQNum)

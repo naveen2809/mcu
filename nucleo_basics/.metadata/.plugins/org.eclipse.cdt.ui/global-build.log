@@ -1,34 +1,21 @@
-14:31:06 **** Clean-only build of configuration Debug for project 005MCOClockOutput ****
-make -j8 clean 
-rm -rf ./Startup/startup_stm32f446retx.d ./Startup/startup_stm32f446retx.o
-rm -rf ./Src/common_utilities.d ./Src/common_utilities.o ./Src/common_utilities.su ./Src/general_purpose_timer.d ./Src/general_purpose_timer.o ./Src/general_purpose_timer.su ./Src/gpio_driver.d ./Src/gpio_driver.o ./Src/gpio_driver.su ./Src/i2c_driver.d ./Src/i2c_driver.o ./Src/i2c_driver.su ./Src/i2c_lcd_driver.d ./Src/i2c_lcd_driver.o ./Src/i2c_lcd_driver.su ./Src/stm32f4xx.d ./Src/stm32f4xx.o ./Src/stm32f4xx.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
-rm -rf 005MCOClockOutput.elf 005MCOClockOutput.list 005MCOClockOutput.map default.size.stdout
- 
-14:31:07 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
+13:44:47 **** Incremental Build of configuration Debug for project 003I2CTesting ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f446retx.d" -MT"Startup/startup_stm32f446retx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f446retx.o" "../Startup/startup_stm32f446retx.s"
-arm-none-eabi-gcc "../Src/general_purpose_timer.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/general_purpose_timer.d" -MT"Src/general_purpose_timer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/general_purpose_timer.o"
-arm-none-eabi-gcc "../Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/gpio_driver.d" -MT"Src/gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/gpio_driver.o"
-arm-none-eabi-gcc "../Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/i2c_driver.d" -MT"Src/i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/i2c_driver.o"
-arm-none-eabi-gcc "../Src/mcu_clock_source_out_lse.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/mcu_clock_source_out_lse.d" -MT"Src/mcu_clock_source_out_lse.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/mcu_clock_source_out_lse.o"
-arm-none-eabi-gcc "../Src/stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/stm32f4xx.d" -MT"Src/stm32f4xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/stm32f4xx.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc -o "005MCOClockOutput.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/nucleo_basics/005MCOClockOutput/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="005MCOClockOutput.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 005MCOClockOutput.elf
+arm-none-eabi-gcc "../Src/nRF24L01_Tx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -c -I../Inc -I"/home/naveen/Code/mcu/nucleo_basics/003I2CTesting/Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/nRF24L01_Tx.d" -MT"Src/nRF24L01_Tx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/nRF24L01_Tx.o"
+arm-none-eabi-gcc -o "003I2CTesting.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/nucleo_basics/003I2CTesting/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="003I2CTesting.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 003I2CTesting.elf
  
-arm-none-eabi-size   005MCOClockOutput.elf 
-arm-none-eabi-objdump -h -S  005MCOClockOutput.elf  > "005MCOClockOutput.list"
+arm-none-eabi-size   003I2CTesting.elf 
+arm-none-eabi-objdump -h -S  003I2CTesting.elf  > "003I2CTesting.list"
    text	   data	    bss	    dec	    hex	filename
-   1968	      8	   1568	   3544	    dd8	005MCOClockOutput.elf
+  11968	    172	   1732	  13872	   3630	003I2CTesting.elf
 Finished building: default.size.stdout
  
-Finished building: 005MCOClockOutput.list
+Finished building: 003I2CTesting.list
  
-14:31:14 **** Incremental Build of configuration Debug for project 005MCOClockOutput ****
+13:44:53 **** Incremental Build of configuration Debug for project 003I2CTesting ****
 make -j8 all 
-arm-none-eabi-size   005MCOClockOutput.elf 
+arm-none-eabi-size   003I2CTesting.elf 
    text	   data	    bss	    dec	    hex	filename
-   1968	      8	   1568	   3544	    dd8	005MCOClockOutput.elf
+  11968	    172	   1732	  13872	   3630	003I2CTesting.elf
 Finished building: default.size.stdout
  

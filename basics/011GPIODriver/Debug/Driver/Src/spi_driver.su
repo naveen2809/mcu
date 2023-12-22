@@ -5,8 +5,8 @@
 ../Driver/Src/spi_driver.c:75:6:SPISendData	32	static
 ../Driver/Src/spi_driver.c:94:6:SPIRecvData	32	static
 ../Driver/Src/spi_driver.c:111:6:SPIMasterRecvData	32	static
-../Driver/Src/spi_driver.c:140:6:SPIMasterSendDataIT	24	static
-../Driver/Src/spi_driver.c:154:6:SPIMasterRecvDataIT	24	static
-../Driver/Src/spi_driver.c:171:6:SPISlaveSendDataIT	24	static
-../Driver/Src/spi_driver.c:185:6:SPISlaveRecvDataIT	32	static
-../Driver/Src/spi_driver.c:209:6:SPI_IRQ_Handler	24	static
+../Driver/Src/spi_driver.c:141:6:SPIMasterSendDataIT	24	static
+../Driver/Src/spi_driver.c:155:6:SPIMasterRecvDataIT	24	static
+../Driver/Src/spi_driver.c:172:6:SPISlaveSendDataIT	24	static
+../Driver/Src/spi_driver.c:186:6:SPISlaveRecvDataIT	32	static
+../Driver/Src/spi_driver.c:210:6:SPI_IRQ_Handler	24	static

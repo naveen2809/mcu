@@ -121,7 +121,6 @@ void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uin
 		*RxBuf = pSPI->SPI_DR;
 
 	while(len > 0) {
-
 		// Waiting for TX Buffer to be empty
 		while(!SPIGetFlags(SPIAddress,SPI_SR_TXE));
 
@@ -135,6 +134,8 @@ void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uin
 		RxBuf++;
 		len--;
 	}
+
+	return;
 }
 
 void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t len)

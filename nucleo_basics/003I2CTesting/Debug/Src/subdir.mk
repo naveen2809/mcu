@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/spi_board_comm_master_rx_test_it.c \
+../Src/nRF24L01_Tx.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/spi_board_comm_master_rx_test_it.o \
+./Src/nRF24L01_Tx.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/spi_board_comm_master_rx_test_it.d \
+./Src/nRF24L01_Tx.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/spi_board_comm_master_rx_test_it.d ./Src/spi_board_comm_master_rx_test_it.o ./Src/spi_board_comm_master_rx_test_it.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/nRF24L01_Tx.d ./Src/nRF24L01_Tx.o ./Src/nRF24L01_Tx.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

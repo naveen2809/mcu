@@ -1,0 +1,8 @@
+../Driver/Src/timer_driver.c:13:6:Basic_Timer_Init	16	static
+../Driver/Src/timer_driver.c:44:6:Basic_Timer_PeripheralEnable	16	static
+../Driver/Src/timer_driver.c:49:6:Basic_Timer_PeripheralDisable	16	static
+../Driver/Src/timer_driver.c:54:6:Basic_Timer_EnableUpdateEventInterrupt	16	static
+../Driver/Src/timer_driver.c:59:6:Basic_Timer_DisableUpdateEventInterrupt	16	static
+../Driver/Src/timer_driver.c:64:6:Basic_Timer_ClearUpdateEventFlag	16	static
+../Driver/Src/timer_driver.c:69:6:Basic_Timer_SetARPEFlag	16	static
+../Driver/Src/timer_driver.c:74:6:Basic_Timer_IRQHandling	16	static

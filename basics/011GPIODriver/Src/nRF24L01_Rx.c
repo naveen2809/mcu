@@ -30,6 +30,9 @@
 #define UART_TX_PIN			GPIO_PIN_5
 #define UART_RX_PIN			GPIO_PIN_6
 
+#define GPIO_LED_PORT		GPIOD
+#define GPIO_LED_PIN		GPIO_PIN_12
+
 #define NRF_RADIO_MODE_TX				0
 #define NRF_RADIO_MODE_RX				1
 #define NRF_RADIO_DATA_RATE_250K		0
@@ -47,6 +50,7 @@
 #define NRF_RADIO_INT_SRC_TX_DS			0
 #define NRF_RADIO_INT_SRC_RX_DR			1
 #define NRF_RADIO_INT_SRC_MAX_RT		2
+#define	NRF_RADIO_INT_SRC_NONE			3
 #define NRF_RADIO_PA_LEVEL_0			0
 #define NRF_RADIO_PA_LEVEL_1			1
 #define NRF_RADIO_PA_LEVEL_2			2
@@ -240,11 +244,15 @@ void nrf_radio_send_packet_to_fifo(uint8_t *buffer,uint8_t length,uint8_t ack_po
 void nrf_radio_retreive_packet_from_fifo(void);
 void nrf_radio_cmd_write(uint8_t *buffer,uint8_t length);
 void nrf_radio_cmd_read(uint8_t *buffer,uint8_t length);
+void nrf_radio_rx_polling(void);
 
 void configure_spi(void);
 void configure_radio_interrupts(void);
 void configure_uart(void);
 void UART_SendChar(uint8_t ch);
+void configure_gpio_led(void);
+void gpio_led_turn_on(void);
+void gpio_led_turn_off(void);
 
 char tx_buffer[NRF_RADIO_MAX_PKT_LENGTH] = "Hello World\r\n";
 char rx_buffer[NRF_RADIO_MAX_PKT_LENGTH];
@@ -271,10 +279,12 @@ int main(void)
 	configure_uart();
 
 	//1.c Configure Radio Interrupts
-	configure_radio_interrupts();
+	//configure_radio_interrupts();
 
 	//2. Configure the SPI Port connecting to NRF24L01 Radio
 	configure_spi();
+
+	configure_gpio_led();
 
 	//3. Configure the NRF24L01 Radio
 	memset(&radio_config,0,sizeof(radio_config));
@@ -296,7 +306,10 @@ int main(void)
 
 	configure_nrf_radio(&radio_config);
 
-	while(1);
+	while(1)
+	{
+		nrf_radio_rx_polling();
+	}
 
 	return 0;
 }
@@ -479,16 +492,31 @@ uint8_t nrf_radio_transmit_packet(uint8_t *buffer,uint8_t length,uint8_t ack_pol
 
 void nrf_radio_receive_packet_callback(uint8_t *buffer, uint8_t length)
 {
+	uint8_t i;
+
 	//Print message
 	printf("Packet Received from Peer Radio\r\n");
 
 	//Print packet length
 	//The actual length of the message is one less than the value of length
-	printf("Packet Length: %d\r\n",length-1);
+	printf("Packet Length: %d\r\n",length);
 
 	//Print packet contents
 	//The actual Rx packet contents are stored from buffer[1] onwards as buffer[0] contains the value of STATUS Register
-	printf("Packet Contents: %s\r\n",(char *)(buffer+1));
+	for(i=1;i<=length;i++)
+	{
+		printf("%c",buffer[i]);
+	}
+
+	if(buffer[1] == 'X' && buffer[2] == 'X' && buffer[3] == 'X' && buffer[4] == 'X')
+	{
+		gpio_led_turn_on();
+	}
+
+	if(buffer[1] == 'Y' && buffer[2] == 'Y' && buffer[3] == 'Y' && buffer[4] == 'Y')
+	{
+		gpio_led_turn_off();
+	}
 
 	return;
 }
@@ -566,16 +594,26 @@ uint8_t nrf_radio_get_interrupt_source(void)
 	{
 		interrupt_source = NRF_RADIO_INT_SRC_MAX_RT;
 	}
+	else
+	{
+		interrupt_source = NRF_RADIO_INT_SRC_NONE;
+	}
 
 	return interrupt_source;
 }
 
 void nrf_radio_retreive_packet_from_fifo(void)
 {
-	uint8_t packet_length, i;
+	uint8_t packet_length, i, status;
+
+	//1. Get the STATUS Register
+	status = nrf_radio_get_status_register();
+	printf("Status: %d\r\n",status);
 
 	//1. Get the length of the RX Pay-load (from Data Pipe P0)
 	packet_length = nrf_radio_get_rx_packet_length();
+
+	printf("Packet Length: %d\r\n",packet_length);
 
 	//2. Read the RX Pay-load
 	cmd_buffer[0] = NRF_RADIO_CMD_R_RX_PAYLOAD;
@@ -596,7 +634,7 @@ uint8_t nrf_radio_get_rx_packet_length(void)
 
 	uint8_t length;
 	//1. Read the RX_PW_P0 Register
-	cmd_buffer[0] = NRF_RADIO_CMD_R_REGISTER_RX_PW_P0;
+	cmd_buffer[0] = NRF_RADIO_CMD_R_RX_PL_WID;
 	cmd_buffer[1] = 0x00;
 	cmd_packet_length = 2;
 
@@ -690,4 +728,52 @@ void EXTI0_IRQHandler(void)
 	*pEXTI_PR |= (1 << INTERRUPT_PIN);
 
 	return;
+}
+
+void nrf_radio_rx_polling(void)
+{
+
+	uint8_t status, interrupt_source;
+
+	while(1)
+	{
+		status = nrf_radio_get_status_register();
+		interrupt_source = nrf_radio_get_interrupt_source();
+
+		printf("Callback Status: %d\r\n", status);
+		printf("Callback Interrupt Source: %d\r\n", interrupt_source);
+
+		//3. Handle the interrupt source
+		if(interrupt_source == NRF_RADIO_INT_SRC_RX_DR)
+		{
+			nrf_radio_retreive_packet_from_fifo();
+			nrf_radio_receive_packet_callback((uint8_t *)rx_buffer,rx_packet_length);
+			status = NRF_RADIO_INT_SRC_RX_DR_BITPOS;
+
+			//4. Clear the interrupt by writing to STATUS Register
+			cmd_buffer[0] = NRF_RADIO_CMD_W_REGISTER_STATUS;
+			cmd_buffer[1] = status;
+			cmd_packet_length = 2;
+			nrf_radio_cmd_write((uint8_t *)cmd_buffer,cmd_packet_length);
+		}
+
+		delay_us(1000000);
+	}
+
+}
+
+void configure_gpio_led(void)
+{
+	EnablePeriClk(GPIO_LED_PORT);
+	GPIOSetMode(GPIO_LED_PORT,GPIO_LED_PIN,GPIO_MODE_OUTPUT);
+}
+
+void gpio_led_turn_on(void)
+{
+	GPIOWritePin(GPIO_LED_PORT,GPIO_LED_PIN,GPIO_HIGH);
+}
+
+void gpio_led_turn_off(void)
+{
+	GPIOWritePin(GPIO_LED_PORT,GPIO_LED_PIN,GPIO_LOW);
 }
