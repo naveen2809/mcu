@@ -1,34 +1,21 @@
-13:22:20 **** Build of configuration Debug for project 011GPIODriver ****
+22:24:48 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
-arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Startup/startup_stm32f407vgtx.d" -MT"Startup/startup_stm32f407vgtx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Startup/startup_stm32f407vgtx.o" "../Startup/startup_stm32f407vgtx.s"
-arm-none-eabi-gcc "../Src/nRF24L01_Rx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/nRF24L01_Rx.d" -MT"Src/nRF24L01_Rx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/nRF24L01_Rx.o"
-arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
-arm-none-eabi-gcc "../Src/sysmem.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/sysmem.d" -MT"Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/sysmem.o"
-arm-none-eabi-gcc "../Driver/Src/common_utilities.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/common_utilities.d" -MT"Driver/Src/common_utilities.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/common_utilities.o"
-arm-none-eabi-gcc "../Driver/Src/dma_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/dma_driver.d" -MT"Driver/Src/dma_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/dma_driver.o"
-arm-none-eabi-gcc "../Driver/Src/external_interrupt_config.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/external_interrupt_config.d" -MT"Driver/Src/external_interrupt_config.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/external_interrupt_config.o"
-arm-none-eabi-gcc "../Driver/Src/general_purpose_timer.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/general_purpose_timer.d" -MT"Driver/Src/general_purpose_timer.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/general_purpose_timer.o"
-arm-none-eabi-gcc "../Driver/Src/gpio_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/gpio_driver.d" -MT"Driver/Src/gpio_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/gpio_driver.o"
-arm-none-eabi-gcc "../Driver/Src/i2c_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/i2c_driver.d" -MT"Driver/Src/i2c_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/i2c_driver.o"
-arm-none-eabi-gcc "../Driver/Src/spi_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/spi_driver.d" -MT"Driver/Src/spi_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/spi_driver.o"
-arm-none-eabi-gcc "../Driver/Src/stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/stm32f4xx.d" -MT"Driver/Src/stm32f4xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/stm32f4xx.o"
-arm-none-eabi-gcc "../Driver/Src/timer_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/timer_driver.d" -MT"Driver/Src/timer_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/timer_driver.o"
-arm-none-eabi-gcc "../Driver/Src/usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/usart_driver.d" -MT"Driver/Src/usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/usart_driver.o"
+arm-none-eabi-gcc "../Src/lcd_pcf8574_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/lcd_pcf8574_test.d" -MT"Src/lcd_pcf8574_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/lcd_pcf8574_test.o"
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011GPIODriver.elf
  
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-  12048	    140	   1732	  13920	   3660	011GPIODriver.elf
+   8308	    116	   1628	  10052	   2744	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
  
-13:22:30 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+22:24:53 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-  12048	    140	   1732	  13920	   3660	011GPIODriver.elf
+   8308	    116	   1628	  10052	   2744	011GPIODriver.elf
 Finished building: default.size.stdout
  
