@@ -1,0 +1,29 @@
+/*
+ * common_utils.h
+ *
+ *  Created on: 24-Dec-2023
+ *      Author: naveen
+ */
+
+#ifndef INC_COMMON_UTILS_H_
+#define INC_COMMON_UTILS_H_
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "i2c_driver.h"
+#include "spi_driver.h"
+#include "usart_driver.h"
+#include "timer_driver.h"
+#include "general_purpose_timer.h"
+
+void delay_us(uint32_t delay);
+void configure_delay_timer(void);
+void configure_spi(void);
+void configure_uart(void);
+void UART_SendChar(uint8_t ch);
+
+
+#endif /* INC_COMMON_UTILS_H_ */

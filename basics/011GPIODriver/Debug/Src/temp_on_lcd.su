@@ -1,5 +1,1 @@
-../Src/temp_on_lcd.c:37:5:main	16	static
-../Src/temp_on_lcd.c:90:9:check_sensor_response	16	static
-../Src/temp_on_lcd.c:115:9:read_dht11_sensor	24	static
-../Src/temp_on_lcd.c:158:6:configure_i2c	32	static
-../Src/temp_on_lcd.c:193:6:LCD_SendChar	16	static
+../Src/temp_on_lcd.c:20:5:main	16	static

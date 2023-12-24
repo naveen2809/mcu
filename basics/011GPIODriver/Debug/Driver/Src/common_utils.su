@@ -1,0 +1,7 @@
+../Driver/Src/common_utils.c:15:6:delay_us	16	static
+../Driver/Src/common_utils.c:21:6:configure_delay_timer	8	static
+../Driver/Src/common_utils.c:34:6:configure_spi	24	static
+../Driver/Src/common_utils.c:64:6:configure_uart	8	static
+../Driver/Src/common_utils.c:93:6:configure_i2c	32	static
+../Driver/Src/common_utils.c:128:6:UART_SendChar	16	static
+../Driver/Src/common_utils.c:133:6:LCD_SendChar	16	static
