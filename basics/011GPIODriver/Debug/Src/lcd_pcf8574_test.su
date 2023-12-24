@@ -1,3 +1,0 @@
-../Src/lcd_pcf8574_test.c:31:5:main	56	static
-../Src/lcd_pcf8574_test.c:110:6:configure_i2c	32	static
-../Src/lcd_pcf8574_test.c:145:6:LCD_SendChar	16	static

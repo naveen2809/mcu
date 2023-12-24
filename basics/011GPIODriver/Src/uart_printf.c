@@ -26,10 +26,12 @@ int main(void)
 	uint32_t count = 0;
 	configure_uart();
 
+	printf("Hello Brave New World!!!\r\n");
+
 	while(1)
 	{
-		printf("Printf() function redirected to UART: %ld!\r\n",count++);
-		delay();
+		//printf("Hello World!!!\r\n");
+		//delay();
 	}
 
 	return 0;

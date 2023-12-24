@@ -1,0 +1,174 @@
+/*
+ * dht11_sensor_driver.c
+ * Reference: DHT11 Sensor Driver and Test Program
+ * Reference: https://controllerstech.com/using-dht11-sensor-with-stm32/
+ *  Created on: 13-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "i2c_driver.h"
+#include "general_purpose_timer.h"
+#include "lcd_driver_pcf8574.h"
+#include "common_utilities.h"
+
+#define DHT11_SENSOR_DATA_PIN		GPIO_PIN_0
+#define DHT11_SENSOR_PORT			GPIOA
+
+#define I2C_CONFIG_PERI_FREQ			0x10
+#define I2C_CONFIG_CCR_VALUE			0x50
+#define TRISE_VALUE						0x11
+#define I2C_PORT						GPIOB
+#define I2C1_SDA						GPIO_PIN_7
+#define I2C1_SCL						GPIO_PIN_6
+
+uint8_t check_sensor_response(void);
+uint8_t read_dht11_sensor(uint8_t *data);
+
+void configure_i2c(void);
+
+uint32_t * I2C_DEVICE = I2C1;
+uint8_t SlaveAddress = 0x27;
+
+int main(void)
+{
+	uint8_t dht11_sensor_response;
+	uint8_t dht11_sensor_data[5];
+
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure the I2C Peripheral
+	//configure_uart();
+
+	while(1)
+	{
+		dht11_sensor_response = read_dht11_sensor(dht11_sensor_data);
+
+		if(dht11_sensor_response)
+		{
+			printf("Relative Humidity: %d.%d\r\n",dht11_sensor_data[0],dht11_sensor_data[1]);
+			printf("Temperature: %d.%d\r\n",dht11_sensor_data[2],dht11_sensor_data[3]);
+		}
+		else
+		{
+			printf("Sensor Read Failed\r\n");
+		}
+
+		delay_us(60000000);
+	}
+
+	return 0;
+}
+
+uint8_t check_sensor_response(void)
+{
+	uint8_t sample[2];
+
+	//Read First Sample
+	delay_us(40);
+	sample[0] = GPIOReadPin(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN);
+
+	//Read Second Sample
+	delay_us(80);
+	sample[1] = GPIOReadPin(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN);
+
+	//Wait till the end of the response
+	while((GPIOReadPin(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN)));
+
+	if(sample[0]==GPIO_LOW && sample[1]==GPIO_HIGH)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+uint8_t read_dht11_sensor(uint8_t *data)
+{
+	uint8_t sensor_response;
+	uint8_t current_bit;
+	uint8_t i;
+
+	//GPIO Configuration for Sensor Data Pin
+	EnablePeriClk(DHT11_SENSOR_PORT);
+	GPIOSetMode(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN, GPIO_MODE_OUTPUT);
+	GPIOSetOutputType(DHT11_SENSOR_PORT,DHT11_SENSOR_DATA_PIN,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(DHT11_SENSOR_PORT,DHT11_SENSOR_DATA_PIN,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(DHT11_SENSOR_PORT,DHT11_SENSOR_DATA_PIN,GPIO_PULL_UP);
+
+	//Triggering the Sensor
+	delay_us(18000);
+	GPIOSetMode(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN, GPIO_MODE_INPUT);
+
+	//Checking for Sensor Response
+	sensor_response = check_sensor_response();
+
+	//Reading the Sensor Data
+	if(sensor_response == 1)
+	{
+		for(i=0;i<40;i++)
+		{
+			while(!(GPIOReadPin(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN)));
+			delay_us(40);
+			current_bit = GPIOReadPin(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN);
+			if(current_bit == GPIO_HIGH)
+			{
+				data[(i/8)] |= (1 << (7-(i%8)));
+			}
+			else
+			{
+				data[(i/8)] &= ~(1 << (7-(i%8)));
+			}
+			while((GPIOReadPin(DHT11_SENSOR_PORT, DHT11_SENSOR_DATA_PIN)));
+		}
+	}
+
+	return sensor_response;
+}
+
+void configure_i2c(void)
+{
+	struct I2C_Config_t I2C_Config;
+
+	memset(&I2C_Config,0,sizeof(I2C_Config));
+
+	//GPIO Pin Configuration for I2C
+	EnablePeriClk(I2C_PORT);
+	GPIOSetMode(I2C_PORT,I2C1_SDA,GPIO_MODE_ALTFN);
+	GPIOSetMode(I2C_PORT,I2C1_SCL,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(I2C_PORT,I2C1_SDA,GPIO_ALTFN_4);
+	GPIOSetAltFn(I2C_PORT,I2C1_SCL,GPIO_ALTFN_4);
+	GPIOSetOutputType(I2C_PORT,I2C1_SDA,GPIO_OPTYPE_OD);
+	GPIOSetOutputType(I2C_PORT,I2C1_SCL,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(I2C_PORT,I2C1_SDA,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(I2C_PORT,I2C1_SCL,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(I2C_PORT,I2C1_SDA,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(I2C_PORT,I2C1_SCL,GPIO_PULL_UP);
+
+	//I2C Port Configuration
+	I2C_Config.I2C_PeriFreq = I2C_CONFIG_PERI_FREQ;
+	I2C_Config.I2C_SpeedMode = I2C_MODE_SM;
+	I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_0;
+	I2C_Config.I2C_CCRValue = I2C_CONFIG_CCR_VALUE;
+	I2C_Config.I2C_AckControl = I2C_ACK_ENABLE;
+
+	EnablePeriClk(I2C_DEVICE);
+
+	I2CPeriConfig(I2C_DEVICE,&I2C_Config);
+	I2CConfigureTrise(I2C_DEVICE,TRISE_VALUE);
+	I2CEnable(I2C_DEVICE);
+
+	return;
+}
+
+void LCD_SendChar(uint8_t ch)
+{
+	lcd_pcf8574_send_data(ch);
+}
