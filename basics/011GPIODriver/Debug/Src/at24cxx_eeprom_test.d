@@ -1,4 +1,4 @@
-Src/eeprom_at24cxx_test.o: ../Src/eeprom_at24cxx_test.c \
+Src/at24cxx_eeprom_test.o: ../Src/at24cxx_eeprom_test.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/gpio_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \

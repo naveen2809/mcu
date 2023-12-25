@@ -160,7 +160,7 @@ void eeprom_at24cxx_read_byte(uint16_t eeprom_address,uint8_t *buffer)
  80002a6:	4603      	mov	r3, r0
  80002a8:	6039      	str	r1, [r7, #0]
  80002aa:	80fb      	strh	r3, [r7, #6]
-	I2CMaster_ATC24xx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,1,eeprom_address,SlaveAddress);
+	I2CMaster_AT24Cxx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,1,eeprom_address,SlaveAddress);
  80002ac:	4b07      	ldr	r3, [pc, #28]	; (80002cc <eeprom_at24cxx_read_byte+0x2c>)
  80002ae:	6818      	ldr	r0, [r3, #0]
  80002b0:	4b07      	ldr	r3, [pc, #28]	; (80002d0 <eeprom_at24cxx_read_byte+0x30>)
@@ -170,7 +170,7 @@ void eeprom_at24cxx_read_byte(uint16_t eeprom_address,uint8_t *buffer)
  80002b8:	4613      	mov	r3, r2
  80002ba:	2201      	movs	r2, #1
  80002bc:	6839      	ldr	r1, [r7, #0]
- 80002be:	f000 fe57 	bl	8000f70 <I2CMaster_ATC24xx_EEPROM_Read_Sequential>
+ 80002be:	f000 fe57 	bl	8000f70 <I2CMaster_AT24Cxx_EEPROM_Read_Sequential>
 	return;
  80002c2:	bf00      	nop
 }
@@ -196,7 +196,7 @@ void eeprom_at24cxx_read_sequential(uint16_t eeprom_address,uint8_t *buffer,uint
  80002de:	80fb      	strh	r3, [r7, #6]
  80002e0:	4613      	mov	r3, r2
  80002e2:	80bb      	strh	r3, [r7, #4]
-	I2CMaster_ATC24xx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,length,eeprom_address,SlaveAddress);
+	I2CMaster_AT24Cxx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,length,eeprom_address,SlaveAddress);
  80002e4:	4b07      	ldr	r3, [pc, #28]	; (8000304 <eeprom_at24cxx_read_sequential+0x30>)
  80002e6:	6818      	ldr	r0, [r3, #0]
  80002e8:	88ba      	ldrh	r2, [r7, #4]
@@ -206,7 +206,7 @@ void eeprom_at24cxx_read_sequential(uint16_t eeprom_address,uint8_t *buffer,uint
  80002f0:	9300      	str	r3, [sp, #0]
  80002f2:	460b      	mov	r3, r1
  80002f4:	6839      	ldr	r1, [r7, #0]
- 80002f6:	f000 fe3b 	bl	8000f70 <I2CMaster_ATC24xx_EEPROM_Read_Sequential>
+ 80002f6:	f000 fe3b 	bl	8000f70 <I2CMaster_AT24Cxx_EEPROM_Read_Sequential>
 	return;
  80002fa:	bf00      	nop
 }
@@ -2281,9 +2281,9 @@ void I2CDisableAck(uint32_t *I2CAddress)
  8000f6c:	bc80      	pop	{r7}
  8000f6e:	4770      	bx	lr
 
-08000f70 <I2CMaster_ATC24xx_EEPROM_Read_Sequential>:
+08000f70 <I2CMaster_AT24Cxx_EEPROM_Read_Sequential>:
 
-void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint16_t eeprom_address, uint8_t SlaveAddress)
+void I2CMaster_AT24Cxx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint16_t eeprom_address, uint8_t SlaveAddress)
 {
  8000f70:	b580      	push	{r7, lr}
  8000f72:	b088      	sub	sp, #32
@@ -2313,7 +2313,7 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
  8000f8e:	f7ff ff87 	bl	8000ea0 <I2C_GetFlagStatus>
  8000f92:	4603      	mov	r3, r0
  8000f94:	2b00      	cmp	r3, #0
- 8000f96:	d0f8      	beq.n	8000f8a <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0x1a>
+ 8000f96:	d0f8      	beq.n	8000f8a <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0x1a>
 
 	//3. Send Slave Address Address Along with  Write Bit
 	SlaveAddress = SlaveAddress << 1;
@@ -2339,7 +2339,7 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
  8000fc0:	f7ff ff6e 	bl	8000ea0 <I2C_GetFlagStatus>
  8000fc4:	4603      	mov	r3, r0
  8000fc6:	2b00      	cmp	r3, #0
- 8000fc8:	d0f8      	beq.n	8000fbc <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0x4c>
+ 8000fc8:	d0f8      	beq.n	8000fbc <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0x4c>
 
 	I2C_ClearADDRStatusBit(I2CAddress);
  8000fca:	68f8      	ldr	r0, [r7, #12]
@@ -2356,7 +2356,7 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
 	if(data !=NULL)
  8000fda:	69bb      	ldr	r3, [r7, #24]
  8000fdc:	2b00      	cmp	r3, #0
- 8000fde:	d032      	beq.n	8001046 <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0xd6>
+ 8000fde:	d032      	beq.n	8001046 <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0xd6>
 	{
 		address_length = 2;
  8000fe0:	2302      	movs	r3, #2
@@ -2377,7 +2377,7 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
  8000ff8:	701a      	strb	r2, [r3, #0]
 
 		while(address_length > 0)
- 8000ffa:	e012      	b.n	8001022 <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0xb2>
+ 8000ffa:	e012      	b.n	8001022 <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0xb2>
 		{
 			while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_TXE));
  8000ffc:	bf00      	nop
@@ -2386,7 +2386,7 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
  8001002:	f7ff ff4d 	bl	8000ea0 <I2C_GetFlagStatus>
  8001006:	4603      	mov	r3, r0
  8001008:	2b00      	cmp	r3, #0
- 800100a:	d0f8      	beq.n	8000ffe <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0x8e>
+ 800100a:	d0f8      	beq.n	8000ffe <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0x8e>
 			pI2C->I2C_DR = *data;
  800100c:	69bb      	ldr	r3, [r7, #24]
  800100e:	781b      	ldrb	r3, [r3, #0]
@@ -2404,7 +2404,7 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
 		while(address_length > 0)
  8001022:	7ffb      	ldrb	r3, [r7, #31]
  8001024:	2b00      	cmp	r3, #0
- 8001026:	d1e9      	bne.n	8000ffc <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0x8c>
+ 8001026:	d1e9      	bne.n	8000ffc <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0x8c>
 		}
 
 		//6. Wait for last byte transmission to be completed
@@ -2417,13 +2417,13 @@ void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
  800102e:	f7ff ff37 	bl	8000ea0 <I2C_GetFlagStatus>
  8001032:	4603      	mov	r3, r0
  8001034:	2b01      	cmp	r3, #1
- 8001036:	d1f8      	bne.n	800102a <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0xba>
+ 8001036:	d1f8      	bne.n	800102a <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0xba>
  8001038:	2104      	movs	r1, #4
  800103a:	68f8      	ldr	r0, [r7, #12]
  800103c:	f7ff ff30 	bl	8000ea0 <I2C_GetFlagStatus>
  8001040:	4603      	mov	r3, r0
  8001042:	2b01      	cmp	r3, #1
- 8001044:	d1f1      	bne.n	800102a <I2CMaster_ATC24xx_EEPROM_Read_Sequential+0xba>
+ 8001044:	d1f1      	bne.n	800102a <I2CMaster_AT24Cxx_EEPROM_Read_Sequential+0xba>
 
 	}
 

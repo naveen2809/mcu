@@ -14,7 +14,7 @@ extern uint8_t SlaveAddress;
 
 void eeprom_at24cxx_read_byte(uint16_t eeprom_address,uint8_t *buffer)
 {
-	I2CMaster_AT24Cxx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,1,eeprom_address,SlaveAddress);
+	I2CMaster_ATC24xx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,1,eeprom_address,SlaveAddress);
 	return;
 }
 
@@ -26,7 +26,7 @@ void eeprom_at24cxx_read_byte_current_address(uint8_t *buffer)
 
 void eeprom_at24cxx_read_sequential(uint16_t eeprom_address,uint8_t *buffer,uint16_t length)
 {
-	I2CMaster_AT24Cxx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,length,eeprom_address,SlaveAddress);
+	I2CMaster_ATC24xx_EEPROM_Read_Sequential(I2C_DEVICE,buffer,length,eeprom_address,SlaveAddress);
 	return;
 }
 

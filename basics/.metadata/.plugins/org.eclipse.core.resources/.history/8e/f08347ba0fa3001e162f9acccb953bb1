@@ -113,6 +113,6 @@ void I2CMasterReceiveData(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint8
 void I2CSlaveSendData(uint32_t *I2CAddress,uint8_t *TxBuf,uint32_t Len);
 void I2CSlaveReceiveData(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len);
 
-void I2CMaster_AT24Cxx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint16_t eeprom_address, uint8_t SlaveAddress);
+void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint16_t eeprom_address, uint8_t SlaveAddress);
 
 #endif /* INC_I2C_DRIVER_H_ */

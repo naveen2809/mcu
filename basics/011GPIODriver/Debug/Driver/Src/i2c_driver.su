@@ -16,4 +16,4 @@
 ../Driver/Src/i2c_driver.c:304:6:I2CConfigureSlaveAddress	24	static
 ../Driver/Src/i2c_driver.c:318:6:I2CEnableAck	24	static
 ../Driver/Src/i2c_driver.c:325:6:I2CDisableAck	24	static
-../Driver/Src/i2c_driver.c:332:6:I2CMaster_ATC24xx_EEPROM_Read_Sequential	40	static
+../Driver/Src/i2c_driver.c:332:6:I2CMaster_AT24Cxx_EEPROM_Read_Sequential	40	static

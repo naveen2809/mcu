@@ -329,7 +329,7 @@ void I2CDisableAck(uint32_t *I2CAddress)
 	pI2C->I2C_CR1 &= ~(1 << I2C_CR1_ACK);
 }
 
-void I2CMaster_AT24Cxx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint16_t eeprom_address, uint8_t SlaveAddress)
+void I2CMaster_ATC24xx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint16_t eeprom_address, uint8_t SlaveAddress)
 {
 	uint8_t address_length;
 	uint8_t * data;
