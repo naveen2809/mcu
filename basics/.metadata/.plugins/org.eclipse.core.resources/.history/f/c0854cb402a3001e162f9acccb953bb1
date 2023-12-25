@@ -1,0 +1,73 @@
+/*
+ * temp_on_lcd.c
+ * Displaying the RH and Temperature data from DHT11 Sensor on I2C LCD Module
+ * Reference: dht11_sensor_driver.c and lcd_pcf8574_test.c
+ *  Created on: 24-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "i2c_driver.h"
+#include "general_purpose_timer.h"
+#include "lcd_driver_pcf8574.h"
+#include "dht11_driver.h"
+#include "common_utils.h"
+
+int main(void)
+{
+	//DHT11 Sensor Related Variables
+	uint8_t dht11_sensor_response;
+	uint8_t dht11_sensor_data[5];
+
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure the I2C Peripheral
+	configure_i2c();
+
+	//Disable printf() buffering
+	setbuf(stdout, NULL);
+
+	//Initialize the LCD module
+	delay_us(1000000);
+	lcd_pcf8574_init();
+	delay_us(100000);
+
+	while(1)
+	{
+		//Read the DHT11 Sensor
+		dht11_sensor_response = read_dht11_sensor(dht11_sensor_data);
+
+		if(dht11_sensor_response)
+		{
+			//Ensure that printf() is redirected to LCD in "syscalls.c" file
+			//Print RH Data
+			lcd_pcf8574_clear_screen();
+			delay_us(3000);
+			lcd_pcf8574_return_home();
+			delay_us(3000);
+			printf("RH:   %2d.%2d",dht11_sensor_data[0],dht11_sensor_data[1]);
+
+			//Print TEMP Data
+			lcd_pcf8574_set_position(1,0);
+			delay_us(3000);
+			printf("TEMP: %2d.%2d C",dht11_sensor_data[2],dht11_sensor_data[3]);
+		}
+		else
+		{
+			lcd_pcf8574_clear_screen();
+			delay_us(3000);
+			lcd_pcf8574_return_home();
+			delay_us(3000);
+			printf("Sensor Read Failed");
+		}
+
+		delay_us(5000000);
+	}
+
+	return 0;
+}

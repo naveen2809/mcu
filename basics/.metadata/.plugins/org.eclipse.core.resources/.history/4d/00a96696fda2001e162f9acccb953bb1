@@ -1,0 +1,16 @@
+/*
+ * at24cxx_eeprom_driver.h
+ *
+ *  Created on: 25-Dec-2023
+ *      Author: naveen
+ */
+
+#ifndef INC_AT24CXX_EEPROM_DRIVER_H_
+#define INC_AT24CXX_EEPROM_DRIVER_H_
+
+void eeprom_at24cxx_read_byte(uint16_t address,uint8_t *buffer);
+void eeprom_at24cxx_read_byte_current(uint8_t *buffer);
+void eeprom_at24cxx_read_page(uint16_t address,uint8_t *buffer,uint16_t length);
+void eeprom_at24cxx_read_page_current(uint8_t *buffer,uint16_t length);
+
+#endif /* INC_AT24CXX_EEPROM_DRIVER_H_ */

@@ -10,7 +10,7 @@
 struct General_Purpose_Timer_Handle_t TIM2_Handle;
 struct USART_Handle_t Test_USART;
 uint32_t * I2C_DEVICE = I2C1;
-uint8_t SlaveAddress = 0x27;
+uint8_t SlaveAddress = 0xA0;
 
 void delay_us(uint32_t delay)
 {

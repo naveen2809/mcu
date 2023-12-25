@@ -5,19 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/eeprom_at24cxx_test.c \
 ../Src/syscalls.c \
-../Src/sysmem.c \
-../Src/temp_on_lcd.c 
+../Src/sysmem.c 
 
 OBJS += \
+./Src/eeprom_at24cxx_test.o \
 ./Src/syscalls.o \
-./Src/sysmem.o \
-./Src/temp_on_lcd.o 
+./Src/sysmem.o 
 
 C_DEPS += \
+./Src/eeprom_at24cxx_test.d \
 ./Src/syscalls.d \
-./Src/sysmem.d \
-./Src/temp_on_lcd.d 
+./Src/sysmem.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/temp_on_lcd.d ./Src/temp_on_lcd.o ./Src/temp_on_lcd.su
+	-$(RM) ./Src/eeprom_at24cxx_test.d ./Src/eeprom_at24cxx_test.o ./Src/eeprom_at24cxx_test.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

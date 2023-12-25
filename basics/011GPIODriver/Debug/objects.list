@@ -1,3 +1,4 @@
+"./Driver/Src/at24cxx_eeprom_driver.o"
 "./Driver/Src/common_utils.o"
 "./Driver/Src/dht11_driver.o"
 "./Driver/Src/dma_driver.o"
@@ -11,7 +12,7 @@
 "./Driver/Src/stm32f4xx.o"
 "./Driver/Src/timer_driver.o"
 "./Driver/Src/usart_driver.o"
+"./Src/eeprom_at24cxx_test.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
-"./Src/temp_on_lcd.o"
 "./Startup/startup_stm32f407vgtx.o"
