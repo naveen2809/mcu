@@ -44,8 +44,8 @@ void eeprom_at24cxx_write_byte(uint16_t eeprom_address,uint8_t *buffer)
 
 	if(data !=NULL)
 	{
-		data[0] = (uint8_t) (eeprom_address >> 8);
-		data[1] = (uint8_t) (eeprom_address & 0xFF);
+		data[0] = (uint8_t) eeprom_address;
+		data[1] = (uint8_t) (eeprom_address >> 8);
 		data[2] = buffer[0];
 
 		I2CMasterSendData(I2C_DEVICE,data,3,SlaveAddress);
@@ -63,8 +63,8 @@ void eeprom_at24cxx_write_page(uint16_t eeprom_address,uint8_t *buffer,uint16_t 
 
 	if(data !=NULL)
 	{
-		data[0] = (uint8_t) (eeprom_address >> 8);
-		data[1] = (uint8_t) (eeprom_address & 0xFF);
+		data[0] = (uint8_t) eeprom_address;
+		data[1] = (uint8_t) (eeprom_address >> 8);
 
 		for(i=0;i<length;i++)
 		{

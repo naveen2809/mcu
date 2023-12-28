@@ -27,7 +27,7 @@ int main(void)
 	uint16_t length,i;
 
 	length = strlen(message);
-	length = 25;
+	length = 21;
 
 	//Configure the Timer
 	configure_delay_timer();

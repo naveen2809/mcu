@@ -27,7 +27,6 @@ int main(void)
 	uint16_t length,i;
 
 	length = strlen(message);
-	length = 25;
 
 	//Configure the Timer
 	configure_delay_timer();
@@ -37,7 +36,7 @@ int main(void)
 
 	//Configure the I2C Peripheral
 	configure_i2c();
-/*
+
 	//Write Byte to EEPROM
 	eeprom_at24cxx_write_byte(eeprom_address,(uint8_t *)message);
 
@@ -54,7 +53,7 @@ int main(void)
 
 	//Wait for EEPROM Write to be Completed
 	delay_us(5000000);
-*/
+
 	//Read String of Bytes from EEPROM
 	eeprom_at24cxx_read_sequential(eeprom_address,(uint8_t *)read_buffer,length);
 
