@@ -24,7 +24,7 @@ void configure_delay_timer(void)
 	//TIM2 Configuration
 	TIM2_Handle.pGeneral_Purpose_Timer = (struct General_Purpose_Timer_RegDef_t *) TIM2;
 	memset(&TIM2_Handle.General_Purpose_Timer_Config,0,sizeof(TIM2_Handle.General_Purpose_Timer_Config));
-	TIM2_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0x4;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0x1;
 	TIM2_Handle.General_Purpose_Timer_Config.Timer_AutoReloadValue = 0xFFFFFFFF;
 
 	EnablePeriClk(TIM2);

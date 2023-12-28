@@ -1,0 +1,6 @@
+../Driver/Src/at24cxx_eeprom_driver.c:15:6:eeprom_at24cxx_read_byte	24	static
+../Driver/Src/at24cxx_eeprom_driver.c:21:6:eeprom_at24cxx_read_byte_current_address	16	static
+../Driver/Src/at24cxx_eeprom_driver.c:27:6:eeprom_at24cxx_read_sequential	24	static
+../Driver/Src/at24cxx_eeprom_driver.c:33:6:eeprom_at24cxx_read_sequential_current_address	16	static
+../Driver/Src/at24cxx_eeprom_driver.c:39:6:eeprom_at24cxx_write_byte	24	static
+../Driver/Src/at24cxx_eeprom_driver.c:57:6:eeprom_at24cxx_write_page	24	static

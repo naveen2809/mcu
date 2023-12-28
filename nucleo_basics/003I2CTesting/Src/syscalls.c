@@ -30,7 +30,6 @@
 #include <sys/time.h>
 #include <sys/times.h>
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //					Implementation of printf like feature using ARM Cortex M3/M4/ ITM functionality
 //					This function will not work for ARM Cortex M0/M0+
@@ -69,6 +68,10 @@ extern int __io_getchar(void) __attribute__((weak));
 char *__env[1] = { 0 };
 char **environ = __env;
 
+
+//extern void UART_SendChar(uint8_t ch);
+
+extern void LCD_SendChar(uint8_t ch);
 
 /* Functions */
 void initialise_monitor_handles()
@@ -115,7 +118,9 @@ __attribute__((weak)) int _write(int file, char *ptr, int len)
   for (DataIdx = 0; DataIdx < len; DataIdx++)
   {
     //__io_putchar(*ptr++);
-    ITM_SendChar(*ptr++);
+    //ITM_SendChar(*ptr++);
+	UART_SendChar(*ptr++);
+    //LCD_SendChar(*ptr++);
   }
   return len;
 }

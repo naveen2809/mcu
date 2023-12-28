@@ -1,0 +1,2 @@
+../Driver/Src/dht11_driver.c:13:9:check_sensor_response	16	static
+../Driver/Src/dht11_driver.c:38:9:read_dht11_sensor	24	static

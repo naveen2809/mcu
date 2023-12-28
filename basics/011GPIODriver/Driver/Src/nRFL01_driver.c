@@ -260,6 +260,8 @@ void nrf_radio_rx_polling(void)
 	{
 		interrupt_source = nrf_radio_get_interrupt_source();
 
+		printf("Interrupt Source: %d\r\n",interrupt_source);
+
 		//Handle the interrupt source
 		if(interrupt_source == NRF_RADIO_INT_SRC_RX_DR)
 		{
@@ -299,6 +301,8 @@ uint8_t nrf_radio_get_interrupt_source(void)
 
 	//1. Read the STATUS register
 	status = nrf_radio_get_status_register();
+
+	printf("%d\r\n",status);
 
 	if(status & NRF_RADIO_INT_SRC_TX_DS_BITPOS)
 	{

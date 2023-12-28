@@ -20,11 +20,13 @@
 
 int main(void)
 {
-	uint16_t eeprom_address = 0x41;		//First byte of Page 1 (Address 65). Page size of EEPROM is 64 bytes
-	char message[]="Hello World!!!";
+	uint16_t eeprom_address = 0x81;		//First byte of Page 1 (Address 65). Page size of EEPROM is 64 bytes
+	char message[]="Hello, Brave New World!!!";
 	char read_buffer[READ_BUFFER_SIZE];
 
 	uint16_t length,i;
+
+	length = strlen(message);
 
 	//Configure the Timer
 	configure_delay_timer();
@@ -39,7 +41,7 @@ int main(void)
 	eeprom_at24cxx_write_byte(eeprom_address,(uint8_t *)message);
 
 	//Wait for EEPROM Write to be Completed
-	delay_us(2000000);
+	delay_us(30000);
 
 	//Read Byte from EEPROM
 	eeprom_at24cxx_read_byte(eeprom_address,(uint8_t *)read_buffer);
