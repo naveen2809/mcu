@@ -43,9 +43,9 @@ struct SPI_Handle_t
 	struct SPI_Config_t SPI_Config;
 	uint8_t SPI_Peripheral_Status;
 	uint8_t *TxBuf;
-	uint8_t Txlen;
+	uint32_t Txlen;
 	uint8_t *RxBuf;
-	uint8_t Rxlen;
+	uint32_t Rxlen;
 };
 
 #define SPI_CR1_CPHA			0
@@ -113,13 +113,13 @@ void SPIPeriConfig(uint32_t *SPIAddress, struct SPI_Config_t *pSPIConfig);
 void SPIEnable(uint32_t *SPIAddress);
 void SPIDisable(uint32_t *SPIAddress);
 uint8_t SPIGetFlags(uint32_t *SPIAddress, uint8_t Flag);
-void SPISendData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t len);
-void SPIRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t len);
-void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uint8_t len);
-void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t len);
-void SPIMasterRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t *RxBuf, uint8_t len);
-void SPISlaveSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t len);
-void SPISlaveRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *RxBuf, uint8_t len);
+void SPISendData(uint32_t *SPIAddress, uint8_t *TxBuf, uint32_t len);
+void SPIRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint32_t len);
+void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uint32_t len);
+void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint32_t len);
+void SPIMasterRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t *RxBuf, uint32_t len);
+void SPISlaveSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint32_t len);
+void SPISlaveRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *RxBuf, uint32_t len);
 void SPI_IRQ_Handler(struct SPI_Handle_t *pSPI_Handle);
 extern void SPI_ApplicationCallback(uint8_t Event);
 

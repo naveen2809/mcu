@@ -20,14 +20,14 @@
 
 int main(void)
 {
-	uint16_t eeprom_address = 0x0100;		//First byte of Page 1 (Address 65). Page size of EEPROM is 64 bytes
+	uint16_t eeprom_address = 0x4100;		//First byte of Page 1 (Address 65). Page size of EEPROM is 64 bytes
 	char message[]="Hello, World!!!";
 	char read_buffer[READ_BUFFER_SIZE];
 
 	uint16_t length,i;
 
 	length = strlen(message);
-	length = 25;
+	length = 10;
 
 	//Configure the Timer
 	configure_delay_timer();

@@ -1,0 +1,234 @@
+/*
+ * at45dbxx_spi_flash_test.c
+ *
+ *  Created on: 01-Jan-2024
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "spi_driver.h"
+#include "general_purpose_timer.h"
+#include "at45dbxx_flash_memory_driver.h"
+#include "common_utils.h"
+
+#define BUFFER_SIZE	256
+#define TEST_PIN	GPIO_PIN_1
+
+int main(void)
+{
+	uint32_t i;
+	uint8_t MemAddress[3] = {0x00,0x01,0x00};
+	uint8_t tx_buffer[BUFFER_SIZE];
+	uint8_t rx_buffer[BUFFER_SIZE];
+	uint8_t status;
+
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure the UART
+	configure_uart();
+
+	//Configure the SPI Peripheral
+	configure_spi();
+
+	//Configure the FLASH Module
+	at45dbxx_configure_flash();
+
+	//Configuring the Test Pin
+	GPIOSetMode(FLASH_PORT,TEST_PIN,GPIO_MODE_OUTPUT);
+	GPIOWritePin(FLASH_PORT,TEST_PIN,GPIO_LOW);
+
+	//Read and Print the Manufacturer and Device Information
+	at45dbxx_read_manufacturer_and_device_info(rx_buffer);
+
+	printf("\r\n");
+	printf("Manufacturer and Device ID: ");
+	for(i=0;i<AT45DBXX_MANUFACTURER_AND_DEVICE_INFO_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+
+	//Read Status Register
+	at45dbxx_read_status_register(rx_buffer);
+
+	printf("Status Register: ");
+	for(i=0;i<AT45DBXX_STATUS_REGISTER_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+
+	/*
+	//Read Buffer 1
+	at45dbxx_buffer_read(AT45DBXX_SRAM_BUFFER_1,MemAddress,rx_buffer,BUFFER_SIZE);
+	printf("Printing Buffer 1 Data Before Write: ");
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+
+	delay_us(10000000);
+
+	//Read Status Register
+	at45dbxx_read_status_register(rx_buffer);
+	printf("Status Register: ");
+	for(i=0;i<AT45DBXX_STATUS_REGISTER_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+*/
+
+
+	//Write Buffer 1
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		tx_buffer[i] = 0xAD;
+	}
+	at45dbxx_buffer_write(AT45DBXX_SRAM_BUFFER_1,MemAddress,tx_buffer,BUFFER_SIZE);
+
+	delay_us(1000000);
+
+	//Read Status Register
+	at45dbxx_read_status_register(rx_buffer);
+	printf("Status Register: ");
+	for(i=0;i<AT45DBXX_STATUS_REGISTER_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+
+/*
+	//Read Buffer 1
+	at45dbxx_buffer_read(AT45DBXX_SRAM_BUFFER_1,MemAddress,rx_buffer,BUFFER_SIZE);
+	printf("Printing Buffer 1 Data After Write: ");
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+	*/
+
+
+/*
+	//Erasing the Page
+	printf("Erasing the Page\r\n");
+	at45dbxx_page_erase(MemAddress);
+	delay_us(10000000);
+
+	//Read Status Register
+	at45dbxx_read_status_register(rx_buffer);
+	printf("Status Register: ");
+	for(i=0;i<AT45DBXX_STATUS_REGISTER_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+*/
+
+
+	//Reading the Page
+	at45dbxx_page_read(MemAddress,rx_buffer,BUFFER_SIZE);
+
+	printf("Printing the Page Data Before Erase and Write: ");
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+	delay_us(1000000);
+
+	//Write Page to Flash
+	GPIOWritePin(FLASH_PORT,TEST_PIN,GPIO_HIGH);
+	status = at45dbxx_buffer_to_page_program_without_erase(AT45DBXX_SRAM_BUFFER_1,MemAddress);
+	GPIOWritePin(FLASH_PORT,TEST_PIN,GPIO_LOW);
+	printf("Status of Page Program without Erase Operation: ");
+	error_handler(status);
+
+	status = at45dbxx_page_to_buffer_compare(AT45DBXX_SRAM_BUFFER_1,MemAddress);
+	if(status == AT45DBXX_BUFFER_AND_PAGE_EQUAL)
+	{
+		printf("PASS: Buffer and Page Contents are the Same\r\n");
+	}
+	else if(status == AT45DBXX_BUFFER_AND_PAGE_NOT_EQUAL)
+	{
+		printf("FAIL: Buffer and Page Contents are NOT the Same\r\n");
+	}
+
+	//Read Status Register
+	at45dbxx_read_status_register(rx_buffer);
+	printf("Status Register: ");
+	for(i=0;i<AT45DBXX_STATUS_REGISTER_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+
+	//Reading the Page
+	at45dbxx_page_read(MemAddress,rx_buffer,BUFFER_SIZE);
+
+	printf("Printing the Page Data After Erase and Write: ");
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+
+
+/*
+	//Continuous Array Read
+	at45dbxx_continuous_array_read(AT45DBXX_CONTINUOUS_ARRAY_READ_MODE_HIGH_FREQ1,MemAddress,rx_buffer,BUFFER_SIZE);
+
+	printf("Printing the FLASH Data: ");
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+*/
+
+
+/*
+	GPIOWritePin(FLASH_PORT,TEST_PIN,GPIO_HIGH);
+	status=at45dbxx_chip_erase();
+	GPIOWritePin(FLASH_PORT,TEST_PIN,GPIO_LOW);
+	error_handler(status);
+*/
+
+/*
+	//Reading the Page
+	at45dbxx_page_read(MemAddress,rx_buffer,BUFFER_SIZE);
+
+	printf("Printing the Page Data After Erase and Write: ");
+	for(i=0;i<BUFFER_SIZE;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+*/
+
+
+/*
+	//Read Status Register
+	at45dbxx_read_status_register(rx_buffer);
+	printf("Status Register: ");
+	for(i=0;i<AT45DBXX_STATUS_REGISTER_LEN;i++)
+	{
+		printf("%X ",rx_buffer[i]);
+	}
+	printf("\r\n");
+*/
+
+	while(1)
+	{
+
+	}
+
+	return 0;
+}

@@ -72,7 +72,7 @@ uint8_t SPIGetFlags(uint32_t *SPIAddress, uint8_t Flag)
 
 }
 
-void SPISendData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t len)
+void SPISendData(uint32_t *SPIAddress, uint8_t *TxBuf, uint32_t len)
 {
 	struct SPI_RegDef_t *pSPI = (struct SPI_RegDef_t *) SPIAddress;
 
@@ -91,7 +91,7 @@ void SPISendData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t len)
 	while(!SPIGetFlags(SPIAddress,SPI_SR_TXE)); //Waiting until the last byte is completely transmitted
 }
 
-void SPIRecvData(uint32_t *SPIAddress, uint8_t *RxBuf, uint8_t len)
+void SPIRecvData(uint32_t *SPIAddress, uint8_t *RxBuf, uint32_t len)
 {
 	struct SPI_RegDef_t *pSPI = (struct SPI_RegDef_t *) SPIAddress;
 
@@ -108,7 +108,7 @@ void SPIRecvData(uint32_t *SPIAddress, uint8_t *RxBuf, uint8_t len)
 	}
 }
 
-void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uint8_t len)
+void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uint32_t len)
 {
 	struct SPI_RegDef_t *pSPI = (struct SPI_RegDef_t *) SPIAddress;
 
@@ -138,7 +138,7 @@ void SPIMasterRecvData(uint32_t *SPIAddress, uint8_t *TxBuf, uint8_t *RxBuf, uin
 	return;
 }
 
-void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t len)
+void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint32_t len)
 {
 	//1. Wait until SPI Peripheral is ready
 	while(pSPI_Handle->SPI_Peripheral_Status!=SPI_PERIPHERAL_READY);
@@ -152,7 +152,7 @@ void SPIMasterSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8
 	pSPI_Handle->pSPI->SPI_CR2 |= (1 << SPI_CR2_TXEIE);
 }
 
-void SPIMasterRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t *RxBuf, uint8_t len)
+void SPIMasterRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t *RxBuf, uint32_t len)
 {
 	//1. Wait until SPI Peripheral is ready
 	while(pSPI_Handle->SPI_Peripheral_Status!=SPI_PERIPHERAL_READY);
@@ -169,7 +169,7 @@ void SPIMasterRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8
 	pSPI_Handle->pSPI->SPI_CR2 |= (1 << SPI_CR2_RXNEIE);
 }
 
-void SPISlaveSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_t len)
+void SPISlaveSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint32_t len)
 {
 	//1. Wait until SPI Peripheral is ready
 	while(pSPI_Handle->SPI_Peripheral_Status!=SPI_PERIPHERAL_READY);
@@ -183,7 +183,7 @@ void SPISlaveSendDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *TxBuf, uint8_
 	pSPI_Handle->pSPI->SPI_CR2 |= (1 << SPI_CR2_TXEIE);
 }
 
-void SPISlaveRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *RxBuf, uint8_t len)
+void SPISlaveRecvDataIT(struct SPI_Handle_t *pSPI_Handle, uint8_t *RxBuf, uint32_t len)
 {
 	uint8_t data;
 
