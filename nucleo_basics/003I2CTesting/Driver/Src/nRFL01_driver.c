@@ -174,7 +174,7 @@ uint8_t nrf_radio_transmit_packet_polling(uint8_t *buffer,uint8_t length,uint8_t
 	GPIOWritePin(RADIO_PORT,CE_PIN,GPIO_LOW);
 
 	//3. Wait for packet to be transmitted by NRF24L01 radio
-	delay_us(1000);
+	delay_us(100000);
 	nrf_radio_interrupt_callback();
 
 	while(nrf_packet_tx_state == NRF_RADIO_PKT_TX_START);              //Packet TX state is updated in the ISR

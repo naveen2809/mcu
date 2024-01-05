@@ -13,7 +13,7 @@
 "./Driver/Src/stm32f4xx.o"
 "./Driver/Src/timer_driver.o"
 "./Driver/Src/usart_driver.o"
-"./Src/at45dbxx_spi_flash_test.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
+"./Src/temp_on_lcd_over_wireless_rx.o"
 "./Startup/startup_stm32f407vgtx.o"

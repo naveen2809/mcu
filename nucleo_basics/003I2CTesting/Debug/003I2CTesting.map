@@ -2055,74 +2055,74 @@ LOAD /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.extern
 .iplt           0x0000000008002ef0        0x0
  .iplt          0x0000000008002ef0        0x0 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
 
-.rodata         0x0000000008002ef0      0x1f0
+.rodata         0x0000000008002ef0      0x1e8
                 0x0000000008002ef0                . = ALIGN (0x4)
  *(.rodata)
  .rodata        0x0000000008002ef0       0x88 ./Driver/Src/nRFL01_driver.o
- .rodata        0x0000000008002f78       0xcd ./Src/temp_on_lcd_over_wireless_tx.o
+ .rodata        0x0000000008002f78       0xc5 ./Src/temp_on_lcd_over_wireless_tx.o
  *(.rodata*)
- *fill*         0x0000000008003045        0x3 
+ *fill*         0x000000000800303d        0x3 
  .rodata._global_impure_ptr
-                0x0000000008003048        0x4 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-impure.o)
-                0x0000000008003048                _global_impure_ptr
+                0x0000000008003040        0x4 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-impure.o)
+                0x0000000008003040                _global_impure_ptr
  .rodata.__sf_fake_stderr
-                0x000000000800304c       0x20 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x000000000800304c                __sf_fake_stderr
+                0x0000000008003044       0x20 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000008003044                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x000000000800306c       0x20 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x000000000800306c                __sf_fake_stdin
+                0x0000000008003064       0x20 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000008003064                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x000000000800308c       0x20 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-findfp.o)
-                0x000000000800308c                __sf_fake_stdout
+                0x0000000008003084       0x20 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-findfp.o)
+                0x0000000008003084                __sf_fake_stdout
  .rodata._vfprintf_r.str1.1
-                0x00000000080030ac       0x11 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
+                0x00000000080030a4       0x11 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-nano-vfprintf.o)
  .rodata._printf_i.str1.1
-                0x00000000080030bd       0x22 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
-                0x00000000080030e0                . = ALIGN (0x4)
- *fill*         0x00000000080030df        0x1 
+                0x00000000080030b5       0x22 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x00000000080030d8                . = ALIGN (0x4)
+ *fill*         0x00000000080030d7        0x1 
 
-.rel.dyn        0x00000000080030e0        0x0
- .rel.iplt      0x00000000080030e0        0x0 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+.rel.dyn        0x00000000080030d8        0x0
+ .rel.iplt      0x00000000080030d8        0x0 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
 
-.ARM.extab      0x00000000080030e0        0x0
-                0x00000000080030e0                . = ALIGN (0x4)
+.ARM.extab      0x00000000080030d8        0x0
+                0x00000000080030d8                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00000000080030e0                . = ALIGN (0x4)
+                0x00000000080030d8                . = ALIGN (0x4)
 
-.ARM            0x00000000080030e0        0x0
-                0x00000000080030e0                . = ALIGN (0x4)
-                0x00000000080030e0                __exidx_start = .
+.ARM            0x00000000080030d8        0x0
+                0x00000000080030d8                . = ALIGN (0x4)
+                0x00000000080030d8                __exidx_start = .
  *(.ARM.exidx*)
-                0x00000000080030e0                __exidx_end = .
-                0x00000000080030e0                . = ALIGN (0x4)
+                0x00000000080030d8                __exidx_end = .
+                0x00000000080030d8                . = ALIGN (0x4)
 
-.preinit_array  0x00000000080030e0        0x0
-                0x00000000080030e0                . = ALIGN (0x4)
-                0x00000000080030e0                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x00000000080030d8        0x0
+                0x00000000080030d8                . = ALIGN (0x4)
+                0x00000000080030d8                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x00000000080030e0                PROVIDE (__preinit_array_end = .)
-                0x00000000080030e0                . = ALIGN (0x4)
+                0x00000000080030d8                PROVIDE (__preinit_array_end = .)
+                0x00000000080030d8                . = ALIGN (0x4)
 
-.init_array     0x00000000080030e0        0x4
-                0x00000000080030e0                . = ALIGN (0x4)
-                0x00000000080030e0                PROVIDE (__init_array_start = .)
+.init_array     0x00000000080030d8        0x4
+                0x00000000080030d8                . = ALIGN (0x4)
+                0x00000000080030d8                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x00000000080030e0        0x4 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
-                0x00000000080030e4                PROVIDE (__init_array_end = .)
-                0x00000000080030e4                . = ALIGN (0x4)
+ .init_array    0x00000000080030d8        0x4 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+                0x00000000080030dc                PROVIDE (__init_array_end = .)
+                0x00000000080030dc                . = ALIGN (0x4)
 
-.fini_array     0x00000000080030e4        0x4
-                0x00000000080030e4                . = ALIGN (0x4)
+.fini_array     0x00000000080030dc        0x4
+                0x00000000080030dc                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00000000080030e4        0x4 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
+ .fini_array    0x00000000080030dc        0x4 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x00000000080030e8                . = ALIGN (0x4)
-                0x00000000080030e8                _sidata = LOADADDR (.data)
+                0x00000000080030e0                . = ALIGN (0x4)
+                0x00000000080030e0                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x64 load address 0x00000000080030e8
+.data           0x0000000020000000       0x64 load address 0x00000000080030e0
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -2137,11 +2137,11 @@ LOAD /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.extern
                 0x0000000020000064                . = ALIGN (0x4)
                 0x0000000020000064                _edata = .
 
-.igot.plt       0x0000000020000064        0x0 load address 0x000000000800314c
+.igot.plt       0x0000000020000064        0x0 load address 0x0000000008003144
  .igot.plt      0x0000000020000064        0x0 /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.10.3-2021.10.linux64_1.0.100.202210260954/tools/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp/crtbegin.o
                 0x0000000020000064                . = ALIGN (0x4)
 
-.bss            0x0000000020000064       0xbc load address 0x000000000800314c
+.bss            0x0000000020000064       0xbc load address 0x0000000008003144
                 0x0000000020000064                _sbss = .
                 0x0000000020000064                __bss_start__ = _sbss
  *(.bss)
@@ -2194,7 +2194,7 @@ LOAD /home/naveen/st/stm32cubeide_1.11.2/plugins/com.st.stm32cube.ide.mcu.extern
                 0x0000000020000120                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000120      0x600 load address 0x000000000800314c
+                0x0000000020000120      0x600 load address 0x0000000008003144
                 0x0000000020000120                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 0x0000000020000120                PROVIDE (_end = .)

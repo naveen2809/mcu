@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00002d20  080001d0  080001d0  000101d0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000001f0  08002ef0  08002ef0  00012ef0  2**2
+  2 .rodata       000001e8  08002ef0  08002ef0  00012ef0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080030e0  080030e0  00020064  2**0
+  3 .ARM.extab    00000000  080030d8  080030d8  00020064  2**0
                   CONTENTS
-  4 .ARM          00000000  080030e0  080030e0  00020064  2**0
+  4 .ARM          00000000  080030d8  080030d8  00020064  2**0
                   CONTENTS
-  5 .preinit_array 00000000  080030e0  080030e0  00020064  2**0
+  5 .preinit_array 00000000  080030d8  080030d8  00020064  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  080030e0  080030e0  000130e0  2**2
+  6 .init_array   00000004  080030d8  080030d8  000130d8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  080030e4  080030e4  000130e4  2**2
+  7 .fini_array   00000004  080030dc  080030dc  000130dc  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00000064  20000000  080030e8  00020000  2**2
+  8 .data         00000064  20000000  080030e0  00020000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000000bc  20000064  0800314c  00020064  2**2
+  9 .bss          000000bc  20000064  08003144  00020064  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  20000120  0800314c  00020120  2**0
+ 10 ._user_heap_stack 00000600  20000120  08003144  00020120  2**0
                   ALLOC
  11 .ARM.attributes 0000002a  00000000  00000000  00020064  2**0
                   CONTENTS, READONLY
@@ -2203,7 +2203,7 @@ uint8_t nrf_radio_transmit_packet_polling(uint8_t *buffer,uint8_t length,uint8_t
  8000fa6:	70bb      	strb	r3, [r7, #2]
 
 	nrf_packet_tx_state = NRF_RADIO_PKT_TX_START;
- 8000fa8:	4b13      	ldr	r3, [pc, #76]	; (8000ff8 <nrf_radio_transmit_packet_polling+0x60>)
+ 8000fa8:	4b12      	ldr	r3, [pc, #72]	; (8000ff4 <nrf_radio_transmit_packet_polling+0x5c>)
  8000faa:	2202      	movs	r2, #2
  8000fac:	701a      	strb	r2, [r3, #0]
 
@@ -2219,7 +2219,7 @@ uint8_t nrf_radio_transmit_packet_polling(uint8_t *buffer,uint8_t length,uint8_t
 	GPIOWritePin(RADIO_PORT,CE_PIN,GPIO_HIGH);
  8000fba:	2201      	movs	r2, #1
  8000fbc:	2102      	movs	r1, #2
- 8000fbe:	480f      	ldr	r0, [pc, #60]	; (8000ffc <nrf_radio_transmit_packet_polling+0x64>)
+ 8000fbe:	480e      	ldr	r0, [pc, #56]	; (8000ff8 <nrf_radio_transmit_packet_polling+0x60>)
  8000fc0:	f7ff fda2 	bl	8000b08 <GPIOWritePin>
 	delay_us(10);
  8000fc4:	200a      	movs	r0, #10
@@ -2227,34 +2227,34 @@ uint8_t nrf_radio_transmit_packet_polling(uint8_t *buffer,uint8_t length,uint8_t
 	GPIOWritePin(RADIO_PORT,CE_PIN,GPIO_LOW);
  8000fca:	2200      	movs	r2, #0
  8000fcc:	2102      	movs	r1, #2
- 8000fce:	480b      	ldr	r0, [pc, #44]	; (8000ffc <nrf_radio_transmit_packet_polling+0x64>)
+ 8000fce:	480a      	ldr	r0, [pc, #40]	; (8000ff8 <nrf_radio_transmit_packet_polling+0x60>)
  8000fd0:	f7ff fd9a 	bl	8000b08 <GPIOWritePin>
 
 	//3. Wait for packet to be transmitted by NRF24L01 radio
-	delay_us(1000);
- 8000fd4:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
- 8000fd8:	f7ff f96a 	bl	80002b0 <delay_us>
+	delay_us(100000);
+ 8000fd4:	4809      	ldr	r0, [pc, #36]	; (8000ffc <nrf_radio_transmit_packet_polling+0x64>)
+ 8000fd6:	f7ff f96b 	bl	80002b0 <delay_us>
 	nrf_radio_interrupt_callback();
- 8000fdc:	f000 f830 	bl	8001040 <nrf_radio_interrupt_callback>
+ 8000fda:	f000 f831 	bl	8001040 <nrf_radio_interrupt_callback>
 
 	while(nrf_packet_tx_state == NRF_RADIO_PKT_TX_START);              //Packet TX state is updated in the ISR
- 8000fe0:	bf00      	nop
- 8000fe2:	4b05      	ldr	r3, [pc, #20]	; (8000ff8 <nrf_radio_transmit_packet_polling+0x60>)
- 8000fe4:	781b      	ldrb	r3, [r3, #0]
- 8000fe6:	2b02      	cmp	r3, #2
- 8000fe8:	d0fb      	beq.n	8000fe2 <nrf_radio_transmit_packet_polling+0x4a>
+ 8000fde:	bf00      	nop
+ 8000fe0:	4b04      	ldr	r3, [pc, #16]	; (8000ff4 <nrf_radio_transmit_packet_polling+0x5c>)
+ 8000fe2:	781b      	ldrb	r3, [r3, #0]
+ 8000fe4:	2b02      	cmp	r3, #2
+ 8000fe6:	d0fb      	beq.n	8000fe0 <nrf_radio_transmit_packet_polling+0x48>
 
 	return nrf_packet_tx_state;
- 8000fea:	4b03      	ldr	r3, [pc, #12]	; (8000ff8 <nrf_radio_transmit_packet_polling+0x60>)
- 8000fec:	781b      	ldrb	r3, [r3, #0]
+ 8000fe8:	4b02      	ldr	r3, [pc, #8]	; (8000ff4 <nrf_radio_transmit_packet_polling+0x5c>)
+ 8000fea:	781b      	ldrb	r3, [r3, #0]
 }
- 8000fee:	4618      	mov	r0, r3
- 8000ff0:	3708      	adds	r7, #8
- 8000ff2:	46bd      	mov	sp, r7
- 8000ff4:	bd80      	pop	{r7, pc}
- 8000ff6:	bf00      	nop
- 8000ff8:	2000010b 	.word	0x2000010b
- 8000ffc:	40020000 	.word	0x40020000
+ 8000fec:	4618      	mov	r0, r3
+ 8000fee:	3708      	adds	r7, #8
+ 8000ff0:	46bd      	mov	sp, r7
+ 8000ff2:	bd80      	pop	{r7, pc}
+ 8000ff4:	2000010b 	.word	0x2000010b
+ 8000ff8:	40020000 	.word	0x40020000
+ 8000ffc:	000186a0 	.word	0x000186a0
 
 08001000 <nrf_radio_receive_packet_callback>:
 
@@ -4558,14 +4558,14 @@ int main(void)
 			printf("DHT11 Sensor Read Successfully\r\n");
  8001d8c:	481f      	ldr	r0, [pc, #124]	; (8001e0c <main+0x12c>)
  8001d8e:	f000 fa0b 	bl	80021a8 <puts>
-			printf("Relative Humidity: %2d.%2d\r\n",dht11_sensor_data[0],dht11_sensor_data[1]);
+			printf("Relative Humidity: %d.%d\r\n",dht11_sensor_data[0],dht11_sensor_data[1]);
  8001d92:	f897 303c 	ldrb.w	r3, [r7, #60]	; 0x3c
  8001d96:	4619      	mov	r1, r3
  8001d98:	f897 303d 	ldrb.w	r3, [r7, #61]	; 0x3d
  8001d9c:	461a      	mov	r2, r3
  8001d9e:	481c      	ldr	r0, [pc, #112]	; (8001e10 <main+0x130>)
  8001da0:	f000 f97c 	bl	800209c <iprintf>
-			printf("Temperature: %2d.%2d C\r\n",dht11_sensor_data[2],dht11_sensor_data[3]);
+			printf("Temperature: %d.%d C\r\n",dht11_sensor_data[2],dht11_sensor_data[3]);
  8001da4:	f897 303e 	ldrb.w	r3, [r7, #62]	; 0x3e
  8001da8:	4619      	mov	r1, r3
  8001daa:	f897 303f 	ldrb.w	r3, [r7, #63]	; 0x3f
@@ -4574,9 +4574,9 @@ int main(void)
  8001db2:	f000 f973 	bl	800209c <iprintf>
 
 			//Transmit the sensor readings over wireless link
-			status = nrf_radio_transmit_packet_polling(dht11_sensor_data,4,NRF_RADIO_NO_ACK);
+			status = nrf_radio_transmit_packet_polling(dht11_sensor_data,4,NRF_RADIO_ACK);
  8001db6:	f107 033c 	add.w	r3, r7, #60	; 0x3c
- 8001dba:	2201      	movs	r2, #1
+ 8001dba:	2200      	movs	r2, #0
  8001dbc:	2104      	movs	r1, #4
  8001dbe:	4618      	mov	r0, r3
  8001dc0:	f7ff f8ea 	bl	8000f98 <nrf_radio_transmit_packet_polling>
@@ -4625,13 +4625,13 @@ int main(void)
  8001e02:	f7fe fa55 	bl	80002b0 <delay_us>
 		dht11_sensor_response = read_dht11_sensor(dht11_sensor_data);
  8001e06:	e7b5      	b.n	8001d74 <main+0x94>
- 8001e08:	08003040 	.word	0x08003040
+ 8001e08:	08003038 	.word	0x08003038
  8001e0c:	08002f78 	.word	0x08002f78
  8001e10:	08002f98 	.word	0x08002f98
- 8001e14:	08002fb8 	.word	0x08002fb8
- 8001e18:	08002fd4 	.word	0x08002fd4
- 8001e1c:	08002ffc 	.word	0x08002ffc
- 8001e20:	08003020 	.word	0x08003020
+ 8001e14:	08002fb4 	.word	0x08002fb4
+ 8001e18:	08002fcc 	.word	0x08002fcc
+ 8001e1c:	08002ff4 	.word	0x08002ff4
+ 8001e20:	08003018 	.word	0x08003018
  8001e24:	004c4b40 	.word	0x004c4b40
 
 08001e28 <Reset_Handler>:
@@ -4725,7 +4725,7 @@ LoopForever:
   ldr r1, =_edata
  8001e68:	20000064 	.word	0x20000064
   ldr r2, =_sidata
- 8001e6c:	080030e8 	.word	0x080030e8
+ 8001e6c:	080030e0 	.word	0x080030e0
   ldr r2, =_sbss
  8001e70:	20000064 	.word	0x20000064
   ldr r4, =_ebss
@@ -4774,10 +4774,10 @@ Infinite_Loop:
  8001eba:	4798      	blx	r3
  8001ebc:	3601      	adds	r6, #1
  8001ebe:	e7f2      	b.n	8001ea6 <__libc_init_array+0x1e>
- 8001ec0:	080030e0 	.word	0x080030e0
- 8001ec4:	080030e0 	.word	0x080030e0
- 8001ec8:	080030e0 	.word	0x080030e0
- 8001ecc:	080030e4 	.word	0x080030e4
+ 8001ec0:	080030d8 	.word	0x080030d8
+ 8001ec4:	080030d8 	.word	0x080030d8
+ 8001ec8:	080030d8 	.word	0x080030d8
+ 8001ecc:	080030dc 	.word	0x080030dc
 
 08001ed0 <memset>:
  8001ed0:	4402      	add	r2, r0
@@ -5109,9 +5109,9 @@ Infinite_Loop:
  8002196:	6022      	str	r2, [r4, #0]
  8002198:	701d      	strb	r5, [r3, #0]
  800219a:	e7db      	b.n	8002154 <_puts_r+0x88>
- 800219c:	0800306c 	.word	0x0800306c
- 80021a0:	0800308c 	.word	0x0800308c
- 80021a4:	0800304c 	.word	0x0800304c
+ 800219c:	08003064 	.word	0x08003064
+ 80021a0:	08003084 	.word	0x08003084
+ 80021a4:	08003044 	.word	0x08003044
 
 080021a8 <puts>:
  80021a8:	4b02      	ldr	r3, [pc, #8]	; (80021b4 <puts+0xc>)
@@ -5209,9 +5209,9 @@ Infinite_Loop:
  8002268:	f04f 37ff 	mov.w	r7, #4294967295	; 0xffffffff
  800226c:	e7ea      	b.n	8002244 <__swbuf_r+0x6c>
  800226e:	bf00      	nop
- 8002270:	0800306c 	.word	0x0800306c
- 8002274:	0800308c 	.word	0x0800308c
- 8002278:	0800304c 	.word	0x0800304c
+ 8002270:	08003064 	.word	0x08003064
+ 8002274:	08003084 	.word	0x08003084
+ 8002278:	08003044 	.word	0x08003044
 
 0800227c <__swsetup_r>:
  800227c:	4b32      	ldr	r3, [pc, #200]	; (8002348 <__swsetup_r+0xcc>)
@@ -5303,9 +5303,9 @@ Infinite_Loop:
  8002344:	e7f7      	b.n	8002336 <__swsetup_r+0xba>
  8002346:	bf00      	nop
  8002348:	20000000 	.word	0x20000000
- 800234c:	0800306c 	.word	0x0800306c
- 8002350:	0800308c 	.word	0x0800308c
- 8002354:	0800304c 	.word	0x0800304c
+ 800234c:	08003064 	.word	0x08003064
+ 8002350:	08003084 	.word	0x08003084
+ 8002354:	08003044 	.word	0x08003044
 
 08002358 <__sflush_r>:
  8002358:	898a      	ldrh	r2, [r1, #12]
@@ -5481,9 +5481,9 @@ Infinite_Loop:
  80024c2:	bf08      	it	eq
  80024c4:	68ec      	ldreq	r4, [r5, #12]
  80024c6:	e7da      	b.n	800247e <_fflush_r+0x22>
- 80024c8:	0800306c 	.word	0x0800306c
- 80024cc:	0800308c 	.word	0x0800308c
- 80024d0:	0800304c 	.word	0x0800304c
+ 80024c8:	08003064 	.word	0x08003064
+ 80024cc:	08003084 	.word	0x08003084
+ 80024d0:	08003044 	.word	0x08003044
 
 080024d4 <std>:
  80024d4:	2300      	movs	r3, #0
@@ -5608,7 +5608,7 @@ Infinite_Loop:
  80025e6:	61a3      	str	r3, [r4, #24]
  80025e8:	e7d2      	b.n	8002590 <__sinit+0xc>
  80025ea:	bf00      	nop
- 80025ec:	08003048 	.word	0x08003048
+ 80025ec:	08003040 	.word	0x08003040
  80025f0:	0800251d 	.word	0x0800251d
 
 080025f4 <__sfp>:
@@ -5663,7 +5663,7 @@ Infinite_Loop:
  8002672:	603b      	str	r3, [r7, #0]
  8002674:	e7ee      	b.n	8002654 <__sfp+0x60>
  8002676:	bf00      	nop
- 8002678:	08003048 	.word	0x08003048
+ 8002678:	08003040 	.word	0x08003040
  800267c:	ffff0001 	.word	0xffff0001
 
 08002680 <_fwalk_reent>:
@@ -6083,12 +6083,12 @@ Infinite_Loop:
  8002a30:	f000 f880 	bl	8002b34 <_printf_i>
  8002a34:	e7e4      	b.n	8002a00 <_vfiprintf_r+0x208>
  8002a36:	bf00      	nop
- 8002a38:	0800306c 	.word	0x0800306c
- 8002a3c:	0800308c 	.word	0x0800308c
- 8002a40:	0800304c 	.word	0x0800304c
- 8002a44:	080030ac 	.word	0x080030ac
- 8002a48:	080030b2 	.word	0x080030b2
- 8002a4c:	080030b6 	.word	0x080030b6
+ 8002a38:	08003064 	.word	0x08003064
+ 8002a3c:	08003084 	.word	0x08003084
+ 8002a40:	08003044 	.word	0x08003044
+ 8002a44:	080030a4 	.word	0x080030a4
+ 8002a48:	080030aa 	.word	0x080030aa
+ 8002a4c:	080030ae 	.word	0x080030ae
  8002a50:	00000000 	.word	0x00000000
  8002a54:	080027d3 	.word	0x080027d3
 
@@ -6426,8 +6426,8 @@ Infinite_Loop:
  8002d70:	f104 0619 	add.w	r6, r4, #25
  8002d74:	e7f5      	b.n	8002d62 <_printf_i+0x22e>
  8002d76:	bf00      	nop
- 8002d78:	080030bd 	.word	0x080030bd
- 8002d7c:	080030ce 	.word	0x080030ce
+ 8002d78:	080030b5 	.word	0x080030b5
+ 8002d7c:	080030c6 	.word	0x080030c6
 
 08002d80 <__sread>:
  8002d80:	b510      	push	{r4, lr}

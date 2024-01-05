@@ -10,7 +10,8 @@
 struct General_Purpose_Timer_Handle_t TIM2_Handle;
 struct USART_Handle_t Test_USART;
 uint32_t * I2C_DEVICE = I2C1;
-uint8_t SlaveAddress = 0x50;
+uint8_t SlaveAddress = 0x27;								//PCF8574 I/O Expander Address
+//uint8_t SlaveAddress = 0x50;								//AT24CXX EEPROM Address
 
 void delay_us(uint32_t delay)
 {

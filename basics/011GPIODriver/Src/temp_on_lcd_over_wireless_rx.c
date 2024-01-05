@@ -26,16 +26,16 @@ int main(void)
 
 	//Configure the LCD Display
 	//a. Configure the I2C Peripheral
-	//configure_i2c();
-	configure_uart();
+	configure_i2c();
+	//configure_uart();
 
 	//b. Disable printf() buffering
-	//setbuf(stdout, NULL);
+	setbuf(stdout, NULL);
 
 	//c. Initialize the LCD Display
-	//delay_us(1000000);
-	//lcd_pcf8574_init();
-	//delay_us(100000);
+	delay_us(1000000);
+	lcd_pcf8574_init();
+	delay_us(100000);
 
 	//Configure the SPI Port connecting to NRF24L01 Radio
 	configure_spi();
@@ -73,16 +73,16 @@ void nrf_radio_packet_received_application_callback(uint8_t *buffer, uint8_t len
 	//Ensure that printf is redirected to LCD is "syscalls.c" file
 
 	//Print RH Data
-	//lcd_pcf8574_clear_screen();
-	//delay_us(3000);
-	//lcd_pcf8574_return_home();
-	//delay_us(3000);
-	printf("RH:   %2d.%2d\r\n",buffer[0],buffer[1]);
+	lcd_pcf8574_clear_screen();
+	delay_us(3000);
+	lcd_pcf8574_return_home();
+	delay_us(3000);
+	printf("RH:   %d.%d",buffer[0],buffer[1]);
 
 	//Print TEMP Data
-	//lcd_pcf8574_set_position(1,0);
+	lcd_pcf8574_set_position(1,0);
 	delay_us(3000);
-	printf("TEMP: %2d.%2d C\r\n",buffer[2],buffer[3]);
+	printf("TEMP: %d.%d C",buffer[2],buffer[3]);
 
 	return;
 }

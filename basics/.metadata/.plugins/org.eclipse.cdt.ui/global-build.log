@@ -1,31 +1,21 @@
-12:34:53 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+22:48:36 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/at45dbxx_spi_flash_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/at45dbxx_spi_flash_test.d" -MT"Src/at45dbxx_spi_flash_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/at45dbxx_spi_flash_test.o"
-../Src/at45dbxx_spi_flash_test.c: In function 'main':
-../Src/at45dbxx_spi_flash_test.c:27:10: warning: unused variable 'status' [-Wunused-variable]
-   27 |  uint8_t status;
-      |          ^~~~~~
-../Src/at45dbxx_spi_flash_test.c:25:10: warning: unused variable 'tx_buffer' [-Wunused-variable]
-   25 |  uint8_t tx_buffer[BUFFER_SIZE];
-      |          ^~~~~~~~~
-../Src/at45dbxx_spi_flash_test.c:24:10: warning: unused variable 'MemAddress' [-Wunused-variable]
-   24 |  uint8_t MemAddress[3] = {0x00,0x01,0x00};
-      |          ^~~~~~~~~~
+arm-none-eabi-gcc "../Src/syscalls.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/syscalls.d" -MT"Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/syscalls.o"
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011GPIODriver.elf
  
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-  10608	    108	   1660	  12376	   3058	011GPIODriver.elf
+  11932	    116	   1700	  13748	   35b4	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
  
-12:34:58 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+22:48:41 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-  10608	    108	   1660	  12376	   3058	011GPIODriver.elf
+  11932	    116	   1700	  13748	   35b4	011GPIODriver.elf
 Finished building: default.size.stdout
  

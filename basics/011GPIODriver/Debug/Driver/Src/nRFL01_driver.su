@@ -5,10 +5,10 @@
 ../Driver/Src/nRFL01_driver.c:201:28:nrf_radio_packet_received_application_callback	16	static
 ../Driver/Src/nRFL01_driver.c:206:6:nrf_radio_interrupt_callback	16	static
 ../Driver/Src/nRFL01_driver.c:254:6:nrf_radio_rx_polling	16	static
-../Driver/Src/nRFL01_driver.c:281:9:nrf_radio_get_status_register	16	static
-../Driver/Src/nRFL01_driver.c:298:9:nrf_radio_get_interrupt_source	16	static
-../Driver/Src/nRFL01_driver.c:327:6:nrf_radio_retreive_packet_from_fifo	16	static
-../Driver/Src/nRFL01_driver.c:348:9:nrf_radio_get_rx_packet_length	16	static
-../Driver/Src/nRFL01_driver.c:366:6:nrf_radio_send_packet_to_fifo	24	static
-../Driver/Src/nRFL01_driver.c:390:6:nrf_radio_cmd_write	16	static
-../Driver/Src/nRFL01_driver.c:397:6:nrf_radio_flush_tx	8	static
+../Driver/Src/nRFL01_driver.c:287:9:nrf_radio_get_status_register	16	static
+../Driver/Src/nRFL01_driver.c:304:9:nrf_radio_get_interrupt_source	16	static
+../Driver/Src/nRFL01_driver.c:333:6:nrf_radio_retreive_packet_from_fifo	16	static
+../Driver/Src/nRFL01_driver.c:354:9:nrf_radio_get_rx_packet_length	16	static
+../Driver/Src/nRFL01_driver.c:372:6:nrf_radio_send_packet_to_fifo	24	static
+../Driver/Src/nRFL01_driver.c:396:6:nrf_radio_cmd_write	16	static
+../Driver/Src/nRFL01_driver.c:403:6:nrf_radio_flush_tx	8	static

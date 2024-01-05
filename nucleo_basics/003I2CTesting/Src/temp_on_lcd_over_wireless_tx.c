@@ -66,11 +66,11 @@ int main(void)
 		{
 			//Ensure that printf() is redirected to UART in "syscalls.c" file
 			printf("DHT11 Sensor Read Successfully\r\n");
-			printf("Relative Humidity: %2d.%2d\r\n",dht11_sensor_data[0],dht11_sensor_data[1]);
-			printf("Temperature: %2d.%2d C\r\n",dht11_sensor_data[2],dht11_sensor_data[3]);
+			printf("Relative Humidity: %d.%d\r\n",dht11_sensor_data[0],dht11_sensor_data[1]);
+			printf("Temperature: %d.%d C\r\n",dht11_sensor_data[2],dht11_sensor_data[3]);
 
 			//Transmit the sensor readings over wireless link
-			status = nrf_radio_transmit_packet_polling(dht11_sensor_data,4,NRF_RADIO_NO_ACK);
+			status = nrf_radio_transmit_packet_polling(dht11_sensor_data,4,NRF_RADIO_ACK);
 			if(status == NRF_RADIO_PKT_TX_COMPLETE)
 			{
 				//Print Message
@@ -90,10 +90,16 @@ int main(void)
 		delay_us(5000000);
 	}
 
+
 /*
+	count=0;
+
 
 	while(1)
 	{
+
+		dht11_sensor_data[1]=(uint8_t)count;
+		dht11_sensor_data[3]=(uint8_t)count;
 		//Transmit the sensor readings over wireless link
 		status = nrf_radio_transmit_packet_polling(dht11_sensor_data,4,NRF_RADIO_ACK);
 		if(status == NRF_RADIO_PKT_TX_COMPLETE)
@@ -106,7 +112,9 @@ int main(void)
 			//Print Message
 			printf("Packet %ld Transmission Failed\r\n",++count);
 		}
+		delay_us(5000000);
 	}
 */
+
 	return 0;
 }

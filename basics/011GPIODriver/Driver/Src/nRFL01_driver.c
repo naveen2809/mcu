@@ -260,7 +260,7 @@ void nrf_radio_rx_polling(void)
 	{
 		interrupt_source = nrf_radio_get_interrupt_source();
 
-		printf("Interrupt Source: %d\r\n",interrupt_source);
+		//printf("Interrupt Source: %d\r\n",interrupt_source);
 
 		//Handle the interrupt source
 		if(interrupt_source == NRF_RADIO_INT_SRC_RX_DR)
@@ -269,11 +269,17 @@ void nrf_radio_rx_polling(void)
 			nrf_radio_packet_received_application_callback((uint8_t *)(rx_buffer+1),(rx_packet_length-1));
 			status = NRF_RADIO_INT_SRC_RX_DR_BITPOS;
 
+			//printf("Status Before Clearing = %d\r\n",nrf_radio_get_status_register());
+
 			//4. Clear the interrupt by writing to STATUS Register
 			cmd_buffer[0] = NRF_RADIO_CMD_W_REGISTER_STATUS;
 			cmd_buffer[1] = status;
 			cmd_packet_length = 2;
 			nrf_radio_cmd_write((uint8_t *)cmd_buffer,cmd_packet_length);
+
+			delay_us(5000);
+
+			//printf("Status After Clearing = %d\r\n",nrf_radio_get_status_register());
 		}
 	}
 }
@@ -302,7 +308,7 @@ uint8_t nrf_radio_get_interrupt_source(void)
 	//1. Read the STATUS register
 	status = nrf_radio_get_status_register();
 
-	printf("%d\r\n",status);
+	//printf("%d\r\n",status);
 
 	if(status & NRF_RADIO_INT_SRC_TX_DS_BITPOS)
 	{
@@ -350,7 +356,7 @@ uint8_t nrf_radio_get_rx_packet_length(void)
 
 	uint8_t length;
 	//1. Read the RX_PW_P0 Register
-	cmd_buffer[0] = NRF_RADIO_CMD_R_REGISTER_RX_PW_P0;
+	cmd_buffer[0] = NRF_RADIO_CMD_R_RX_PL_WID;
 	cmd_buffer[1] = 0x00;
 	cmd_packet_length = 2;
 
