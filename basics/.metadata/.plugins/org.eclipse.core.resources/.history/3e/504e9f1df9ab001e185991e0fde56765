@@ -1,0 +1,10 @@
+/*
+ * rtc_driver.c
+ *
+ *  Created on: 05-Jan-2024
+ *      Author: naveen
+ */
+
+#include "rtc_driver.h"
+#include "common_utils.h"
+

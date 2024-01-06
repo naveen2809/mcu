@@ -1,0 +1,23 @@
+/*
+ * rtc_stm32_test.c
+ *
+ *  Created on: 06-Jan-2024
+ *      Author: naveen
+ */
+
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "rtc_driver.h"
+#include "common_utils.h"
+
+int main(void)
+{
+
+	printf("Hello World\r\n");
+
+	return 0;
+}

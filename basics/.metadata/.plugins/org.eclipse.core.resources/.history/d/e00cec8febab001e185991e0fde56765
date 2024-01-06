@@ -1,0 +1,14 @@
+/*
+ * rtc_driver.h
+ *
+ *  Created on: 05-Jan-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_RTC_DRIVER_H_
+#define INC_RTC_DRIVER_H_
+
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+
+#endif /* INC_RTC_DRIVER_H_ */

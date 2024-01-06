@@ -1,0 +1,73 @@
+/*
+ * rtc_stm32_test.c
+ *
+ *  Created on: 06-Jan-2024
+ *      Author: naveen
+ */
+
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "rtc_driver.h"
+#include "common_utils.h"
+
+#define ARRAY_SIZE	100
+
+struct Date date;
+struct Time time;
+
+int main(void)
+{
+
+	struct RTC_Config_t stm32_rtc_config;
+
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure the LCD Display
+	//a. Configure the I2C Peripheral
+	configure_i2c();
+
+	//b. Disable printf() buffering
+	setbuf(stdout, NULL);
+
+	//c. Initialize the LCD Display
+	delay_us(1000000);
+	lcd_pcf8574_init();
+	delay_us(100000);
+
+	//Configure STM32 RTC Peripheral
+	memset(&stm32_rtc_config,0,sizeof(stm32_rtc_config));
+	stm32_rtc_config.RTCClockSource = RTC_CLK_SRC_HSE;
+	stm32_rtc_config.RTCClockHSEPrescaler = RTC_CLK_PRESCALER_DIV_8;
+	stm32_rtc_config.RTCClockPrescalerA = 99;
+	stm32_rtc_config.RTCClockPrescalerS = 9999;
+	stm32_rtc_config.RTCClockSecondsUnits = 0;
+	stm32_rtc_config.RTCClockSecondsTens = 0;
+	stm32_rtc_config.RTCClockMinutesUnits = 0;
+	stm32_rtc_config.RTCClockMinutesTens = 3;
+	stm32_rtc_config.RTCClockHoursUnits = 5;
+	stm32_rtc_config.RTCClockHoursTens = 1;
+	stm32_rtc_config.RTCClockAMPM = 0;
+	stm32_rtc_config.RTCClockDateUnits = 6;
+	stm32_rtc_config.RTCClockDateTens = 0;
+	stm32_rtc_config.RTCClockMonthUnits = 1;
+	stm32_rtc_config.RTCClockMonthTens = 0;
+	stm32_rtc_config.RTCClockYearUnits = 4;
+	stm32_rtc_config.RTCClockYearTens = 2;
+	stm32_rtc_config.RTCClockDayOfWeek = 6;
+
+	RTC_Config_Calendar(&stm32_rtc_config);
+	delay_us(1000000);
+
+	while(1)
+	{
+		RTC_Read_Calendar(&date,&time);
+		RTC_Display_Calendar_LCD(&date,&time);
+	}
+
+	return 0;
+}

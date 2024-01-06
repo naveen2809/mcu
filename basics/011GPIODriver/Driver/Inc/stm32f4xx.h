@@ -158,6 +158,8 @@
 #define NVIC_ISER_BASE_ADDR				0xE000E100UL
 #define NVIC_ICER_BASE_ADDR				0XE000E180UL
 
+#define RTC_BASE_ADDR					0x40002800UL
+
 #define FLAG_SET 			1
 #define FLAG_RESET         	0
 

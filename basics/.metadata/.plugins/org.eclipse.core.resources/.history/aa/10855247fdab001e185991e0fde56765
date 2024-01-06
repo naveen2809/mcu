@@ -1,0 +1,17 @@
+/*
+ * rtc_driver.c
+ *
+ *  Created on: 05-Jan-2024
+ *      Author: naveen
+ */
+
+#include "rtc_driver.h"
+#include "common_utils.h"
+
+void RTC_Calendar_Config(struct RTC_Config_t *pRTCConfig)
+{
+	//1. Configure and Enable the RTC Clock
+
+	//2. Configure the RTC Calendar Parameters
+
+}

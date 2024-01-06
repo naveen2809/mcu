@@ -5,19 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/rtc_stm32_test.c \
 ../Src/syscalls.c \
-../Src/sysmem.c \
-../Src/temp_on_lcd_over_wireless_rx.c 
+../Src/sysmem.c 
 
 OBJS += \
+./Src/rtc_stm32_test.o \
 ./Src/syscalls.o \
-./Src/sysmem.o \
-./Src/temp_on_lcd_over_wireless_rx.o 
+./Src/sysmem.o 
 
 C_DEPS += \
+./Src/rtc_stm32_test.d \
 ./Src/syscalls.d \
-./Src/sysmem.d \
-./Src/temp_on_lcd_over_wireless_rx.d 
+./Src/sysmem.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/temp_on_lcd_over_wireless_rx.d ./Src/temp_on_lcd_over_wireless_rx.o ./Src/temp_on_lcd_over_wireless_rx.su
+	-$(RM) ./Src/rtc_stm32_test.d ./Src/rtc_stm32_test.o ./Src/rtc_stm32_test.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

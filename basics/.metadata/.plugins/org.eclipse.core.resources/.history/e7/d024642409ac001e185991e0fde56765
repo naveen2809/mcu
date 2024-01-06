@@ -1,0 +1,117 @@
+/*
+ * rtc_driver.c
+ *
+ *  Created on: 05-Jan-2024
+ *      Author: naveen
+ */
+
+#include "rtc_driver.h"
+#include "common_utils.h"
+
+uint32_t *pRCC_CR = (uint32_t *) RCC_CR_REG_ADDR;
+uint32_t *pRCC_CFGR = (uint32_t *) RCC_CFGR_REG_ADDR;
+uint32_t *pRCC_BDCR = (uint32_t *) RCC_BDCR_REG_ADDR;
+
+
+uint32_t *pPWR_CR = (uint32_t *) RCC_BDCR_REG_ADDR;
+
+void RTC_Config_Calendar(struct RTC_Config_t *pRTCConfig)
+{
+	//1. Configure and Enable the RTC Clock
+	//1.a Configure the RTC Clock Source in in RCC_BDCR
+
+	*pRCC_BDCR &= ~(3 << RCC_BDCR_RTCSEL);
+	*pRCC_BDCR |= (pRTCConfig->RTCClockSource << RCC_BDCR_RTCSEL);
+
+	//1.b If the RTC Clock Source is HSE, Turn On the HSE Oscillator
+	//Also, configure the HSE PreScaler to generate 1 MHz RTCCLK
+	if(pRTCConfig->RTCClockSource == RTC_CLK_SRC_HSE)
+	{
+		//Turning on the HSE Oscillator
+		*pRCC_CR |= (1 << HSE_ON_BITPOS);					//Turning on the HSE Oscillator
+		while(!(*pRCC_CR & (1 << HSE_CHECK_BITPOS)));		//Checking whether HSE Oscillator is turned on and is stable
+
+		//Configure the HSE PreScaler to generate 1 MHz RTCCLK
+		*pRCC_CFGR &= ~(31 << RCC_CFGR_RTCPRE);
+		*pRCC_CFGR |= (pRTCConfig->RTCClockHSEPrescaler << RCC_CFGR_RTCPRE);
+	}
+
+	//1.c Enable the RTC Clock in RCC_BDCR
+	*pRCC_BDCR |= (1 << RCC_BDCR_RTCEN);
+
+	//2. Configure the RTC Calendar Parameters
+	//2.a Enable Write Access to the RTC Registers by enabling DBP bit in PWR_CR Register
+
+	//2.b Enable the Initialization Mode
+
+	//2.c Configure the PreScaler Values in RTC_PRER Register
+
+	//2.d Configure the Time Parameters in RTC_TR Register
+
+	//2.e Configure the Date Parameters in RTC_DR Register
+
+	//2.f Exit the Initialization Mode
+
+
+	return;
+}
+
+void RTC_Read_Calendar(struct Date *date, struct Time *time)
+{
+
+	return;
+}
+
+void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time)
+{
+	char dow[4];
+
+	//Ensure that printf is redirected to LCD is "syscalls.c" file
+
+	//Print the Time Information
+	lcd_pcf8574_clear_screen();
+	delay_us(3000);
+	lcd_pcf8574_return_home();
+	delay_us(3000);
+	printf("    %d:%d:%d",time->hours,time->minutes,time->seconds);
+
+	//Print the Date Information
+	lcd_pcf8574_set_position(1,0);
+	delay_us(3000);
+	format_dow(date,dow);
+	printf("%s, %d-%d-%d",dow,date->date,date->month,date->month);
+
+	return;
+}
+
+void format_dow(struct Date *date,char *dow)
+{
+	switch(date->dayofweek)
+	{
+		case 1:
+			strcpy(dow,"Mon");
+			break;
+		case 2:
+			strcpy(dow,"Tue");
+			break;
+		case 3:
+			strcpy(dow,"Wed");
+			break;
+		case 4:
+			strcpy(dow,"Thu");
+			break;
+		case 5:
+			strcpy(dow,"Fri");
+			break;
+		case 6:
+			strcpy(dow,"Sat");
+			break;
+		case 7:
+			strcpy(dow,"Sun");
+			break;
+		default:
+			break;
+	}
+
+	return;
+}

@@ -1,0 +1,46 @@
+/*
+ * rtc_driver.c
+ *
+ *  Created on: 05-Jan-2024
+ *      Author: naveen
+ */
+
+#include "rtc_driver.h"
+#include "common_utils.h"
+
+uint32_t *pRCC_BDCR;
+uint32_t *pRCC_CFGR;
+uint32_t *pPWR_CR;
+
+void RTC_Calendar_Config(struct RTC_Config_t *pRTCConfig)
+{
+	//1. Configure and Enable the RTC Clock
+	//1.a Configure the RTC Clock Source in in RCC_BDCR
+
+	*pRCC_BDCR &= ~(3 << RCC_BDCR_RTCSEL);
+	*pRCC_BDCR |= (pRTCConfig->RTCClockSource << RCC_BDCR_RTCSEL);
+
+	//1.b If the RTC Clock Source is HSE, configure the HSE PreScaler to generate 1 MHz RTCCLK
+	if(pRTCConfig->RTCClockSource == RTC_CLK_SRC_HSE)
+	{
+		*pRCC_CFGR &= ~(31 << RCC_CFGR_RTCPRE);
+		*pRCC_CFGR |= (pRTCConfig->RTCClockHSEPrescaler << RCC_CFGR_RTCPRE);
+	}
+
+	//1.c Enable the RTC Clock in RCC_BDCR
+	*pRCC_BDCR |= (1 << RCC_BDCR_RTCEN);
+
+	//2. Configure the RTC Calendar Parameters
+	//2.a Enable Write Access to the RTC Registers by enabling DBP bit in PWR_CR Register
+
+	//2.b Enable the Initialization Mode
+
+	//2.c Configure the PreScaler Values in RTC_PRER Register
+
+	//2.d Configure the Time Parameters in RTC_TR Register
+
+	//2.e Configure the Date Parameters in RTC_DR Register
+
+	//2.f Exit the Initialization Mode
+
+}
