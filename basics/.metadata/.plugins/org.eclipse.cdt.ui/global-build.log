@@ -1,4 +1,4 @@
-15:37:48 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+07:30:17 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-gcc "../Src/rtc_stm32_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/rtc_stm32_test.d" -MT"Src/rtc_stm32_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/rtc_stm32_test.o"
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,15 +7,15 @@ Finished building target: 011GPIODriver.elf
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-  11612	    140	   1644	  13396	   3454	011GPIODriver.elf
+  12256	    140	   1644	  14040	   36d8	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
  
-15:37:54 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+07:30:26 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-  11612	    140	   1644	  13396	   3454	011GPIODriver.elf
+  12256	    140	   1644	  14040	   36d8	011GPIODriver.elf
 Finished building: default.size.stdout
  

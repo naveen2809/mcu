@@ -7,6 +7,7 @@
 
 #include "rtc_driver.h"
 #include "common_utils.h"
+#include "external_interrupt_config.h"
 
 uint32_t *pRCC_CR = (uint32_t *) RCC_CR_REG_ADDR;
 uint32_t *pRCC_CFGR = (uint32_t *) RCC_CFGR_REG_ADDR;
@@ -16,6 +17,7 @@ uint32_t *pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
 
 struct RTC_RegDef_t * stm32_rtc = (struct RTC_RegDef_t *) RTC_BASE_ADDR;
 
+extern void RTC_Alarm_Interrupt_Callback(void);
 static void format_dow(struct Date *date,char *dow);
 static void format_mon(struct Date *date,char *mon);
 
@@ -221,7 +223,60 @@ void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time)
 	return;
 }
 
-void format_dow(struct Date *date,char *dow)
+void RTC_Config_Alarm(struct RTC_AlarmConfig_t *pRTCAlarmConfig)
+{
+	uint32_t alarm_value = 0;
+
+	//1a. Configure the ALARM Parameters in the appropriate ALARM Register
+	//1b. Enable the ALARM Interrupt in the RTC_CR Register
+	//1c. Enable the ALARM in RTC_CR Register
+	alarm_value = (pRTCAlarmConfig->RTCAlarmSecondsUnits << RTC_ALRMR_SU) | (pRTCAlarmConfig->RTCAlarmSecondsTens << RTC_ALRMR_ST) | (pRTCAlarmConfig->RTCAlarmConsiderSeconds << RTC_ALRMR_MSK1) | (pRTCAlarmConfig->RTCAlarmMinutesUnits << RTC_ALRMR_MNU) | (pRTCAlarmConfig->RTCAlarmMinutesTens << RTC_ALRMR_MNT) | (pRTCAlarmConfig->RTCAlarmConsiderMinutes << RTC_ALRMR_MSK2) | (pRTCAlarmConfig->RTCAlarmHoursUnits << RTC_ALRMR_HU) |  (pRTCAlarmConfig->RTCAlarmHoursTens << RTC_ALRMR_HT) | (pRTCAlarmConfig->RTCAlarmAMPM << RTC_ALRMR_PM) | (pRTCAlarmConfig->RTCAlarmConsiderHours << RTC_ALRMR_MSK3) | (pRTCAlarmConfig->RTCAlarmDateUnits << RTC_ALRMR_DU) | (pRTCAlarmConfig->RTCAlarmDateTens << RTC_ALRMR_DT) | (pRTCAlarmConfig->RTCAlarmWeekDaySelection << RTC_ALRMR_WDSEL) | (pRTCAlarmConfig->RTCAlarmConsiderDate << RTC_ALRMR_MSK4);
+
+	if(pRTCAlarmConfig->RTCAlarmSelection == RTC_ALARM_A)
+	{
+		stm32_rtc->RTC_ALRMAR = alarm_value;
+		stm32_rtc->RTC_CR |= (1 << RTC_CR_ALRAIE);
+		stm32_rtc->RTC_CR |= (1 << RTC_CR_ALRAE);
+	}
+	else if(pRTCAlarmConfig->RTCAlarmSelection == RTC_ALARM_B)
+	{
+		stm32_rtc->RTC_ALRMBR = alarm_value;
+		stm32_rtc->RTC_CR |= (1 << RTC_CR_ALRBIE);
+		stm32_rtc->RTC_CR |= (1 << RTC_CR_ALRBE);
+	}
+
+	return;
+}
+
+void RTC_Config_Alarm_Interrupt(void)
+{
+	uint32_t *pEXTI_IMR	= (uint32_t *) EXTI_IMR_ADDR;
+	uint32_t *pEXTI_RTSR = (uint32_t *) EXTI_RTSR_ADDR;
+
+	// 1. Configuring the EXTI Controller (External Interrupt Controller)
+	*pEXTI_IMR |= (1 << RTC_ALARM_INTERRUPT_EXTI_PIN);  	// Setting the Interrupt Mask Register
+	*pEXTI_RTSR |= (1 << RTC_ALARM_INTERRUPT_EXTI_PIN); 	// Setting the Rising Trigger Set Register
+
+	// 2. // Enabling the interrupt in NVIC
+	NVIC_EnableIRQ(RTC_ALARM_INTERRUPT_IRQ_NO);				// Enabling the interrupt
+
+	return;
+}
+
+void RTC_Alarm_IRQHandler(void)
+{
+	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
+
+	//1. Calling the RTC Alarm Interrupt Callback function
+	RTC_Alarm_Interrupt_Callback();
+
+	//2. Clearing the Interrupt
+	*pEXTI_PR |= (1 << RTC_ALARM_INTERRUPT_EXTI_PIN);		// Clearing the EXTI_PR Register
+
+	return;
+}
+
+static void format_dow(struct Date *date,char *dow)
 {
 	switch(date->dayofweek)
 	{
@@ -253,7 +308,7 @@ void format_dow(struct Date *date,char *dow)
 	return;
 }
 
-void format_mon(struct Date *date,char *mon)
+static void format_mon(struct Date *date,char *mon)
 {
 	switch(date->month)
 	{

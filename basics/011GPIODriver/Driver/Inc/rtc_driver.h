@@ -59,13 +59,31 @@ struct RTC_Config_t
 
 };
 
+struct RTC_AlarmConfig_t
+{
+	uint8_t RTCAlarmSelection;
+	uint8_t RTCAlarmSecondsUnits;
+	uint8_t RTCAlarmSecondsTens;
+	uint8_t RTCAlarmConsiderSeconds;
+	uint8_t RTCAlarmMinutesUnits;
+	uint8_t RTCAlarmMinutesTens;
+	uint8_t RTCAlarmConsiderMinutes;
+	uint8_t RTCAlarmHoursUnits;
+	uint8_t RTCAlarmHoursTens;
+	uint8_t RTCAlarmAMPM;
+	uint8_t RTCAlarmConsiderHours;
+	uint8_t RTCAlarmDateUnits;
+	uint8_t RTCAlarmDateTens;
+	uint8_t RTCAlarmWeekDaySelection;
+	uint8_t RTCAlarmConsiderDate;
+};
+
 struct Date
 {
 	uint8_t date;
 	uint8_t month;
 	uint8_t year;
 	uint8_t dayofweek;
-
 };
 
 struct Time
@@ -137,35 +155,20 @@ struct Time
 #define RTC_CALIBR_DC				0
 #define RTC_CALIBR_DCS				7
 
-#define RTC_ALRMAR_SU				0
-#define RTC_ALRMAR_ST				4
-#define RTC_ALRMAR_MSK1				7
-#define RTC_ALRMAR_MNU				8
-#define RTC_ALRMAR_MNT				12
-#define RTC_ALRMAR_MSK2				15
-#define RTC_ALRMAR_HU				16
-#define RTC_ALRMAR_HT				20
-#define RTC_ALRMAR_PM				22
-#define RTC_ALRMAR_MSK3				23
-#define RTC_ALRMAR_DU				24
-#define RTC_ALRMAR_DT				28
-#define RTC_ALRMAR_WDSEL			30
-#define RTC_ALRMAR_MSK4				31
-
-#define RTC_ALRMBR_SU				0
-#define RTC_ALRMBR_ST				4
-#define RTC_ALRMBR_MSK1				7
-#define RTC_ALRMBR_MNU				8
-#define RTC_ALRMBR_MNT				12
-#define RTC_ALRMBR_MSK2				15
-#define RTC_ALRMBR_HU				16
-#define RTC_ALRMBR_HT				20
-#define RTC_ALRMBR_PM				22
-#define RTC_ALRMBR_MSK3				23
-#define RTC_ALRMBR_DU				24
-#define RTC_ALRMBR_DT				28
-#define RTC_ALRMBR_WDSEL			30
-#define RTC_ALRMBR_MSK4				31
+#define RTC_ALRMR_SU				0
+#define RTC_ALRMR_ST				4
+#define RTC_ALRMR_MSK1				7
+#define RTC_ALRMR_MNU				8
+#define RTC_ALRMR_MNT				12
+#define RTC_ALRMR_MSK2				15
+#define RTC_ALRMR_HU				16
+#define RTC_ALRMR_HT				20
+#define RTC_ALRMR_PM				22
+#define RTC_ALRMR_MSK3				23
+#define RTC_ALRMR_DU				24
+#define RTC_ALRMR_DT				28
+#define RTC_ALRMR_WDSEL				30
+#define RTC_ALRMR_MSK4				31
 
 #define RTC_SHIFTR_SUBFS			0
 #define RTC_SHIFTR_ADD1S			31
@@ -256,6 +259,23 @@ struct Time
 #define RTC_CLK_PRESCALER_DIV_30		30
 #define RTC_CLK_PRESCALER_DIV_31		31
 
+#define RTC_ALARM_A						0
+#define RTC_ALARM_B						1
+#define RTC_ALARM_CONSIDER_SECS_YES		0
+#define RTC_ALARM_CONSIDER_SECS_NO		1
+#define RTC_ALARM_CONSIDER_MINS_YES		0
+#define RTC_ALARM_CONSIDER_MINS_NO		1
+#define RTC_ALARM_CONSIDER_HRS_YES		0
+#define RTC_ALARM_CONSIDER_HRS_NO		1
+#define RTC_ALARM_CONSIDER_DATE_YES		0
+#define RTC_ALARM_CONSIDER_DATE_NO		1
+#define RTC_ALARM_WDSEL_YES				1
+#define RTC_ALARM_WDSEL_NO				0
+
+//ALARM Interrupt Related Macros
+#define RTC_ALARM_INTERRUPT_EXTI_PIN		17
+#define RTC_ALARM_INTERRUPT_IRQ_NO			41
+
 //RCC Related Macros
 #define RCC_BDCR_RTCSEL				8
 #define RCC_BDCR_RTCEN				15
@@ -276,5 +296,8 @@ struct Time
 void RTC_Config_Calendar(struct RTC_Config_t *pRTCConfig);
 void RTC_Read_Calendar(struct Date *date, struct Time *time);
 void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time);
+void RTC_Config_Alarm(struct RTC_AlarmConfig_t *pRTCAlarmConfig);
+void RTC_Config_Alarm_Interrupt(void);
+void RTC_Alarm_IRQHandler(void);
 
 #endif /* INC_RTC_DRIVER_H_ */

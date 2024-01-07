@@ -1,0 +1,298 @@
+/*
+ * rtc_driver.h
+ *
+ *  Created on: 05-Jan-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_RTC_DRIVER_H_
+#define INC_RTC_DRIVER_H_
+
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+
+struct RTC_RegDef_t
+{
+	uint32_t RTC_TR;
+	uint32_t RTC_DR;
+	uint32_t RTC_CR;
+	uint32_t RTC_ISR;
+	uint32_t RTC_PRER;
+	uint32_t RTC_WUTR;
+	uint32_t RTC_CALIBR;
+	uint32_t RTC_ALRMAR;
+	uint32_t RTC_ALRMBR;
+	uint32_t RTC_WPR;
+	uint32_t RTC_SSR;
+	uint32_t RTC_SHIFTR;
+	uint32_t RTC_TSTR;
+	uint32_t Reserved1;
+	uint32_t RTC_TSSSR;
+	uint32_t RTC_CALR;
+	uint32_t RTC_TAFCR;
+	uint32_t RTC_ALRMASSR;
+	uint32_t RTC_ALRMBSSR;
+	uint32_t Reserved2;
+	uint32_t RTC_BKPR[20];
+};
+
+struct RTC_Config_t
+{
+	uint8_t RTCClockSource;
+	uint8_t RTCClockHSEPrescaler;
+	uint8_t RTCClockPrescalerA;
+	uint16_t RTCClockPrescalerS;
+	uint8_t RTCClockSecondsUnits;
+	uint8_t RTCClockSecondsTens;
+	uint8_t RTCClockMinutesUnits;
+	uint8_t RTCClockMinutesTens;
+	uint8_t RTCClockHoursUnits;
+	uint8_t RTCClockHoursTens;
+	uint8_t RTCClockAMPM;
+	uint8_t RTCClockDateUnits;
+	uint8_t RTCClockDateTens;
+	uint8_t RTCClockMonthUnits;
+	uint8_t RTCClockMonthTens;
+	uint8_t RTCClockYearUnits;
+	uint8_t RTCClockYearTens;
+	uint8_t RTCClockDayOfWeek;
+
+};
+
+struct RTC_AlarmConfig_t
+{
+	uint8_t RTCAlarmSelection;
+	uint8_t RTCAlarmSecondsUnits;
+	uint8_t RTCAlarmSecondsTens;
+	uint8_t RTCAlarmConsiderSeconds;
+	uint8_t RTCAlarmMinutesUnits;
+	uint8_t RTCAlarmMinutesTens;
+	uint8_t RTCAlarmConsiderMinutes;
+	uint8_t RTCAlarmHoursUnits;
+	uint8_t RTCAlarmHoursTens;
+	uint8_t RTCAlarmAMPM;
+	uint8_t RTCAlarmConsiderHours;
+	uint8_t RTCAlarmDateUnits;
+	uint8_t RTCAlarmDateTens;
+	uint8_t RTCAlarmWeekDaySelection;
+	uint8_t RTCAlarmConsiderDate;
+};
+
+struct Date
+{
+	uint8_t date;
+	uint8_t month;
+	uint8_t year;
+	uint8_t dayofweek;
+};
+
+struct Time
+{
+	uint8_t seconds;
+	uint8_t minutes;
+	uint8_t hours;
+	uint8_t timeformat;
+};
+
+#define RTC_TR_SU					0
+#define RTC_TR_ST					4
+#define RTC_TR_MNU					8
+#define RTC_TR_MNT					12
+#define RTC_TR_HU					16
+#define RTC_TR_HT					20
+#define RTC_TR_PM					22
+
+#define RTC_DR_DU					0
+#define RTC_DR_DT					4
+#define RTC_DR_MU					8
+#define RTC_DR_MT					12
+#define RTC_DR_WDU					13
+#define RTC_DR_YU					16
+#define RTC_DR_YT					20
+
+#define RTC_CR_WUCKSEL				0
+#define RTC_CR_TSEDGE				3
+#define RTC_CR_REFCKON				4
+#define RTC_CR_BYPSHAD				5
+#define RTC_CR_FMT					6
+#define RTC_CR_DCE					7
+#define RTC_CR_ALRAE				8
+#define RTC_CR_ALRBE				9
+#define RTC_CR_WUTE					10
+#define RTC_CR_TSE					11
+#define RTC_CR_ALRAIE				12
+#define RTC_CR_ALRBIE				13
+#define RTC_CR_WUTIE				14
+#define RTC_CR_TSIE					15
+#define RTC_CR_ADD1H				16
+#define RTC_CR_SUB1H				17
+#define RTC_CR_BKP					18
+#define RTC_CR_COSEL				19
+#define RTC_CR_POL					20
+#define RTC_CR_OSEL					21
+#define RTC_CR_COE					23
+
+#define RTC_ISR_ALRAWF				0
+#define RTC_ISR_ALRBWF				1
+#define RTC_ISR_WUTWF				2
+#define RTC_ISR_SHPF				3
+#define RTC_ISR_INITS				4
+#define RTC_ISR_RSF					5
+#define RTC_ISR_INITF				6
+#define RTC_ISR_INIT				7
+#define RTC_ISR_ALRAF				8
+#define RTC_ISR_ALRBF				9
+#define RTC_ISR_WUTF				10
+#define RTC_ISR_TSF					11
+#define RTC_ISR_TSOVF				12
+#define RTC_ISR_TAMP1F				13
+#define RTC_ISR_TAMP2F				14
+#define RTC_ISR_RECALPF				16
+
+#define RTC_PRER_PREDIV_S			0
+#define RTC_PRER_PREDIV_A			16
+
+#define RTC_CALIBR_DC				0
+#define RTC_CALIBR_DCS				7
+
+#define RTC_ALRMR_SU				0
+#define RTC_ALRMR_ST				4
+#define RTC_ALRMR_MSK1				7
+#define RTC_ALRMR_MNU				8
+#define RTC_ALRMR_MNT				12
+#define RTC_ALRMR_MSK2				15
+#define RTC_ALRMR_HU				16
+#define RTC_ALRMR_HT				20
+#define RTC_ALRMR_PM				22
+#define RTC_ALRMR_MSK3				23
+#define RTC_ALRMR_DU				24
+#define RTC_ALRMR_DT				28
+#define RTC_ALRMR_WDSEL				30
+#define RTC_ALRMR_MSK4				31
+
+#define RTC_SHIFTR_SUBFS			0
+#define RTC_SHIFTR_ADD1S			31
+
+#define RTC_TSTR_SU					0
+#define RTC_TSTR_ST					4
+#define RTC_TSTR_MNU				8
+#define RTC_TSTR_MNT				12
+#define RTC_TSTR_HU					16
+#define RTC_TSTR_HT					20
+#define RTC_TSTR_PM					22
+
+#define RTC_TSDR_DU					0
+#define RTC_TSDR_DT					4
+#define RTC_TSDR_MU					8
+#define RTC_TSDR_MT					12
+#define RTC_TSDR_WDU				13
+
+#define RTC_CALR_CALM				0
+#define RTC_CALR_CALW16				13
+#define RTC_CALR_CALW8				14
+#define RTC_CALR_CALP				15
+
+#define RTC_TAFCR_TAMP1E			0
+#define RTC_TAFCR_TAMP1TRG			1
+#define RTC_TAFCR_TAMPIE			2
+#define RTC_TAFCR_TAMP2E			3
+#define RTC_TAFCR_TAMP2TRG			4
+#define RTC_TAFCR_TAMPTS			7
+#define RTC_TAFCR_TAMPFREQ			8
+#define RTC_TAFCR_TAMPFLT			11
+#define RTC_TAFCR_TAMPPRCH			13
+#define RTC_TAFCR_TAMPPUDIS			15
+#define RTC_TAFCR_TAMP1INSEL		16
+#define RTC_TAFCR_TSINSEL			17
+#define RTC_TAFCR_ALARMOUTTYPE		18
+
+#define RTC_ALRMASSR_SS				0
+#define RTC_ALRMASSR_MASKSS			24
+
+#define RTC_ALRMBSSR_SS				0
+#define RTC_ALRMBSSR_MASKSS			24
+
+#define RTC_CLK_SRC_NONE			0
+#define RTC_CLK_SRC_LSE				1
+#define RTC_CLK_SRC_LSI				2
+#define RTC_CLK_SRC_HSE				3
+
+#define RTC_CLK_ENABLE				1
+#define RTC_CLK_DISABLE				0
+
+#define RTC_CLK_DOW_MON				1
+#define RTC_CLK_DOW_TUE				2
+#define RTC_CLK_DOW_WED				3
+#define RTC_CLK_DOW_THU				4
+#define RTC_CLK_DOW_FRI				5
+#define RTC_CLK_DOW_SAT				6
+#define RTC_CLK_DOW_SUN				7
+
+#define RTC_CLK_PRESCALER_DIV_2			2
+#define RTC_CLK_PRESCALER_DIV_3			3
+#define RTC_CLK_PRESCALER_DIV_4			4
+#define RTC_CLK_PRESCALER_DIV_5			5
+#define RTC_CLK_PRESCALER_DIV_6			6
+#define RTC_CLK_PRESCALER_DIV_7			7
+#define RTC_CLK_PRESCALER_DIV_8			8
+#define RTC_CLK_PRESCALER_DIV_9			9
+#define RTC_CLK_PRESCALER_DIV_10		10
+#define RTC_CLK_PRESCALER_DIV_11		11
+#define RTC_CLK_PRESCALER_DIV_12		12
+#define RTC_CLK_PRESCALER_DIV_13		13
+#define RTC_CLK_PRESCALER_DIV_14		14
+#define RTC_CLK_PRESCALER_DIV_15		15
+#define RTC_CLK_PRESCALER_DIV_16		16
+#define RTC_CLK_PRESCALER_DIV_17		17
+#define RTC_CLK_PRESCALER_DIV_18		18
+#define RTC_CLK_PRESCALER_DIV_19		19
+#define RTC_CLK_PRESCALER_DIV_20		20
+#define RTC_CLK_PRESCALER_DIV_21		21
+#define RTC_CLK_PRESCALER_DIV_22		22
+#define RTC_CLK_PRESCALER_DIV_23		23
+#define RTC_CLK_PRESCALER_DIV_24		24
+#define RTC_CLK_PRESCALER_DIV_25		25
+#define RTC_CLK_PRESCALER_DIV_26		26
+#define RTC_CLK_PRESCALER_DIV_27		27
+#define RTC_CLK_PRESCALER_DIV_28		28
+#define RTC_CLK_PRESCALER_DIV_29		29
+#define RTC_CLK_PRESCALER_DIV_30		30
+#define RTC_CLK_PRESCALER_DIV_31		31
+
+#define RTC_ALARM_A						0
+#define RTC_ALARM_B						1
+#define RTC_ALARM_CONSIDER_SECS_YES		0
+#define RTC_ALARM_CONSIDER_SECS_NO		1
+#define RTC_ALARM_CONSIDER_MINS_YES		0
+#define RTC_ALARM_CONSIDER_MINS_NO		1
+#define RTC_ALARM_CONSIDER_HRS_YES		0
+#define RTC_ALARM_CONSIDER_HRS_NO		1
+#define RTC_ALARM_CONSIDER_DATE_YES		0
+#define RTC_ALARM_CONSIDER_DATE_NO		1
+#define RTC_ALARM_WDSEL_YES				1
+#define RTC_ALARM_WDSEL_NO				0
+
+//RCC Related Macros
+#define RCC_BDCR_RTCSEL				8
+#define RCC_BDCR_RTCEN				15
+#define RCC_CFGR_RTCPRE				16
+#define HSE_ON_BITPOS				16
+#define HSE_CHECK_BITPOS			17
+#define RCC_APB1ENR_PWR				28
+
+#define RCC_CR_REG_ADDR					0x40023800UL
+#define RCC_CFGR_REG_ADDR				0x40023808UL
+#define RCC_BDCR_REG_ADDR				0x40023870UL
+
+//PWR Related Macros
+#define PWR_CR_REG_ADDR					0x40007000UL
+#define PWR_CR_DBP						8
+
+
+void RTC_Config_Calendar(struct RTC_Config_t *pRTCConfig);
+void RTC_Read_Calendar(struct Date *date, struct Time *time);
+void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time);
+void RTC_Config_Alarm(struct RTC_AlarmConfig_t *pRTCAlarmConfig);
+void RTC_Config_Alarm_Interrupt(void);
+
+#endif /* INC_RTC_DRIVER_H_ */

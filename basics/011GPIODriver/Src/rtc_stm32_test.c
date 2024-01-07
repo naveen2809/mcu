@@ -5,7 +5,6 @@
  *      Author: naveen
  */
 
-
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -14,15 +13,20 @@
 #include "rtc_driver.h"
 #include "common_utils.h"
 
-#define ARRAY_SIZE	100
+#define RTC_ALARM_GPIO_PORT		GPIOD
+#define RTC_ALARM_GPIO_PIN		GPIO_PIN_15
 
 struct Date date;
 struct Time time;
+
+void RTC_Alarm_Interrupt_Callback(void);
 
 int main(void)
 {
 
 	struct RTC_Config_t stm32_rtc_config;
+	struct RTC_AlarmConfig_t stm32_rtc_alarm_config;
+
 
 	//Configure the Timer
 	configure_delay_timer();
@@ -47,20 +51,48 @@ int main(void)
 	stm32_rtc_config.RTCClockPrescalerS = 9999;
 	stm32_rtc_config.RTCClockSecondsUnits = 0;
 	stm32_rtc_config.RTCClockSecondsTens = 0;
-	stm32_rtc_config.RTCClockMinutesUnits = 9;
+	stm32_rtc_config.RTCClockMinutesUnits = 5;
 	stm32_rtc_config.RTCClockMinutesTens = 3;
-	stm32_rtc_config.RTCClockHoursUnits = 5;
-	stm32_rtc_config.RTCClockHoursTens = 1;
+	stm32_rtc_config.RTCClockHoursUnits = 7;
+	stm32_rtc_config.RTCClockHoursTens = 0;
 	stm32_rtc_config.RTCClockAMPM = 0;
-	stm32_rtc_config.RTCClockDateUnits = 6;
+	stm32_rtc_config.RTCClockDateUnits = 7;
 	stm32_rtc_config.RTCClockDateTens = 0;
 	stm32_rtc_config.RTCClockMonthUnits = 1;
 	stm32_rtc_config.RTCClockMonthTens = 0;
 	stm32_rtc_config.RTCClockYearUnits = 4;
 	stm32_rtc_config.RTCClockYearTens = 2;
-	stm32_rtc_config.RTCClockDayOfWeek = 6;
+	stm32_rtc_config.RTCClockDayOfWeek = 7;
 
 	RTC_Config_Calendar(&stm32_rtc_config);
+	delay_us(10000);
+
+	//Configure the STM32 RTC Alarm
+	memset(&stm32_rtc_alarm_config,0,sizeof(stm32_rtc_alarm_config));
+	stm32_rtc_alarm_config.RTCAlarmSelection = RTC_ALARM_A;
+	stm32_rtc_alarm_config.RTCAlarmSecondsUnits = 0;
+	stm32_rtc_alarm_config.RTCAlarmSecondsTens = 0;
+	stm32_rtc_alarm_config.RTCAlarmConsiderSeconds = RTC_ALARM_CONSIDER_SECS_YES;
+	stm32_rtc_alarm_config.RTCAlarmMinutesUnits = 7;
+	stm32_rtc_alarm_config.RTCAlarmMinutesTens = 3;
+	stm32_rtc_alarm_config.RTCAlarmConsiderMinutes = RTC_ALARM_CONSIDER_MINS_YES;
+	stm32_rtc_alarm_config.RTCAlarmHoursUnits = 7;
+	stm32_rtc_alarm_config.RTCAlarmHoursTens = 0;
+	stm32_rtc_alarm_config.RTCAlarmAMPM = 0;
+	stm32_rtc_alarm_config.RTCAlarmConsiderHours = RTC_ALARM_CONSIDER_HRS_YES;
+	stm32_rtc_alarm_config.RTCAlarmDateUnits = 7;
+	stm32_rtc_alarm_config.RTCAlarmDateTens = 0;
+	stm32_rtc_alarm_config.RTCAlarmWeekDaySelection = RTC_ALARM_WDSEL_NO;
+	stm32_rtc_alarm_config.RTCAlarmConsiderDate = RTC_ALARM_CONSIDER_DATE_NO;
+
+	RTC_Config_Alarm(&stm32_rtc_alarm_config);
+	RTC_Config_Alarm_Interrupt();
+
+	//Configure the GPIO Related to RTC Alarm
+	EnablePeriClk(RTC_ALARM_GPIO_PORT);
+	GPIOSetMode(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_MODE_OUTPUT);
+	GPIOWritePin(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_LOW);
+
 	delay_us(10000);
 
 	while(1)
@@ -70,4 +102,11 @@ int main(void)
 	}
 
 	return 0;
+}
+
+void RTC_Alarm_Interrupt_Callback(void)
+{
+	GPIOWritePin(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_HIGH);
+
+	return;
 }

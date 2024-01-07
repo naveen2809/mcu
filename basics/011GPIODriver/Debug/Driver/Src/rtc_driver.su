@@ -1,5 +1,8 @@
-../Driver/Src/rtc_driver.c:22:6:RTC_Config_Calendar	24	static
-../Driver/Src/rtc_driver.c:83:6:RTC_Read_Calendar	24	static
-../Driver/Src/rtc_driver.c:112:6:RTC_Display_Calendar_LCD	40	static
-../Driver/Src/rtc_driver.c:224:6:format_dow	16	static
-../Driver/Src/rtc_driver.c:256:6:format_mon	16	static
+../Driver/Src/rtc_driver.c:24:6:RTC_Config_Calendar	24	static
+../Driver/Src/rtc_driver.c:85:6:RTC_Read_Calendar	24	static
+../Driver/Src/rtc_driver.c:114:6:RTC_Display_Calendar_LCD	40	static
+../Driver/Src/rtc_driver.c:226:6:RTC_Config_Alarm	24	static
+../Driver/Src/rtc_driver.c:251:6:RTC_Config_Alarm_Interrupt	16	static
+../Driver/Src/rtc_driver.c:266:6:RTC_Alarm_IRQHandler	16	static
+../Driver/Src/rtc_driver.c:279:13:format_dow	16	static
+../Driver/Src/rtc_driver.c:311:13:format_mon	16	static
