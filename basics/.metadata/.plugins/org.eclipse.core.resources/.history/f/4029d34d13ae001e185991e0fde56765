@@ -21,7 +21,6 @@ struct Date date;
 struct Time time;
 
 void RTC_Alarm_Interrupt_Callback(void);
-void EXTI0_IRQHandler(void);
 
 int main(void)
 {
@@ -112,19 +111,6 @@ int main(void)
 void RTC_Alarm_Interrupt_Callback(void)
 {
 	GPIOWritePin(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_HIGH);
-
-	return;
-}
-
-void EXTI0_IRQHandler(void)
-{
-	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
-
-	//Handling the Interrupt
-	GPIOWritePin(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_LOW);
-
-	//Clearing the Button Interrupt
-	*pEXTI_PR |= (1 << INTERRUPT_PIN);		// Clearing the EXTI_PR Register
 
 	return;
 }

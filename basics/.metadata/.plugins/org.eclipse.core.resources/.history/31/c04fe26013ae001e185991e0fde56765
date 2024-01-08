@@ -118,8 +118,6 @@ void RTC_Alarm_Interrupt_Callback(void)
 
 void EXTI0_IRQHandler(void)
 {
-	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
-
 	//Handling the Interrupt
 	GPIOWritePin(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_LOW);
 
