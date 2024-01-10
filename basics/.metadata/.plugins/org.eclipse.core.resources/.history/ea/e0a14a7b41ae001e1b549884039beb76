@@ -1,0 +1,15 @@
+/*
+ * 	ds3231_rtc_driver.c
+ *	Driver Code for the DS3231 RTC Module from Maxim
+ *	Reference: https://www.analog.com/media/en/technical-documentation/data-sheets/ds3231.pdf
+ *  Created on: 08-Jan-2024
+ *      Author: naveen
+ */
+
+#include "ds3231_rtc_driver.h"
+#include "rtc_driver.h"
+#include "common_utils.h"
+#include "external_interrupt_config.h"
+
+
+

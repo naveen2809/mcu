@@ -17,7 +17,9 @@ uint32_t *pRCCPeriClkReg = (uint32_t *) APB1_ENR_ADDR;
 
 struct RTC_RegDef_t * stm32_rtc = (struct RTC_RegDef_t *) RTC_BASE_ADDR;
 
-extern void RTC_Alarm_Interrupt_Callback(void);
+static struct Date saved_date;
+static struct Time saved_time;
+
 static void format_dow(struct Date *date,char *dow);
 static void format_mon(struct Date *date,char *mon);
 
@@ -114,14 +116,15 @@ void RTC_Read_Calendar(struct Date *date, struct Time *time)
 void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time)
 {
 	static uint32_t count = 0;
-	struct Date saved_date;
-	struct Time saved_time;
 	char dow[4];
 	char mon[4];
 
 	//Ensure that printf is redirected to LCD is "syscalls.c" file
 	if(count == 0)
 	{
+		memset(&saved_time,0,sizeof(struct Time));
+		memset(&saved_date,0,sizeof(struct Date));
+
 		//Print the Time Information
 		lcd_pcf8574_clear_screen();
 		delay_us(3000);
@@ -130,7 +133,6 @@ void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time)
 		printf("    %02d:%02d:%02d",time->hours,time->minutes,time->seconds);
 
 		//Saving the time information
-		memset(&saved_time,0,sizeof(struct Time));
 		saved_time.seconds = time->seconds;
 		saved_time.minutes = time->minutes;
 		saved_time.hours = time->hours;
@@ -143,7 +145,6 @@ void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time)
 		printf("  %s %02d-%s-%02d",dow,date->date,mon,date->year);
 
 		//Saving the date information
-		memset(&saved_date,0,sizeof(struct Date));
 		saved_date.date = date->date;
 		saved_date.month = date->month;
 		saved_date.year = date->year;
@@ -272,6 +273,13 @@ void RTC_Alarm_IRQHandler(void)
 
 	//2. Clearing the Interrupt
 	*pEXTI_PR |= (1 << RTC_ALARM_INTERRUPT_EXTI_PIN);		// Clearing the EXTI_PR Register
+
+	return;
+}
+
+void RTC_Alarm_Interrupt_Callback(void)
+{
+	GPIOWritePin(RTC_ALARM_GPIO_PORT,RTC_ALARM_GPIO_PIN,GPIO_HIGH);
 
 	return;
 }

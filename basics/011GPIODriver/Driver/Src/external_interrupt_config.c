@@ -13,7 +13,6 @@ static uint8_t gpio_port_name_to_num(uint32_t *gpio_name);
 
 void configure_external_interrupt(void)
 {
-
 	uint32_t *pAPB2ENR = (uint32_t *) APB2_ENR_ADDR;
 	uint32_t *pEXTI_IMR	= (uint32_t *) EXTI_IMR_ADDR;
 	uint32_t *pEXTI_RTSR = (uint32_t *) EXTI_RTSR_ADDR;
@@ -55,6 +54,51 @@ void configure_external_interrupt(void)
 
 	// 2. // Enabling the interrupt for the button
 	NVIC_EnableIRQ(INTERRUPT_IRQ_NO);					// Enabling the interrupt
+}
+
+void configure_external_gpio_interrupt(uint32_t *gpio_port,uint8_t gpio_pin,uint8_t trigger_choice,uint8_t irq_no)
+{
+	uint32_t *pAPB2ENR = (uint32_t *) APB2_ENR_ADDR;
+	uint32_t *pEXTI_IMR	= (uint32_t *) EXTI_IMR_ADDR;
+	uint32_t *pEXTI_RTSR = (uint32_t *) EXTI_RTSR_ADDR;
+	uint32_t *pEXTI_FTSR = (uint32_t *) EXTI_FTSR_ADDR;
+	uint32_t *pSYSCFG_EXTI_CR_ADDR = (uint32_t *) SYSCFG_EXTI_CR_BASE_ADDR;
+	uint32_t OFFSET;
+
+	//GPIO Pin Configuration
+	EnablePeriClk(gpio_port);
+	GPIOSetMode(gpio_port,gpio_pin,GPIO_MODE_INPUT);
+	GPIOSetOutputType(gpio_port,gpio_pin,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(gpio_port,gpio_pin,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(gpio_port,gpio_pin,GPIO_PULL_UP);
+
+	//Button Interrupt Configuration
+
+	// 1. Configuring the EXTI Controller (External Interrupt Controller)
+
+	*pEXTI_IMR |= (1 << gpio_pin);  	// Setting the Interrupt Mask Register
+
+	if(trigger_choice == EXTI_RISING_TRIGGER)
+	{
+		*pEXTI_RTSR |= (1 << gpio_pin); 	// Setting the Rising Trigger Set Register
+	}
+
+	if(trigger_choice == EXTI_FALLING_TRIGGER)
+	{
+		*pEXTI_FTSR |= (1 << gpio_pin); 	// Setting the Falling Trigger Set Register
+	}
+
+	*pAPB2ENR |= (1 << 14);							// Enabling the clock for the System Configuration Block
+
+	OFFSET = gpio_pin%4;
+	pSYSCFG_EXTI_CR_ADDR += OFFSET;
+
+	// Enabling GPIO Port x  input on EXTIx line
+	*pSYSCFG_EXTI_CR_ADDR &= ~(0xF << OFFSET*4);
+	*pSYSCFG_EXTI_CR_ADDR |= (gpio_port_name_to_num(gpio_port) << OFFSET*4);
+
+	// 2. // Enabling the interrupt for the button
+	NVIC_EnableIRQ(irq_no);					// Enabling the interrupt
 }
 
 static uint8_t gpio_port_name_to_num(uint32_t *gpio_name)

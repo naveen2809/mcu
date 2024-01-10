@@ -13,6 +13,9 @@ uint32_t * I2C_DEVICE = I2C1;
 uint8_t SlaveAddress = 0x27;								//PCF8574 I/O Expander Address
 //uint8_t SlaveAddress = 0x50;								//AT24CXX EEPROM Address
 
+uint32_t * I2C_DEVICE_RTC = I2C2;
+uint8_t SlaveAddressRTC = 0x68;								//DS3231 I2C Address
+
 void delay_us(uint32_t delay)
 {
 	TIM2_Handle.pGeneral_Purpose_Timer->TIMx_CNT = 0;
@@ -51,7 +54,7 @@ void configure_spi(void)
 	SPI_Dev_Config.SPIDeviceMode = SPI_DEVICE_MODE_MASTER;
 	SPI_Dev_Config.SPIClockPol = SPI_CLK_POL_0;
 	SPI_Dev_Config.SPIClockPhase = SPI_CLK_PHA_LE;
-	SPI_Dev_Config.SPIClockFreq = SPI_CLK_FREQ_DIV8;
+	SPI_Dev_Config.SPIClockFreq = SPI_CLK_FREQ_DIV4;
 	SPI_Dev_Config.SPIDataFrameFormat = SPI_DFF_8_BITS;
 	SPI_Dev_Config.SPISoftwareSlaveManagement = SPI_SW_SLAVE_MGNT_DI;
 	SPI_Dev_Config.SPISSIFlag = SPI_SSI_1;
@@ -122,6 +125,41 @@ void configure_i2c(void)
 	I2CPeriConfig(I2C_DEVICE,&I2C_Config);
 	I2CConfigureTrise(I2C_DEVICE,TRISE_VALUE);
 	I2CEnable(I2C_DEVICE);
+
+	return;
+}
+
+void configure_i2c_rtc(void)
+{
+	struct I2C_Config_t I2C_Config;
+
+	memset(&I2C_Config,0,sizeof(I2C_Config));
+
+	//GPIO Pin Configuration for I2C
+	EnablePeriClk(I2C_PORT_RTC);
+	GPIOSetMode(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_MODE_ALTFN);
+	GPIOSetMode(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_ALTFN_4);
+	GPIOSetAltFn(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_ALTFN_4);
+	GPIOSetOutputType(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_OPTYPE_OD);
+	GPIOSetOutputType(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_PULL_UP);
+
+	//I2C Port Configuration
+	I2C_Config.I2C_PeriFreq = I2C_CONFIG_PERI_FREQ;
+	I2C_Config.I2C_SpeedMode = I2C_MODE_SM;
+	I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_0;
+	I2C_Config.I2C_CCRValue = I2C_CONFIG_CCR_VALUE;
+	I2C_Config.I2C_AckControl = I2C_ACK_ENABLE;
+
+	EnablePeriClk(I2C_DEVICE_RTC);
+
+	I2CPeriConfig(I2C_DEVICE_RTC,&I2C_Config);
+	I2CConfigureTrise(I2C_DEVICE_RTC,TRISE_VALUE);
+	I2CEnable(I2C_DEVICE_RTC);
 
 	return;
 }

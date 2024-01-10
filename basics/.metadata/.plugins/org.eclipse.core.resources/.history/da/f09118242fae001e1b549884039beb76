@@ -1,0 +1,13 @@
+/*
+ * ds3231_rtc_driver.h
+ *
+ *  Created on: 08-Jan-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_DS3231_RTC_DRIVER_H_
+#define INC_DS3231_RTC_DRIVER_H_
+
+
+
+#endif /* INC_DS3231_RTC_DRIVER_H_ */

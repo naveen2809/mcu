@@ -423,3 +423,97 @@ void I2CMaster_AT24Cxx_EEPROM_Read_Sequential(uint32_t *I2CAddress,uint8_t *RxBu
 
 	return;
 }
+
+void I2CMaster_DS3231_RTC_Read(uint32_t *I2CAddress,uint8_t *RxBuf,uint32_t Len,uint8_t register_address, uint8_t SlaveAddress)
+{
+	uint8_t address_length,i;
+	uint8_t data[1];
+	uint8_t LocalSlaveAddress;
+
+	address_length = 1;
+	data[0] = register_address;
+
+	//Send the Address Bytes to EEPROM
+	struct I2C_RegDef_t *pI2C = (struct I2C_RegDef_t *) I2CAddress;
+
+	//1. Generate Start Condition
+	I2C_SendStartBit(I2CAddress);
+
+	//2. Check for Successful Transmission of Start Condition using SB Flag
+	while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_SB));
+
+	//3. Send Slave Address Address Along with  Write Bit
+	LocalSlaveAddress = SlaveAddress << 1;
+	LocalSlaveAddress &= ~(0x1);
+
+	I2C_SendSlaveAddress(I2CAddress,LocalSlaveAddress);
+
+	//4. Check for Successful Completion of Address Phase (ACK received from slave)
+	while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_ADDR));
+
+	I2C_ClearADDRStatusBit(I2CAddress);
+
+
+	//5. Send EEPROM Address Bytes
+
+	i=0;
+	while(address_length > 0)
+	{
+		while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_TXE));
+		pI2C->I2C_DR = data[i];
+		i++;
+		address_length--;
+	}
+
+	//6. Wait for last byte transmission to be completed
+	// Check for TXE=1 and BTF=1
+
+	while(I2C_GetFlagStatus(I2CAddress,I2C_FLAG_TXE)!=1 || I2C_GetFlagStatus(I2CAddress,I2C_FLAG_BTF)!=1);
+
+	//Read from EEPROM
+
+	//1. Generate Start Condition
+	I2C_SendStartBit(I2CAddress);
+
+	//2. Check for Successful Transmission of Start Condition using SB Flag
+	while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_SB));
+
+	//3. Send Slave Address Address Along with Read Bit Set
+	LocalSlaveAddress = SlaveAddress << 1;
+	LocalSlaveAddress |= (0x1);
+
+	I2C_SendSlaveAddress(I2CAddress,LocalSlaveAddress);
+
+	//4. Check for Successful Completion of Address Phase (ACK received from slave)
+	while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_ADDR));
+
+	I2C_ClearADDRStatusBit(I2CAddress);
+
+	//5. Receive Data While Len >=2 with ACK Bit Set
+	if(Len >= 2)
+	{
+		I2CEnableAck(I2CAddress);
+		while(Len >= 2)
+		{
+			while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_RXNE));
+			*RxBuf = pI2C->I2C_DR;
+			RxBuf++;
+			Len--;
+		}
+	}
+
+	//6. Receive Last Byte with NACK Bit Set
+	if(Len == 1)
+	{
+		I2CDisableAck(I2CAddress);
+		while(! I2C_GetFlagStatus(I2CAddress,I2C_FLAG_RXNE));
+		*RxBuf = pI2C->I2C_DR;
+		RxBuf++;
+		Len--;
+	}
+
+	//7. Send Stop Bit
+	I2C_SendStopBit(I2CAddress);
+
+	return;
+}

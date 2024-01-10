@@ -1,0 +1,6 @@
+../Driver/Src/ds3231_rtc_driver.c:17:6:RTC_DS3231_Config_Calendar	32	static
+../Driver/Src/ds3231_rtc_driver.c:60:6:RTC_DS3231_Read_Calendar	32	static
+../Driver/Src/ds3231_rtc_driver.c:79:6:RTC_DS3231_Config_Alarm	40	static
+../Driver/Src/ds3231_rtc_driver.c:148:6:RTC_DS3231_Config_Alarm_Interrupt	8	static
+../Driver/Src/ds3231_rtc_driver.c:155:6:RTC_DS3231_Config_Alarm_Output_GPIO	8	static
+../Driver/Src/ds3231_rtc_driver.c:164:6:RTC_DS3231_Config_Button_Interrupt	8	static

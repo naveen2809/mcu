@@ -1,7 +1,8 @@
-../Driver/Src/common_utils.c:16:6:delay_us	16	static
-../Driver/Src/common_utils.c:22:6:configure_delay_timer	8	static
-../Driver/Src/common_utils.c:35:6:configure_spi	24	static
-../Driver/Src/common_utils.c:65:6:configure_uart	8	static
-../Driver/Src/common_utils.c:94:6:configure_i2c	32	static
-../Driver/Src/common_utils.c:129:6:UART_SendChar	16	static
-../Driver/Src/common_utils.c:134:6:LCD_SendChar	16	static
+../Driver/Src/common_utils.c:19:6:delay_us	16	static
+../Driver/Src/common_utils.c:25:6:configure_delay_timer	8	static
+../Driver/Src/common_utils.c:38:6:configure_spi	24	static
+../Driver/Src/common_utils.c:68:6:configure_uart	8	static
+../Driver/Src/common_utils.c:97:6:configure_i2c	32	static
+../Driver/Src/common_utils.c:132:6:configure_i2c_rtc	32	static
+../Driver/Src/common_utils.c:167:6:UART_SendChar	16	static
+../Driver/Src/common_utils.c:172:6:LCD_SendChar	16	static

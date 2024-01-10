@@ -292,6 +292,8 @@ struct Time
 #define PWR_CR_REG_ADDR					0x40007000UL
 #define PWR_CR_DBP						8
 
+#define RTC_ALARM_GPIO_PORT		GPIOD
+#define RTC_ALARM_GPIO_PIN		GPIO_PIN_15
 
 void RTC_Config_Calendar(struct RTC_Config_t *pRTCConfig);
 void RTC_Read_Calendar(struct Date *date, struct Time *time);
@@ -299,5 +301,6 @@ void RTC_Display_Calendar_LCD(struct Date *date, struct Time *time);
 void RTC_Config_Alarm(struct RTC_AlarmConfig_t *pRTCAlarmConfig);
 void RTC_Config_Alarm_Interrupt(void);
 void RTC_Alarm_IRQHandler(void);
+void RTC_Alarm_Interrupt_Callback(void);
 
 #endif /* INC_RTC_DRIVER_H_ */

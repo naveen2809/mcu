@@ -1,0 +1,97 @@
+/*
+ * ds3231_rtc_driver.h
+ * Driver Code for the DS3231 RTC Module from Maxim
+ * Reference: https://www.analog.com/media/en/technical-documentation/data-sheets/ds3231.pdf
+ * Created on: 08-Jan-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_DS3231_RTC_DRIVER_H_
+#define INC_DS3231_RTC_DRIVER_H_
+
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "rtc_driver.h"
+
+struct RTC_DS3231_Config_t
+{
+	uint8_t RTCClockSecondsUnits;
+	uint8_t RTCClockSecondsTens;
+	uint8_t RTCClockMinutesUnits;
+	uint8_t RTCClockMinutesTens;
+	uint8_t RTCClockHoursUnits;
+	uint8_t RTCClockHoursTens;
+	uint8_t RTCClockHourFormat;
+	uint8_t RTCClockAMPM;
+	uint8_t RTCClockDateUnits;
+	uint8_t RTCClockDateTens;
+	uint8_t RTCClockMonthUnits;
+	uint8_t RTCClockMonthTens;
+	uint8_t RTCClockYearUnits;
+	uint8_t RTCClockYearTens;
+	uint8_t RTCClockDayOfWeek;
+};
+
+struct RTC_DS3231_AlarmConfig_t
+{
+	uint8_t RTCAlarmSelection;
+	uint8_t RTCAlarmSecondsUnits;
+	uint8_t RTCAlarmSecondsTens;
+	uint8_t RTCAlarmConsiderSeconds;
+	uint8_t RTCAlarmMinutesUnits;
+	uint8_t RTCAlarmMinutesTens;
+	uint8_t RTCAlarmConsiderMinutes;
+	uint8_t RTCAlarmHoursUnits;
+	uint8_t RTCAlarmHoursTens;
+	uint8_t RTCAlarmHourFormat;
+	uint8_t RTCAlarmAMPM;
+	uint8_t RTCAlarmConsiderHours;
+	uint8_t RTCAlarmDateUnits;
+	uint8_t RTCAlarmDateTens;
+	uint8_t RTCAlarmWeekDaySelection;
+	uint8_t RTCAlarmConsiderDate;
+};
+
+#define DS3231_RTC_TR_SU					0
+#define DS3231_RTC_TR_ST					4
+#define DS3231_RTC_TR_MNU					0
+#define DS3231_RTC_TR_MNT					4
+#define DS3231_RTC_TR_HU					0
+#define DS3231_RTC_TR_HT					4
+#define DS3231_RTC_TR_HOUR_FORMAT			5
+#define DS3231_RTC_TR_AMPM					6
+
+#define DS3231_RTC_DR_DU					0
+#define DS3231_RTC_DR_DT					4
+#define DS3231_RTC_DR_MU					0
+#define DS3231_RTC_DR_MT					4
+#define DS3231_RTC_DR_WDU					0
+#define DS3231_RTC_DR_YU					0
+#define DS3231_RTC_DR_YT					4
+
+#define DS3231_RTC_ALRMR_SU					0
+#define DS3231_RTC_ALRMR_ST					4
+#define DS3231_RTC_ALRMR_MSK1				7
+#define DS3231_RTC_ALRMR_MNU				0
+#define DS3231_RTC_ALRMR_MNT				4
+#define DS3231_RTC_ALRMR_MSK2				7
+#define DS3231_RTC_ALRMR_HU					0
+#define DS3231_RTC_ALRMR_HT					4
+#define DS3231_RTC_ALRMR_AMPM				5
+#define DS3231_RTC_ALRMR_HOUR_FORMAT		6
+#define DS3231_RTC_ALRMR_MSK3				7
+#define DS3231_RTC_ALRMR_DU					0
+#define DS3231_RTC_ALRMR_DT					4
+#define DS3231_RTC_ALRMR_WDSEL				6
+#define DS3231_RTC_ALRMR_MSK4				7
+
+#define DS3231_RTC_HOUR_FORMAT_24			0
+#define DS3231_RTC_HOUR_FORMAT_12			1
+#define DS3231_RTC_HOUR_AM					0
+#define DS3231_RTC_HOUR_PM					0
+
+void RTC_DS3231_Config_Calendar(struct RTC_DS3231_Config_t *pRTCConfig);
+void RTC_DS3231_Read_Calendar(struct Date *date, struct Time *time);
+void RTC_DS3231_Config_Alarm(struct RTC_DS3231_AlarmConfig_t *pRTCAlarmConfig);
+
+#endif /* INC_DS3231_RTC_DRIVER_H_ */
