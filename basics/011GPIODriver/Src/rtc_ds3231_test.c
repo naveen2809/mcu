@@ -18,9 +18,6 @@
 struct Date date;
 struct Time time;
 
-void EXTI0_IRQHandler(void);
-void EXTI1_IRQHandler(void);
-
 int main(void)
 {
 
@@ -51,19 +48,19 @@ int main(void)
 	memset(&ds3231_rtc_config,0,sizeof(ds3231_rtc_config));
 	ds3231_rtc_config.RTCClockSecondsUnits = 0;
 	ds3231_rtc_config.RTCClockSecondsTens = 0;
-	ds3231_rtc_config.RTCClockMinutesUnits = 3;
-	ds3231_rtc_config.RTCClockMinutesTens = 4;
-	ds3231_rtc_config.RTCClockHoursUnits = 4;
+	ds3231_rtc_config.RTCClockMinutesUnits = 8;
+	ds3231_rtc_config.RTCClockMinutesTens = 5;
+	ds3231_rtc_config.RTCClockHoursUnits = 1;
 	ds3231_rtc_config.RTCClockHoursTens = 1;
-	ds3231_rtc_config.RTCClockHourFormat = DS3231_RTC_HOUR_FORMAT_24;
-	ds3231_rtc_config.RTCClockAMPM = 0;
-	ds3231_rtc_config.RTCClockDateUnits = 0;
+	ds3231_rtc_config.RTCClockHourFormat = DS3231_RTC_HOUR_FORMAT_12;
+	ds3231_rtc_config.RTCClockAMPM = DS3231_RTC_HOUR_AM;
+	ds3231_rtc_config.RTCClockDateUnits = 1;
 	ds3231_rtc_config.RTCClockDateTens = 1;
 	ds3231_rtc_config.RTCClockMonthUnits = 1;
 	ds3231_rtc_config.RTCClockMonthTens = 0;
 	ds3231_rtc_config.RTCClockYearUnits = 4;
 	ds3231_rtc_config.RTCClockYearTens = 2;
-	ds3231_rtc_config.RTCClockDayOfWeek = 3;
+	ds3231_rtc_config.RTCClockDayOfWeek = RTC_CLK_DOW_THU;
 
 	RTC_DS3231_Config_Calendar(&ds3231_rtc_config);
 	delay_us(10000);
@@ -74,17 +71,17 @@ int main(void)
 	ds3231_rtc_alarm_config.RTCAlarmSecondsUnits = 0;
 	ds3231_rtc_alarm_config.RTCAlarmSecondsTens = 3;
 	ds3231_rtc_alarm_config.RTCAlarmConsiderSeconds = RTC_ALARM_CONSIDER_SECS_YES;
-	ds3231_rtc_alarm_config.RTCAlarmMinutesUnits = 4;
-	ds3231_rtc_alarm_config.RTCAlarmMinutesTens = 4;
+	ds3231_rtc_alarm_config.RTCAlarmMinutesUnits = 0;
+	ds3231_rtc_alarm_config.RTCAlarmMinutesTens = 0;
 	ds3231_rtc_alarm_config.RTCAlarmConsiderMinutes = RTC_ALARM_CONSIDER_MINS_YES;
-	ds3231_rtc_alarm_config.RTCAlarmHoursUnits = 4;
+	ds3231_rtc_alarm_config.RTCAlarmHoursUnits = 2;
 	ds3231_rtc_alarm_config.RTCAlarmHoursTens = 1;
-	ds3231_rtc_alarm_config.RTCAlarmHourFormat = DS3231_RTC_HOUR_FORMAT_24;
-	ds3231_rtc_alarm_config.RTCAlarmAMPM = 0;
+	ds3231_rtc_alarm_config.RTCAlarmHourFormat = DS3231_RTC_HOUR_FORMAT_12;
+	ds3231_rtc_alarm_config.RTCAlarmAMPM = DS3231_RTC_HOUR_PM;
 	ds3231_rtc_alarm_config.RTCAlarmConsiderHours = RTC_ALARM_CONSIDER_HRS_YES;
-	ds3231_rtc_alarm_config.RTCAlarmDateUnits = 0;
+	ds3231_rtc_alarm_config.RTCAlarmDateUnits = 1;
 	ds3231_rtc_alarm_config.RTCAlarmDateTens = 1;
-	ds3231_rtc_alarm_config.RTCAlarmDayOfWeek = RTC_CLK_DOW_WED;
+	ds3231_rtc_alarm_config.RTCAlarmDayOfWeek = RTC_CLK_DOW_THU;
 	ds3231_rtc_alarm_config.RTCAlarmWeekDaySelection = RTC_ALARM_WDSEL_NO;
 	ds3231_rtc_alarm_config.RTCAlarmConsiderDate = RTC_ALARM_CONSIDER_DATE_NO;
 
@@ -102,7 +99,7 @@ int main(void)
 	while(1)
 	{
 		RTC_DS3231_Read_Calendar(&date,&time);
-		RTC_Display_Calendar_LCD(&date,&time);
+		RTC_DS3231_Display_Calendar_LCD(&date,&time);
 	}
 
 	return 0;
@@ -125,7 +122,6 @@ void EXTI2_IRQHandler(void)
 {
 	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
 
-	//1. Calling the RTC Alarm Interrupt Callback function
 	GPIOWritePin(DS3231_RTC_ALARM_OUTPUT_GPIO_PORT,DS3231_RTC_ALARM_OUTPUT_GPIO_PIN,GPIO_LOW);
 
 	//2. Clearing the Interrupt

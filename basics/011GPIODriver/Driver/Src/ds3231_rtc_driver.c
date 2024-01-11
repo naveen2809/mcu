@@ -14,6 +14,12 @@
 extern uint32_t *I2C_DEVICE_RTC;
 extern uint8_t SlaveAddressRTC;
 
+static struct Date saved_date;
+static struct Time saved_time;
+
+static void format_dow(struct Date *date,char *dow);
+static void format_mon(struct Date *date,char *mon);
+
 void RTC_DS3231_Config_Calendar(struct RTC_DS3231_Config_t *pRTCConfig)
 {
 	uint8_t Tx_Buf[5];
@@ -66,12 +72,190 @@ void RTC_DS3231_Read_Calendar(struct Date *date, struct Time *time)
 
 	time->seconds = ((RxBuf[0] >> DS3231_RTC_TR_ST) & 0x7)*10 + ((RxBuf[0] >> DS3231_RTC_TR_SU) & 0xF);
 	time->minutes = ((RxBuf[1] >> DS3231_RTC_TR_MNT) & 0x7)*10 + ((RxBuf[1] >> DS3231_RTC_TR_MNU) & 0xF);
-	time->hours = ((RxBuf[2] >> DS3231_RTC_TR_HT) & 0x3)*10 + ((RxBuf[2] >> DS3231_RTC_TR_HU) & 0xF);
+	if(((time->hours >> DS3231_RTC_TR_HOUR_FORMAT) & 0x1) == 0)     //24 Hour Format
+	{
+		time->hours = ((RxBuf[2] >> DS3231_RTC_TR_HT) & 0x3)*10 + ((RxBuf[2] >> DS3231_RTC_TR_HU) & 0xF);
+		time->hours |= (RxBuf[2] & (1 << DS3231_RTC_TR_HOUR_FORMAT));
+	}
+	else   //12 Hour Format
+	{
+		time->hours = ((RxBuf[2] >> DS3231_RTC_TR_HT) & 0x1)*10 + ((RxBuf[2] >> DS3231_RTC_TR_HU) & 0xF);
+		time->hours |= (RxBuf[2] & (1 << DS3231_RTC_TR_AMPM));
+		time->hours |= (RxBuf[2] & (1 << DS3231_RTC_TR_HOUR_FORMAT));
+	}
 
 	date->dayofweek = (RxBuf[3] & 0x7);
 	date->date = ((RxBuf[4] >> DS3231_RTC_DR_DT) & 0x3)*10 + ((RxBuf[4] >> DS3231_RTC_DR_DU) & 0xF);
 	date->month = ((RxBuf[5] >> DS3231_RTC_DR_MT) & 0x1)*10 + ((RxBuf[5] >> DS3231_RTC_DR_MU) & 0xF);
 	date->year = ((RxBuf[6] >> DS3231_RTC_DR_YT) & 0xF)*10 + ((RxBuf[6] >> DS3231_RTC_DR_YU) & 0xF);
+
+	return;
+}
+
+void RTC_DS3231_Display_Calendar_LCD(struct Date *date, struct Time *time)
+{
+	static uint32_t count = 0;
+	char dow[4];
+	char mon[4];
+
+	//Ensure that printf is redirected to LCD is "syscalls.c" file
+	if(count == 0)
+	{
+		memset(&saved_time,0,sizeof(struct Time));
+		memset(&saved_date,0,sizeof(struct Date));
+
+		//Print the Time Information
+		if(((time->hours >> DS3231_RTC_TR_HOUR_FORMAT) & 0x1) == 0)      //24 Hour Format
+		{
+			lcd_pcf8574_clear_screen();
+			delay_us(3000);
+			lcd_pcf8574_return_home();
+			delay_us(3000);
+			printf("    %02d:%02d:%02d",time->hours,time->minutes,time->seconds);
+		}
+		else  //12 Hour Format
+		{
+			lcd_pcf8574_clear_screen();
+			delay_us(3000);
+			lcd_pcf8574_return_home();
+			delay_us(3000);
+			if(((time->hours >> DS3231_RTC_TR_AMPM) & 0x1) == 0)		//AM
+			{
+				printf("   %02d:%02d:%02d AM",(time->hours & 0xF),time->minutes,time->seconds);
+			}
+			else
+			{
+				printf("   %02d:%02d:%02d PM",(time->hours & 0xF),time->minutes,time->seconds);
+			}
+		}
+
+		//Saving the time information
+		saved_time.seconds = time->seconds;
+		saved_time.minutes = time->minutes;
+		saved_time.hours = time->hours;
+
+		//Print the Date Information
+		lcd_pcf8574_set_position(1,0);
+		delay_us(3000);
+		format_dow(date,dow);
+		format_mon(date,mon);
+		printf("  %s %02d-%s-%02d",dow,date->date,mon,date->year);
+
+		//Saving the date information
+		saved_date.date = date->date;
+		saved_date.month = date->month;
+		saved_date.year = date->year;
+		saved_date.dayofweek = date->dayofweek;
+
+		//Update count value
+		count++;
+	}
+	else
+	{
+		if(((time->hours >> DS3231_RTC_TR_HOUR_FORMAT) & 0x1) == 0)   //24 Hour Format
+		{
+			//Update Seconds
+			if(saved_time.seconds != time->seconds)
+			{
+				lcd_pcf8574_set_position(0,10);
+				delay_us(500);
+				printf("%02d",time->seconds);
+				saved_time.seconds = time->seconds;
+			}
+
+			//Update Minutes
+			if(saved_time.minutes != time->minutes)
+			{
+				lcd_pcf8574_set_position(0,7);
+				delay_us(500);
+				printf("%02d",time->minutes);
+				saved_time.minutes = time->minutes;
+			}
+
+			//Update Hours
+			if(saved_time.hours != time->hours)
+			{
+				lcd_pcf8574_set_position(0,4);
+				delay_us(500);
+				printf("%02d",time->hours);
+				saved_time.hours = time->hours;
+			}
+		}
+		else    //12 Hour Format
+		{
+			//Update Seconds
+			if(saved_time.seconds != time->seconds)
+			{
+				lcd_pcf8574_set_position(0,9);
+				delay_us(500);
+				if(((time->hours >> DS3231_RTC_TR_AMPM) & 0x1) == 0)    //AM
+				{
+					printf("%02d AM",time->seconds);
+				}
+				else //PM
+				{
+					printf("%02d PM",time->seconds);
+				}
+				saved_time.seconds = time->seconds;
+			}
+
+			//Update Minutes
+			if(saved_time.minutes != time->minutes)
+			{
+				lcd_pcf8574_set_position(0,6);
+				delay_us(500);
+				printf("%02d",time->minutes);
+				saved_time.minutes = time->minutes;
+			}
+
+			//Update Hours
+			if(saved_time.hours != time->hours)
+			{
+				lcd_pcf8574_set_position(0,3);
+				delay_us(500);
+				printf("%02d",(time->hours & 0xF));
+				saved_time.hours = time->hours;
+			}
+		}
+
+		//Update Date
+		if(saved_date.date != date->date)
+		{
+			lcd_pcf8574_set_position(1,6);
+			delay_us(500);
+			printf("%02d",date->date);
+			saved_date.date = date->date;
+		}
+
+		//Update Month
+		if(saved_date.month != date->month)
+		{
+			lcd_pcf8574_set_position(1,9);
+			delay_us(500);
+			format_mon(date,mon);
+			printf("%s",mon);
+			saved_date.month = date->month;
+		}
+
+		//Update Year
+		if(saved_date.year != date->year)
+		{
+			lcd_pcf8574_set_position(1,13);
+			delay_us(500);
+			printf("%02d",date->year);
+			saved_date.year = date->year;
+		}
+
+		//Update Day of Week
+		if(saved_date.dayofweek != date->dayofweek)
+		{
+			lcd_pcf8574_set_position(1,2);
+			delay_us(500);
+			format_dow(date,dow);
+			printf("%s",dow);
+			saved_date.dayofweek = date->dayofweek;
+		}
+	}
 
 	return;
 }
@@ -164,6 +348,85 @@ void RTC_DS3231_Config_Alarm_Output_GPIO(void)
 void RTC_DS3231_Config_Button_Interrupt(void)
 {
 	configure_external_gpio_interrupt(BTN_INT_GPIO_PORT,BTN_INT_GPIO_PIN,EXTI_FALLING_TRIGGER,BTN_INT_IRQ_NUM);
+
+	return;
+}
+
+static void format_dow(struct Date *date,char *dow)
+{
+	switch(date->dayofweek)
+	{
+		case 1:
+			strcpy(dow,"Mon");
+			break;
+		case 2:
+			strcpy(dow,"Tue");
+			break;
+		case 3:
+			strcpy(dow,"Wed");
+			break;
+		case 4:
+			strcpy(dow,"Thu");
+			break;
+		case 5:
+			strcpy(dow,"Fri");
+			break;
+		case 6:
+			strcpy(dow,"Sat");
+			break;
+		case 7:
+			strcpy(dow,"Sun");
+			break;
+		default:
+			break;
+	}
+
+	return;
+}
+
+static void format_mon(struct Date *date,char *mon)
+{
+	switch(date->month)
+	{
+		case 1:
+			strcpy(mon,"Jan");
+			break;
+		case 2:
+			strcpy(mon,"Feb");
+			break;
+		case 3:
+			strcpy(mon,"Mar");
+			break;
+		case 4:
+			strcpy(mon,"Apr");
+			break;
+		case 5:
+			strcpy(mon,"May");
+			break;
+		case 6:
+			strcpy(mon,"Jun");
+			break;
+		case 7:
+			strcpy(mon,"Jul");
+			break;
+		case 8:
+			strcpy(mon,"Aug");
+			break;
+		case 9:
+			strcpy(mon,"Sep");
+			break;
+		case 10:
+			strcpy(mon,"Oct");
+			break;
+		case 11:
+			strcpy(mon,"Nov");
+			break;
+		case 12:
+			strcpy(mon,"Dec");
+			break;
+		default:
+			break;
+	}
 
 	return;
 }

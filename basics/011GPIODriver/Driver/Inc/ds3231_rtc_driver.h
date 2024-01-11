@@ -125,6 +125,7 @@ struct RTC_DS3231_AlarmConfig_t
 
 void RTC_DS3231_Config_Calendar(struct RTC_DS3231_Config_t *pRTCConfig);
 void RTC_DS3231_Read_Calendar(struct Date *date, struct Time *time);
+void RTC_DS3231_Display_Calendar_LCD(struct Date *date, struct Time *time);
 void RTC_DS3231_Config_Alarm(struct RTC_DS3231_AlarmConfig_t *pRTCAlarmConfig);
 void RTC_DS3231_Config_Alarm_Interrupt(void);
 void RTC_DS3231_Config_Alarm_Output_GPIO(void);
