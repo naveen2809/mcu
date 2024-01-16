@@ -16,6 +16,7 @@ extern uint8_t SlaveAddressRTC;
 
 static struct Date saved_date;
 static struct Time saved_time;
+uint32_t ds3231_display_count = 0;
 
 static void format_dow(struct Date *date,char *dow);
 static void format_mon(struct Date *date,char *mon);
@@ -94,12 +95,11 @@ void RTC_DS3231_Read_Calendar(struct Date *date, struct Time *time)
 
 void RTC_DS3231_Display_Calendar_LCD(struct Date *date, struct Time *time)
 {
-	static uint32_t count = 0;
 	char dow[4];
 	char mon[4];
 
 	//Ensure that printf is redirected to LCD is "syscalls.c" file
-	if(count == 0)
+	if(ds3231_display_count == 0)
 	{
 		memset(&saved_time,0,sizeof(struct Time));
 		memset(&saved_date,0,sizeof(struct Date));
@@ -148,7 +148,7 @@ void RTC_DS3231_Display_Calendar_LCD(struct Date *date, struct Time *time)
 		saved_date.dayofweek = date->dayofweek;
 
 		//Update count value
-		count++;
+		ds3231_display_count++;
 	}
 	else
 	{
