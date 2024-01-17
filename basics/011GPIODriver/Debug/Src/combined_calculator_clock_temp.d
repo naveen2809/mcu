@@ -1,4 +1,5 @@
-Src/combined_calculator_clock.o: ../Src/combined_calculator_clock.c \
+Src/combined_calculator_clock_temp.o: \
+ ../Src/combined_calculator_clock_temp.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/gpio_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
@@ -7,6 +8,7 @@ Src/combined_calculator_clock.o: ../Src/combined_calculator_clock.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/gpio_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/ds3231_rtc_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/rtc_driver.h \
+ /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/dht11_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/common_utils.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/i2c_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/spi_driver.h \
@@ -24,6 +26,7 @@ Src/combined_calculator_clock.o: ../Src/combined_calculator_clock.c \
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/gpio_driver.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/ds3231_rtc_driver.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/rtc_driver.h:
+/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/dht11_driver.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/common_utils.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/i2c_driver.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/spi_driver.h:

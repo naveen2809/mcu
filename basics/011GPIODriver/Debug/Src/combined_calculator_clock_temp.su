@@ -1,0 +1,11 @@
+../Src/combined_calculator_clock_temp.c:66:5:main	24	static
+../Src/combined_calculator_clock_temp.c:154:5:calculation	48	static
+../Src/combined_calculator_clock_temp.c:207:6:EXTI0_IRQHandler	24	static
+../Src/combined_calculator_clock_temp.c:246:6:EXTI1_IRQHandler	24	static
+../Src/combined_calculator_clock_temp.c:285:6:EXTI2_IRQHandler	24	static
+../Src/combined_calculator_clock_temp.c:323:6:EXTI3_IRQHandler	24	static
+../Src/combined_calculator_clock_temp.c:362:13:process_key_press	16	static
+../Src/combined_calculator_clock_temp.c:478:13:update_clock	8	static
+../Src/combined_calculator_clock_temp.c:490:13:update_temp	16	static
+../Src/combined_calculator_clock_temp.c:530:13:disable_interrupts	4	static,ignoring_inline_asm
+../Src/combined_calculator_clock_temp.c:537:13:enable_interrupts	4	static,ignoring_inline_asm

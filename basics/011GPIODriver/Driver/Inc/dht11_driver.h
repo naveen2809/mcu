@@ -8,8 +8,8 @@
 #ifndef INC_DHT11_DRIVER_H_
 #define INC_DHT11_DRIVER_H_
 
-#define DHT11_SENSOR_DATA_PIN			GPIO_PIN_0
-#define DHT11_SENSOR_PORT				GPIOA
+#define DHT11_SENSOR_DATA_PIN			GPIO_PIN_7
+#define DHT11_SENSOR_PORT				GPIOE
 
 uint8_t check_sensor_response(void);
 uint8_t read_dht11_sensor(uint8_t *data);
