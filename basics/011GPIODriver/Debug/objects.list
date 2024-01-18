@@ -15,7 +15,7 @@
 "./Driver/Src/stm32f4xx.o"
 "./Driver/Src/timer_driver.o"
 "./Driver/Src/usart_driver.o"
-"./Src/combined_calculator_clock_temp.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
+"./Src/temp_on_lcd_interrupt.o"
 "./Startup/startup_stm32f407vgtx.o"

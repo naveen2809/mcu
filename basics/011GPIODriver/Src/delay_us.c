@@ -11,14 +11,15 @@
 #include "general_purpose_timer.h"
 #include "common_utilities.h"
 
-#define GPIO_1				GPIO_PIN_0
+#define LED_GPIO_PORT	GPIOD
+#define LED_GPIO_PIN	GPIO_PIN_0
 
 void test_delay_us(uint32_t delay);
 
 int main(void)
 {
 	configure_delay_timer();
-	test_delay_us(4000);
+	test_delay_us(1000000);
 
 	while(1);
 
@@ -27,16 +28,13 @@ int main(void)
 
 void test_delay_us(uint32_t delay)
 {
-	struct GPIO_RegDef_t *pGPIO = (struct GPIO_RegDef_t *) GPIOA;
-
 	//GPIO Configuration for Seven Segment LEDs
-	EnablePeriClk(GPIOA);
-	GPIOSetMode(GPIOA, GPIO_1, GPIO_MODE_OUTPUT);
+	EnablePeriClk(LED_GPIO_PORT);
+	GPIOSetMode(LED_GPIO_PORT,LED_GPIO_PIN, GPIO_MODE_OUTPUT);
 
-	//Initialize Seven Segment LED GPIOs to HIGH (Common Anode)
-	GPIOWritePin(GPIOA, GPIO_1,GPIO_LOW);
-
-	pGPIO->ODR ^= (1 << GPIO_1);
+	GPIOWritePin(LED_GPIO_PORT,LED_GPIO_PIN, GPIO_HIGH);
 	delay_us(delay);
-	pGPIO->ODR ^= (1 << GPIO_1);
+	GPIOWritePin(LED_GPIO_PORT,LED_GPIO_PIN, GPIO_LOW);
+
+	return;
 }
