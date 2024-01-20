@@ -9,7 +9,7 @@
 #include "stm32f4xx.h"
 #include "gpio_driver.h"
 #include "general_purpose_timer.h"
-#include "common_utilities.h"
+#include "common_utils.h"
 
 #define LED_GPIO_PORT	GPIOD
 #define LED_GPIO_PIN	GPIO_PIN_0
@@ -19,7 +19,7 @@ void test_delay_us(uint32_t delay);
 int main(void)
 {
 	configure_delay_timer();
-	test_delay_us(1000000);
+	test_delay_us(15000000);
 
 	while(1);
 

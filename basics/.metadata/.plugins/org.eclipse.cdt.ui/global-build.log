@@ -1,21 +1,21 @@
-20:05:42 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+11:52:39 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/temp_on_lcd_interrupt.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/temp_on_lcd_interrupt.d" -MT"Src/temp_on_lcd_interrupt.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/temp_on_lcd_interrupt.o"
+arm-none-eabi-gcc "../Src/rtc_ds3231_test_interrupt.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/rtc_ds3231_test_interrupt.d" -MT"Src/rtc_ds3231_test_interrupt.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/rtc_ds3231_test_interrupt.o"
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011GPIODriver.elf
  
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-  10676	    116	   1676	  12468	   30b4	011GPIODriver.elf
+  14160	    124	   1652	  15936	   3e40	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
  
-20:05:47 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+11:52:44 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-  10676	    116	   1676	  12468	   30b4	011GPIODriver.elf
+  14160	    124	   1652	  15936	   3e40	011GPIODriver.elf
 Finished building: default.size.stdout
  

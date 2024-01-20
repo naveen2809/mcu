@@ -5,19 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/rtc_ds3231_test_interrupt.c \
 ../Src/syscalls.c \
-../Src/sysmem.c \
-../Src/temp_on_lcd_interrupt.c 
+../Src/sysmem.c 
 
 OBJS += \
+./Src/rtc_ds3231_test_interrupt.o \
 ./Src/syscalls.o \
-./Src/sysmem.o \
-./Src/temp_on_lcd_interrupt.o 
+./Src/sysmem.o 
 
 C_DEPS += \
+./Src/rtc_ds3231_test_interrupt.d \
 ./Src/syscalls.d \
-./Src/sysmem.d \
-./Src/temp_on_lcd_interrupt.d 
+./Src/sysmem.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/temp_on_lcd_interrupt.d ./Src/temp_on_lcd_interrupt.o ./Src/temp_on_lcd_interrupt.su
+	-$(RM) ./Src/rtc_ds3231_test_interrupt.d ./Src/rtc_ds3231_test_interrupt.o ./Src/rtc_ds3231_test_interrupt.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

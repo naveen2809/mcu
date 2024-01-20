@@ -42,6 +42,10 @@ int main(void)
 
 	initialize_temp_display();
 
+	EnablePeriClk(GPIOD);
+	GPIOSetMode(GPIOD,GPIO_PIN_0,GPIO_MODE_OUTPUT);
+	GPIOWritePin(GPIOD,GPIO_PIN_0,GPIO_LOW);
+
 	while(1)
 	{
 
@@ -68,7 +72,7 @@ static void initialize_temp_display(void)
 		delay_us(3000);
 		lcd_pcf8574_return_home();
 		delay_us(3000);
-		printf("RH:   %2d.%d",dht11_sensor_data[0],dht11_sensor_data[1]);
+		printf("RH:   %2d.%d %%",dht11_sensor_data[0],dht11_sensor_data[1]);
 
 		//Print TEMP Data
 		lcd_pcf8574_set_position(1,0);
@@ -94,7 +98,7 @@ static void configure_timer5(void)
 {
 	TIM5_Handle.pGeneral_Purpose_Timer = (struct General_Purpose_Timer_RegDef_t *) TIM5;
 	memset(&TIM5_Handle.General_Purpose_Timer_Config,0,sizeof(TIM5_Handle.General_Purpose_Timer_Config));
-	TIM5_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0x1;
+	TIM5_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0x0;
 	TIM5_Handle.General_Purpose_Timer_Config.Timer_AutoReloadValue = 0x4C4B400;
 	TIM5_Handle.General_Purpose_Timer_Config.Timer_UpdateInterruptConfig = TIMER_UPDATE_INTERRUPT_ENABLE;
 
@@ -111,6 +115,9 @@ void TIM5_IRQHandler(void)
 	uint8_t dht11_sensor_response;
 	uint8_t dht11_sensor_data[5];
 
+	//Toggle GPIO
+	GPIOTogglePin(GPIOD,GPIO_PIN_0);
+
 	//Display the temperature for the first time
 	//Read the DHT11 Sensor
 	dht11_sensor_response = read_dht11_sensor(dht11_sensor_data);
@@ -123,7 +130,7 @@ void TIM5_IRQHandler(void)
 		delay_us(3000);
 		lcd_pcf8574_return_home();
 		delay_us(3000);
-		printf("RH:   %2d.%d",dht11_sensor_data[0],dht11_sensor_data[1]);
+		printf("RH:   %2d.%d %%",dht11_sensor_data[0],dht11_sensor_data[1]);
 
 		//Print TEMP Data
 		lcd_pcf8574_set_position(1,0);

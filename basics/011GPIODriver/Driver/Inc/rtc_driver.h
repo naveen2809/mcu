@@ -269,8 +269,8 @@ struct Time
 #define RTC_ALARM_CONSIDER_HRS_NO		1
 #define RTC_ALARM_CONSIDER_DATE_YES		0
 #define RTC_ALARM_CONSIDER_DATE_NO		1
-#define RTC_ALARM_WDSEL_YES				1
-#define RTC_ALARM_WDSEL_NO				0
+#define RTC_ALARM_WDSEL_YES				0
+#define RTC_ALARM_WDSEL_NO				1
 
 //ALARM Interrupt Related Macros
 #define RTC_ALARM_INTERRUPT_EXTI_PIN		17

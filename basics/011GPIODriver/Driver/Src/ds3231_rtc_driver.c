@@ -352,6 +352,42 @@ void RTC_DS3231_Config_Button_Interrupt(void)
 	return;
 }
 
+uint8_t RTC_DS3231_Read_Register(uint8_t address)
+{
+	uint8_t reg;
+
+	I2CMaster_DS3231_RTC_Read(I2C_DEVICE_RTC,&reg,1,address,SlaveAddressRTC);
+
+	return reg;
+}
+
+void RTC_DS3231_Clear_Alarm(uint8_t AlarmSelection)
+{
+	uint8_t reg;
+	uint8_t control_status_reg_address = 15;
+	uint8_t Tx_Buf[2];
+
+	//Read the Control Status Register
+	I2CMaster_DS3231_RTC_Read(I2C_DEVICE_RTC,&reg,1,control_status_reg_address,SlaveAddressRTC);
+
+	//Update the Control Status Register
+	Tx_Buf[0] = control_status_reg_address;
+
+	if(AlarmSelection == DS3231_RTC_ALARM_1)
+	{
+		Tx_Buf[1] = reg & 0xFE;
+	}
+	else if(AlarmSelection == DS3231_RTC_ALARM_2)
+	{
+		Tx_Buf[1] = reg & 0xFD;
+	}
+
+	I2CMasterSendData(I2C_DEVICE_RTC,Tx_Buf,2,SlaveAddressRTC);
+	delay_us(2000);
+
+	return;
+}
+
 static void format_dow(struct Date *date,char *dow)
 {
 	switch(date->dayofweek)

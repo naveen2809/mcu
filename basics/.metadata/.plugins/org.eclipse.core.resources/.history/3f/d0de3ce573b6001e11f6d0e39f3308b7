@@ -1,0 +1,175 @@
+/*
+ * common_utils.c
+ *
+ *  Created on: 24-Dec-2023
+ *      Author: naveen
+ */
+
+#include "common_utils.h"
+
+struct General_Purpose_Timer_Handle_t TIM2_Handle;
+struct USART_Handle_t Test_USART;
+uint32_t * I2C_DEVICE = I2C1;
+uint8_t SlaveAddress = 0x27;								//PCF8574 I/O Expander Address
+//uint8_t SlaveAddress = 0x50;								//AT24CXX EEPROM Address
+
+uint32_t * I2C_DEVICE_RTC = I2C2;
+uint8_t SlaveAddressRTC = 0x68;								//DS3231 I2C Address
+
+void delay_us(uint32_t delay)
+{
+	TIM2_Handle.pGeneral_Purpose_Timer->TIMx_CNT = 0;
+	while(TIM2_Handle.pGeneral_Purpose_Timer->TIMx_CNT < 16*delay);
+}
+
+void configure_delay_timer(void)
+{
+	//TIM2 Configuration
+	TIM2_Handle.pGeneral_Purpose_Timer = (struct General_Purpose_Timer_RegDef_t *) TIM2;
+	memset(&TIM2_Handle.General_Purpose_Timer_Config,0,sizeof(TIM2_Handle.General_Purpose_Timer_Config));
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_PreScalerValue = 0x1;
+	TIM2_Handle.General_Purpose_Timer_Config.Timer_AutoReloadValue = 0xFFFFFFFF;
+
+	EnablePeriClk(TIM2);
+	General_Purpose_Timer_Init(&TIM2_Handle);
+	General_Purpose_Timer_PeripheralEnable(&TIM2_Handle);
+}
+
+void configure_spi(void)
+{
+	struct SPI_Config_t SPI_Dev_Config;
+
+	//Configuring the GPIO Pins for the SPI Port
+	EnablePeriClk(SPI_PORT);
+	GPIOSetMode(SPI_PORT,SPI_PIN_MOSI,GPIO_MODE_ALTFN);
+	GPIOSetMode(SPI_PORT,SPI_PIN_MISO,GPIO_MODE_ALTFN);
+	GPIOSetMode(SPI_PORT,SPI_PIN_CLK,GPIO_MODE_ALTFN);
+	GPIOSetMode(SPI_PORT,SPI_PIN_SS,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_MOSI,GPIO_ALTFN_5);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_MISO,GPIO_ALTFN_5);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_CLK,GPIO_ALTFN_5);
+	GPIOSetAltFn(SPI_PORT,SPI_PIN_SS,GPIO_ALTFN_5);
+
+	//Configuring the SPI Peripheral
+	SPI_Dev_Config.SPIDeviceMode = SPI_DEVICE_MODE_MASTER;
+	SPI_Dev_Config.SPIClockPol = SPI_CLK_POL_0;
+	SPI_Dev_Config.SPIClockPhase = SPI_CLK_PHA_LE;
+	SPI_Dev_Config.SPIClockFreq = SPI_CLK_FREQ_DIV4;
+	SPI_Dev_Config.SPIDataFrameFormat = SPI_DFF_8_BITS;
+	SPI_Dev_Config.SPISoftwareSlaveManagement = SPI_SW_SLAVE_MGNT_DI;
+	SPI_Dev_Config.SPISSIFlag = SPI_SSI_1;
+	SPI_Dev_Config.SPISSOEFlag = SPI_SSOE_EN;
+
+	EnablePeriClk(SPI_DEV);
+	SPIPeriConfig(SPI_DEV, &SPI_Dev_Config);
+	SPIEnable(SPI_DEV);
+}
+
+void configure_uart(void)
+{
+	//GPIO Pin Configuration
+	EnablePeriClk(UART_GPIO_PORT);
+	GPIOSetMode(UART_GPIO_PORT,UART_TX_PIN,GPIO_MODE_ALTFN);
+	GPIOSetMode(UART_GPIO_PORT,UART_RX_PIN,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(UART_GPIO_PORT,UART_TX_PIN,GPIO_ALTFN_7);
+	GPIOSetAltFn(UART_GPIO_PORT,UART_RX_PIN,GPIO_ALTFN_7);
+	GPIOSetOutputType(UART_GPIO_PORT,UART_TX_PIN,GPIO_OPTYPE_PP);
+	GPIOSetOutputType(UART_GPIO_PORT,UART_RX_PIN,GPIO_OPTYPE_PP);
+	GPIOSetOutputSpeed(UART_GPIO_PORT,UART_TX_PIN,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(UART_GPIO_PORT,UART_RX_PIN,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(UART_GPIO_PORT,UART_TX_PIN,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(UART_GPIO_PORT,UART_RX_PIN,GPIO_PULL_UP);
+
+	//USART Configuration
+	Test_USART.pUSART = (struct USART_RegDef_t *) USART2;
+	Test_USART.USART_Config.USART_Mode = USART_MODE_TX_RX;
+	Test_USART.USART_Config.USART_DataLength = USART_DATA_LEN_8_BITS;
+	Test_USART.USART_Config.USART_StopBits = USART_STOP_BITS_1;
+	Test_USART.USART_Config.USART_ParityControl = USART_PARITY_DISABLE;
+	Test_USART.USART_Config.USART_BaudRate = USART_SB_RATE_9600;
+	Test_USART.USART_Config.USART_HWFlowControl = USART_HW_FLOW_CNTRL_NONE;
+
+	EnablePeriClk(USART2);
+	USART_Init(&Test_USART);
+	USART_PeripheralEnable(&Test_USART);
+}
+
+void configure_i2c(void)
+{
+	struct I2C_Config_t I2C_Config;
+
+	memset(&I2C_Config,0,sizeof(I2C_Config));
+
+	//GPIO Pin Configuration for I2C
+	EnablePeriClk(I2C_PORT);
+	GPIOSetMode(I2C_PORT,I2C1_SDA,GPIO_MODE_ALTFN);
+	GPIOSetMode(I2C_PORT,I2C1_SCL,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(I2C_PORT,I2C1_SDA,GPIO_ALTFN_4);
+	GPIOSetAltFn(I2C_PORT,I2C1_SCL,GPIO_ALTFN_4);
+	GPIOSetOutputType(I2C_PORT,I2C1_SDA,GPIO_OPTYPE_OD);
+	GPIOSetOutputType(I2C_PORT,I2C1_SCL,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(I2C_PORT,I2C1_SDA,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(I2C_PORT,I2C1_SCL,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(I2C_PORT,I2C1_SDA,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(I2C_PORT,I2C1_SCL,GPIO_PULL_UP);
+
+	//I2C Port Configuration
+	I2C_Config.I2C_PeriFreq = I2C_CONFIG_PERI_FREQ;
+	I2C_Config.I2C_SpeedMode = I2C_MODE_SM;
+	I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_0;
+	I2C_Config.I2C_CCRValue = I2C_CONFIG_CCR_VALUE;
+	I2C_Config.I2C_AckControl = I2C_ACK_ENABLE;
+
+	EnablePeriClk(I2C_DEVICE);
+
+	I2CPeriConfig(I2C_DEVICE,&I2C_Config);
+	I2CConfigureTrise(I2C_DEVICE,TRISE_VALUE);
+	I2CEnable(I2C_DEVICE);
+
+	return;
+}
+
+void configure_i2c_rtc(void)
+{
+	struct I2C_Config_t I2C_Config;
+
+	memset(&I2C_Config,0,sizeof(I2C_Config));
+
+	//GPIO Pin Configuration for I2C
+	EnablePeriClk(I2C_PORT_RTC);
+	GPIOSetMode(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_MODE_ALTFN);
+	GPIOSetMode(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_ALTFN_4);
+	GPIOSetAltFn(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_ALTFN_4);
+	GPIOSetOutputType(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_OPTYPE_OD);
+	GPIOSetOutputType(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(I2C_PORT_RTC,I2C_SDA_RTC,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(I2C_PORT_RTC,I2C_SCL_RTC,GPIO_PULL_UP);
+
+	//I2C Port Configuration
+	I2C_Config.I2C_PeriFreq = I2C_CONFIG_PERI_FREQ;
+	I2C_Config.I2C_SpeedMode = I2C_MODE_SM;
+	I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_0;
+	I2C_Config.I2C_CCRValue = I2C_CONFIG_CCR_VALUE;
+	I2C_Config.I2C_AckControl = I2C_ACK_ENABLE;
+
+	EnablePeriClk(I2C_DEVICE_RTC);
+
+	I2CPeriConfig(I2C_DEVICE_RTC,&I2C_Config);
+	I2CConfigureTrise(I2C_DEVICE_RTC,TRISE_VALUE);
+	I2CEnable(I2C_DEVICE_RTC);
+
+	return;
+}
+
+void UART_SendChar(uint8_t ch)
+{
+	USART_SendData(&Test_USART, &ch, 1);
+}
+
+void LCD_SendChar(uint8_t ch)
+{
+	lcd_pcf8574_send_data(ch);
+}

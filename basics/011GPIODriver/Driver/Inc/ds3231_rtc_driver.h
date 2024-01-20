@@ -110,7 +110,7 @@ struct RTC_DS3231_AlarmConfig_t
 #define DS3231_RTC_CSR_A1F					0
 
 //DS3231 ALARM Input Parameters
-#define DS3231_RTC_ALARM_INPUT_GPIO_PORT	GPIOE
+#define DS3231_RTC_ALARM_INPUT_GPIO_PORT	GPIOD
 #define DS3231_RTC_ALARM_INPUT_GPIO_PIN		GPIO_PIN_0
 #define DS3231_RTC_ALARM_INPUT_IRQ_NUM		6
 
@@ -119,7 +119,7 @@ struct RTC_DS3231_AlarmConfig_t
 #define DS3231_RTC_ALARM_OUTPUT_GPIO_PIN	GPIO_PIN_15
 
 //Button Parameters
-#define BTN_INT_GPIO_PORT   GPIOA
+#define BTN_INT_GPIO_PORT   GPIOD
 #define BTN_INT_GPIO_PIN    GPIO_PIN_2
 #define BTN_INT_IRQ_NUM  	8
 
@@ -127,8 +127,10 @@ void RTC_DS3231_Config_Calendar(struct RTC_DS3231_Config_t *pRTCConfig);
 void RTC_DS3231_Read_Calendar(struct Date *date, struct Time *time);
 void RTC_DS3231_Display_Calendar_LCD(struct Date *date, struct Time *time);
 void RTC_DS3231_Config_Alarm(struct RTC_DS3231_AlarmConfig_t *pRTCAlarmConfig);
+uint8_t RTC_DS3231_Read_Register(uint8_t address);
 void RTC_DS3231_Config_Alarm_Interrupt(void);
 void RTC_DS3231_Config_Alarm_Output_GPIO(void);
 void RTC_DS3231_Config_Button_Interrupt(void);
+void RTC_DS3231_Clear_Alarm(uint8_t AlarmSelection);
 
 #endif /* INC_DS3231_RTC_DRIVER_H_ */
