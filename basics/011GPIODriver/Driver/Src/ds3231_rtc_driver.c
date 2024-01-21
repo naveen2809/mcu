@@ -347,7 +347,7 @@ void RTC_DS3231_Config_Alarm_Output_GPIO(void)
 
 void RTC_DS3231_Config_Button_Interrupt(void)
 {
-	configure_external_gpio_interrupt(BTN_INT_GPIO_PORT,BTN_INT_GPIO_PIN,EXTI_FALLING_TRIGGER,BTN_INT_IRQ_NUM);
+	configure_external_gpio_interrupt(DS3231_RTC_BTN_INT_GPIO_PORT,DS3231_RTC_BTN_INT_GPIO_PIN,EXTI_FALLING_TRIGGER,DS3231_RTC_BTN_INT_IRQ_NUM);
 
 	return;
 }

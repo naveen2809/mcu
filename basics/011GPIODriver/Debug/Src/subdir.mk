@@ -5,17 +5,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/combined_calculator_clock_temp_interrupt.c \
+../Src/rtc_ds3231_test_interrupt.c \
 ../Src/syscalls.c \
 ../Src/sysmem.c 
 
 OBJS += \
-./Src/combined_calculator_clock_temp_interrupt.o \
+./Src/rtc_ds3231_test_interrupt.o \
 ./Src/syscalls.o \
 ./Src/sysmem.o 
 
 C_DEPS += \
-./Src/combined_calculator_clock_temp_interrupt.d \
+./Src/rtc_ds3231_test_interrupt.d \
 ./Src/syscalls.d \
 ./Src/sysmem.d 
 
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/combined_calculator_clock_temp_interrupt.d ./Src/combined_calculator_clock_temp_interrupt.o ./Src/combined_calculator_clock_temp_interrupt.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+	-$(RM) ./Src/rtc_ds3231_test_interrupt.d ./Src/rtc_ds3231_test_interrupt.o ./Src/rtc_ds3231_test_interrupt.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 

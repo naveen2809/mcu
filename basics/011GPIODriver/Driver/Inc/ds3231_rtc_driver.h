@@ -119,9 +119,9 @@ struct RTC_DS3231_AlarmConfig_t
 #define DS3231_RTC_ALARM_OUTPUT_GPIO_PIN	GPIO_PIN_15
 
 //Button Parameters
-#define BTN_INT_GPIO_PORT   GPIOD
-#define BTN_INT_GPIO_PIN    GPIO_PIN_2
-#define BTN_INT_IRQ_NUM  	8
+#define DS3231_RTC_BTN_INT_GPIO_PORT   	GPIOE
+#define DS3231_RTC_BTN_INT_GPIO_PIN    	GPIO_PIN_2
+#define DS3231_RTC_BTN_INT_IRQ_NUM  	8
 
 void RTC_DS3231_Config_Calendar(struct RTC_DS3231_Config_t *pRTCConfig);
 void RTC_DS3231_Read_Calendar(struct Date *date, struct Time *time);
