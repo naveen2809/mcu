@@ -1,4 +1,4 @@
-Src/rtc_ds3231_test_interrupt.o: ../Src/rtc_ds3231_test_interrupt.c \
+Src/rtc_ds3231_temp_display.o: ../Src/rtc_ds3231_temp_display.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/gpio_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \

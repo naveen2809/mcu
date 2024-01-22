@@ -388,6 +388,45 @@ void RTC_DS3231_Clear_Alarm(uint8_t AlarmSelection)
 	return;
 }
 
+void RTC_DS3231_Display_Temp_LCD(void)
+{
+
+	uint8_t temp[2];
+	uint8_t temp1_reg_address = 0x11;
+	uint8_t temp2_reg_address = 0x12;
+	uint8_t temp_fraction, shift_len = 6;
+
+	//Reading the temperature registers
+	I2CMaster_DS3231_RTC_Read(I2C_DEVICE_RTC,&temp[0],1,temp1_reg_address,SlaveAddressRTC);
+	I2CMaster_DS3231_RTC_Read(I2C_DEVICE_RTC,&temp[1],1,temp2_reg_address,SlaveAddressRTC);
+
+	//Converting the fractional part of temperature to decimal values
+	if((temp[1] >> shift_len) == 0)
+	{
+		temp_fraction = 0;
+	}
+	else if((temp[1] >> shift_len) == 1)
+	{
+		temp_fraction = 25;
+	}
+	else if((temp[1] >> shift_len) == 2)
+	{
+		temp_fraction = 50;
+	}
+	else if((temp[1] >> shift_len) == 3)
+	{
+		temp_fraction = 75;
+	}
+
+	lcd_pcf8574_clear_screen();
+	delay_us(3000);
+	lcd_pcf8574_return_home();
+	delay_us(3000);
+	printf("TEMP: %02d.%02d C",temp[0],temp_fraction);
+
+	return;
+}
+
 static void format_dow(struct Date *date,char *dow)
 {
 	switch(date->dayofweek)

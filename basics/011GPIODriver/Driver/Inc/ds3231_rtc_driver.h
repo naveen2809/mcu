@@ -132,5 +132,6 @@ void RTC_DS3231_Config_Alarm_Interrupt(void);
 void RTC_DS3231_Config_Alarm_Output_GPIO(void);
 void RTC_DS3231_Config_Button_Interrupt(void);
 void RTC_DS3231_Clear_Alarm(uint8_t AlarmSelection);
+void RTC_DS3231_Display_Temp_LCD(void);
 
 #endif /* INC_DS3231_RTC_DRIVER_H_ */

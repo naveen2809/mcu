@@ -56,9 +56,9 @@ int main(void)
 	ds3231_rtc_config.RTCClockSecondsUnits = 0;
 	ds3231_rtc_config.RTCClockSecondsTens = 0;
 	ds3231_rtc_config.RTCClockMinutesUnits = 6;
-	ds3231_rtc_config.RTCClockMinutesTens = 3;
-	ds3231_rtc_config.RTCClockHoursUnits = 9;
-	ds3231_rtc_config.RTCClockHoursTens = 0;
+	ds3231_rtc_config.RTCClockMinutesTens = 1;
+	ds3231_rtc_config.RTCClockHoursUnits = 1;
+	ds3231_rtc_config.RTCClockHoursTens = 1;
 	ds3231_rtc_config.RTCClockHourFormat = DS3231_RTC_HOUR_FORMAT_12;
 	ds3231_rtc_config.RTCClockAMPM = DS3231_RTC_HOUR_AM;
 	ds3231_rtc_config.RTCClockDateUnits = 1;
@@ -99,10 +99,10 @@ int main(void)
 	memset(&ds3231_rtc_alarm_config,0,sizeof(ds3231_rtc_alarm_config));
 	ds3231_rtc_alarm_config.RTCAlarmSelection = DS3231_RTC_ALARM_2;
 	ds3231_rtc_alarm_config.RTCAlarmMinutesUnits = 8;
-	ds3231_rtc_alarm_config.RTCAlarmMinutesTens = 3;
+	ds3231_rtc_alarm_config.RTCAlarmMinutesTens = 1;
 	ds3231_rtc_alarm_config.RTCAlarmConsiderMinutes = RTC_ALARM_CONSIDER_MINS_YES;
-	ds3231_rtc_alarm_config.RTCAlarmHoursUnits = 9;
-	ds3231_rtc_alarm_config.RTCAlarmHoursTens = 0;
+	ds3231_rtc_alarm_config.RTCAlarmHoursUnits = 1;
+	ds3231_rtc_alarm_config.RTCAlarmHoursTens = 1;
 	ds3231_rtc_alarm_config.RTCAlarmHourFormat = DS3231_RTC_HOUR_FORMAT_12;
 	ds3231_rtc_alarm_config.RTCAlarmAMPM = DS3231_RTC_HOUR_AM;
 	ds3231_rtc_alarm_config.RTCAlarmConsiderHours = RTC_ALARM_CONSIDER_HRS_YES;

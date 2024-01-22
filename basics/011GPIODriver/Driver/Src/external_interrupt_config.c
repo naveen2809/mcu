@@ -19,6 +19,7 @@ void configure_external_interrupt(void)
 	uint32_t *pEXTI_FTSR = (uint32_t *) EXTI_FTSR_ADDR;
 	uint32_t *pSYSCFG_EXTI_CR_ADDR = (uint32_t *) SYSCFG_EXTI_CR_BASE_ADDR;
 	uint32_t OFFSET;
+	uint32_t OFFSET_ADDRESS;
 
 	//GPIO Pin Configuration
 	EnablePeriClk(INTERRUPT_PORT);
@@ -46,7 +47,8 @@ void configure_external_interrupt(void)
 	*pAPB2ENR |= (1 << 14);							// Enabling the clock for the System Configuration Block
 
 	OFFSET = INTERRUPT_PIN%4;
-	pSYSCFG_EXTI_CR_ADDR += OFFSET;
+	OFFSET_ADDRESS = INTERRUPT_PIN/4;
+	pSYSCFG_EXTI_CR_ADDR += OFFSET_ADDRESS;
 
 	// Enabling GPIO Port x  input on EXTIx line
 	*pSYSCFG_EXTI_CR_ADDR &= ~(0xF << OFFSET*4);

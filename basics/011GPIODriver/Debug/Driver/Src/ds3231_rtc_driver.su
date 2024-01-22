@@ -7,5 +7,6 @@
 ../Driver/Src/ds3231_rtc_driver.c:348:6:RTC_DS3231_Config_Button_Interrupt	8	static
 ../Driver/Src/ds3231_rtc_driver.c:355:9:RTC_DS3231_Read_Register	32	static
 ../Driver/Src/ds3231_rtc_driver.c:364:6:RTC_DS3231_Clear_Alarm	32	static
-../Driver/Src/ds3231_rtc_driver.c:391:13:format_dow	16	static
-../Driver/Src/ds3231_rtc_driver.c:423:13:format_mon	16	static
+../Driver/Src/ds3231_rtc_driver.c:391:6:RTC_DS3231_Display_Temp_LCD	32	static
+../Driver/Src/ds3231_rtc_driver.c:430:13:format_dow	16	static
+../Driver/Src/ds3231_rtc_driver.c:462:13:format_mon	16	static
