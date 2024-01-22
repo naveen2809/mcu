@@ -57,6 +57,8 @@ int main(void)
 
 	configure_nrf_radio(&radio_config);
 
+	printf("Beginning Transmission\r\n");
+
 	while(1)
 	{
 		//Read the DHT11 Sensor
@@ -89,32 +91,6 @@ int main(void)
 
 		delay_us(5000000);
 	}
-
-
-/*
-	count=0;
-
-
-	while(1)
-	{
-
-		dht11_sensor_data[1]=(uint8_t)count;
-		dht11_sensor_data[3]=(uint8_t)count;
-		//Transmit the sensor readings over wireless link
-		status = nrf_radio_transmit_packet_polling(dht11_sensor_data,4,NRF_RADIO_ACK);
-		if(status == NRF_RADIO_PKT_TX_COMPLETE)
-		{
-			//Print Message
-			printf("Packet %ld Transmitted Successfully\r\n",++count);
-		}
-		else if(status == NRF_RADIO_PKT_TX_FAIL)
-		{
-			//Print Message
-			printf("Packet %ld Transmission Failed\r\n",++count);
-		}
-		delay_us(5000000);
-	}
-*/
 
 	return 0;
 }

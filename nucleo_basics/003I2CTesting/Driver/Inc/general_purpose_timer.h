@@ -41,7 +41,7 @@ struct General_Purpose_Timer_Config_t
 {
 	uint32_t 	Timer_PreScalerValue;
 	uint32_t 	Timer_AutoReloadValue;
-	//uint8_t 	Timer_UpdateInterruptConfig;
+	uint8_t 	Timer_UpdateInterruptConfig;
 	uint8_t 	Timer_Channel_1_Status;
 	uint8_t 	Timer_Channel_1_Mode;
 	uint32_t 	Timer_Channel_1_OutputCompareRegisterValue;

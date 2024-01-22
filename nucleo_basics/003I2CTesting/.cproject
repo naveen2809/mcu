@@ -71,11 +71,14 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.115676601" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
+					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.281508772.1575586187" name="temp_on_lcd_over_wireless_tx.c" rcbsApplicability="disable" resourcePath="Src/temp_on_lcd_over_wireless_tx.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.2072141133.1290613568">
+						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.2072141133.1290613568" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.2072141133"/>
+					</fileInfo>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.281508772.1111579848" name="common_utilities.h" rcbsApplicability="disable" resourcePath="Driver/Inc/common_utilities.h" toolsToInvoke=""/>
 					<sourceEntries>
 						<entry excluding="Inc/common_utilities.h|Src/common_utilities.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Driver"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Inc"/>
-						<entry excluding="nRF24L01_Tx.c|spi_board_comm_master_rx_test_it.c|spi_board_comm_master_tx_test_it.c|spi_board_comm_tx_test.c|usart_board_comm_tx_test.c|i2c_slave_tx_test.c|i2c_slave_rx_test.c|usart_test.c|gpio_test.c|spi_test.c|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="temp_on_lcd_over_wireless_tx.c|nRF24L01_Tx.c|spi_board_comm_master_rx_test_it.c|spi_board_comm_master_tx_test_it.c|spi_board_comm_tx_test.c|usart_board_comm_tx_test.c|i2c_slave_tx_test.c|i2c_slave_rx_test.c|usart_test.c|gpio_test.c|spi_test.c|main.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Startup"/>
 					</sourceEntries>
 				</configuration>

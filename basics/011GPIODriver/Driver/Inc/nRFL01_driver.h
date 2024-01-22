@@ -11,10 +11,11 @@
 #include "stm32f4xx.h"
 #include "gpio_driver.h"
 
-#define RADIO_PORT		GPIOA
-#define CE_PIN			2
-#define IRQ_PIN			0
-#define SS_PIN			4
+#define RADIO_PORT			GPIOA
+#define CE_PIN				2
+#define IRQ_PIN				0
+#define SS_PIN				4
+#define NRF_RADIO_IRQ_NUM	6
 
 #define NRF_RADIO_MODE_TX				0
 #define NRF_RADIO_MODE_RX				1
@@ -232,5 +233,6 @@ void nrf_radio_cmd_read(uint8_t *buffer,uint8_t length);
 void nrf_radio_flush_tx(void);
 void nrf_radio_interrupt_callback(void);
 void nrf_radio_rx_polling(void);
+void nrf_radio_enable_irq(void);
 
 #endif /* INC_NRFL01_DRIVER_H_ */

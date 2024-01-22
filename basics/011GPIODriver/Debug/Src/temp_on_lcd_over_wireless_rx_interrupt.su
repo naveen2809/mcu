@@ -1,0 +1,4 @@
+../Src/temp_on_lcd_over_wireless_rx_interrupt.c:25:5:main	64	static
+../Src/temp_on_lcd_over_wireless_rx_interrupt.c:80:6:nrf_radio_packet_received_application_callback	16	static
+../Src/temp_on_lcd_over_wireless_rx_interrupt.c:99:6:nrf_radio_enable_irq	8	static
+../Src/temp_on_lcd_over_wireless_rx_interrupt.c:107:6:EXTI0_IRQHandler	16	static

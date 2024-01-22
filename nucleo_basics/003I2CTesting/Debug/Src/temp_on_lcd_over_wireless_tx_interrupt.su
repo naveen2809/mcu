@@ -1,0 +1,7 @@
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:35:5:main	64	static
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:84:13:disable_interrupts	4	static,ignoring_inline_asm
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:91:13:enable_interrupts	4	static,ignoring_inline_asm
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:98:13:configure_timer5	8	static
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:113:6:TIM5_IRQHandler	16	static
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:164:13:nrf_radio_enable_irq	8	static
+../Src/temp_on_lcd_over_wireless_tx_interrupt.c:172:6:EXTI0_IRQHandler	16	static

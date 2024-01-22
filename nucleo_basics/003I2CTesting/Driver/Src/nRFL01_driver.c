@@ -396,3 +396,16 @@ void nrf_radio_flush_tx(void)
 	cmd_packet_length = 1;
 	nrf_radio_cmd_write((uint8_t *)cmd_buffer,cmd_packet_length);
 }
+
+void nrf_radio_transmit_packet_interrupt(uint8_t *buffer,uint8_t length,uint8_t ack_policy)
+{
+	//1. Send packet to radio using SPI interface
+	nrf_radio_send_packet_to_fifo(buffer,length,ack_policy);
+
+	//2. Pulse the PTX CE line for more than 10us
+	GPIOWritePin(RADIO_PORT,CE_PIN,GPIO_HIGH);
+	delay_us(10);
+	GPIOWritePin(RADIO_PORT,CE_PIN,GPIO_LOW);
+
+	return;
+}

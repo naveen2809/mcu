@@ -69,7 +69,7 @@ char *__env[1] = { 0 };
 char **environ = __env;
 
 
-//extern void UART_SendChar(uint8_t ch);
+extern void UART_SendChar(uint8_t ch);
 
 extern void LCD_SendChar(uint8_t ch);
 

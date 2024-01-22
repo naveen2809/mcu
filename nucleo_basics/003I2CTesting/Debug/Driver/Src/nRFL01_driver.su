@@ -12,3 +12,4 @@
 ../Driver/Src/nRFL01_driver.c:362:6:nrf_radio_send_packet_to_fifo	24	static
 ../Driver/Src/nRFL01_driver.c:386:6:nrf_radio_cmd_write	16	static
 ../Driver/Src/nRFL01_driver.c:393:6:nrf_radio_flush_tx	8	static
+../Driver/Src/nRFL01_driver.c:400:6:nrf_radio_transmit_packet_interrupt	16	static

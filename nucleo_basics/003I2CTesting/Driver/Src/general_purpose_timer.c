@@ -171,7 +171,7 @@ void General_Purpose_Timer_Init(struct General_Purpose_Timer_Handle_t *pGeneral_
 		}
 	}
 
-	/*
+
 	//4. Enable/Disable the Update Event Interrupt
 
 	if(pGeneral_Purpose_Timer_Handle->General_Purpose_Timer_Config.Timer_UpdateInterruptConfig == TIMER_UPDATE_INTERRUPT_ENABLE)
@@ -182,7 +182,6 @@ void General_Purpose_Timer_Init(struct General_Purpose_Timer_Handle_t *pGeneral_
 	{
 		pGeneral_Purpose_Timer_Handle->pGeneral_Purpose_Timer->TIMx_DIER &= ~(1 << TIMx_DIER_UIE);
 	}
-	*/
 
 }
 
