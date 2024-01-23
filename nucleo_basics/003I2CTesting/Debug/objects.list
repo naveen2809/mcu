@@ -14,5 +14,5 @@
 "./Driver/Src/usart_driver.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
-"./Src/temp_on_lcd_over_wireless_tx_interrupt.o"
+"./Src/temp_on_lcd_over_wireless_tx_interrupt_v2.o"
 "./Startup/startup_stm32f446retx.o"

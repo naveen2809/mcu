@@ -157,6 +157,8 @@
 #define NVIC_BASE_ADDR					0xE000E100UL
 #define NVIC_ISER_BASE_ADDR				0xE000E100UL
 #define NVIC_ICER_BASE_ADDR				0XE000E180UL
+#define NVIC_ISPR_BASE_ADDR				0xE000E200UL
+#define NVIC_ICPR_BASE_ADDR				0XE000E280UL
 
 #define RTC_BASE_ADDR					0x40002800UL
 
@@ -169,5 +171,7 @@ void EnablePeriClk(uint32_t *PeripheralAddress);
 void DisablePeriClk(uint32_t *PeripheralAddress);
 void NVIC_EnableIRQ(uint8_t IRQNum);
 void NVIC_DisableIRQ(uint8_t IRQNum);
+void NVIC_IRQSetPending(uint8_t IRQNum);
+void NVIC_IRQClearPending(uint8_t IRQNum);
 
 #endif /* INC_STM32F4XX_H_ */

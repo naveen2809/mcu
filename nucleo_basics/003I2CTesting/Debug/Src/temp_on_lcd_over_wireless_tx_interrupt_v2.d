@@ -1,5 +1,5 @@
-Src/temp_on_lcd_over_wireless_tx_interrupt.o: \
- ../Src/temp_on_lcd_over_wireless_tx_interrupt.c \
+Src/temp_on_lcd_over_wireless_tx_interrupt_v2.o: \
+ ../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c \
  /home/naveen/Code/mcu/nucleo_basics/003I2CTesting/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/nucleo_basics/003I2CTesting/Driver/Inc/gpio_driver.h \
  /home/naveen/Code/mcu/nucleo_basics/003I2CTesting/Driver/Inc/stm32f4xx.h \

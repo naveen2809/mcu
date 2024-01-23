@@ -22,8 +22,8 @@ extern char cmd_buffer[];
 extern uint8_t cmd_packet_length;
 
 
-static uint32_t transmit_count = 0;
-static uint8_t transmit_status;
+static volatile uint32_t transmit_count = 0;
+static volatile uint8_t transmit_status;
 
 static void disable_interrupts(void);
 static void enable_interrupts(void);
@@ -171,7 +171,8 @@ static void nrf_radio_enable_irq(void)
 
 void EXTI0_IRQHandler(void)
 {
-	uint8_t status, interrupt_source;
+	volatile uint8_t status;
+	volatile uint8_t interrupt_source;
 
 	disable_interrupts();
 

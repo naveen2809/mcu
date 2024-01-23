@@ -7,17 +7,17 @@
 C_SRCS += \
 ../Src/syscalls.c \
 ../Src/sysmem.c \
-../Src/temp_on_lcd_over_wireless_tx_interrupt.c 
+../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c 
 
 OBJS += \
 ./Src/syscalls.o \
 ./Src/sysmem.o \
-./Src/temp_on_lcd_over_wireless_tx_interrupt.o 
+./Src/temp_on_lcd_over_wireless_tx_interrupt_v2.o 
 
 C_DEPS += \
 ./Src/syscalls.d \
 ./Src/sysmem.d \
-./Src/temp_on_lcd_over_wireless_tx_interrupt.d 
+./Src/temp_on_lcd_over_wireless_tx_interrupt_v2.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/temp_on_lcd_over_wireless_tx_interrupt.d ./Src/temp_on_lcd_over_wireless_tx_interrupt.o ./Src/temp_on_lcd_over_wireless_tx_interrupt.su
+	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/temp_on_lcd_over_wireless_tx_interrupt_v2.d ./Src/temp_on_lcd_over_wireless_tx_interrupt_v2.o ./Src/temp_on_lcd_over_wireless_tx_interrupt_v2.su
 
 .PHONY: clean-Src
 

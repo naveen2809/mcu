@@ -278,3 +278,28 @@ void NVIC_DisableIRQ(uint8_t IRQNum)
 		*pNVIC_ICER |= (1 << NVICBitPos);
 }
 
+void NVIC_IRQSetPending(uint8_t IRQNum)
+{
+	uint32_t *pNVIC_ISPR;
+	uint32_t NVICRegisterNum = IRQNum/32;
+	uint32_t NVICBitPos = IRQNum%32;
+
+	pNVIC_ISPR = (uint32_t*) NVIC_ISPR_BASE_ADDR + NVICRegisterNum;
+
+	*pNVIC_ISPR |=  (1 << NVICBitPos);
+
+	return;
+}
+
+void NVIC_IRQClearPending(uint8_t IRQNum)
+{
+	uint32_t *pNVIC_ICPR;
+	uint32_t NVICRegisterNum = IRQNum/32;
+	uint32_t NVICBitPos = IRQNum%32;
+
+	pNVIC_ICPR = (uint32_t*) NVIC_ICPR_BASE_ADDR + NVICRegisterNum;
+
+	*pNVIC_ICPR |=  (1 << NVICBitPos);
+
+	return;
+}
