@@ -1,5 +1,0 @@
-../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c:35:5:main	72	static
-../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c:101:13:disable_interrupts	4	static,ignoring_inline_asm
-../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c:108:13:enable_interrupts	4	static,ignoring_inline_asm
-../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c:115:13:nrf_radio_enable_irq	8	static
-../Src/temp_on_lcd_over_wireless_tx_interrupt_v2.c:123:6:EXTI0_IRQHandler	24	static

@@ -16,9 +16,10 @@
 #include "common_utils.h"
 #include "external_interrupt_config.h"
 
-#define TX_QUEUE_SIZE	100
+#define TX_QUEUE_SIZE	200
 #define TRUE			1
 #define FALSE			0
+#define SLEEP_COUNT		50000
 
 extern char cmd_buffer[];
 extern uint8_t cmd_packet_length;
@@ -159,7 +160,7 @@ void EXTI0_IRQHandler(void)
 			cmd_packet_length = 2;
 			nrf_radio_cmd_write((uint8_t *)cmd_buffer,cmd_packet_length);
 
-			delay_us(1000000);
+			delay_us(SLEEP_COUNT);
 		}
 		else if(interrupt_source == NRF_RADIO_INT_SRC_MAX_RT)
 		{
@@ -174,7 +175,7 @@ void EXTI0_IRQHandler(void)
 
 			nrf_radio_flush_tx();
 
-			delay_us(1000000);
+			delay_us(SLEEP_COUNT);
 		}
 
 		//Transmit the Next Packet

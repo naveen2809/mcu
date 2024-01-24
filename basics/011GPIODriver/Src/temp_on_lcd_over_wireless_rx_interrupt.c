@@ -22,14 +22,21 @@ extern uint8_t rx_packet_length;
 extern uint8_t cmd_packet_length;
 extern uint8_t nrf_packet_tx_state;
 
+extern struct USART_Handle_t Test_USART;
+
 int main(void)
 {
 	//NRF24L01 Radio Related Variables
 	struct NRF_RADIO_CONFIG_t radio_config;
 	uint8_t addr[] = {0xA1,0xA2,0xA3,0xA4,0xA5};      //nRF Radio Link Address
 
+	char message[] = "In Main While Loop!\r\n";
+
 	//Configure the Timer
 	configure_delay_timer();
+
+	//Configure UART
+	configure_uart();
 
 	//Configure the LCD Display
 	//a. Configure the I2C Peripheral
@@ -71,7 +78,7 @@ int main(void)
 
 	while(1)
 	{
-
+		USART_SendData(&Test_USART, (uint8_t *)message, strlen(message));
 	}
 
 	return 0;
@@ -108,6 +115,8 @@ void EXTI0_IRQHandler(void)
 {
 	uint8_t status, interrupt_source;
 
+	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
+
 	interrupt_source = nrf_radio_get_interrupt_source();
 
 	//printf("Interrupt Source: %d\r\n",interrupt_source);
@@ -129,6 +138,10 @@ void EXTI0_IRQHandler(void)
 
 		delay_us(5000);
 	}
+
+	//Clearing the interrupt in EXTI
+	*pEXTI_PR |= (1 << IRQ_PIN);
+
 
 	return;
 }

@@ -47,6 +47,9 @@ int main(void)
 	//Configure the SPI Port connecting to NRF24L01 Radio
 	configure_spi();
 
+	//Disable printf() buffering
+	setbuf(stdout, NULL);
+
 	//Configure the NRF24L01 Radio
 	memset(&radio_config,0,sizeof(radio_config));
 	radio_config.radio_mode = NRF_RADIO_MODE_TX;
@@ -75,7 +78,7 @@ int main(void)
 
 	while(1)
 	{
-
+		//printf("In Main While Loop!\r\n");
 	}
 
 	return 0;
@@ -174,7 +177,12 @@ void EXTI0_IRQHandler(void)
 	volatile uint8_t status;
 	volatile uint8_t interrupt_source;
 
+	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
+
 	disable_interrupts();
+
+	//Clear the EXTI Interrupt
+	*pEXTI_PR |= (1 << IRQ_PIN);	//Clearing the EXTI_PR Register
 
 	interrupt_source = nrf_radio_get_interrupt_source();
 
