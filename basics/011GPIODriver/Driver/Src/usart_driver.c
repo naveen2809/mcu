@@ -11,8 +11,20 @@
 #include "stm32f4xx.h"
 #include "usart_driver.h"
 #include <stdio.h>
+#include <stdlib.h>
+
+#define TRUE	1
+#define FALSE	0
 
 extern void USART_RXNEInterruptCallback(uint8_t data);
+
+extern struct USART_Handle_t Test_USART;
+
+static char * usart_tx_message;
+static int usart_tx_count;
+static uint8_t usart_tx_begin;
+
+static uint8_t usart_available = TRUE;
 
 void USART_Init(struct USART_Handle_t *pUSART_Handle)
 {
@@ -172,4 +184,54 @@ void USART_EnableRXNEInterrupt(struct USART_Handle_t *pUSART_Handle)
 void USART_EnableTXEInterrupt(struct USART_Handle_t *pUSART_Handle)
 {
 	pUSART_Handle->pUSART->USART_CR1 |= (1 << USART_CR1_TXEIE);
+}
+
+void USART_DisableTXEInterrupt(struct USART_Handle_t *pUSART_Handle)
+{
+	pUSART_Handle->pUSART->USART_CR1 &= ~(1 << USART_CR1_TXEIE);
+}
+
+void USART_SendData_Interrupt(struct USART_Handle_t *pUSART_Handle, char *pTxBuf, uint32_t Len, uint8_t usart_irq_num)
+{
+
+	//Synchronization mechanism to guard against successive calls to the this function
+	//Ensures processing of first message is completed before taking up new message
+	while(usart_available == FALSE);
+
+	usart_available = FALSE;
+
+	//Update the data buffers and enable the interrupt
+	usart_tx_message = (char *) malloc(Len);
+	strcpy(usart_tx_message,pTxBuf);
+
+	NVIC_EnableIRQ(usart_irq_num);
+	usart_tx_count = 0;
+	usart_tx_begin = TRUE;
+	NVIC_IRQSetPending(usart_irq_num);
+
+	return;
+}
+
+void USART_Interrupt_Callback(void)
+{
+	if(usart_tx_begin == TRUE)
+	{
+		USART_EnableTXEInterrupt(&Test_USART);
+		usart_tx_begin = FALSE;
+		return;
+	}
+
+	if(usart_tx_count < strlen(usart_tx_message))
+	{
+		Test_USART.pUSART->USART_DR = usart_tx_message[usart_tx_count];
+		usart_tx_count++;
+	}
+
+	if(usart_tx_count == strlen(usart_tx_message))
+	{
+		USART_DisableTXEInterrupt(&Test_USART);
+		usart_available = TRUE;
+	}
+
+	return;
 }

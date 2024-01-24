@@ -17,5 +17,5 @@
 "./Driver/Src/usart_driver.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
-"./Src/temp_on_lcd_over_wireless_rx_interrupt.o"
+"./Src/test_usart_interrupt.o"
 "./Startup/startup_stm32f407vgtx.o"

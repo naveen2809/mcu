@@ -1,0 +1,37 @@
+/*
+ * temp_on_lcd_over_wireless_rx.c
+ * Displaying the RH and Temperature data received over nRFL01 Wireless Link
+ * Reference: dht11_sensor_driver.c and lcd_pcf8574_test.c
+ *  Created on: 24-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "dht11_driver.h"
+#include "nRFL01_driver.h"
+#include "common_utils.h"
+#include "external_interrupt_config.h"
+
+extern struct USART_Handle_t Test_USART;
+
+int main(void)
+{
+	char message[] = "In Main While Loop!\r\n";
+
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure UART
+	configure_uart();
+
+	while(1)
+	{
+		USART_SendData(&Test_USART, (uint8_t *)message, strlen(message));
+	}
+
+	return 0;
+}

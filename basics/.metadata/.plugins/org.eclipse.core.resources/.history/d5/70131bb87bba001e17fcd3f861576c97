@@ -1,0 +1,99 @@
+/*
+ * temp_on_lcd_over_wireless_rx.c
+ * Displaying the RH and Temperature data received over nRFL01 Wireless Link
+ * Reference: dht11_sensor_driver.c and lcd_pcf8574_test.c
+ *  Created on: 24-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "dht11_driver.h"
+#include "nRFL01_driver.h"
+#include "common_utils.h"
+#include "external_interrupt_config.h"
+
+extern struct USART_Handle_t Test_USART;
+
+int main(void)
+{
+	char message[] = "In Main While Loop!\r\n";
+
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure UART
+	configure_uart();
+
+	while(1)
+	{
+		USART_SendData(&Test_USART, (uint8_t *)message, strlen(message));
+	}
+
+	return 0;
+}
+
+void nrf_radio_packet_received_application_callback(uint8_t *buffer, uint8_t length)
+{
+	//Ensure that printf is redirected to LCD is "syscalls.c" file
+
+	//Print RH Data
+	lcd_pcf8574_clear_screen();
+	delay_us(3000);
+	lcd_pcf8574_return_home();
+	delay_us(3000);
+	printf("RH:   %d.%d",buffer[0],buffer[1]);
+
+	//Print TEMP Data
+	lcd_pcf8574_set_position(1,0);
+	delay_us(3000);
+	printf("TEMP: %d.%d C",buffer[2],buffer[3]);
+
+	return;
+}
+
+void nrf_radio_enable_irq(void)
+{
+	//Configure and Enable the IRQ in EXTI Controller and NVIC
+	configure_external_gpio_interrupt(RADIO_PORT,IRQ_PIN,EXTI_FALLING_TRIGGER,NRF_RADIO_IRQ_NUM);
+
+	return;
+}
+
+void EXTI0_IRQHandler(void)
+{
+	uint8_t status, interrupt_source;
+
+	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
+
+	interrupt_source = nrf_radio_get_interrupt_source();
+
+	//printf("Interrupt Source: %d\r\n",interrupt_source);
+
+	//Handle the interrupt source
+	if(interrupt_source == NRF_RADIO_INT_SRC_RX_DR)
+	{
+		nrf_radio_retreive_packet_from_fifo();
+		nrf_radio_packet_received_application_callback((uint8_t *)(rx_buffer+1),(rx_packet_length-1));
+		status = NRF_RADIO_INT_SRC_RX_DR_BITPOS;
+
+		//printf("Status Before Clearing = %d\r\n",nrf_radio_get_status_register());
+
+		//4. Clear the interrupt by writing to STATUS Register
+		cmd_buffer[0] = NRF_RADIO_CMD_W_REGISTER_STATUS;
+		cmd_buffer[1] = status;
+		cmd_packet_length = 2;
+		nrf_radio_cmd_write((uint8_t *)cmd_buffer,cmd_packet_length);
+
+		delay_us(5000);
+	}
+
+	//Clearing the interrupt in EXTI
+	*pEXTI_PR |= (1 << IRQ_PIN);
+
+
+	return;
+}
