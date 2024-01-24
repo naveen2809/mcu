@@ -1,22 +1,21 @@
-13:06:09 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+13:23:12 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-gcc "../Src/test_usart_interrupt.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/test_usart_interrupt.d" -MT"Src/test_usart_interrupt.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/test_usart_interrupt.o"
-arm-none-eabi-gcc "../Driver/Src/usart_driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Driver/Src/usart_driver.d" -MT"Driver/Src/usart_driver.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Driver/Src/usart_driver.o"
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011GPIODriver.elf
  
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-   5440	    112	   1672	   7224	   1c38	011GPIODriver.elf
+   5628	    112	   1672	   7412	   1cf4	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
  
-13:06:14 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+13:23:18 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-   5440	    112	   1672	   7224	   1c38	011GPIODriver.elf
+   5628	    112	   1672	   7412	   1cf4	011GPIODriver.elf
 Finished building: default.size.stdout
  

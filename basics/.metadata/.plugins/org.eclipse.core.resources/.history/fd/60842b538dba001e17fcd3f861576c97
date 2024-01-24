@@ -221,7 +221,7 @@ void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
 
 	if(usart_tx_count < strlen(usart_tx_message))
 	{
-		pUSART_Handle->pUSART->USART_DR = usart_tx_message[usart_tx_count];
+		Test_USART.pUSART->USART_DR = usart_tx_message[usart_tx_count];
 		usart_tx_count++;
 	}
 
@@ -229,7 +229,6 @@ void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
 	{
 		USART_DisableTXEInterrupt(pUSART_Handle);
 		usart_available = TRUE;
-		free(usart_tx_message);
 	}
 
 	return;

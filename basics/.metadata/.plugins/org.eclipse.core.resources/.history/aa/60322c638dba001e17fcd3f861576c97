@@ -21,7 +21,7 @@ extern struct USART_Handle_t Test_USART;
 int main(void)
 {
 	char message1[] = "Message 1\r\n";
-	char message[] = "Testing Updated UART Interrupt Driver With Synchronization Support: Hello World!!!\r\n";
+	char message[] = "Testing UART Interrupt Driver With Synchronization Support: Hello World!!!\r\n";
 
 	//Configure the Timer
 	configure_delay_timer();
@@ -30,8 +30,8 @@ int main(void)
 	configure_uart();
 
 	//Enable the UART Interrupt
-	USART_SendData_Interrupt(message1,strlen(message1),USART2_IRQ_NUM);
-	USART_SendData_Interrupt(message,strlen(message),USART2_IRQ_NUM);
+	USART_SendData_Interrupt(&Test_USART,message1,strlen(message1),USART2_IRQ_NUM);
+	USART_SendData_Interrupt(&Test_USART,message,strlen(message),USART2_IRQ_NUM);
 
 	while(1)
 	{
@@ -43,7 +43,7 @@ int main(void)
 
 void USART2_IRQHandler(void)
 {
-	USART_Interrupt_Callback(&Test_USART);
+	USART_Interrupt_Callback();
 
 	return;
 }
