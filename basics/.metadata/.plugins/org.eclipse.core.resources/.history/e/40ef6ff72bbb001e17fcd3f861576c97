@@ -200,6 +200,9 @@ void USART_SendData_Interrupt(char *pTxBuf, uint32_t Len, uint8_t usart_irq_num)
 	usart_available = FALSE;
 
 	//Update the data buffers and enable the interrupt
+	//usart_tx_message = (char *) malloc(Len);
+	//strcpy(usart_tx_message,pTxBuf);
+
 	usart_tx_message = pTxBuf;
 	usart_tx_message_len = Len;
 
@@ -230,6 +233,7 @@ void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
 	if(usart_tx_count == usart_tx_message_len)
 	{
 		USART_DisableTXEInterrupt(pUSART_Handle);
+		free(usart_tx_message);
 		usart_available = TRUE;
 	}
 

@@ -21,7 +21,7 @@ extern struct USART_Handle_t Test_USART;
 int main(void)
 {
 	char message1[] = "Message 1\r\n";
-	char message[] = "Testing Optimized UART Interrupt Driver With Synchronization Support: Hello World!!!\r\n";
+	char message[] = "Testing Modified UART Interrupt Driver With Synchronization Support: Hello World!!!\r\n";
 
 	//Configure the Timer
 	configure_delay_timer();

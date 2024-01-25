@@ -19,7 +19,6 @@
 extern void USART_RXNEInterruptCallback(uint8_t data);
 
 static char * usart_tx_message;
-static int usart_tx_message_len;
 static int usart_tx_count;
 static uint8_t usart_tx_begin;
 
@@ -200,9 +199,8 @@ void USART_SendData_Interrupt(char *pTxBuf, uint32_t Len, uint8_t usart_irq_num)
 	usart_available = FALSE;
 
 	//Update the data buffers and enable the interrupt
-	usart_tx_message = pTxBuf;
-	usart_tx_message_len = Len;
-
+	usart_tx_message = (char *) malloc(Len);
+	strcpy(usart_tx_message,pTxBuf);
 
 	NVIC_EnableIRQ(usart_irq_num);
 	usart_tx_count = 0;
@@ -221,16 +219,17 @@ void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
 		return;
 	}
 
-	if(usart_tx_count < usart_tx_message_len)
+	if(usart_tx_count < strlen(usart_tx_message))
 	{
 		pUSART_Handle->pUSART->USART_DR = usart_tx_message[usart_tx_count];
 		usart_tx_count++;
 	}
 
-	if(usart_tx_count == usart_tx_message_len)
+	if(usart_tx_count == strlen(usart_tx_message))
 	{
 		USART_DisableTXEInterrupt(pUSART_Handle);
 		usart_available = TRUE;
+		free(usart_tx_message);
 	}
 
 	return;
