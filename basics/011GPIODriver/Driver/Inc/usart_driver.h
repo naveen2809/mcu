@@ -144,6 +144,7 @@ void USART_EnableRXNEInterrupt(struct USART_Handle_t *pUSART_Handle);
 void USART_EnableTXEInterrupt(struct USART_Handle_t *pUSART_Handle);
 void USART_DisableTXEInterrupt(struct USART_Handle_t *pUSART_Handle);
 void USART_SendData_Interrupt(char *pTxBuf, uint32_t Len, uint8_t usart_irq_num);
-void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle);
+void USART_Tx_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle);
+void USART_Rx_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle);
 
 #endif /* INC_USART_DRIVER_H_ */

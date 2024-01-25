@@ -21603,3 +21603,349 @@
 2024-01-25 08:18:14,621 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
 2024-01-25 08:18:14,621 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
 2024-01-25 08:18:14,621 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:50:46,334 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:50:46,335 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:50:46,336 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:27,922 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:27,922 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:27,923 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:45,010 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:45,011 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:45,011 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:48,484 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:48,485 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:51:48,485 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:57:31,229 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:57:31,230 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:57:31,231 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:58:14,166 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:58:14,167 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 08:58:14,167 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:01:41,731 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:01:41,731 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:01:41,732 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:21,780 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:21,781 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:21,782 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:44,247 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:44,247 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:44,248 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:48,865 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:48,866 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:03:48,866 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:06:48,535 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command com.st.stm32cube.ide.mcu.debug.swv.core.start_trace
+2024-01-25 09:06:48,536 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:479)
+2024-01-25 09:06:48,536 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+2024-01-25 09:06:48,537 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+2024-01-25 09:06:48,537 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:389)
+2024-01-25 09:06:48,537 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:366)
+2024-01-25 09:06:48,537 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.ui.SWVView$OpenConfigAction.run(SWVView.java:86)
+2024-01-25 09:06:48,538 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+2024-01-25 09:06:48,538 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+2024-01-25 09:06:48,538 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.lambda$5(ActionContributionItem.java:453)
+2024-01-25 09:06:48,539 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+2024-01-25 09:06:48,539 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5895)
+2024-01-25 09:06:48,539 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1520)
+2024-01-25 09:06:48,539 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:5126)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4581)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+2024-01-25 09:06:48,540 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2024-01-25 09:06:48,541 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+2024-01-25 09:06:48,542 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+2024-01-25 09:06:48,542 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+2024-01-25 09:06:48,542 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+2024-01-25 09:06:48,542 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+2024-01-25 09:07:17,215 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command com.st.stm32cube.ide.mcu.debug.swv.core.start_trace
+2024-01-25 09:07:17,216 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:479)
+2024-01-25 09:07:17,216 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+2024-01-25 09:07:17,217 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+2024-01-25 09:07:17,217 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:389)
+2024-01-25 09:07:17,217 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:366)
+2024-01-25 09:07:17,218 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.ui.SWVView$OpenConfigAction.run(SWVView.java:86)
+2024-01-25 09:07:17,218 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+2024-01-25 09:07:17,218 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+2024-01-25 09:07:17,218 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.lambda$5(ActionContributionItem.java:453)
+2024-01-25 09:07:17,219 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+2024-01-25 09:07:17,219 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5895)
+2024-01-25 09:07:17,219 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1520)
+2024-01-25 09:07:17,219 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:5126)
+2024-01-25 09:07:17,220 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4581)
+2024-01-25 09:07:17,220 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+2024-01-25 09:07:17,220 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:07:17,221 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+2024-01-25 09:07:17,221 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+2024-01-25 09:07:17,221 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+2024-01-25 09:07:17,221 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:07:17,222 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+2024-01-25 09:07:17,222 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+2024-01-25 09:07:17,222 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+2024-01-25 09:07:17,223 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+2024-01-25 09:07:17,223 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+2024-01-25 09:07:17,223 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+2024-01-25 09:07:17,224 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+2024-01-25 09:07:17,224 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+2024-01-25 09:07:17,224 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2024-01-25 09:07:17,224 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2024-01-25 09:07:17,225 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2024-01-25 09:07:17,225 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+2024-01-25 09:07:17,225 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+2024-01-25 09:07:17,226 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+2024-01-25 09:07:17,226 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+2024-01-25 09:07:17,226 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+2024-01-25 09:07:35,476 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command com.st.stm32cube.ide.mcu.debug.swv.core.start_trace
+2024-01-25 09:07:35,476 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:479)
+2024-01-25 09:07:35,477 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+2024-01-25 09:07:35,477 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+2024-01-25 09:07:35,478 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:389)
+2024-01-25 09:07:35,478 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:366)
+2024-01-25 09:07:35,478 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.ui.SWVView$OpenConfigAction.run(SWVView.java:86)
+2024-01-25 09:07:35,478 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+2024-01-25 09:07:35,478 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+2024-01-25 09:07:35,479 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.lambda$5(ActionContributionItem.java:453)
+2024-01-25 09:07:35,479 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+2024-01-25 09:07:35,479 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5895)
+2024-01-25 09:07:35,479 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1520)
+2024-01-25 09:07:35,479 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:5126)
+2024-01-25 09:07:35,479 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4581)
+2024-01-25 09:07:35,480 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+2024-01-25 09:07:35,480 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:07:35,480 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+2024-01-25 09:07:35,480 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+2024-01-25 09:07:35,480 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+2024-01-25 09:07:35,480 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:07:35,481 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+2024-01-25 09:07:35,481 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+2024-01-25 09:07:35,481 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+2024-01-25 09:07:35,481 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+2024-01-25 09:07:35,481 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+2024-01-25 09:07:35,482 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+2024-01-25 09:07:35,482 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+2024-01-25 09:07:35,482 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+2024-01-25 09:07:35,482 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2024-01-25 09:07:35,482 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2024-01-25 09:07:35,482 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2024-01-25 09:07:35,483 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+2024-01-25 09:07:35,483 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+2024-01-25 09:07:35,483 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+2024-01-25 09:07:35,483 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+2024-01-25 09:07:35,483 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+2024-01-25 09:07:44,299 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.eclipse.core.commands.NotEnabledException: Trying to execute the disabled command com.st.stm32cube.ide.mcu.debug.swv.core.start_trace
+2024-01-25 09:07:44,299 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:479)
+2024-01-25 09:07:44,299 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+2024-01-25 09:07:44,300 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+2024-01-25 09:07:44,300 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:389)
+2024-01-25 09:07:44,300 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:366)
+2024-01-25 09:07:44,300 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.ui.SWVView$OpenConfigAction.run(SWVView.java:86)
+2024-01-25 09:07:44,301 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+2024-01-25 09:07:44,301 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+2024-01-25 09:07:44,301 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.jface.action.ActionContributionItem.lambda$5(ActionContributionItem.java:453)
+2024-01-25 09:07:44,301 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+2024-01-25 09:07:44,301 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:5895)
+2024-01-25 09:07:44,302 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1520)
+2024-01-25 09:07:44,302 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:5126)
+2024-01-25 09:07:44,302 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4581)
+2024-01-25 09:07:44,302 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+2024-01-25 09:07:44,303 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:07:44,303 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+2024-01-25 09:07:44,303 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+2024-01-25 09:07:44,303 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+2024-01-25 09:07:44,303 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+2024-01-25 09:07:44,304 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+2024-01-25 09:07:44,304 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+2024-01-25 09:07:44,304 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+2024-01-25 09:07:44,304 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+2024-01-25 09:07:44,304 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+2024-01-25 09:07:44,305 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+2024-01-25 09:07:44,305 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+2024-01-25 09:07:44,305 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+2024-01-25 09:07:44,305 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2024-01-25 09:07:44,306 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+2024-01-25 09:07:44,306 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+2024-01-25 09:07:44,306 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+2024-01-25 09:07:44,306 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+2024-01-25 09:07:44,306 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+2024-01-25 09:07:44,307 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+2024-01-25 09:07:44,307 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.equinox.launcher.Main.main(Main.java:1440)
+2024-01-25 09:16:19,375 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:16:19,376 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:16:19,376 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:24:40,200 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:24:40,201 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:24:40,202 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:24:46,489 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:24:46,489 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:24:46,490 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:25:59,271 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:25:59,273 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:25:59,273 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:27:15,973 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:27:15,974 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:27:15,975 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:27:19,943 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:27:19,944 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:27:19,944 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:29:55,725 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:29:55,726 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:29:55,726 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:30:00,283 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:30:00,284 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:30:00,284 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:38:34,649 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:38:34,650 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:38:34,650 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:38:45,893 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:38:45,894 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:38:45,895 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:39:57,955 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:39:57,956 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:39:57,956 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:43:10,015 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:43:10,016 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:43:10,016 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:43:13,562 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:43:13,563 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:43:13,563 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:45:55,085 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:45:55,086 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:45:55,086 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:49:39,799 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:49:39,800 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:49:39,800 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:50:28,393 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:50:28,394 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:50:28,394 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:53:36,725 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:53:36,726 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:53:36,726 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:56:19,554 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:56:19,554 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:56:19,555 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:56:24,637 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:56:24,637 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:56:24,637 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:58:45,705 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:58:45,706 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 09:58:45,707 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:28,371 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:28,371 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:28,372 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:32,328 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:32,329 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:32,329 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:55,094 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:55,095 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:03:55,096 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:05:44,535 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:05:44,535 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:05:44,536 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:05:49,061 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:05:49,061 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:05:49,061 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:12:23,846 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:12:23,847 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:12:23,847 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:12:27,025 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:12:27,025 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:12:27,025 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:32:23,332 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:32:23,333 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:32:23,333 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:32:28,699 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:32:28,699 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:32:28,700 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:36:54,148 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:36:54,149 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:36:54,149 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:38:20,607 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:38:20,608 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:38:20,609 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:39:37,402 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:39:37,403 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:39:37,403 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:42:12,052 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:42:12,053 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:42:12,053 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:47:16,239 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:47:16,240 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:47:16,240 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:48:47,368 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:48:47,369 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:48:47,370 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:51:54,482 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:51:54,483 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:51:54,483 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:51:58,110 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:51:58,110 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:51:58,111 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:52:50,609 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:52:50,610 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:52:50,610 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:53:16,858 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:53:16,858 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:53:16,858 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:53:22,606 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:53:22,606 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:53:22,606 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:54:24,158 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:54:24,159 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:54:24,159 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:55:10,482 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:55:10,483 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:55:10,483 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:55:14,512 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:55:14,512 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:55:14,513 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:13,309 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:13,310 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:13,311 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:17,259 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:17,259 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:17,259 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:54,886 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:54,886 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:56:54,887 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:57:03,673 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:57:03,674 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:57:03,674 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:58:15,838 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:58:15,839 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:58:15,839 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:59:22,723 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:59:22,724 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:59:22,725 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:59:22,896 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:59:22,897 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 10:59:22,897 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:15:07,006 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:15:07,007 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:15:07,007 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:48:17,957 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:48:17,958 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:48:17,958 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:59:06,825 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:59:06,826 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 11:59:06,826 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:00:07,409 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:00:07,410 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:00:07,410 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:02:51,486 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:02:51,486 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:02:51,486 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:02:55,025 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:02:55,026 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-01-25 12:02:55,026 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com

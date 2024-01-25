@@ -12,16 +12,19 @@
 #include "usart_driver.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "common_utils.h"
 
 #define TRUE	1
 #define FALSE	0
 
 extern void USART_RXNEInterruptCallback(uint8_t data);
+extern void USART_RX_Interrupt_Application_Callback(uint8_t data);
 
-static char * usart_tx_message;
-static int usart_tx_message_len;
-static int usart_tx_count;
-static uint8_t usart_tx_begin;
+
+static volatile char * usart_tx_message;
+static volatile int usart_tx_message_len;
+static volatile int usart_tx_count;
+static volatile uint8_t usart_tx_begin;
 
 static uint8_t usart_available = TRUE;
 
@@ -203,16 +206,16 @@ void USART_SendData_Interrupt(char *pTxBuf, uint32_t Len, uint8_t usart_irq_num)
 	usart_tx_message = pTxBuf;
 	usart_tx_message_len = Len;
 
-
 	NVIC_EnableIRQ(usart_irq_num);
 	usart_tx_count = 0;
 	usart_tx_begin = TRUE;
+	delay_us(5000);
 	NVIC_IRQSetPending(usart_irq_num);
 
 	return;
 }
 
-void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
+void USART_Tx_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
 {
 	if(usart_tx_begin == TRUE)
 	{
@@ -234,4 +237,9 @@ void USART_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
 	}
 
 	return;
+}
+
+void USART_Rx_Interrupt_Callback(struct USART_Handle_t *pUSART_Handle)
+{
+	USART_RX_Interrupt_Application_Callback(pUSART_Handle->pUSART->USART_DR);
 }
