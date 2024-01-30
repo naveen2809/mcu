@@ -1,0 +1,2 @@
+../Driver/Src/lm75a_temp_sensor_driver.c:19:10:lm75a_read_temperature	4	static
+../Driver/Src/lm75a_temp_sensor_driver.c:25:6:lm75a_display_temperature_lcd	24	static

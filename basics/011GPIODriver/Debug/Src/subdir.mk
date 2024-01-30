@@ -7,17 +7,17 @@
 C_SRCS += \
 ../Src/syscalls.c \
 ../Src/sysmem.c \
-../Src/test_usart_interrupt.c 
+../Src/test_conditional_breakpoint.c 
 
 OBJS += \
 ./Src/syscalls.o \
 ./Src/sysmem.o \
-./Src/test_usart_interrupt.o 
+./Src/test_conditional_breakpoint.o 
 
 C_DEPS += \
 ./Src/syscalls.d \
 ./Src/sysmem.d \
-./Src/test_usart_interrupt.d 
+./Src/test_conditional_breakpoint.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/test_usart_interrupt.d ./Src/test_usart_interrupt.o ./Src/test_usart_interrupt.su
+	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/test_conditional_breakpoint.d ./Src/test_conditional_breakpoint.o ./Src/test_conditional_breakpoint.su
 
 .PHONY: clean-Src
 

@@ -119,8 +119,8 @@ __attribute__((weak)) int _write(int file, char *ptr, int len)
   {
     //__io_putchar(*ptr++);
     //ITM_SendChar(*ptr++);
-	//UART_SendChar(*ptr++);
-    LCD_SendChar(*ptr++);
+	UART_SendChar(*ptr++);
+    //LCD_SendChar(*ptr++);
   }
   return len;
 }

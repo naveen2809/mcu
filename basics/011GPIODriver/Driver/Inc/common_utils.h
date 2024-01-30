@@ -31,6 +31,10 @@
 #define I2C_SDA_RTC						GPIO_PIN_11
 #define I2C_SCL_RTC						GPIO_PIN_10
 
+#define I2C_PORT_LM75A					GPIOB
+#define I2C_SDA_LM75A					GPIO_PIN_11
+#define I2C_SCL_LM75A					GPIO_PIN_10
+
 #define SPI_DEV			SPI2
 #define SPI_PORT		GPIOB
 #define SPI_PIN_MOSI	15
@@ -46,6 +50,7 @@ void delay_us(uint32_t delay);
 void configure_delay_timer(void);
 void configure_i2c(void);
 void configure_i2c_rtc(void);
+void configure_i2c_lm75a(void);
 void configure_spi(void);
 void configure_uart(void);
 void UART_SendChar(uint8_t ch);

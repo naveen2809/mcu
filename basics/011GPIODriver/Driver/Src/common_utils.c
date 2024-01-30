@@ -16,6 +16,9 @@ uint8_t SlaveAddress = 0x27;								//PCF8574 I/O Expander Address
 uint32_t * I2C_DEVICE_RTC = I2C2;
 uint8_t SlaveAddressRTC = 0x68;								//DS3231 I2C Address
 
+uint32_t * I2C_DEVICE_LM75A = I2C2;
+uint8_t SlaveAddressLM75A = 0x68;							//LM75A I2C Address
+
 void delay_us(uint32_t delay)
 {
 	TIM2_Handle.pGeneral_Purpose_Timer->TIMx_CNT = 0;
@@ -160,6 +163,41 @@ void configure_i2c_rtc(void)
 	I2CPeriConfig(I2C_DEVICE_RTC,&I2C_Config);
 	I2CConfigureTrise(I2C_DEVICE_RTC,TRISE_VALUE);
 	I2CEnable(I2C_DEVICE_RTC);
+
+	return;
+}
+
+void configure_i2c_lm75a(void)
+{
+	struct I2C_Config_t I2C_Config;
+
+	memset(&I2C_Config,0,sizeof(I2C_Config));
+
+	//GPIO Pin Configuration for I2C
+	EnablePeriClk(I2C_PORT_LM75A);
+	GPIOSetMode(I2C_PORT_LM75A,I2C_SDA_LM75A,GPIO_MODE_ALTFN);
+	GPIOSetMode(I2C_PORT_LM75A,I2C_SCL_LM75A,GPIO_MODE_ALTFN);
+	GPIOSetAltFn(I2C_PORT_LM75A,I2C_SDA_LM75A,GPIO_ALTFN_4);
+	GPIOSetAltFn(I2C_PORT_LM75A,I2C_SCL_LM75A,GPIO_ALTFN_4);
+	GPIOSetOutputType(I2C_PORT_LM75A,I2C_SDA_LM75A,GPIO_OPTYPE_OD);
+	GPIOSetOutputType(I2C_PORT_LM75A,I2C_SCL_LM75A,GPIO_OPTYPE_OD);
+	GPIOSetOutputSpeed(I2C_PORT_LM75A,I2C_SDA_LM75A,GPIO_OPSPEED_HIGH);
+	GPIOSetOutputSpeed(I2C_PORT_LM75A,I2C_SCL_LM75A,GPIO_OPSPEED_HIGH);
+	GPIOSetPullUpDownConfig(I2C_PORT_LM75A,I2C_SDA_LM75A,GPIO_PULL_UP);
+	GPIOSetPullUpDownConfig(I2C_PORT_LM75A,I2C_SCL_LM75A,GPIO_PULL_UP);
+
+	//I2C Port Configuration
+	I2C_Config.I2C_PeriFreq = I2C_CONFIG_PERI_FREQ;
+	I2C_Config.I2C_SpeedMode = I2C_MODE_SM;
+	I2C_Config.I2C_FMDutyCycle = I2C_FM_DUTY_0;
+	I2C_Config.I2C_CCRValue = I2C_CONFIG_CCR_VALUE;
+	I2C_Config.I2C_AckControl = I2C_ACK_ENABLE;
+
+	EnablePeriClk(I2C_DEVICE_LM75A);
+
+	I2CPeriConfig(I2C_DEVICE_LM75A,&I2C_Config);
+	I2CConfigureTrise(I2C_DEVICE_LM75A,TRISE_VALUE);
+	I2CEnable(I2C_DEVICE_LM75A);
 
 	return;
 }

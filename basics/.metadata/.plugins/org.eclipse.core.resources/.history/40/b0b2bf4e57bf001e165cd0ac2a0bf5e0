@@ -1,0 +1,42 @@
+/*
+ * Conditional Breakpoint
+ *
+ * Author: naveen
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "common_utils.h"
+
+extern struct USART_Handle_t Test_USART;
+
+static int count = 0;
+
+int main(void)
+{
+	//Configure the Timer
+	configure_delay_timer();
+
+	//Configure UART
+	configure_uart();
+
+
+
+
+	while(1)
+	{
+		if(count == 100)
+		{
+			breakpoint();
+		}
+
+		printf("Count is %ld: ", count);
+	}
+
+	return 0;
+}
+
+
