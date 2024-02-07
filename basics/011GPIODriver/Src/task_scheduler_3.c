@@ -10,13 +10,13 @@
 #include "stm32f4xx.h"
 #include "usart_driver.h"
 #include "gpio_driver.h"
+#include <stdio.h>
+#include "common_utils.h"
 
 #define GPIO_PIN_LED_1		GPIO_PIN_12
 #define GPIO_PIN_LED_2		GPIO_PIN_13
 #define GPIO_PIN_LED_3		GPIO_PIN_14
 #define GPIO_PIN_LED_4		GPIO_PIN_15
-#define UART_TX_PIN			GPIO_PIN_2
-#define UART_RX_PIN			GPIO_PIN_3
 #define MAX_TASKS			5
 #define TASK_STACK_SIZE		1024
 #define SYT_RELOAD_VALUE 	0x0FFFFFU
@@ -35,14 +35,7 @@ uint32_t task3_stack[TASK_STACK_SIZE];
 uint32_t task4_stack[TASK_STACK_SIZE];
 uint32_t current_sp[MAX_TASKS];
 
-struct USART_Handle_t Test_USART;
-char TxBuf1[64] = "UART Tx for Task1...\r\n";
-char TxBuf2[64] = "UART Tx for Task2...\r\n";
-char TxBuf3[64] = "UART Tx for Task3...\r\n";
-char TxBuf4[64] = "UART Tx for Task4...\r\n";
-
 void configure_leds(void);
-void configure_uart(void);
 void configure_systick_timer(void);
 void enable_systick_timer(void);
 void SysTick_Handler(void);
@@ -84,7 +77,10 @@ int main(void)
 
 void idletask(void)
 {
-	while(1);
+	while(1)
+	{
+		printf("From Idle Task...\r\n");
+	}
 }
 
 void task1(void)
@@ -93,11 +89,11 @@ void task1(void)
 
 	while(1)
 	{
+		printf("From Task 1...\r\n");
 		if(target_tick_count_1 <= tick_count)
 		{
 			target_tick_count_1 = tick_count + TICK_COUNT_TASK_1;
 			GPIOTogglePin(GPIOD, GPIO_PIN_LED_1);
-			USART_SendData(&Test_USART, (uint8_t *) TxBuf1, (uint32_t) strlen(TxBuf1));
 		}
 	}
 }
@@ -108,11 +104,11 @@ void task2(void)
 
 	while(1)
 	{
+		printf("From Task 2...\r\n");
 		if(target_tick_count_2 <= tick_count)
 		{
 			target_tick_count_2 = tick_count + TICK_COUNT_TASK_2;
 			GPIOTogglePin(GPIOD, GPIO_PIN_LED_2);
-			USART_SendData(&Test_USART, (uint8_t *) TxBuf2, (uint32_t) strlen(TxBuf2));
 		}
 	}
 }
@@ -123,11 +119,11 @@ void task3(void)
 
 	while(1)
 	{
+		printf("From Task 3...\r\n");
 		if(target_tick_count_3 <= tick_count)
 		{
 			target_tick_count_3 = tick_count + TICK_COUNT_TASK_3;
 			GPIOTogglePin(GPIOD, GPIO_PIN_LED_3);
-			USART_SendData(&Test_USART, (uint8_t *) TxBuf3, (uint32_t) strlen(TxBuf3));
 		}
 	}
 }
@@ -138,11 +134,11 @@ void task4(void)
 
 	while(1)
 	{
+		printf("From Task 4...\r\n");
 		if(target_tick_count_4 <= tick_count)
 		{
 			target_tick_count_4 = tick_count + TICK_COUNT_TASK_4;
 			GPIOTogglePin(GPIOD, GPIO_PIN_LED_4);
-			USART_SendData(&Test_USART, (uint8_t *) TxBuf4, (uint32_t) strlen(TxBuf4));
 		}
 	}
 }
@@ -154,35 +150,6 @@ void configure_leds(void)
 	GPIOSetMode(GPIOD, GPIO_PIN_LED_2, GPIO_MODE_OUTPUT);
 	GPIOSetMode(GPIOD, GPIO_PIN_LED_3, GPIO_MODE_OUTPUT);
 	GPIOSetMode(GPIOD, GPIO_PIN_LED_4, GPIO_MODE_OUTPUT);
-}
-
-void configure_uart(void)
-{
-	//GPIO Pin Configuration
-	EnablePeriClk(GPIOA);
-	GPIOSetMode(GPIOA,UART_TX_PIN,GPIO_MODE_ALTFN);
-	GPIOSetMode(GPIOA,UART_RX_PIN,GPIO_MODE_ALTFN);
-	GPIOSetAltFn(GPIOA,UART_TX_PIN,GPIO_ALTFN_7);
-	GPIOSetAltFn(GPIOA,UART_RX_PIN,GPIO_ALTFN_7);
-	GPIOSetOutputType(GPIOA,UART_TX_PIN,GPIO_OPTYPE_PP);
-	GPIOSetOutputType(GPIOA,UART_RX_PIN,GPIO_OPTYPE_PP);
-	GPIOSetOutputSpeed(GPIOA,UART_TX_PIN,GPIO_OPSPEED_HIGH);
-	GPIOSetOutputSpeed(GPIOA,UART_RX_PIN,GPIO_OPSPEED_HIGH);
-	GPIOSetPullUpDownConfig(GPIOA,UART_TX_PIN,GPIO_PULL_UP);
-	GPIOSetPullUpDownConfig(GPIOA,UART_RX_PIN,GPIO_PULL_UP);
-
-	//USART Configuration
-	Test_USART.pUSART = (struct USART_RegDef_t *) USART2;
-	Test_USART.USART_Config.USART_Mode = USART_MODE_TX_RX;
-	Test_USART.USART_Config.USART_DataLength = USART_DATA_LEN_8_BITS;
-	Test_USART.USART_Config.USART_StopBits = USART_STOP_BITS_1;
-	Test_USART.USART_Config.USART_ParityControl = USART_PARITY_DISABLE;
-	Test_USART.USART_Config.USART_BaudRate = USART_SB_RATE_9600;
-	Test_USART.USART_Config.USART_HWFlowControl = USART_HW_FLOW_CNTRL_NONE;
-
-	EnablePeriClk(USART2);
-	USART_Init(&Test_USART);
-	USART_PeripheralEnable(&Test_USART);
 }
 
 void configure_systick_timer(void)
@@ -239,6 +206,11 @@ void SysTick_Handler(void)
 
 	tick_count++;
 	next_task = (current_task+1)%(MAX_TASKS);
+
+	if(next_task == 0)								//Not running the Idle Task
+	{
+		next_task = 1;
+	}
 
 	// Enable PendSV Exception
 	*pICSR |= 0x10000000U;

@@ -18,5 +18,5 @@
 "./Driver/Src/usart_driver.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
-"./Src/test_conditional_breakpoint.o"
+"./Src/task_scheduler_3.o"
 "./Startup/startup_stm32f407vgtx.o"
