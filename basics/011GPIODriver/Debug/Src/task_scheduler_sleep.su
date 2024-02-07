@@ -1,0 +1,15 @@
+../Src/task_scheduler_sleep.c:55:5:main	8	static,ignoring_inline_asm
+../Src/task_scheduler_sleep.c:83:6:idletask	8	static
+../Src/task_scheduler_sleep.c:91:6:task1	8	static
+../Src/task_scheduler_sleep.c:108:6:task2	8	static
+../Src/task_scheduler_sleep.c:125:6:task3	8	static
+../Src/task_scheduler_sleep.c:142:6:task4	8	static
+../Src/task_scheduler_sleep.c:159:6:configure_leds	8	static
+../Src/task_scheduler_sleep.c:168:6:configure_systick_timer	16	static
+../Src/task_scheduler_sleep.c:177:6:enable_systick_timer	16	static
+../Src/task_scheduler_sleep.c:184:6:initialize_task_stacks	16	static
+../Src/task_scheduler_sleep.c:221:6:SysTick_Handler	16	static
+../Src/task_scheduler_sleep.c:234:28:PendSV_Handler	0	static,ignoring_inline_asm
+../Src/task_scheduler_sleep.c:271:6:task_sleep	24	static
+../Src/task_scheduler_sleep.c:283:6:update_sleep_status	16	static
+../Src/task_scheduler_sleep.c:298:6:update_next_task	16	static

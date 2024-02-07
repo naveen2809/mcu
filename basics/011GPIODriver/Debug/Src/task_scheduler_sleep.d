@@ -1,4 +1,4 @@
-Src/task_scheduler_3.o: ../Src/task_scheduler_3.c \
+Src/task_scheduler_sleep.o: ../Src/task_scheduler_sleep.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/usart_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
