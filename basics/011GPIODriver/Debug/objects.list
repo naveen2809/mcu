@@ -18,5 +18,5 @@
 "./Driver/Src/usart_driver.o"
 "./Src/syscalls.o"
 "./Src/sysmem.o"
-"./Src/task_scheduler_sleep.o"
+"./Src/task_scheduler_priority.o"
 "./Startup/startup_stm32f407vgtx.o"
