@@ -5,19 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/os_test.c \
 ../Src/syscalls.c \
-../Src/sysmem.c \
-../Src/task_scheduler_priority.c 
+../Src/sysmem.c 
 
 OBJS += \
+./Src/os_test.o \
 ./Src/syscalls.o \
-./Src/sysmem.o \
-./Src/task_scheduler_priority.o 
+./Src/sysmem.o 
 
 C_DEPS += \
+./Src/os_test.d \
 ./Src/syscalls.d \
-./Src/sysmem.d \
-./Src/task_scheduler_priority.d 
+./Src/sysmem.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/task_scheduler_priority.d ./Src/task_scheduler_priority.o ./Src/task_scheduler_priority.su
+	-$(RM) ./Src/os_test.d ./Src/os_test.o ./Src/os_test.su ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
 
 .PHONY: clean-Src
 
