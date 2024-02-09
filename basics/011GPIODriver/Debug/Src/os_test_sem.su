@@ -1,0 +1,4 @@
+../Src/os_test_sem.c:30:5:main	8	static
+../Src/os_test_sem.c:46:13:producer	8	static
+../Src/os_test_sem.c:61:13:consumer	8	static
+../Src/os_test_sem.c:72:13:delay	24	static

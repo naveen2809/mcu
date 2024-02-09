@@ -1,6 +1,0 @@
-../Src/os_test.c:35:5:main	8	static
-../Src/os_test.c:51:6:task1	8	static
-../Src/os_test.c:68:6:task2	8	static
-../Src/os_test.c:85:6:task3	8	static
-../Src/os_test.c:113:6:task4	8	static
-../Src/os_test.c:130:6:configure_leds	8	static

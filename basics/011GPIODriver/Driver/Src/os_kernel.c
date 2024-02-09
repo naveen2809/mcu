@@ -163,6 +163,16 @@ void task_sleep(uint32_t count)
 	return;
 }
 
+void os_yield(void)
+{
+	uint32_t *pICSR = (uint32_t *) 0xE000ED04U;
+
+	//Pending the SysTick Exception
+	*pICSR |= 0x4000000U;
+
+	return;
+}
+
 void update_sleep_status(void)
 {
 	struct TCB *present_task;
@@ -206,3 +216,92 @@ void update_next_task(void)
 	return;
 }
 
+void os_disable_interrupts(void)
+{
+	__asm volatile ("CPSID I");
+
+	return;
+}
+
+void os_enable_interrupts(void)
+{
+	__asm volatile ("CPSIE I");
+
+	return;
+}
+
+void os_mutex_init(Mutex *m)
+{
+	*m = 1;
+
+	return;
+}
+
+void os_mutex_wait(Mutex *m)
+{
+	os_disable_interrupts();
+
+	while((*m) == 0)
+	{
+		os_enable_interrupts();
+		os_yield();
+		os_disable_interrupts();
+	}
+
+	*m = 0;
+
+	os_enable_interrupts();
+
+	return;
+}
+
+void os_mutex_signal(Mutex *m)
+{
+	os_disable_interrupts();
+
+	*m = 1;
+
+	os_enable_interrupts();
+
+	return;
+}
+
+void os_sem_init(Semaphore *s,uint32_t init_value,uint32_t maximum_value)
+{
+	s->cur_value = init_value;
+	s->max_value = maximum_value;
+
+	return;
+}
+
+void os_sem_wait(Semaphore *s)
+{
+	os_disable_interrupts();
+
+	while((s->cur_value) == 0)
+	{
+		os_enable_interrupts();
+		os_yield();
+		os_disable_interrupts();
+	}
+
+	s->cur_value--;
+
+	os_enable_interrupts();
+
+	return;
+}
+
+void os_sem_signal(Semaphore *s)
+{
+	os_disable_interrupts();
+
+	if(s->cur_value < s->max_value)
+	{
+		s->cur_value++;
+	}
+
+	os_enable_interrupts();
+
+	return;
+}

@@ -23,6 +23,14 @@ struct TCB
 #define IDLE_TASK_STACK_SIZE	1024
 #define IDLE_TASK_PRIORITY		254
 
+typedef struct
+{
+	uint32_t cur_value;
+	uint32_t max_value;
+}Semaphore;
+
+typedef uint8_t Mutex;
+
 void configure_systick_timer(void);
 void enable_systick_timer(void);
 void SysTick_Handler(void);
@@ -33,5 +41,14 @@ void os_start(void);
 void update_sleep_status(void);
 void task_sleep(uint32_t count);
 void update_next_task(void);
+void os_disable_interrupts(void);
+void os_enable_interrupts(void);
+void os_mutex_init(Mutex *m);
+void os_mutex_wait(Mutex *m);
+void os_mutex_signal(Mutex *m);
+void os_sem_init(Semaphore *s,uint32_t init_value,uint32_t maximum_value);
+void os_sem_wait(Semaphore *s);
+void os_sem_signal(Semaphore *s);
+void os_yield(void);
 
 #endif /* INC_OS_KERNEL_H_ */

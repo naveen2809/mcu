@@ -1,4 +1,4 @@
-Src/os_test.o: ../Src/os_test.c \
+Src/os_test_sem.o: ../Src/os_test_sem.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/usart_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \

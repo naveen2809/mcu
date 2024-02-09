@@ -6,5 +6,14 @@
 ../Driver/Src/os_kernel.c:84:6:os_create_task	48	static
 ../Driver/Src/os_kernel.c:132:6:os_start	8	static,ignoring_inline_asm
 ../Driver/Src/os_kernel.c:154:6:task_sleep	24	static
-../Driver/Src/os_kernel.c:166:6:update_sleep_status	16	static
-../Driver/Src/os_kernel.c:185:6:update_next_task	16	static
+../Driver/Src/os_kernel.c:166:6:os_yield	16	static
+../Driver/Src/os_kernel.c:176:6:update_sleep_status	16	static
+../Driver/Src/os_kernel.c:195:6:update_next_task	16	static
+../Driver/Src/os_kernel.c:219:6:os_disable_interrupts	4	static,ignoring_inline_asm
+../Driver/Src/os_kernel.c:226:6:os_enable_interrupts	4	static,ignoring_inline_asm
+../Driver/Src/os_kernel.c:233:6:os_mutex_init	16	static
+../Driver/Src/os_kernel.c:240:6:os_mutex_wait	16	static
+../Driver/Src/os_kernel.c:258:6:os_mutex_signal	16	static
+../Driver/Src/os_kernel.c:269:6:os_sem_init	24	static
+../Driver/Src/os_kernel.c:277:6:os_sem_wait	16	static
+../Driver/Src/os_kernel.c:295:6:os_sem_signal	16	static
