@@ -1,0 +1,28 @@
+/*
+ * os_utilities.c
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: naveen
+ */
+
+#include "os_kernel.h"
+#include "os_utilities.h"
+
+void os_queue_init(Queue *q)
+{
+
+	return;
+}
+
+void os_enqueue(Queue *q,uint32_t value)
+{
+
+	return;
+}
+
+uint32_t os_dequeue(Queue *q)
+{
+
+	return 0;
+}
+

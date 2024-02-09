@@ -8,6 +8,10 @@
 #ifndef INC_OS_KERNEL_H_
 #define INC_OS_KERNEL_H_
 
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+
 struct TCB
 {
 	uint32_t current_sp;

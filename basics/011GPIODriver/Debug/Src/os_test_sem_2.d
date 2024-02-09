@@ -1,4 +1,4 @@
-Src/os_test_sem.o: ../Src/os_test_sem.c \
+Src/os_test_sem_2.o: ../Src/os_test_sem_2.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/usart_driver.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h \
@@ -12,7 +12,8 @@ Src/os_test_sem.o: ../Src/os_test_sem.c \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/general_purpose_timer.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/lcd_driver_pcf8574.h \
  /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/common_utilities.h \
- /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/os_kernel.h
+ /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/os_kernel.h \
+ /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/os_utilities.h
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/usart_driver.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/stm32f4xx.h:
@@ -27,3 +28,4 @@ Src/os_test_sem.o: ../Src/os_test_sem.c \
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/lcd_driver_pcf8574.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/common_utilities.h:
 /home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/os_kernel.h:
+/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc/os_utilities.h:

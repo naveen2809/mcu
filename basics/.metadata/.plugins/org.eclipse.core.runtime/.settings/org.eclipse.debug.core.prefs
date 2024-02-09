@@ -5,4 +5,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
 org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n    <expression enabled\="true" text\="current_task"/>\n    <expression enabled\="true" text\="&amp;idletask"/>\n    <expression enabled\="true" text\="present_task"/>\n    <expression enabled\="true" text\="present_task-&gt;sleep_count"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n    <expression enabled\="true" text\="current_task"/>\n    <expression enabled\="true" text\="&amp;idletask"/>\n    <expression enabled\="true" text\="present_task"/>\n    <expression enabled\="true" text\="present_task-&gt;sleep_count"/>\n    <expression enabled\="true" text\="q"/>\n    <expression enabled\="true" text\="producer_count"/>\n    <expression enabled\="true" text\="consumer_count"/>\n</watchExpressions>\n

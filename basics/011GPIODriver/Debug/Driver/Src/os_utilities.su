@@ -1,0 +1,3 @@
+../Driver/Src/os_utilities.c:14:6:os_queue_init	16	static
+../Driver/Src/os_utilities.c:23:6:os_enqueue	24	static
+../Driver/Src/os_utilities.c:51:10:os_dequeue	24	static

@@ -1,0 +1,29 @@
+/*
+ * os_utilities.h
+ *
+ *  Created on: 09-Feb-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_OS_UTILITIES_H_
+#define INC_OS_UTILITIES_H_
+
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+
+typedef struct
+{
+	uint32_t member;
+	QueueNode *prev;
+	QueueNode *next;
+}QueueNode;
+
+typedef struct
+{
+	uint32_t length;
+	QueueNode *first;
+	QueueNode *last;
+}Queue;
+
+#endif /* INC_OS_UTILITIES_H_ */
