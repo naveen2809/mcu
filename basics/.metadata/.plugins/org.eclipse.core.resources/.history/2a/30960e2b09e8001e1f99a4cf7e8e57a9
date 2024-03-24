@@ -1,0 +1,52 @@
+/*
+ * calculator_matrix_keypad.c
+ * Interfaced 4x4 matrix keypad with MCU and developed a small calculator application based on it
+ * Matrix Keypad physical connections:
+ * First 4 pins (Pin0-Pin3) are connected to Rows and next 4 pins (Pin4-Pin7) are connected to Columns
+ * Reference: https://lastminuteengineers.com/arduino-keypad-tutorial/
+ *  Created on: 17-Dec-2023
+ *      Author: naveen
+ */
+
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include "stm32f4xx.h"
+#include "gpio_driver.h"
+#include "usart_driver.h"
+#include "general_purpose_timer.h"
+#include "common_utils.h"
+
+#define LEN 100
+
+char CmdBuffer[LEN];
+uint32_t CmdLen;
+
+extern struct USART_Handle_t Test_USART;
+
+int main(void)
+{
+	//Configuring the timer
+	configure_delay_timer();
+
+	//Configuring the UART
+	configure_uart();
+
+	setbuf(stdout, NULL);
+
+	printf("$ ");
+
+	USART_ReceiveCmd(&Test_USART,(uint8_t *)CmdBuffer,&CmdLen);
+
+	CmdBuffer[CmdLen] = '\0';
+
+	printf("%s", CmdBuffer);
+	printf("$ ");
+
+	while(1)
+	{
+
+	}
+
+	return 0;
+}

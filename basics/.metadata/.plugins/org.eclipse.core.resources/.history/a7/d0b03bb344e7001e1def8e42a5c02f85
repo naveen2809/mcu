@@ -1,0 +1,33 @@
+/*
+ * flash_driver.h
+ *
+ *  Created on: 21-Mar-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_FLASH_DRIVER_H_
+#define INC_FLASH_DRIVER_H_
+
+#include "stm32f4xx.h"
+#include <stdint.h>
+
+struct FLASH_RegDef_t
+{
+	uint32_t FLASH_ACR;
+	uint32_t FLASH_KEYR;
+	uint32_t FLASH_OPTKEYR;
+	uint32_t FLASH_SR;
+	uint32_t FLASH_CR;
+	uint32_t FLASH_OPTCR;
+};
+
+#define FLASH_ACR_LATENCY		0
+#define FLASH_ACR_PRFTEN		8
+#define FLASH_ACR_ICEN			9
+#define FLASH_ACR_DCEN			10
+#define FLASH_ACR_ICRST			11
+#define FLASH_ACR_DCRST			12
+
+
+
+#endif /* INC_FLASH_DRIVER_H_ */

@@ -1,0 +1,20 @@
+OpenOCD Commands:
+
+1. halt
+2. resume
+3. reset halt
+4. reset run
+5. reset wait
+5. reg
+6. reg r0
+7. reg r0 0x000f
+8. mdw <address>
+9. mdh <address>
+10. mdb <address>
+11. mww <address>
+12. mwh <address>
+13. mwb <address>
+14. flash write_image erase file.elf
+14. nand 
+    - nand group of Commands
+15. 

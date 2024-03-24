@@ -1,0 +1,282 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+FLASH               0x4               flash_driver.o
+TxBuf               0x40              flash_programming.o
+RxBuf               0x40              flash_programming.o
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 flash_programming.o
+ .data          0x0000000000000000        0x0 flash_programming.o
+ .bss           0x0000000000000000        0x0 flash_programming.o
+ .text          0x0000000000000000        0x0 flash_driver.o
+ .data          0x0000000000000000        0x0 flash_driver.o
+ .bss           0x0000000000000000        0x0 flash_driver.o
+ .text.flash_mass_erase
+                0x0000000000000000       0x60 flash_driver.o
+ .text          0x0000000000000000        0x0 stm32f4xx.o
+ .data          0x0000000000000000        0x0 stm32f4xx.o
+ .bss           0x0000000000000000        0x0 stm32f4xx.o
+ .text.DisablePeriClk
+                0x0000000000000000      0x388 stm32f4xx.o
+ .text.NVIC_EnableIRQ
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text.NVIC_DisableIRQ
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text.NVIC_IRQSetPending
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text.NVIC_IRQClearPending
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text          0x0000000000000000        0x0 gpio_driver.o
+ .data          0x0000000000000000        0x0 gpio_driver.o
+ .bss           0x0000000000000000        0x0 gpio_driver.o
+ .text.GPIOReadPin
+                0x0000000000000000       0x3e gpio_driver.o
+ .text.GPIOWritePin
+                0x0000000000000000       0x44 gpio_driver.o
+ .text.GPIOWritePort
+                0x0000000000000000       0x1e gpio_driver.o
+ .text.GPIOReadIDR
+                0x0000000000000000       0x1a gpio_driver.o
+ .text.GPIOReadODR
+                0x0000000000000000       0x1a gpio_driver.o
+ .text.GPIOSetAltFn
+                0x0000000000000000       0x72 gpio_driver.o
+ .text.GPIOSetOutputType
+                0x0000000000000000       0x44 gpio_driver.o
+ .text.GPIOSetPullUpDownConfig
+                0x0000000000000000       0x48 gpio_driver.o
+ .text.GPIOSetOutputSpeed
+                0x0000000000000000       0x48 gpio_driver.o
+ .text          0x0000000000000000        0x0 stm32_startup.o
+ .data          0x0000000000000000        0x0 stm32_startup.o
+ .bss           0x0000000000000000        0x0 stm32_startup.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+BOOTROM          0x0000000008000000 0x0000000000008000 xr
+APPROM           0x0000000008008000 0x0000000000078000 xr
+SRAM             0x0000000020000000 0x0000000000040000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD flash_programming.o
+LOAD flash_driver.o
+LOAD stm32f4xx.o
+LOAD gpio_driver.o
+LOAD stm32_startup.o
+                0x0000000008000000                __bootrom_start__ = ORIGIN (BOOTROM)
+                0x0000000000008000                __bootrom_len__ = LENGTH (BOOTROM)
+                0x0000000008008000                __approm_start__ = ORIGIN (APPROM)
+                0x0000000000078000                __approm_len__ = LENGTH (APPROM)
+
+.text           0x0000000008000000      0x854
+                0x0000000008000000                . = ALIGN (0x4)
+                0x0000000008000000                _stext = .
+ *(.isr_vector)
+ .isr_vector    0x0000000008000000      0x188 stm32_startup.o
+                0x0000000008000000                vectors
+ *(.text)
+ *(.text*)
+ .text.main     0x0000000008000188       0x6c flash_programming.o
+                0x0000000008000188                main
+ .text.delay    0x00000000080001f4       0x28 flash_programming.o
+                0x00000000080001f4                delay
+ .text.flash_sector_erase
+                0x000000000800021c       0x98 flash_driver.o
+                0x000000000800021c                flash_sector_erase
+ .text.flash_unlock
+                0x00000000080002b4       0x2c flash_driver.o
+                0x00000000080002b4                flash_unlock
+ .text.flash_lock
+                0x00000000080002e0       0x24 flash_driver.o
+                0x00000000080002e0                flash_lock
+ .text.flash_read
+                0x0000000008000304       0x3a flash_driver.o
+                0x0000000008000304                flash_read
+ *fill*         0x000000000800033e        0x2 
+ .text.flash_write
+                0x0000000008000340       0x7c flash_driver.o
+                0x0000000008000340                flash_write
+ .text.EnablePeriClk
+                0x00000000080003bc      0x388 stm32f4xx.o
+                0x00000000080003bc                EnablePeriClk
+ .text.GPIOSetMode
+                0x0000000008000744       0x48 gpio_driver.o
+                0x0000000008000744                GPIOSetMode
+ .text.GPIOTogglePin
+                0x000000000800078c       0x2c gpio_driver.o
+                0x000000000800078c                GPIOTogglePin
+ .text.Reset_Handler
+                0x00000000080007b8       0x94 stm32_startup.o
+                0x00000000080007b8                Reset_Handler
+ .text.Default_Handler
+                0x000000000800084c        0x6 stm32_startup.o
+                0x000000000800084c                RTC_WKUP_Handler
+                0x000000000800084c                FLASH_Handler
+                0x000000000800084c                SVCall_Handler
+                0x000000000800084c                DMA2_Stream7_Handler
+                0x000000000800084c                OTG_HS_Handler
+                0x000000000800084c                HardFault_Handler
+                0x000000000800084c                DMA2_Stream3_Handler
+                0x000000000800084c                SysTick_Handler
+                0x000000000800084c                USART3_Handler
+                0x000000000800084c                PendSV_Handler
+                0x000000000800084c                NMI_Handler
+                0x000000000800084c                TIM6_DAC_Handler
+                0x000000000800084c                CAN1_RX1_Handler
+                0x000000000800084c                EXTI15_10_Handler
+                0x000000000800084c                ADC_Handler
+                0x000000000800084c                HASH_RNG_Handler
+                0x000000000800084c                I2C1_EV_Handler
+                0x000000000800084c                TAMP_STAMP_Handler
+                0x000000000800084c                I2C3_ER_Handler
+                0x000000000800084c                WWDG_Handler
+                0x000000000800084c                EXTI4_Handler
+                0x000000000800084c                I2C3_EV_Handler
+                0x000000000800084c                DMA1_Stream1_Handler
+                0x000000000800084c                DMA2_Stream4_Handler
+                0x000000000800084c                DMA1_Stream7_Handler
+                0x000000000800084c                OTG_FS_Handler
+                0x000000000800084c                ETH_WKUP_Handler
+                0x000000000800084c                TIM1_BRK_TIM9_Handler
+                0x000000000800084c                I2C1_ER_Handler
+                0x000000000800084c                DMA1_Stream3_Handler
+                0x000000000800084c                UsageFault_Handler
+                0x000000000800084c                TIM1_UP_TIM10_Handler
+                0x000000000800084c                CAN1_RX0_Handler
+                0x000000000800084c                TIM1_CC_Handler
+                0x000000000800084c                I2C2_ER_Handler
+                0x000000000800084c                USART6_Handler
+                0x000000000800084c                TIM8_CC_Handler
+                0x000000000800084c                CAN1_SCE_Handler
+                0x000000000800084c                DMA1_Stream0_Handler
+                0x000000000800084c                OTG_HS_EP1_OUT_Handler
+                0x000000000800084c                FSMC_Handler
+                0x000000000800084c                EXTI1_Handler
+                0x000000000800084c                EXTI3_Handler
+                0x000000000800084c                CRYP_Handler
+                0x000000000800084c                EXTI2_Handler
+                0x000000000800084c                UART4_Handler
+                0x000000000800084c                CAN2_RX1_Handler
+                0x000000000800084c                EXTI9_5_Handler
+                0x000000000800084c                TIM2_Handler
+                0x000000000800084c                USART1_Handler
+                0x000000000800084c                CAN2_SCE_Handler
+                0x000000000800084c                TIM3_Handler
+                0x000000000800084c                DMA2_Stream6_Handler
+                0x000000000800084c                Default_Handler
+                0x000000000800084c                DCMI_Handler
+                0x000000000800084c                TIM1_TRG_COM_TIM11_Handler
+                0x000000000800084c                RTC_Alarm_Handler
+                0x000000000800084c                TIM4_Handler
+                0x000000000800084c                TIM8_UP_TIM13_Handler
+                0x000000000800084c                CAN2_TX_Handler
+                0x000000000800084c                SPI2_Handler
+                0x000000000800084c                DMA2_Stream1_Handler
+                0x000000000800084c                DMA1_Stream2_Handler
+                0x000000000800084c                MemManage_Handler
+                0x000000000800084c                EXTI0_Handler
+                0x000000000800084c                TIM8_BRK_TIM12_Handler
+                0x000000000800084c                CAN2_RX0_Handler
+                0x000000000800084c                DMA2_Stream5_Handler
+                0x000000000800084c                DMA1_Stream6_Handler
+                0x000000000800084c                SDIO_Handler
+                0x000000000800084c                USART2_Handler
+                0x000000000800084c                ETH_Handler
+                0x000000000800084c                SPI1_Handler
+                0x000000000800084c                I2C2_EV_Handler
+                0x000000000800084c                DMA2_Stream2_Handler
+                0x000000000800084c                SPI3_Handler
+                0x000000000800084c                DMA2_Stream0_Handler
+                0x000000000800084c                RCC_Handler
+                0x000000000800084c                PVD_Handler
+                0x000000000800084c                UART5_Handler
+                0x000000000800084c                DMA1_Stream5_Handler
+                0x000000000800084c                TIM5_Handler
+                0x000000000800084c                TIM7_Handler
+                0x000000000800084c                TIM8_TRG_COM_TIM14_Handler
+                0x000000000800084c                CAN1_TX_Handler
+                0x000000000800084c                FPU_Handler
+                0x000000000800084c                BusFault_Handler
+                0x000000000800084c                DMA1_Stream4_Handler
+                0x000000000800084c                DebugMonitor_Handler
+                0x000000000800084c                OTG_HS_WKUP_Handler
+                0x000000000800084c                OTG_FS_WKUP_Handler
+                0x000000000800084c                OTG_HS_EP1_IN_Handler
+ *(.rodata)
+ *(.rodata*)
+                0x0000000008000854                . = ALIGN (0x4)
+ *fill*         0x0000000008000852        0x2 
+                0x0000000008000854                _etext = .
+
+.glue_7         0x0000000008000854        0x0
+ .glue_7        0x0000000008000854        0x0 linker stubs
+
+.glue_7t        0x0000000008000854        0x0
+ .glue_7t       0x0000000008000854        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000854        0x0
+ .vfp11_veneer  0x0000000008000854        0x0 linker stubs
+
+.v4_bx          0x0000000008000854        0x0
+ .v4_bx         0x0000000008000854        0x0 linker stubs
+
+.iplt           0x0000000008000854        0x0
+ .iplt          0x0000000008000854        0x0 flash_programming.o
+
+.rel.dyn        0x0000000008000854        0x0
+ .rel.iplt      0x0000000008000854        0x0 flash_programming.o
+
+.data           0x0000000020000000        0x0 load address 0x0000000008000854
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _sdata = .
+ *(.data)
+ *(.data*)
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _edata = .
+                0x0000000008000854                _sidata = LOADADDR (.data)
+
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000854
+ .igot.plt      0x0000000020000000        0x0 flash_programming.o
+
+.bss            0x0000000020000000       0x84 load address 0x0000000008000854
+                0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _sbss = .
+ *(.bss)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0000000020000000       0x80 flash_programming.o
+                0x0000000020000000                TxBuf
+                0x0000000020000040                RxBuf
+ COMMON         0x0000000020000080        0x4 flash_driver.o
+                0x0000000020000080                FLASH
+                0x0000000020000084                . = ALIGN (0x4)
+                0x0000000020000084                _ebss = .
+OUTPUT(flash_programming.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x59
+ .comment       0x0000000000000000       0x59 flash_programming.o
+                                         0x5a (size before relaxing)
+ .comment       0x0000000000000059       0x5a flash_driver.o
+ .comment       0x0000000000000059       0x5a stm32f4xx.o
+ .comment       0x0000000000000059       0x5a gpio_driver.o
+ .comment       0x0000000000000059       0x5a stm32_startup.o
+
+.ARM.attributes
+                0x0000000000000000       0x2e
+ .ARM.attributes
+                0x0000000000000000       0x2e flash_programming.o
+ .ARM.attributes
+                0x000000000000002e       0x2e flash_driver.o
+ .ARM.attributes
+                0x000000000000005c       0x2e stm32f4xx.o
+ .ARM.attributes
+                0x000000000000008a       0x2e gpio_driver.o
+ .ARM.attributes
+                0x00000000000000b8       0x2e stm32_startup.o

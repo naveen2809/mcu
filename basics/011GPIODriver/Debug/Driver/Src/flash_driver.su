@@ -1,0 +1,6 @@
+../Driver/Src/flash_driver.c:13:6:flash_sector_erase	16	static
+../Driver/Src/flash_driver.c:46:6:flash_mass_erase	16	static
+../Driver/Src/flash_driver.c:75:6:flash_unlock	16	static
+../Driver/Src/flash_driver.c:85:6:flash_lock	16	static
+../Driver/Src/flash_driver.c:94:6:flash_read	32	static
+../Driver/Src/flash_driver.c:106:6:flash_write	32	static

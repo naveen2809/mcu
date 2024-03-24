@@ -1,0 +1,277 @@
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "bootloader_utils.h"
+#include "flash_driver.h"
+
+//Linker script symbols
+extern uint32_t __bootrom_start__;
+extern uint32_t __bootrom_len__;
+extern uint32_t __approm_start__;
+extern uint32_t __approm_len__;
+
+char CmdBuffer[CMD_BUF_LEN];
+uint32_t CmdLen;
+
+char RxBuffer[RX_BUF_LEN];
+
+void start_app(uint32_t sp, uint32_t pc)
+{
+	__asm volatile ("MSR MSP, R0");
+	__asm volatile ("BX R1"); 	
+}
+
+void handle_command(void)
+{
+	char command_name[CMD_BUF_LEN];
+	uint32_t command_name_length;
+
+	CmdBuffer[CmdLen-1] = '\0';
+
+	command_name_length = getcommandname(CmdBuffer,command_name,CmdLen);
+
+	if(mystrcmp(command_name,"version",command_name_length))
+	{
+		handle_command_get_version();
+	}
+	else if(mystrcmp(command_name,"sector_erase",command_name_length))
+	{
+		handle_command_sector_erase();
+	}
+	else if(mystrcmp(command_name,"mass_erase",command_name_length))
+	{
+		handle_command_mass_erase();
+	}
+	else if(mystrcmp(command_name,"start_app",command_name_length))
+	{
+		handle_command_start_app();
+	}
+    else if(mystrcmp(command_name,"data_read",command_name_length))
+	{
+		handle_command_data_read();
+	}
+    else if(mystrcmp(command_name,"data_write",command_name_length))
+	{
+		handle_command_data_write();
+	}
+
+	return;
+}
+
+void handle_command_get_version(void)
+{
+	printf("Bootloader v0.1\r\n");
+
+	return;
+}
+
+void handle_command_sector_erase(void)
+{
+	uint32_t sector;
+
+	sector = getarg(CmdBuffer,CmdLen,1);
+	if(sector >= 0 && sector<=7)
+	{
+		printf("Erasing sector %ld\r\n",sector);
+        flash_sector_erase(sector);
+        printf("Sector %ld erased successfully\r\n",sector);
+	}
+	else
+	{
+		printf("Invalid sector\r\n");
+	}
+
+	return;
+}
+
+void handle_command_mass_erase(void)
+{
+	printf("Erasing the entire flash...\r\n");
+    flash_mass_erase();
+	return;
+}
+
+void handle_command_start_app(void)
+{
+    uint32_t *app_ptr;
+	uint32_t app_sp;
+	uint32_t app_pc;
+    
+    printf("Starting application...\r\n");
+
+    //Jumping to the application program by calling its reset handler
+	app_ptr = (uint32_t *) &__approm_start__;
+	app_sp = (volatile uint32_t) app_ptr[0];
+	app_pc = (volatile uint32_t) app_ptr[1];
+	
+	start_app(app_sp,app_pc);
+
+	return;
+}
+
+void handle_command_data_read(void)
+{
+    uint32_t RxLen;
+    
+    RxLen = getarg(CmdBuffer,CmdLen,1);
+
+    if(RxLen>=0 && RxLen <=MAX_DATA_LEN)
+    {
+        printf("Reading %ld bytes from flash\r\n",RxLen);
+        flash_read((uint8_t *)RxBuffer,(uint8_t*)DATA_ADDRESS,RxLen);
+    }
+    else
+    {
+        printf("Invalid Rx Length (Max Length: %d bytes)\r\n",MAX_DATA_LEN);
+    }
+
+    return;
+}
+
+void handle_command_data_write(void)
+{
+    uint32_t TxData, TxLen,i;
+    uint8_t *pData;
+
+    pData = (uint8_t *) DATA_ADDRESS;
+
+    TxData = getarg(CmdBuffer,CmdLen,1);
+    TxLen = getarg(CmdBuffer,CmdLen,2);
+
+    if((TxData>=0 && TxData<=255) && (TxLen>=0 && TxLen<=MAX_DATA_LEN))
+    {
+        printf("Writing data %ld, (ascii: %c) to flash\r\n",TxData, (char) TxData);
+        printf("Buffer size: %ld\r\n",TxLen);
+
+        for(i=0;i<TxLen;i++)
+        {
+            flash_write((uint8_t *)&TxData,(pData+i),1);
+        }
+        
+    }
+    else
+    {
+        if(!(TxData>=0 && TxData<=255))
+        {
+            printf("Invalid Tx Data\r\n");
+        }
+
+        if(!(TxLen>=0 && TxLen<=MAX_DATA_LEN))
+        {
+            printf("Invalid Tx Length (Max Length: %d bytes)\r\n",MAX_DATA_LEN);
+        }
+    }
+
+    return;
+}
+
+uint32_t getcommandname(char *src,char *dst,uint32_t len)
+{
+	uint32_t i, cmd_length;
+	cmd_length = 0;
+
+	for(i=0;i<len;i++)
+	{
+		if(src[i] == ' ')
+		{
+			dst[i] = '\0';
+			cmd_length++;
+			break;
+		}
+		else
+		{
+			dst[i] = src[i];
+			cmd_length++;
+		}
+	}
+
+	return cmd_length;
+}
+
+uint32_t getarg(char *src,uint32_t len,uint32_t arg_no)
+{
+	uint32_t i, j, arg_length, arg, power;
+	char arg_string[100];
+
+    memset(arg_string,0,100);
+
+	i = 0;
+	arg_length = 0;
+	arg = 0;
+
+    for(j=0;j<arg_no;j++)
+    {
+        while(src[i] != ' ')
+        {
+            i++;
+        }
+
+        i++;
+    }
+
+	while(i<len)
+	{
+		if(src[i] == ' ' || src[i] == '\0')
+		{
+			arg_string[arg_length] = '\0';
+			arg_length++;
+			i++;
+			break;
+		}
+		else
+		{
+			arg_string[arg_length] = src[i];
+			arg_length++;
+			i++;
+		}
+	}
+
+	for(i=arg_length-1;i>0;i--)
+	{
+		power = get_power(i-1);
+		arg += (arg_string[arg_length-1-i]-48)*power;
+	}
+    
+
+	return arg;
+}
+
+uint8_t mystrcmp(char *src,char *dst,uint32_t len)
+{
+	uint32_t i,count;
+
+	count = 0;
+	for(i=0;i<len;i++)
+	{
+		if(src[i] == dst[i])
+		{
+			count++;
+		}
+		else
+		{
+			break;
+		}
+	}
+
+	if(count == len)
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+uint32_t get_power(uint32_t exponent)
+{
+	uint32_t i, num = 1;
+
+	for(i=0;i<exponent;i++)
+	{
+		num = num * 10;
+	}
+
+	return num;
+}

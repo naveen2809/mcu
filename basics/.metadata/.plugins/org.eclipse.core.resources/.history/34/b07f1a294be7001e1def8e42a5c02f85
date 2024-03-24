@@ -1,0 +1,44 @@
+/*
+ * flash_driver.c
+ *
+ *  Created on: 21-Mar-2024
+ *      Author: naveen
+ */
+
+#include "flash_driver.h"
+#include <stdint.h>
+
+void flash_sector_erase(uint32_t sector_num)
+{
+
+}
+
+void flash_mass_erase(void)
+{
+
+}
+
+void flash_unlock(void)
+{
+	struct FLASH_RegDef_t *FLASH = (struct FLASH_RegDef_t *)FLASH_BASE_ADDR;
+
+	FLASH->FLASH_KEYR = 0x45670123;
+	FLASH->FLASH_KEYR |= (0xCDEF89AB << 16);
+
+	return;
+}
+
+void flash_lock(void)
+{
+
+}
+
+void flash_read(uint8_t *RxBuf,uint32_t *fptr,uint32_t len)
+{
+
+}
+
+void flash_write(uint8_t *TxBuf,uint32_t *fptr,uint32_t len)
+{
+
+}
