@@ -25,7 +25,6 @@ int main(void)
 
 	while(1)
 	{
-		printf("$ ");
 		USART_ReceiveCmd(&Test_USART,(uint8_t *)CmdBuffer,&CmdLen);
 		if(CmdLen > 1)
 		{

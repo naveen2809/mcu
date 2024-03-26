@@ -8,6 +8,7 @@
 #define RX_BUF_LEN      (MAX_DATA_LEN)
 #define DATA_SECTOR     7
 #define DATA_ADDRESS    0x08060000UL
+#define IMAGE_ADDRESS   0x08010000UL
 
 void start_app(uint32_t sp, uint32_t pc);
 
@@ -18,9 +19,11 @@ void handle_command_mass_erase(void);
 void handle_command_start_app(void);
 void handle_command_data_read(void);
 void handle_command_data_write(void);
+void handle_command_flash_image(void);
 
 uint32_t getcommandname(char *src,char *dst,uint32_t len);
 uint32_t getarg(char *src,uint32_t len,uint32_t arg_no);
+uint32_t getdataindex(char *src,uint32_t len);
 uint8_t mystrcmp(char *src,char *dst,uint32_t len);
 uint32_t get_power(uint32_t exponent);
 

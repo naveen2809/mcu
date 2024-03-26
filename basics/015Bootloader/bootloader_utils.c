@@ -13,7 +13,7 @@ extern uint32_t __approm_len__;
 
 char CmdBuffer[CMD_BUF_LEN];
 uint32_t CmdLen;
-
+uint8_t *pData;
 char RxBuffer[RX_BUF_LEN];
 
 void start_app(uint32_t sp, uint32_t pc)
@@ -55,6 +55,10 @@ void handle_command(void)
 	{
 		handle_command_data_write();
 	}
+    else if(mystrcmp(command_name,"flash_image",command_name_length))
+	{
+		handle_command_flash_image();
+	}
 
 	return;
 }
@@ -73,7 +77,6 @@ void handle_command_sector_erase(void)
 	sector = getarg(CmdBuffer,CmdLen,1);
 	if(sector >= 0 && sector<=7)
 	{
-		printf("Erasing sector %ld\r\n",sector);
         flash_sector_erase(sector);
         printf("Sector %ld erased successfully\r\n",sector);
 	}
@@ -118,8 +121,8 @@ void handle_command_data_read(void)
 
     if(RxLen>=0 && RxLen <=MAX_DATA_LEN)
     {
-        printf("Reading %ld bytes from flash\r\n",RxLen);
         flash_read((uint8_t *)RxBuffer,(uint8_t*)DATA_ADDRESS,RxLen);
+        printf("%ld read bytes from flash\r\n",RxLen);
     }
     else
     {
@@ -132,7 +135,6 @@ void handle_command_data_read(void)
 void handle_command_data_write(void)
 {
     uint32_t TxData, TxLen,i;
-    uint8_t *pData;
 
     pData = (uint8_t *) DATA_ADDRESS;
 
@@ -141,14 +143,11 @@ void handle_command_data_write(void)
 
     if((TxData>=0 && TxData<=255) && (TxLen>=0 && TxLen<=MAX_DATA_LEN))
     {
-        printf("Writing data %ld, (ascii: %c) to flash\r\n",TxData, (char) TxData);
-        printf("Buffer size: %ld\r\n",TxLen);
-
         for(i=0;i<TxLen;i++)
         {
             flash_write((uint8_t *)&TxData,(pData+i),1);
         }
-        
+        printf("Data written to flash\r\n");
     }
     else
     {
@@ -159,7 +158,47 @@ void handle_command_data_write(void)
 
         if(!(TxLen>=0 && TxLen<=MAX_DATA_LEN))
         {
-            printf("Invalid Tx Length (Max Length: %d bytes)\r\n",MAX_DATA_LEN);
+            printf("Invalid Tx Length\r\n");
+        }
+    }
+
+    return;
+}
+
+void handle_command_flash_image(void)
+{
+    uint32_t SequenceNum, TxLen,i;
+    uint8_t DataIndex;
+
+    SequenceNum = getarg(CmdBuffer,CmdLen,1);
+    TxLen = getarg(CmdBuffer,CmdLen,2);
+    DataIndex = getdataindex(CmdBuffer,CmdLen);
+
+    if((SequenceNum>=0) && (TxLen>=0 && TxLen<=MAX_DATA_LEN))
+    {
+        if(SequenceNum == 0)
+        {
+            pData = (uint8_t *) IMAGE_ADDRESS;
+        }
+        
+        for(i=0;i<TxLen;i++)
+        {
+            flash_write((uint8_t *)&CmdBuffer[DataIndex],pData,1);
+            DataIndex++;
+            pData++;
+        }
+        printf("Cmd: flash_image Data written to flash\r\n");
+    }
+    else
+    {
+        if(!(SequenceNum>=0))
+        {
+            printf("Invalid Sequence Number\r\n");
+        }
+
+        if(!(TxLen>=0 && TxLen<=MAX_DATA_LEN))
+        {
+            printf("Invalid Tx Length\r\n");
         }
     }
 
@@ -235,6 +274,25 @@ uint32_t getarg(char *src,uint32_t len,uint32_t arg_no)
     
 
 	return arg;
+}
+
+uint32_t getdataindex(char *src,uint32_t len)
+{
+    uint32_t i, j;
+
+	i = 0;
+
+    for(j=0;j<3;j++)
+    {
+        while(src[i] != ' ')
+        {
+            i++;
+        }
+
+        i++;
+    }
+
+    return i;
 }
 
 uint8_t mystrcmp(char *src,char *dst,uint32_t len)

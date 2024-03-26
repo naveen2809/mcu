@@ -2,7 +2,7 @@
 #include "stm32f4xx.h"
 #include "gpio_driver.h"
 
-#define SLEEP_COUNT	50000
+#define SLEEP_COUNT	500000
 
 void delay(void)
 {
