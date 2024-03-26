@@ -187,8 +187,6 @@ Discarded input sections
                 0x0000000000000000       0x3e gpio_driver.o
  .text.GPIOWritePin
                 0x0000000000000000       0x44 gpio_driver.o
- .text.GPIOTogglePin
-                0x0000000000000000       0x2c gpio_driver.o
  .text.GPIOWritePort
                 0x0000000000000000       0x1e gpio_driver.o
  .text.GPIOReadIDR
@@ -234,8 +232,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 common_utils.o
  .data          0x0000000000000000        0x0 common_utils.o
  .bss           0x0000000000000000        0x0 common_utils.o
- .text.delay_us
-                0x0000000000000000       0x30 common_utils.o
  .text.delay    0x0000000000000000       0x2c common_utils.o
  .text          0x0000000000000000        0x0 general_purpose_timer.o
  .data          0x0000000000000000        0x0 general_purpose_timer.o
@@ -477,7 +473,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
                 0x0000000000000200                _Min_Heap_Size = 0x200
                 0x0000000000000400                _Min_Stack_Size = 0x400
 
-.text           0x0000000008000000     0x8e68
+.text           0x0000000008000000     0x8f70
                 0x0000000008000000                . = ALIGN (0x4)
                 0x0000000008000000                _stext = .
  *(.isr_vector)
@@ -708,351 +704,360 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
                 0x00000000080070d8                __aeabi_ldiv0
                 0x00000000080070d8                __aeabi_idiv0
  *(.text*)
- .text.main     0x00000000080070dc       0x4c bootloader.o
+ .text.main     0x00000000080070dc       0x88 bootloader.o
                 0x00000000080070dc                main
  .text.EnablePeriClk
-                0x0000000008007128      0x388 stm32f4xx.o
-                0x0000000008007128                EnablePeriClk
+                0x0000000008007164      0x388 stm32f4xx.o
+                0x0000000008007164                EnablePeriClk
  .text.GPIOSetMode
-                0x00000000080074b0       0x48 gpio_driver.o
-                0x00000000080074b0                GPIOSetMode
+                0x00000000080074ec       0x48 gpio_driver.o
+                0x00000000080074ec                GPIOSetMode
+ .text.GPIOTogglePin
+                0x0000000008007534       0x2c gpio_driver.o
+                0x0000000008007534                GPIOTogglePin
  .text.GPIOSetAltFn
-                0x00000000080074f8       0x72 gpio_driver.o
-                0x00000000080074f8                GPIOSetAltFn
+                0x0000000008007560       0x72 gpio_driver.o
+                0x0000000008007560                GPIOSetAltFn
  .text.GPIOSetOutputType
-                0x000000000800756a       0x44 gpio_driver.o
-                0x000000000800756a                GPIOSetOutputType
+                0x00000000080075d2       0x44 gpio_driver.o
+                0x00000000080075d2                GPIOSetOutputType
  .text.GPIOSetPullUpDownConfig
-                0x00000000080075ae       0x48 gpio_driver.o
-                0x00000000080075ae                GPIOSetPullUpDownConfig
+                0x0000000008007616       0x48 gpio_driver.o
+                0x0000000008007616                GPIOSetPullUpDownConfig
  .text.GPIOSetOutputSpeed
-                0x00000000080075f6       0x48 gpio_driver.o
-                0x00000000080075f6                GPIOSetOutputSpeed
- *fill*         0x000000000800763e        0x2 
+                0x000000000800765e       0x48 gpio_driver.o
+                0x000000000800765e                GPIOSetOutputSpeed
+ *fill*         0x00000000080076a6        0x2 
  .text.Reset_Handler
-                0x0000000008007640       0x88 stm32_startup.o
-                0x0000000008007640                Reset_Handler
+                0x00000000080076a8       0x88 stm32_startup.o
+                0x00000000080076a8                Reset_Handler
  .text.Default_Handler
-                0x00000000080076c8        0x6 stm32_startup.o
-                0x00000000080076c8                RTC_WKUP_Handler
-                0x00000000080076c8                FLASH_Handler
-                0x00000000080076c8                SVCall_Handler
-                0x00000000080076c8                DMA2_Stream7_Handler
-                0x00000000080076c8                OTG_HS_Handler
-                0x00000000080076c8                HardFault_Handler
-                0x00000000080076c8                DMA2_Stream3_Handler
-                0x00000000080076c8                SysTick_Handler
-                0x00000000080076c8                USART3_Handler
-                0x00000000080076c8                PendSV_Handler
-                0x00000000080076c8                NMI_Handler
-                0x00000000080076c8                TIM6_DAC_Handler
-                0x00000000080076c8                CAN1_RX1_Handler
-                0x00000000080076c8                EXTI15_10_Handler
-                0x00000000080076c8                ADC_Handler
-                0x00000000080076c8                HASH_RNG_Handler
-                0x00000000080076c8                I2C1_EV_Handler
-                0x00000000080076c8                TAMP_STAMP_Handler
-                0x00000000080076c8                I2C3_ER_Handler
-                0x00000000080076c8                WWDG_Handler
-                0x00000000080076c8                EXTI4_Handler
-                0x00000000080076c8                I2C3_EV_Handler
-                0x00000000080076c8                DMA1_Stream1_Handler
-                0x00000000080076c8                DMA2_Stream4_Handler
-                0x00000000080076c8                DMA1_Stream7_Handler
-                0x00000000080076c8                OTG_FS_Handler
-                0x00000000080076c8                ETH_WKUP_Handler
-                0x00000000080076c8                TIM1_BRK_TIM9_Handler
-                0x00000000080076c8                I2C1_ER_Handler
-                0x00000000080076c8                DMA1_Stream3_Handler
-                0x00000000080076c8                UsageFault_Handler
-                0x00000000080076c8                TIM1_UP_TIM10_Handler
-                0x00000000080076c8                CAN1_RX0_Handler
-                0x00000000080076c8                TIM1_CC_Handler
-                0x00000000080076c8                I2C2_ER_Handler
-                0x00000000080076c8                USART6_Handler
-                0x00000000080076c8                TIM8_CC_Handler
-                0x00000000080076c8                CAN1_SCE_Handler
-                0x00000000080076c8                DMA1_Stream0_Handler
-                0x00000000080076c8                OTG_HS_EP1_OUT_Handler
-                0x00000000080076c8                FSMC_Handler
-                0x00000000080076c8                EXTI1_Handler
-                0x00000000080076c8                EXTI3_Handler
-                0x00000000080076c8                CRYP_Handler
-                0x00000000080076c8                EXTI2_Handler
-                0x00000000080076c8                UART4_Handler
-                0x00000000080076c8                CAN2_RX1_Handler
-                0x00000000080076c8                EXTI9_5_Handler
-                0x00000000080076c8                TIM2_Handler
-                0x00000000080076c8                USART1_Handler
-                0x00000000080076c8                CAN2_SCE_Handler
-                0x00000000080076c8                TIM3_Handler
-                0x00000000080076c8                DMA2_Stream6_Handler
-                0x00000000080076c8                Default_Handler
-                0x00000000080076c8                DCMI_Handler
-                0x00000000080076c8                TIM1_TRG_COM_TIM11_Handler
-                0x00000000080076c8                RTC_Alarm_Handler
-                0x00000000080076c8                TIM4_Handler
-                0x00000000080076c8                TIM8_UP_TIM13_Handler
-                0x00000000080076c8                CAN2_TX_Handler
-                0x00000000080076c8                SPI2_Handler
-                0x00000000080076c8                DMA2_Stream1_Handler
-                0x00000000080076c8                DMA1_Stream2_Handler
-                0x00000000080076c8                MemManage_Handler
-                0x00000000080076c8                EXTI0_Handler
-                0x00000000080076c8                TIM8_BRK_TIM12_Handler
-                0x00000000080076c8                CAN2_RX0_Handler
-                0x00000000080076c8                DMA2_Stream5_Handler
-                0x00000000080076c8                DMA1_Stream6_Handler
-                0x00000000080076c8                SDIO_Handler
-                0x00000000080076c8                USART2_Handler
-                0x00000000080076c8                ETH_Handler
-                0x00000000080076c8                SPI1_Handler
-                0x00000000080076c8                I2C2_EV_Handler
-                0x00000000080076c8                DMA2_Stream2_Handler
-                0x00000000080076c8                SPI3_Handler
-                0x00000000080076c8                DMA2_Stream0_Handler
-                0x00000000080076c8                RCC_Handler
-                0x00000000080076c8                PVD_Handler
-                0x00000000080076c8                UART5_Handler
-                0x00000000080076c8                DMA1_Stream5_Handler
-                0x00000000080076c8                TIM5_Handler
-                0x00000000080076c8                TIM7_Handler
-                0x00000000080076c8                TIM8_TRG_COM_TIM14_Handler
-                0x00000000080076c8                CAN1_TX_Handler
-                0x00000000080076c8                FPU_Handler
-                0x00000000080076c8                BusFault_Handler
-                0x00000000080076c8                DMA1_Stream4_Handler
-                0x00000000080076c8                DebugMonitor_Handler
-                0x00000000080076c8                OTG_HS_WKUP_Handler
-                0x00000000080076c8                OTG_FS_WKUP_Handler
-                0x00000000080076c8                OTG_HS_EP1_IN_Handler
+                0x0000000008007730        0x6 stm32_startup.o
+                0x0000000008007730                RTC_WKUP_Handler
+                0x0000000008007730                FLASH_Handler
+                0x0000000008007730                SVCall_Handler
+                0x0000000008007730                DMA2_Stream7_Handler
+                0x0000000008007730                OTG_HS_Handler
+                0x0000000008007730                HardFault_Handler
+                0x0000000008007730                DMA2_Stream3_Handler
+                0x0000000008007730                SysTick_Handler
+                0x0000000008007730                USART3_Handler
+                0x0000000008007730                PendSV_Handler
+                0x0000000008007730                NMI_Handler
+                0x0000000008007730                TIM6_DAC_Handler
+                0x0000000008007730                CAN1_RX1_Handler
+                0x0000000008007730                EXTI15_10_Handler
+                0x0000000008007730                ADC_Handler
+                0x0000000008007730                HASH_RNG_Handler
+                0x0000000008007730                I2C1_EV_Handler
+                0x0000000008007730                TAMP_STAMP_Handler
+                0x0000000008007730                I2C3_ER_Handler
+                0x0000000008007730                WWDG_Handler
+                0x0000000008007730                EXTI4_Handler
+                0x0000000008007730                I2C3_EV_Handler
+                0x0000000008007730                DMA1_Stream1_Handler
+                0x0000000008007730                DMA2_Stream4_Handler
+                0x0000000008007730                DMA1_Stream7_Handler
+                0x0000000008007730                OTG_FS_Handler
+                0x0000000008007730                ETH_WKUP_Handler
+                0x0000000008007730                TIM1_BRK_TIM9_Handler
+                0x0000000008007730                I2C1_ER_Handler
+                0x0000000008007730                DMA1_Stream3_Handler
+                0x0000000008007730                UsageFault_Handler
+                0x0000000008007730                TIM1_UP_TIM10_Handler
+                0x0000000008007730                CAN1_RX0_Handler
+                0x0000000008007730                TIM1_CC_Handler
+                0x0000000008007730                I2C2_ER_Handler
+                0x0000000008007730                USART6_Handler
+                0x0000000008007730                TIM8_CC_Handler
+                0x0000000008007730                CAN1_SCE_Handler
+                0x0000000008007730                DMA1_Stream0_Handler
+                0x0000000008007730                OTG_HS_EP1_OUT_Handler
+                0x0000000008007730                FSMC_Handler
+                0x0000000008007730                EXTI1_Handler
+                0x0000000008007730                EXTI3_Handler
+                0x0000000008007730                CRYP_Handler
+                0x0000000008007730                EXTI2_Handler
+                0x0000000008007730                UART4_Handler
+                0x0000000008007730                CAN2_RX1_Handler
+                0x0000000008007730                EXTI9_5_Handler
+                0x0000000008007730                TIM2_Handler
+                0x0000000008007730                USART1_Handler
+                0x0000000008007730                CAN2_SCE_Handler
+                0x0000000008007730                TIM3_Handler
+                0x0000000008007730                DMA2_Stream6_Handler
+                0x0000000008007730                Default_Handler
+                0x0000000008007730                DCMI_Handler
+                0x0000000008007730                TIM1_TRG_COM_TIM11_Handler
+                0x0000000008007730                RTC_Alarm_Handler
+                0x0000000008007730                TIM4_Handler
+                0x0000000008007730                TIM8_UP_TIM13_Handler
+                0x0000000008007730                CAN2_TX_Handler
+                0x0000000008007730                SPI2_Handler
+                0x0000000008007730                DMA2_Stream1_Handler
+                0x0000000008007730                DMA1_Stream2_Handler
+                0x0000000008007730                MemManage_Handler
+                0x0000000008007730                EXTI0_Handler
+                0x0000000008007730                TIM8_BRK_TIM12_Handler
+                0x0000000008007730                CAN2_RX0_Handler
+                0x0000000008007730                DMA2_Stream5_Handler
+                0x0000000008007730                DMA1_Stream6_Handler
+                0x0000000008007730                SDIO_Handler
+                0x0000000008007730                USART2_Handler
+                0x0000000008007730                ETH_Handler
+                0x0000000008007730                SPI1_Handler
+                0x0000000008007730                I2C2_EV_Handler
+                0x0000000008007730                DMA2_Stream2_Handler
+                0x0000000008007730                SPI3_Handler
+                0x0000000008007730                DMA2_Stream0_Handler
+                0x0000000008007730                RCC_Handler
+                0x0000000008007730                PVD_Handler
+                0x0000000008007730                UART5_Handler
+                0x0000000008007730                DMA1_Stream5_Handler
+                0x0000000008007730                TIM5_Handler
+                0x0000000008007730                TIM7_Handler
+                0x0000000008007730                TIM8_TRG_COM_TIM14_Handler
+                0x0000000008007730                CAN1_TX_Handler
+                0x0000000008007730                FPU_Handler
+                0x0000000008007730                BusFault_Handler
+                0x0000000008007730                DMA1_Stream4_Handler
+                0x0000000008007730                DebugMonitor_Handler
+                0x0000000008007730                OTG_HS_WKUP_Handler
+                0x0000000008007730                OTG_FS_WKUP_Handler
+                0x0000000008007730                OTG_HS_EP1_IN_Handler
  .text.USART_Init
-                0x00000000080076ce      0x200 usart_driver.o
-                0x00000000080076ce                USART_Init
+                0x0000000008007736      0x200 usart_driver.o
+                0x0000000008007736                USART_Init
  .text.USART_PeripheralEnable
-                0x00000000080078ce       0x22 usart_driver.o
-                0x00000000080078ce                USART_PeripheralEnable
+                0x0000000008007936       0x22 usart_driver.o
+                0x0000000008007936                USART_PeripheralEnable
  .text.USART_GetFlagStatus
-                0x00000000080078f0       0x2a usart_driver.o
-                0x00000000080078f0                USART_GetFlagStatus
+                0x0000000008007958       0x2a usart_driver.o
+                0x0000000008007958                USART_GetFlagStatus
  .text.USART_SendData
-                0x000000000800791a       0x54 usart_driver.o
-                0x000000000800791a                USART_SendData
+                0x0000000008007982       0x54 usart_driver.o
+                0x0000000008007982                USART_SendData
  .text.USART_ReceiveCmd
-                0x000000000800796e       0x56 usart_driver.o
-                0x000000000800796e                USART_ReceiveCmd
+                0x00000000080079d6       0x56 usart_driver.o
+                0x00000000080079d6                USART_ReceiveCmd
  .text.USART_SetBaudRate
-                0x00000000080079c4       0x22 usart_driver.o
-                0x00000000080079c4                USART_SetBaudRate
- *fill*         0x00000000080079e6        0x2 
+                0x0000000008007a2c       0x22 usart_driver.o
+                0x0000000008007a2c                USART_SetBaudRate
+ *fill*         0x0000000008007a4e        0x2 
+ .text.delay_us
+                0x0000000008007a50       0x30 common_utils.o
+                0x0000000008007a50                delay_us
  .text.configure_delay_timer
-                0x00000000080079e8       0x44 common_utils.o
-                0x00000000080079e8                configure_delay_timer
+                0x0000000008007a80       0x44 common_utils.o
+                0x0000000008007a80                configure_delay_timer
  .text.configure_uart
-                0x0000000008007a2c       0xbc common_utils.o
-                0x0000000008007a2c                configure_uart
+                0x0000000008007ac4       0xbc common_utils.o
+                0x0000000008007ac4                configure_uart
  .text.UART_SendChar
-                0x0000000008007ae8       0x24 common_utils.o
-                0x0000000008007ae8                UART_SendChar
+                0x0000000008007b80       0x24 common_utils.o
+                0x0000000008007b80                UART_SendChar
  .text.General_Purpose_Timer_Init
-                0x0000000008007b0c      0x482 general_purpose_timer.o
-                0x0000000008007b0c                General_Purpose_Timer_Init
+                0x0000000008007ba4      0x482 general_purpose_timer.o
+                0x0000000008007ba4                General_Purpose_Timer_Init
  .text.General_Purpose_Timer_PeripheralEnable
-                0x0000000008007f8e       0x22 general_purpose_timer.o
-                0x0000000008007f8e                General_Purpose_Timer_PeripheralEnable
+                0x0000000008008026       0x22 general_purpose_timer.o
+                0x0000000008008026                General_Purpose_Timer_PeripheralEnable
  .text.start_app
-                0x0000000008007fb0       0x1a bootloader_utils.o
-                0x0000000008007fb0                start_app
- *fill*         0x0000000008007fca        0x2 
+                0x0000000008008048       0x1a bootloader_utils.o
+                0x0000000008008048                start_app
+ *fill*         0x0000000008008062        0x2 
  .text.handle_command
-                0x0000000008007fcc       0xf8 bootloader_utils.o
-                0x0000000008007fcc                handle_command
+                0x0000000008008064      0x114 bootloader_utils.o
+                0x0000000008008064                handle_command
  .text.handle_command_get_version
-                0x00000000080080c4       0x14 bootloader_utils.o
-                0x00000000080080c4                handle_command_get_version
+                0x0000000008008178       0x14 bootloader_utils.o
+                0x0000000008008178                handle_command_get_version
  .text.handle_command_sector_erase
-                0x00000000080080d8       0x4c bootloader_utils.o
-                0x00000000080080d8                handle_command_sector_erase
+                0x000000000800818c       0x4c bootloader_utils.o
+                0x000000000800818c                handle_command_sector_erase
  .text.handle_command_mass_erase
-                0x0000000008008124       0x18 bootloader_utils.o
-                0x0000000008008124                handle_command_mass_erase
+                0x00000000080081d8       0x18 bootloader_utils.o
+                0x00000000080081d8                handle_command_mass_erase
  .text.handle_command_start_app
-                0x000000000800813c       0x38 bootloader_utils.o
-                0x000000000800813c                handle_command_start_app
+                0x00000000080081f0       0x38 bootloader_utils.o
+                0x00000000080081f0                handle_command_start_app
+ .text.handle_command_soft_reset
+                0x0000000008008228       0x38 bootloader_utils.o
+                0x0000000008008228                handle_command_soft_reset
  .text.handle_command_data_read
-                0x0000000008008174       0x5c bootloader_utils.o
-                0x0000000008008174                handle_command_data_read
+                0x0000000008008260       0x5c bootloader_utils.o
+                0x0000000008008260                handle_command_data_read
  .text.handle_command_data_write
-                0x00000000080081d0       0xac bootloader_utils.o
-                0x00000000080081d0                handle_command_data_write
+                0x00000000080082bc       0xac bootloader_utils.o
+                0x00000000080082bc                handle_command_data_write
  .text.handle_command_flash_image
-                0x000000000800827c       0xb8 bootloader_utils.o
-                0x000000000800827c                handle_command_flash_image
+                0x0000000008008368       0xb8 bootloader_utils.o
+                0x0000000008008368                handle_command_flash_image
  .text.getcommandname
-                0x0000000008008334       0x64 bootloader_utils.o
-                0x0000000008008334                getcommandname
- .text.getarg   0x0000000008008398      0x12a bootloader_utils.o
-                0x0000000008008398                getarg
+                0x0000000008008420       0x64 bootloader_utils.o
+                0x0000000008008420                getcommandname
+ .text.getarg   0x0000000008008484      0x12a bootloader_utils.o
+                0x0000000008008484                getarg
  .text.getdataindex
-                0x00000000080084c2       0x44 bootloader_utils.o
-                0x00000000080084c2                getdataindex
+                0x00000000080085ae       0x44 bootloader_utils.o
+                0x00000000080085ae                getdataindex
  .text.mystrcmp
-                0x0000000008008506       0x5a bootloader_utils.o
-                0x0000000008008506                mystrcmp
+                0x00000000080085f2       0x5a bootloader_utils.o
+                0x00000000080085f2                mystrcmp
  .text.get_power
-                0x0000000008008560       0x38 bootloader_utils.o
-                0x0000000008008560                get_power
- .text._getpid  0x0000000008008598        0xe syscalls.o
-                0x0000000008008598                _getpid
- .text._kill    0x00000000080085a6       0x20 syscalls.o
-                0x00000000080085a6                _kill
- .text._exit    0x00000000080085c6       0x14 syscalls.o
-                0x00000000080085c6                _exit
- .text._read    0x00000000080085da       0x3a syscalls.o
-                0x00000000080085da                _read
- .text._write   0x0000000008008614       0x38 syscalls.o
-                0x0000000008008614                _write
- .text._close   0x000000000800864c       0x16 syscalls.o
-                0x000000000800864c                _close
- .text._fstat   0x0000000008008662       0x1e syscalls.o
-                0x0000000008008662                _fstat
- .text._isatty  0x0000000008008680       0x14 syscalls.o
-                0x0000000008008680                _isatty
- .text._lseek   0x0000000008008694       0x18 syscalls.o
-                0x0000000008008694                _lseek
- .text._sbrk    0x00000000080086ac       0x6c sysmem.o
-                0x00000000080086ac                _sbrk
+                0x000000000800864c       0x38 bootloader_utils.o
+                0x000000000800864c                get_power
+ .text._getpid  0x0000000008008684        0xe syscalls.o
+                0x0000000008008684                _getpid
+ .text._kill    0x0000000008008692       0x20 syscalls.o
+                0x0000000008008692                _kill
+ .text._exit    0x00000000080086b2       0x14 syscalls.o
+                0x00000000080086b2                _exit
+ .text._read    0x00000000080086c6       0x3a syscalls.o
+                0x00000000080086c6                _read
+ .text._write   0x0000000008008700       0x38 syscalls.o
+                0x0000000008008700                _write
+ .text._close   0x0000000008008738       0x16 syscalls.o
+                0x0000000008008738                _close
+ .text._fstat   0x000000000800874e       0x1e syscalls.o
+                0x000000000800874e                _fstat
+ .text._isatty  0x000000000800876c       0x14 syscalls.o
+                0x000000000800876c                _isatty
+ .text._lseek   0x0000000008008780       0x18 syscalls.o
+                0x0000000008008780                _lseek
+ .text._sbrk    0x0000000008008798       0x6c sysmem.o
+                0x0000000008008798                _sbrk
  .text.flash_sector_erase
-                0x0000000008008718       0x98 flash_driver.o
-                0x0000000008008718                flash_sector_erase
+                0x0000000008008804       0x98 flash_driver.o
+                0x0000000008008804                flash_sector_erase
  .text.flash_mass_erase
-                0x00000000080087b0       0x60 flash_driver.o
-                0x00000000080087b0                flash_mass_erase
+                0x000000000800889c       0x60 flash_driver.o
+                0x000000000800889c                flash_mass_erase
  .text.flash_unlock
-                0x0000000008008810       0x2c flash_driver.o
-                0x0000000008008810                flash_unlock
+                0x00000000080088fc       0x2c flash_driver.o
+                0x00000000080088fc                flash_unlock
  .text.flash_lock
-                0x000000000800883c       0x24 flash_driver.o
-                0x000000000800883c                flash_lock
+                0x0000000008008928       0x24 flash_driver.o
+                0x0000000008008928                flash_lock
  .text.flash_read
-                0x0000000008008860       0x3a flash_driver.o
-                0x0000000008008860                flash_read
- *fill*         0x000000000800889a        0x2 
+                0x000000000800894c       0x3a flash_driver.o
+                0x000000000800894c                flash_read
+ *fill*         0x0000000008008986        0x2 
  .text.flash_write
-                0x000000000800889c       0x7c flash_driver.o
-                0x000000000800889c                flash_write
- .text.startup  0x0000000008008918       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-__call_atexit.o)
+                0x0000000008008988       0x7c flash_driver.o
+                0x0000000008008988                flash_write
+ .text.startup  0x0000000008008a04       0x14 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-__call_atexit.o)
  *(.glue_7)
- .glue_7        0x000000000800892c        0x0 linker stubs
+ .glue_7        0x0000000008008a18        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x000000000800892c        0x0 linker stubs
+ .glue_7t       0x0000000008008a18        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x000000000800892c        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
+ .eh_frame      0x0000000008008a18        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
  *(.init)
- .init          0x000000000800892c        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crti.o
-                0x000000000800892c                _init
- .init          0x0000000008008930        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
+ .init          0x0000000008008a18        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crti.o
+                0x0000000008008a18                _init
+ .init          0x0000000008008a1c        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
  *(.fini)
- .fini          0x0000000008008938        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crti.o
-                0x0000000008008938                _fini
- .fini          0x000000000800893c        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
+ .fini          0x0000000008008a24        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crti.o
+                0x0000000008008a24                _fini
+ .fini          0x0000000008008a28        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
  *(.rodata)
- .rodata        0x0000000008008944        0x2 bootloader.o
- *fill*         0x0000000008008946        0x2 
- .rodata        0x0000000008008948      0x188 bootloader_utils.o
- .rodata        0x0000000008008ad0        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-impure.o)
-                0x0000000008008ad0                _global_impure_ptr
- .rodata        0x0000000008008ad4       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfprintf.o)
- *fill*         0x0000000008008af4        0x4 
- .rodata        0x0000000008008af8      0x128 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-mprec.o)
-                0x0000000008008b08                __mprec_tens
-                0x0000000008008bd0                __mprec_tinytens
-                0x0000000008008bf8                __mprec_bigtens
- .rodata        0x0000000008008c20       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfiprintf.o)
- .rodata        0x0000000008008c40      0x101 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-ctype_.o)
-                0x0000000008008c40                _ctype_
+ .rodata        0x0000000008008a30        0x2 bootloader.o
+ *fill*         0x0000000008008a32        0x2 
+ .rodata        0x0000000008008a34      0x1a4 bootloader_utils.o
+ .rodata        0x0000000008008bd8        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-impure.o)
+                0x0000000008008bd8                _global_impure_ptr
+ .rodata        0x0000000008008bdc       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfprintf.o)
+ *fill*         0x0000000008008bfc        0x4 
+ .rodata        0x0000000008008c00      0x128 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-mprec.o)
+                0x0000000008008c10                __mprec_tens
+                0x0000000008008cd8                __mprec_tinytens
+                0x0000000008008d00                __mprec_bigtens
+ .rodata        0x0000000008008d28       0x20 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfiprintf.o)
+ .rodata        0x0000000008008d48      0x101 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-ctype_.o)
+                0x0000000008008d48                _ctype_
  *(.rodata*)
- *fill*         0x0000000008008d41        0x3 
+ *fill*         0x0000000008008e49        0x3 
  .rodata.str1.4
-                0x0000000008008d44        0x2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-puts.o)
- *fill*         0x0000000008008d46        0x2 
+                0x0000000008008e4c        0x2 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-puts.o)
+ *fill*         0x0000000008008e4e        0x2 
  .rodata.str1.4
-                0x0000000008008d48       0x42 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfprintf.o)
- *fill*         0x0000000008008d8a        0x2 
+                0x0000000008008e50       0x42 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfprintf.o)
+ *fill*         0x0000000008008e92        0x2 
  .rodata.str1.4
-                0x0000000008008d8c       0x56 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-dtoa.o)
+                0x0000000008008e94       0x56 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-dtoa.o)
                                          0x5a (size before relaxing)
- *fill*         0x0000000008008de2        0x2 
+ *fill*         0x0000000008008eea        0x2 
  .rodata.str1.4
-                0x0000000008008de4       0x33 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-mprec.o)
+                0x0000000008008eec       0x33 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-mprec.o)
                                          0x47 (size before relaxing)
  .rodata.str1.4
-                0x0000000008008e17       0x2f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfiprintf.o)
- *fill*         0x0000000008008e17        0x1 
+                0x0000000008008f1f       0x2f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-vfiprintf.o)
+ *fill*         0x0000000008008f1f        0x1 
  .rodata.str1.4
-                0x0000000008008e18       0x3f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-assert.o)
+                0x0000000008008f20       0x3f /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-assert.o)
                                          0x43 (size before relaxing)
- *fill*         0x0000000008008e57        0x1 
+ *fill*         0x0000000008008f5f        0x1 
  .rodata.str1.4
-                0x0000000008008e58        0xe /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-locale.o)
+                0x0000000008008f60        0xe /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-locale.o)
                                          0x12 (size before relaxing)
-                0x0000000008008e68                . = ALIGN (0x4)
- *fill*         0x0000000008008e66        0x2 
-                0x0000000008008e68                _etext = .
+                0x0000000008008f70                . = ALIGN (0x4)
+ *fill*         0x0000000008008f6e        0x2 
+                0x0000000008008f70                _etext = .
 
-.vfp11_veneer   0x0000000008008e68        0x0
- .vfp11_veneer  0x0000000008008e68        0x0 linker stubs
+.vfp11_veneer   0x0000000008008f70        0x0
+ .vfp11_veneer  0x0000000008008f70        0x0 linker stubs
 
-.v4_bx          0x0000000008008e68        0x0
- .v4_bx         0x0000000008008e68        0x0 linker stubs
+.v4_bx          0x0000000008008f70        0x0
+ .v4_bx         0x0000000008008f70        0x0 linker stubs
 
-.iplt           0x0000000008008e68        0x0
- .iplt          0x0000000008008e68        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
+.iplt           0x0000000008008f70        0x0
+ .iplt          0x0000000008008f70        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.ARM.extab      0x0000000008008e68        0x0
-                0x0000000008008e68                . = ALIGN (0x4)
+.ARM.extab      0x0000000008008f70        0x0
+                0x0000000008008f70                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008008e68                . = ALIGN (0x4)
+                0x0000000008008f70                . = ALIGN (0x4)
 
-.ARM            0x0000000008008e68        0x8
-                0x0000000008008e68                . = ALIGN (0x4)
-                0x0000000008008e68                __exidx_start = .
+.ARM            0x0000000008008f70        0x8
+                0x0000000008008f70                . = ALIGN (0x4)
+                0x0000000008008f70                __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0000000008008e68        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
-                0x0000000008008e70                __exidx_end = .
-                0x0000000008008e70                . = ALIGN (0x4)
+ .ARM.exidx     0x0000000008008f70        0x8 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/libgcc.a(_udivmoddi4.o)
+                0x0000000008008f78                __exidx_end = .
+                0x0000000008008f78                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008008e70        0x0
- .rel.iplt      0x0000000008008e70        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
+.rel.dyn        0x0000000008008f78        0x0
+ .rel.iplt      0x0000000008008f78        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.preinit_array  0x0000000008008e70        0x0
-                0x0000000008008e70                . = ALIGN (0x4)
-                0x0000000008008e70                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008008f78        0x0
+                0x0000000008008f78                . = ALIGN (0x4)
+                0x0000000008008f78                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008008e70                PROVIDE (__preinit_array_end = .)
-                0x0000000008008e70                . = ALIGN (0x4)
+                0x0000000008008f78                PROVIDE (__preinit_array_end = .)
+                0x0000000008008f78                . = ALIGN (0x4)
 
-.init_array     0x0000000008008e70        0x8
-                0x0000000008008e70                . = ALIGN (0x4)
-                0x0000000008008e70                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008008f78        0x8
+                0x0000000008008f78                . = ALIGN (0x4)
+                0x0000000008008f78                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x0000000008008e70        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-__call_atexit.o)
+                0x0000000008008f78        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/../../../arm-none-eabi/lib/thumb/v7e-m/nofp/libc.a(lib_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0000000008008e74        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
-                0x0000000008008e78                PROVIDE (__init_array_end = .)
-                0x0000000008008e78                . = ALIGN (0x4)
+ .init_array    0x0000000008008f7c        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0000000008008f80                PROVIDE (__init_array_end = .)
+                0x0000000008008f80                . = ALIGN (0x4)
 
-.fini_array     0x0000000008008e78        0x4
-                0x0000000008008e78                . = ALIGN (0x4)
-                0x0000000008008e78                PROVIDE (__fini_array_start = .)
+.fini_array     0x0000000008008f80        0x4
+                0x0000000008008f80                . = ALIGN (0x4)
+                0x0000000008008f80                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008008e78        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
-                0x0000000008008e7c                PROVIDE (__fini_array_end = .)
-                0x0000000008008e7c                . = ALIGN (0x4)
+ .fini_array    0x0000000008008f80        0x4 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
+                0x0000000008008f84                PROVIDE (__fini_array_end = .)
+                0x0000000008008f84                . = ALIGN (0x4)
 
-.data           0x0000000020000000      0x9ac load address 0x0000000008008e7c
+.data           0x0000000020000000      0x9ac load address 0x0000000008008f84
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -1067,19 +1072,19 @@ LOAD /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtn.o
  *(.data*)
                 0x00000000200009ac                . = ALIGN (0x4)
                 0x00000000200009ac                _edata = .
-                0x0000000008008e7c                _sidata = LOADADDR (.data)
+                0x0000000008008f84                _sidata = LOADADDR (.data)
 
 .tm_clone_table
-                0x00000000200009ac        0x0 load address 0x0000000008009828
+                0x00000000200009ac        0x0 load address 0x0000000008009930
  .tm_clone_table
                 0x00000000200009ac        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
  .tm_clone_table
                 0x00000000200009ac        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtend.o
 
-.igot.plt       0x00000000200009ac        0x0 load address 0x0000000008009828
+.igot.plt       0x00000000200009ac        0x0 load address 0x0000000008009930
  .igot.plt      0x00000000200009ac        0x0 /usr/lib/gcc/arm-none-eabi/9.2.1/thumb/v7e-m/nofp/crtbegin.o
 
-.bss            0x00000000200009ac      0x510 load address 0x0000000008009828
+.bss            0x00000000200009ac      0x510 load address 0x0000000008009930
                 0x00000000200009ac                . = ALIGN (0x4)
                 0x00000000200009ac                _sbss = .
  *(.bss)

@@ -59,6 +59,10 @@ void handle_command(void)
 	{
 		handle_command_flash_image();
 	}
+    else if(mystrcmp(command_name,"soft_reset",command_name_length))
+    {
+        handle_command_soft_reset();
+    }
 
 	return;
 }
@@ -105,6 +109,24 @@ void handle_command_start_app(void)
 
     //Jumping to the application program by calling its reset handler
 	app_ptr = (uint32_t *) &__approm_start__;
+	app_sp = (volatile uint32_t) app_ptr[0];
+	app_pc = (volatile uint32_t) app_ptr[1];
+	
+	start_app(app_sp,app_pc);
+
+	return;
+}
+
+void handle_command_soft_reset(void)
+{
+    uint32_t *app_ptr;
+	uint32_t app_sp;
+	uint32_t app_pc;
+    
+    printf("Resetting...\r\n");
+
+    //Jumping to the application program by calling its reset handler
+	app_ptr = (uint32_t *) &__bootrom_start__;
 	app_sp = (volatile uint32_t) app_ptr[0];
 	app_pc = (volatile uint32_t) app_ptr[1];
 	
