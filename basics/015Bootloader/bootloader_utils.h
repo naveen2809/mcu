@@ -21,6 +21,7 @@ void handle_command_data_read(void);
 void handle_command_data_write(void);
 void handle_command_flash_image(void);
 void handle_command_soft_reset(void);
+void handle_command_system_reset(void);
 
 uint32_t getcommandname(char *src,char *dst,uint32_t len);
 uint32_t getarg(char *src,uint32_t len,uint32_t arg_no);

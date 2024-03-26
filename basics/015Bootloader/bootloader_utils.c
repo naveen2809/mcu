@@ -63,6 +63,10 @@ void handle_command(void)
     {
         handle_command_soft_reset();
     }
+    else if(mystrcmp(command_name,"system_reset",command_name_length))
+    {
+        handle_command_system_reset();
+    }
 
 	return;
 }
@@ -131,6 +135,22 @@ void handle_command_soft_reset(void)
 	app_pc = (volatile uint32_t) app_ptr[1];
 	
 	start_app(app_sp,app_pc);
+
+	return;
+}
+
+void handle_command_system_reset(void)
+{
+    uint32_t *pAIRCR = (uint32_t *) 0xE000ED0CUL;
+    
+    printf("Initiating System Reset...\r\n");
+
+    *pAIRCR = (0x5FA << 16) | (1 << 2);
+
+    while(1)
+    {
+
+    }
 
 	return;
 }

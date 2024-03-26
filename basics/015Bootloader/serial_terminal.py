@@ -4,7 +4,7 @@ ser = serial.Serial()
 ser.port = "/dev/ttyUSB0"
 ser.baudrate = "9600"
 ser.open()
-cmd_list = ["version", "start_app", "sector_erase", "mass_erase", "data_read", "data_write","soft_reset"]
+cmd_list = ["version", "start_app", "sector_erase", "mass_erase", "data_read", "data_write","soft_reset","system_reset"]
 
 def handle_command_flash_image(cmd):
     ser = serial.Serial()
@@ -40,9 +40,6 @@ def handle_command_flash_image(cmd):
 
             data = f.read(current_size)
 
-            #data = b'A'
-
-            #current_size = 1
             cmd_string = "flash_image" + " " + str(count-1) + " " + str(current_size) + " "
             
             data_bytes.clear()
