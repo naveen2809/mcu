@@ -64,7 +64,7 @@ LOAD stm32_startup.o
                 0x0000000000000200                _Min_Heap_Size = 0x200
                 0x0000000000000400                _Min_Stack_Size = 0x400
 
-.text           0x0000000008010000      0x664
+.text           0x0000000008010000      0x67c
                 0x0000000008010000                . = ALIGN (0x4)
                 0x0000000008010000                _stext = .
  *(.isr_vector)
@@ -86,175 +86,175 @@ LOAD stm32_startup.o
                 0x00000000080105ac       0x2c gpio_driver.o
                 0x00000000080105ac                GPIOTogglePin
  .text.Reset_Handler
-                0x00000000080105d8       0x84 stm32_startup.o
+                0x00000000080105d8       0x9c stm32_startup.o
                 0x00000000080105d8                Reset_Handler
  .text.Default_Handler
-                0x000000000801065c        0x6 stm32_startup.o
-                0x000000000801065c                RTC_WKUP_Handler
-                0x000000000801065c                FLASH_Handler
-                0x000000000801065c                SVCall_Handler
-                0x000000000801065c                DMA2_Stream7_Handler
-                0x000000000801065c                OTG_HS_Handler
-                0x000000000801065c                HardFault_Handler
-                0x000000000801065c                DMA2_Stream3_Handler
-                0x000000000801065c                SysTick_Handler
-                0x000000000801065c                USART3_Handler
-                0x000000000801065c                PendSV_Handler
-                0x000000000801065c                NMI_Handler
-                0x000000000801065c                TIM6_DAC_Handler
-                0x000000000801065c                CAN1_RX1_Handler
-                0x000000000801065c                EXTI15_10_Handler
-                0x000000000801065c                ADC_Handler
-                0x000000000801065c                HASH_RNG_Handler
-                0x000000000801065c                I2C1_EV_Handler
-                0x000000000801065c                TAMP_STAMP_Handler
-                0x000000000801065c                I2C3_ER_Handler
-                0x000000000801065c                WWDG_Handler
-                0x000000000801065c                EXTI4_Handler
-                0x000000000801065c                I2C3_EV_Handler
-                0x000000000801065c                DMA1_Stream1_Handler
-                0x000000000801065c                DMA2_Stream4_Handler
-                0x000000000801065c                DMA1_Stream7_Handler
-                0x000000000801065c                OTG_FS_Handler
-                0x000000000801065c                ETH_WKUP_Handler
-                0x000000000801065c                TIM1_BRK_TIM9_Handler
-                0x000000000801065c                I2C1_ER_Handler
-                0x000000000801065c                DMA1_Stream3_Handler
-                0x000000000801065c                UsageFault_Handler
-                0x000000000801065c                TIM1_UP_TIM10_Handler
-                0x000000000801065c                CAN1_RX0_Handler
-                0x000000000801065c                TIM1_CC_Handler
-                0x000000000801065c                I2C2_ER_Handler
-                0x000000000801065c                USART6_Handler
-                0x000000000801065c                TIM8_CC_Handler
-                0x000000000801065c                CAN1_SCE_Handler
-                0x000000000801065c                DMA1_Stream0_Handler
-                0x000000000801065c                OTG_HS_EP1_OUT_Handler
-                0x000000000801065c                FSMC_Handler
-                0x000000000801065c                EXTI1_Handler
-                0x000000000801065c                EXTI3_Handler
-                0x000000000801065c                CRYP_Handler
-                0x000000000801065c                EXTI2_Handler
-                0x000000000801065c                UART4_Handler
-                0x000000000801065c                CAN2_RX1_Handler
-                0x000000000801065c                EXTI9_5_Handler
-                0x000000000801065c                TIM2_Handler
-                0x000000000801065c                USART1_Handler
-                0x000000000801065c                CAN2_SCE_Handler
-                0x000000000801065c                TIM3_Handler
-                0x000000000801065c                DMA2_Stream6_Handler
-                0x000000000801065c                Default_Handler
-                0x000000000801065c                DCMI_Handler
-                0x000000000801065c                TIM1_TRG_COM_TIM11_Handler
-                0x000000000801065c                RTC_Alarm_Handler
-                0x000000000801065c                TIM4_Handler
-                0x000000000801065c                TIM8_UP_TIM13_Handler
-                0x000000000801065c                CAN2_TX_Handler
-                0x000000000801065c                SPI2_Handler
-                0x000000000801065c                DMA2_Stream1_Handler
-                0x000000000801065c                DMA1_Stream2_Handler
-                0x000000000801065c                MemManage_Handler
-                0x000000000801065c                EXTI0_Handler
-                0x000000000801065c                TIM8_BRK_TIM12_Handler
-                0x000000000801065c                CAN2_RX0_Handler
-                0x000000000801065c                DMA2_Stream5_Handler
-                0x000000000801065c                DMA1_Stream6_Handler
-                0x000000000801065c                SDIO_Handler
-                0x000000000801065c                USART2_Handler
-                0x000000000801065c                ETH_Handler
-                0x000000000801065c                SPI1_Handler
-                0x000000000801065c                I2C2_EV_Handler
-                0x000000000801065c                DMA2_Stream2_Handler
-                0x000000000801065c                SPI3_Handler
-                0x000000000801065c                DMA2_Stream0_Handler
-                0x000000000801065c                RCC_Handler
-                0x000000000801065c                PVD_Handler
-                0x000000000801065c                UART5_Handler
-                0x000000000801065c                DMA1_Stream5_Handler
-                0x000000000801065c                TIM5_Handler
-                0x000000000801065c                TIM7_Handler
-                0x000000000801065c                TIM8_TRG_COM_TIM14_Handler
-                0x000000000801065c                CAN1_TX_Handler
-                0x000000000801065c                FPU_Handler
-                0x000000000801065c                BusFault_Handler
-                0x000000000801065c                DMA1_Stream4_Handler
-                0x000000000801065c                DebugMonitor_Handler
-                0x000000000801065c                OTG_HS_WKUP_Handler
-                0x000000000801065c                OTG_FS_WKUP_Handler
-                0x000000000801065c                OTG_HS_EP1_IN_Handler
+                0x0000000008010674        0x6 stm32_startup.o
+                0x0000000008010674                RTC_WKUP_Handler
+                0x0000000008010674                FLASH_Handler
+                0x0000000008010674                SVCall_Handler
+                0x0000000008010674                DMA2_Stream7_Handler
+                0x0000000008010674                OTG_HS_Handler
+                0x0000000008010674                HardFault_Handler
+                0x0000000008010674                DMA2_Stream3_Handler
+                0x0000000008010674                SysTick_Handler
+                0x0000000008010674                USART3_Handler
+                0x0000000008010674                PendSV_Handler
+                0x0000000008010674                NMI_Handler
+                0x0000000008010674                TIM6_DAC_Handler
+                0x0000000008010674                CAN1_RX1_Handler
+                0x0000000008010674                EXTI15_10_Handler
+                0x0000000008010674                ADC_Handler
+                0x0000000008010674                HASH_RNG_Handler
+                0x0000000008010674                I2C1_EV_Handler
+                0x0000000008010674                TAMP_STAMP_Handler
+                0x0000000008010674                I2C3_ER_Handler
+                0x0000000008010674                WWDG_Handler
+                0x0000000008010674                EXTI4_Handler
+                0x0000000008010674                I2C3_EV_Handler
+                0x0000000008010674                DMA1_Stream1_Handler
+                0x0000000008010674                DMA2_Stream4_Handler
+                0x0000000008010674                DMA1_Stream7_Handler
+                0x0000000008010674                OTG_FS_Handler
+                0x0000000008010674                ETH_WKUP_Handler
+                0x0000000008010674                TIM1_BRK_TIM9_Handler
+                0x0000000008010674                I2C1_ER_Handler
+                0x0000000008010674                DMA1_Stream3_Handler
+                0x0000000008010674                UsageFault_Handler
+                0x0000000008010674                TIM1_UP_TIM10_Handler
+                0x0000000008010674                CAN1_RX0_Handler
+                0x0000000008010674                TIM1_CC_Handler
+                0x0000000008010674                I2C2_ER_Handler
+                0x0000000008010674                USART6_Handler
+                0x0000000008010674                TIM8_CC_Handler
+                0x0000000008010674                CAN1_SCE_Handler
+                0x0000000008010674                DMA1_Stream0_Handler
+                0x0000000008010674                OTG_HS_EP1_OUT_Handler
+                0x0000000008010674                FSMC_Handler
+                0x0000000008010674                EXTI1_Handler
+                0x0000000008010674                EXTI3_Handler
+                0x0000000008010674                CRYP_Handler
+                0x0000000008010674                EXTI2_Handler
+                0x0000000008010674                UART4_Handler
+                0x0000000008010674                CAN2_RX1_Handler
+                0x0000000008010674                EXTI9_5_Handler
+                0x0000000008010674                TIM2_Handler
+                0x0000000008010674                USART1_Handler
+                0x0000000008010674                CAN2_SCE_Handler
+                0x0000000008010674                TIM3_Handler
+                0x0000000008010674                DMA2_Stream6_Handler
+                0x0000000008010674                Default_Handler
+                0x0000000008010674                DCMI_Handler
+                0x0000000008010674                TIM1_TRG_COM_TIM11_Handler
+                0x0000000008010674                RTC_Alarm_Handler
+                0x0000000008010674                TIM4_Handler
+                0x0000000008010674                TIM8_UP_TIM13_Handler
+                0x0000000008010674                CAN2_TX_Handler
+                0x0000000008010674                SPI2_Handler
+                0x0000000008010674                DMA2_Stream1_Handler
+                0x0000000008010674                DMA1_Stream2_Handler
+                0x0000000008010674                MemManage_Handler
+                0x0000000008010674                EXTI0_Handler
+                0x0000000008010674                TIM8_BRK_TIM12_Handler
+                0x0000000008010674                CAN2_RX0_Handler
+                0x0000000008010674                DMA2_Stream5_Handler
+                0x0000000008010674                DMA1_Stream6_Handler
+                0x0000000008010674                SDIO_Handler
+                0x0000000008010674                USART2_Handler
+                0x0000000008010674                ETH_Handler
+                0x0000000008010674                SPI1_Handler
+                0x0000000008010674                I2C2_EV_Handler
+                0x0000000008010674                DMA2_Stream2_Handler
+                0x0000000008010674                SPI3_Handler
+                0x0000000008010674                DMA2_Stream0_Handler
+                0x0000000008010674                RCC_Handler
+                0x0000000008010674                PVD_Handler
+                0x0000000008010674                UART5_Handler
+                0x0000000008010674                DMA1_Stream5_Handler
+                0x0000000008010674                TIM5_Handler
+                0x0000000008010674                TIM7_Handler
+                0x0000000008010674                TIM8_TRG_COM_TIM14_Handler
+                0x0000000008010674                CAN1_TX_Handler
+                0x0000000008010674                FPU_Handler
+                0x0000000008010674                BusFault_Handler
+                0x0000000008010674                DMA1_Stream4_Handler
+                0x0000000008010674                DebugMonitor_Handler
+                0x0000000008010674                OTG_HS_WKUP_Handler
+                0x0000000008010674                OTG_FS_WKUP_Handler
+                0x0000000008010674                OTG_HS_EP1_IN_Handler
  *(.glue_7)
- .glue_7        0x0000000008010662        0x0 linker stubs
+ .glue_7        0x000000000801067a        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008010662        0x0 linker stubs
+ .glue_7t       0x000000000801067a        0x0 linker stubs
  *(.eh_frame)
  *(.init)
  *(.fini)
  *(.rodata)
  *(.rodata*)
-                0x0000000008010664                . = ALIGN (0x4)
- *fill*         0x0000000008010662        0x2 
-                0x0000000008010664                _etext = .
+                0x000000000801067c                . = ALIGN (0x4)
+ *fill*         0x000000000801067a        0x2 
+                0x000000000801067c                _etext = .
 
-.vfp11_veneer   0x0000000008010664        0x0
- .vfp11_veneer  0x0000000008010664        0x0 linker stubs
+.vfp11_veneer   0x000000000801067c        0x0
+ .vfp11_veneer  0x000000000801067c        0x0 linker stubs
 
-.v4_bx          0x0000000008010664        0x0
- .v4_bx         0x0000000008010664        0x0 linker stubs
+.v4_bx          0x000000000801067c        0x0
+ .v4_bx         0x000000000801067c        0x0 linker stubs
 
-.iplt           0x0000000008010664        0x0
- .iplt          0x0000000008010664        0x0 user_app.o
+.iplt           0x000000000801067c        0x0
+ .iplt          0x000000000801067c        0x0 user_app.o
 
-.rel.dyn        0x0000000008010664        0x0
- .rel.iplt      0x0000000008010664        0x0 user_app.o
+.rel.dyn        0x000000000801067c        0x0
+ .rel.iplt      0x000000000801067c        0x0 user_app.o
 
-.ARM.extab      0x0000000008010664        0x0
-                0x0000000008010664                . = ALIGN (0x4)
+.ARM.extab      0x000000000801067c        0x0
+                0x000000000801067c                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008010664                . = ALIGN (0x4)
+                0x000000000801067c                . = ALIGN (0x4)
 
-.ARM            0x0000000008010664        0x0
-                0x0000000008010664                . = ALIGN (0x4)
-                0x0000000008010664                __exidx_start = .
+.ARM            0x000000000801067c        0x0
+                0x000000000801067c                . = ALIGN (0x4)
+                0x000000000801067c                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008010664                __exidx_end = .
-                0x0000000008010664                . = ALIGN (0x4)
+                0x000000000801067c                __exidx_end = .
+                0x000000000801067c                . = ALIGN (0x4)
 
-.preinit_array  0x0000000008010664        0x0
-                0x0000000008010664                . = ALIGN (0x4)
+.preinit_array  0x000000000801067c        0x0
+                0x000000000801067c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
                 [!provide]                        PROVIDE (__preinit_array_end = .)
-                0x0000000008010664                . = ALIGN (0x4)
+                0x000000000801067c                . = ALIGN (0x4)
 
-.init_array     0x0000000008010664        0x0
-                0x0000000008010664                . = ALIGN (0x4)
+.init_array     0x000000000801067c        0x0
+                0x000000000801067c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
                 [!provide]                        PROVIDE (__init_array_end = .)
-                0x0000000008010664                . = ALIGN (0x4)
+                0x000000000801067c                . = ALIGN (0x4)
 
-.fini_array     0x0000000008010664        0x0
-                0x0000000008010664                . = ALIGN (0x4)
+.fini_array     0x000000000801067c        0x0
+                0x000000000801067c                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008010664                . = ALIGN (0x4)
+                0x000000000801067c                . = ALIGN (0x4)
 
-.data           0x0000000020000000        0x0 load address 0x0000000008010664
+.data           0x0000000020000000        0x0 load address 0x000000000801067c
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
  *(.data*)
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _edata = .
-                0x0000000008010664                _sidata = LOADADDR (.data)
+                0x000000000801067c                _sidata = LOADADDR (.data)
 
-.igot.plt       0x0000000020000000        0x0 load address 0x0000000008010664
+.igot.plt       0x0000000020000000        0x0 load address 0x000000000801067c
  .igot.plt      0x0000000020000000        0x0 user_app.o
 
-.bss            0x0000000020000000        0x0 load address 0x0000000008010664
+.bss            0x0000000020000000        0x0 load address 0x000000000801067c
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sbss = .
  *(.bss)

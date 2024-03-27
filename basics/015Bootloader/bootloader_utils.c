@@ -16,12 +16,6 @@ uint32_t CmdLen;
 uint8_t *pData;
 char RxBuffer[RX_BUF_LEN];
 
-void start_app(uint32_t sp, uint32_t pc)
-{
-	__asm volatile ("MSR MSP, R0");
-	__asm volatile ("BX R1"); 	
-}
-
 void handle_command(void)
 {
 	char command_name[CMD_BUF_LEN];
@@ -119,6 +113,12 @@ void handle_command_start_app(void)
 	start_app(app_sp,app_pc);
 
 	return;
+}
+
+void start_app(uint32_t sp, uint32_t pc)
+{
+	__asm volatile ("MSR MSP, R0");
+	__asm volatile ("BX R1"); 	
 }
 
 void handle_command_soft_reset(void)

@@ -4,11 +4,13 @@
 #define SRAM_LENGTH         (128 * 1024)
 #define STACK_START         ((SRAM_START)+(SRAM_LENGTH))
 
+//Linker script symbols
 extern uint32_t _sdata;
 extern uint32_t _edata;
 extern uint32_t _sidata;
 extern uint32_t _sbss;
 extern uint32_t _ebss;
+extern uint32_t __approm_start__;
 
 void Reset_Handler(void);
 void NMI_Handler(void) __attribute__((weak, alias("Default_Handler")));
@@ -213,6 +215,8 @@ void Reset_Handler(void)
 
     uint32_t size,i;
     uint8_t *SrcPtr, *DstPtr;
+    uint32_t *pVTOR;
+    uint32_t vector_table_offset;
 
     //Initialize the .data segment in SRAM with the data stored in FLASH
     size = (uint32_t)&_edata-(uint32_t)&_sdata;
@@ -232,6 +236,11 @@ void Reset_Handler(void)
     }
 
     //Initialize the standard C library
+
+    //Update the Vector Table Offset Register (VTOR)
+    pVTOR = (uint32_t *) 0xE000ED08UL;
+    vector_table_offset = (uint32_t)&__approm_start__;
+    *pVTOR = vector_table_offset;
 
     //Call main()
     main();

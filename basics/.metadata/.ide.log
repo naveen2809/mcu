@@ -22949,3 +22949,13 @@
 2024-03-23 11:24:59,245 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.readByte(SWVClient.java:295)
 2024-03-23 11:24:59,245 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.getNextByte(SWVClient.java:278)
 2024-03-23 11:24:59,264 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.swv.core.SWVClient.run(SWVClient.java:312)
+2024-03-27 14:33:04,029 [INFO] Activator:179 - 
+
+
+2024-03-27 14:33:04,031 [INFO] Activator:180 - !SESSION log4j initialized
+2024-03-27 14:33:09,284 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-03-27 14:33:09,285 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-03-27 14:33:09,286 [ERROR] ConfigurationRetriever:140 - IOException on connection: citools.st.com
+2024-03-27 14:33:30,149 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+2024-03-27 14:33:30,150 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: Defaulting to no-operation (NOP) logger implementation
+2024-03-27 14:33:30,150 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
