@@ -3,12 +3,14 @@
 
 #include <stdint.h>
 
-#define CMD_BUF_LEN     100
-#define MAX_DATA_LEN    1024
-#define RX_BUF_LEN      (MAX_DATA_LEN)
-#define DATA_SECTOR     7
-#define DATA_ADDRESS    0x08060000UL
-#define IMAGE_ADDRESS   0x08010000UL
+#define CMD_BUF_LEN         100
+#define MAX_DATA_LEN        1024
+#define RX_BUF_LEN          (MAX_DATA_LEN)
+#define DATA_SECTOR         7
+#define DATA_ADDRESS        0x08060000UL
+#define IMAGE_ADDRESS       0x08010000UL
+#define IMAGE_ADDRESS_SRAM  0x08020000UL
+#define APP_SRAM_START      0x20010000UL
 
 void start_app(uint32_t sp, uint32_t pc);
 
@@ -17,9 +19,11 @@ void handle_command_get_version(void);
 void handle_command_sector_erase(void);
 void handle_command_mass_erase(void);
 void handle_command_start_app(void);
+void handle_command_start_app_sram(void);
 void handle_command_data_read(void);
 void handle_command_data_write(void);
 void handle_command_flash_image(void);
+void handle_command_flash_image_sram(void);
 void handle_command_soft_reset(void);
 void handle_command_system_reset(void);
 

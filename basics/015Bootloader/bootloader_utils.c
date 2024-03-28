@@ -41,6 +41,10 @@ void handle_command(void)
 	{
 		handle_command_start_app();
 	}
+	else if(mystrcmp(command_name,"start_app_sram",command_name_length))
+	{
+		handle_command_start_app_sram();
+	}
     else if(mystrcmp(command_name,"data_read",command_name_length))
 	{
 		handle_command_data_read();
@@ -52,6 +56,10 @@ void handle_command(void)
     else if(mystrcmp(command_name,"flash_image",command_name_length))
 	{
 		handle_command_flash_image();
+	}
+	else if(mystrcmp(command_name,"flash_image_sram",command_name_length))
+	{
+		handle_command_flash_image_sram();
 	}
     else if(mystrcmp(command_name,"soft_reset",command_name_length))
     {
@@ -119,6 +127,41 @@ void start_app(uint32_t sp, uint32_t pc)
 {
 	__asm volatile ("MSR MSP, R0");
 	__asm volatile ("BX R1"); 	
+}
+
+void handle_command_start_app_sram(void)
+{
+    uint32_t *app_ptr;
+	uint32_t app_sp;
+	uint32_t app_pc;
+
+	uint32_t i, image_length;
+	uint8_t *pSRAM;
+	uint8_t *pFLASH;
+	uint8_t data_byte;
+
+	//Copy Image from Flash to SRAM
+	image_length = getarg(CmdBuffer,CmdLen,1);
+	pSRAM = (uint8_t *) APP_SRAM_START;
+	pFLASH = (uint8_t *) IMAGE_ADDRESS_SRAM;
+	for(i=0;i<image_length;i++)
+	{
+		flash_read(&data_byte,(uint8_t*)pFLASH,1);
+		*pSRAM = data_byte;
+		pFLASH++;
+		pSRAM++;
+	}
+    
+    printf("Starting application...\r\n");
+
+    //Jumping to the application program by calling its reset handler
+	app_ptr = (uint32_t *) APP_SRAM_START;
+	app_sp = (volatile uint32_t) app_ptr[0];
+	app_pc = (volatile uint32_t) app_ptr[1];
+	
+	start_app(app_sp,app_pc);
+
+	return;
 }
 
 void handle_command_soft_reset(void)
@@ -221,6 +264,46 @@ void handle_command_flash_image(void)
         if(SequenceNum == 0)
         {
             pData = (uint8_t *) IMAGE_ADDRESS;
+        }
+        
+        for(i=0;i<TxLen;i++)
+        {
+            flash_write((uint8_t *)&CmdBuffer[DataIndex],pData,1);
+            DataIndex++;
+            pData++;
+        }
+        printf("Cmd: flash_image Data written to flash\r\n");
+    }
+    else
+    {
+        if(!(SequenceNum>=0))
+        {
+            printf("Invalid Sequence Number\r\n");
+        }
+
+        if(!(TxLen>=0 && TxLen<=MAX_DATA_LEN))
+        {
+            printf("Invalid Tx Length\r\n");
+        }
+    }
+
+    return;
+}
+
+void handle_command_flash_image_sram(void)
+{
+    uint32_t SequenceNum, TxLen,i;
+    uint8_t DataIndex;
+
+    SequenceNum = getarg(CmdBuffer,CmdLen,1);
+    TxLen = getarg(CmdBuffer,CmdLen,2);
+    DataIndex = getdataindex(CmdBuffer,CmdLen);
+
+    if((SequenceNum>=0) && (TxLen>=0 && TxLen<=MAX_DATA_LEN))
+    {
+        if(SequenceNum == 0)
+        {
+            pData = (uint8_t *) IMAGE_ADDRESS_SRAM;
         }
         
         for(i=0;i<TxLen;i++)

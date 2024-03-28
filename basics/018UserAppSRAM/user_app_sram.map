@@ -1,0 +1,284 @@
+
+Discarded input sections
+
+ .text          0x0000000000000000        0x0 user_app_sram.o
+ .data          0x0000000000000000        0x0 user_app_sram.o
+ .bss           0x0000000000000000        0x0 user_app_sram.o
+ .text          0x0000000000000000        0x0 stm32f4xx.o
+ .data          0x0000000000000000        0x0 stm32f4xx.o
+ .bss           0x0000000000000000        0x0 stm32f4xx.o
+ .text.DisablePeriClk
+                0x0000000000000000      0x388 stm32f4xx.o
+ .text.NVIC_EnableIRQ
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text.NVIC_DisableIRQ
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text.NVIC_IRQSetPending
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text.NVIC_IRQClearPending
+                0x0000000000000000       0x44 stm32f4xx.o
+ .text          0x0000000000000000        0x0 gpio_driver.o
+ .data          0x0000000000000000        0x0 gpio_driver.o
+ .bss           0x0000000000000000        0x0 gpio_driver.o
+ .text.GPIOReadPin
+                0x0000000000000000       0x3e gpio_driver.o
+ .text.GPIOWritePin
+                0x0000000000000000       0x44 gpio_driver.o
+ .text.GPIOWritePort
+                0x0000000000000000       0x1e gpio_driver.o
+ .text.GPIOReadIDR
+                0x0000000000000000       0x1a gpio_driver.o
+ .text.GPIOReadODR
+                0x0000000000000000       0x1a gpio_driver.o
+ .text.GPIOSetAltFn
+                0x0000000000000000       0x72 gpio_driver.o
+ .text.GPIOSetOutputType
+                0x0000000000000000       0x44 gpio_driver.o
+ .text.GPIOSetPullUpDownConfig
+                0x0000000000000000       0x48 gpio_driver.o
+ .text.GPIOSetOutputSpeed
+                0x0000000000000000       0x48 gpio_driver.o
+ .text          0x0000000000000000        0x0 stm32_startup.o
+ .data          0x0000000000000000        0x0 stm32_startup.o
+ .bss           0x0000000000000000        0x0 stm32_startup.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+BOOTROM          0x0000000008000000 0x0000000000010000 xr
+APPROM           0x0000000008010000 0x0000000000070000 xr
+SRAM1            0x0000000020000000 0x0000000000010000 xrw
+SRAM2            0x0000000020010000 0x0000000000020000 xrw
+SRAM3            0x0000000020030000 0x0000000000010000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD user_app_sram.o
+LOAD stm32f4xx.o
+LOAD gpio_driver.o
+LOAD stm32_startup.o
+                0x0000000020010000                __app_sram_start__ = ORIGIN (SRAM2)
+                0x0000000000020000                __app_sram_len__ = LENGTH (SRAM2)
+                0x0000000020030000                _estack = (ORIGIN (SRAM2) + LENGTH (SRAM2))
+                0x0000000000000200                _Min_Heap_Size = 0x200
+                0x0000000000000400                _Min_Stack_Size = 0x400
+
+.text           0x0000000020010000      0x638
+                0x0000000020010000                . = ALIGN (0x4)
+                0x0000000020010000                _stext = .
+ *(.isr_vector)
+ .isr_vector    0x0000000020010000      0x188 stm32_startup.o
+                0x0000000020010000                vectors
+ *(.text)
+ *(.text*)
+ .text.delay    0x0000000020010188       0x28 user_app_sram.o
+                0x0000000020010188                delay
+ .text.main     0x00000000200101b0       0x28 user_app_sram.o
+                0x00000000200101b0                main
+ .text.EnablePeriClk
+                0x00000000200101d8      0x388 stm32f4xx.o
+                0x00000000200101d8                EnablePeriClk
+ .text.GPIOSetMode
+                0x0000000020010560       0x48 gpio_driver.o
+                0x0000000020010560                GPIOSetMode
+ .text.GPIOTogglePin
+                0x00000000200105a8       0x2c gpio_driver.o
+                0x00000000200105a8                GPIOTogglePin
+ .text.Reset_Handler
+                0x00000000200105d4       0x5c stm32_startup.o
+                0x00000000200105d4                Reset_Handler
+ .text.Default_Handler
+                0x0000000020010630        0x6 stm32_startup.o
+                0x0000000020010630                RTC_WKUP_Handler
+                0x0000000020010630                FLASH_Handler
+                0x0000000020010630                SVCall_Handler
+                0x0000000020010630                DMA2_Stream7_Handler
+                0x0000000020010630                OTG_HS_Handler
+                0x0000000020010630                HardFault_Handler
+                0x0000000020010630                DMA2_Stream3_Handler
+                0x0000000020010630                SysTick_Handler
+                0x0000000020010630                USART3_Handler
+                0x0000000020010630                PendSV_Handler
+                0x0000000020010630                NMI_Handler
+                0x0000000020010630                TIM6_DAC_Handler
+                0x0000000020010630                CAN1_RX1_Handler
+                0x0000000020010630                EXTI15_10_Handler
+                0x0000000020010630                ADC_Handler
+                0x0000000020010630                HASH_RNG_Handler
+                0x0000000020010630                I2C1_EV_Handler
+                0x0000000020010630                TAMP_STAMP_Handler
+                0x0000000020010630                I2C3_ER_Handler
+                0x0000000020010630                WWDG_Handler
+                0x0000000020010630                EXTI4_Handler
+                0x0000000020010630                I2C3_EV_Handler
+                0x0000000020010630                DMA1_Stream1_Handler
+                0x0000000020010630                DMA2_Stream4_Handler
+                0x0000000020010630                DMA1_Stream7_Handler
+                0x0000000020010630                OTG_FS_Handler
+                0x0000000020010630                ETH_WKUP_Handler
+                0x0000000020010630                TIM1_BRK_TIM9_Handler
+                0x0000000020010630                I2C1_ER_Handler
+                0x0000000020010630                DMA1_Stream3_Handler
+                0x0000000020010630                UsageFault_Handler
+                0x0000000020010630                TIM1_UP_TIM10_Handler
+                0x0000000020010630                CAN1_RX0_Handler
+                0x0000000020010630                TIM1_CC_Handler
+                0x0000000020010630                I2C2_ER_Handler
+                0x0000000020010630                USART6_Handler
+                0x0000000020010630                TIM8_CC_Handler
+                0x0000000020010630                CAN1_SCE_Handler
+                0x0000000020010630                DMA1_Stream0_Handler
+                0x0000000020010630                OTG_HS_EP1_OUT_Handler
+                0x0000000020010630                FSMC_Handler
+                0x0000000020010630                EXTI1_Handler
+                0x0000000020010630                EXTI3_Handler
+                0x0000000020010630                CRYP_Handler
+                0x0000000020010630                EXTI2_Handler
+                0x0000000020010630                UART4_Handler
+                0x0000000020010630                CAN2_RX1_Handler
+                0x0000000020010630                EXTI9_5_Handler
+                0x0000000020010630                TIM2_Handler
+                0x0000000020010630                USART1_Handler
+                0x0000000020010630                CAN2_SCE_Handler
+                0x0000000020010630                TIM3_Handler
+                0x0000000020010630                DMA2_Stream6_Handler
+                0x0000000020010630                Default_Handler
+                0x0000000020010630                DCMI_Handler
+                0x0000000020010630                TIM1_TRG_COM_TIM11_Handler
+                0x0000000020010630                RTC_Alarm_Handler
+                0x0000000020010630                TIM4_Handler
+                0x0000000020010630                TIM8_UP_TIM13_Handler
+                0x0000000020010630                CAN2_TX_Handler
+                0x0000000020010630                SPI2_Handler
+                0x0000000020010630                DMA2_Stream1_Handler
+                0x0000000020010630                DMA1_Stream2_Handler
+                0x0000000020010630                MemManage_Handler
+                0x0000000020010630                EXTI0_Handler
+                0x0000000020010630                TIM8_BRK_TIM12_Handler
+                0x0000000020010630                CAN2_RX0_Handler
+                0x0000000020010630                DMA2_Stream5_Handler
+                0x0000000020010630                DMA1_Stream6_Handler
+                0x0000000020010630                SDIO_Handler
+                0x0000000020010630                USART2_Handler
+                0x0000000020010630                ETH_Handler
+                0x0000000020010630                SPI1_Handler
+                0x0000000020010630                I2C2_EV_Handler
+                0x0000000020010630                DMA2_Stream2_Handler
+                0x0000000020010630                SPI3_Handler
+                0x0000000020010630                DMA2_Stream0_Handler
+                0x0000000020010630                RCC_Handler
+                0x0000000020010630                PVD_Handler
+                0x0000000020010630                UART5_Handler
+                0x0000000020010630                DMA1_Stream5_Handler
+                0x0000000020010630                TIM5_Handler
+                0x0000000020010630                TIM7_Handler
+                0x0000000020010630                TIM8_TRG_COM_TIM14_Handler
+                0x0000000020010630                CAN1_TX_Handler
+                0x0000000020010630                FPU_Handler
+                0x0000000020010630                BusFault_Handler
+                0x0000000020010630                DMA1_Stream4_Handler
+                0x0000000020010630                DebugMonitor_Handler
+                0x0000000020010630                OTG_HS_WKUP_Handler
+                0x0000000020010630                OTG_FS_WKUP_Handler
+                0x0000000020010630                OTG_HS_EP1_IN_Handler
+ *(.glue_7)
+ .glue_7        0x0000000020010636        0x0 linker stubs
+ *(.glue_7t)
+ .glue_7t       0x0000000020010636        0x0 linker stubs
+ *(.eh_frame)
+ *(.init)
+ *(.fini)
+ *(.rodata)
+ *(.rodata*)
+                0x0000000020010638                . = ALIGN (0x4)
+ *fill*         0x0000000020010636        0x2 
+                0x0000000020010638                _etext = .
+
+.vfp11_veneer   0x0000000020010638        0x0
+ .vfp11_veneer  0x0000000020010638        0x0 linker stubs
+
+.v4_bx          0x0000000020010638        0x0
+ .v4_bx         0x0000000020010638        0x0 linker stubs
+
+.iplt           0x0000000020010638        0x0
+ .iplt          0x0000000020010638        0x0 user_app_sram.o
+
+.rel.dyn        0x0000000020010638        0x0
+ .rel.iplt      0x0000000020010638        0x0 user_app_sram.o
+
+.ARM.extab      0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x0000000020010638                . = ALIGN (0x4)
+
+.ARM            0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+                0x0000000020010638                __exidx_start = .
+ *(.ARM.exidx*)
+                0x0000000020010638                __exidx_end = .
+                0x0000000020010638                . = ALIGN (0x4)
+
+.preinit_array  0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__preinit_array_start = .)
+ *(.preinit_array*)
+                [!provide]                        PROVIDE (__preinit_array_end = .)
+                0x0000000020010638                . = ALIGN (0x4)
+
+.init_array     0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(SORT_BY_NAME(.init_array.*))
+ *(.init_array*)
+                [!provide]                        PROVIDE (__init_array_end = .)
+                0x0000000020010638                . = ALIGN (0x4)
+
+.fini_array     0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_NAME(.fini_array.*))
+ *(.fini_array*)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x0000000020010638                . = ALIGN (0x4)
+
+.data           0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+                0x0000000020010638                _sdata = .
+ *(.data)
+ *(.data*)
+                0x0000000020010638                . = ALIGN (0x4)
+                0x0000000020010638                _edata = .
+
+.igot.plt       0x0000000020010638        0x0
+ .igot.plt      0x0000000020010638        0x0 user_app_sram.o
+
+.bss            0x0000000020010638        0x0
+                0x0000000020010638                . = ALIGN (0x4)
+                0x0000000020010638                _sbss = .
+ *(.bss)
+ *(.bss*)
+ *(COMMON)
+                0x0000000020010638                . = ALIGN (0x4)
+                0x0000000020010638                _ebss = .
+                0x0000000020010638                _end = _ebss
+OUTPUT(user_app_sram.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x59
+ .comment       0x0000000000000000       0x59 user_app_sram.o
+                                         0x5a (size before relaxing)
+ .comment       0x0000000000000059       0x5a stm32f4xx.o
+ .comment       0x0000000000000059       0x5a gpio_driver.o
+ .comment       0x0000000000000059       0x5a stm32_startup.o
+
+.ARM.attributes
+                0x0000000000000000       0x2e
+ .ARM.attributes
+                0x0000000000000000       0x2e user_app_sram.o
+ .ARM.attributes
+                0x000000000000002e       0x2e stm32f4xx.o
+ .ARM.attributes
+                0x000000000000005c       0x2e gpio_driver.o
+ .ARM.attributes
+                0x000000000000008a       0x2e stm32_startup.o

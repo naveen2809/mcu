@@ -4,7 +4,7 @@ ser = serial.Serial()
 ser.port = "/dev/ttyUSB0"
 ser.baudrate = "9600"
 ser.open()
-cmd_list = ["version", "start_app", "sector_erase", "mass_erase", "data_read", "data_write","soft_reset","system_reset"]
+cmd_list = ["version", "start_app", "start_app_sram", "sector_erase", "mass_erase", "data_read", "data_write","soft_reset","system_reset"]
 
 def handle_command_flash_image(cmd):
     ser = serial.Serial()
@@ -28,6 +28,7 @@ def handle_command_flash_image(cmd):
     count = 1
     data_bytes = bytearray(message_size)
     termination_char = "\r"
+    
     while True:
     
         while file_size > 0:
@@ -40,8 +41,11 @@ def handle_command_flash_image(cmd):
 
             data = f.read(current_size)
 
-            cmd_string = "flash_image" + " " + str(count-1) + " " + str(current_size) + " "
-            
+            if cmd_parts[0] == "flash_image":
+                cmd_string = "flash_image" + " " + str(count-1) + " " + str(current_size) + " "
+            elif cmd_parts[0] == "flash_image_sram":
+                cmd_string = "flash_image_sram" + " " + str(count-1) + " " + str(current_size) + " "
+    
             data_bytes.clear()
             data_bytes.extend(bytes(cmd_string,'utf-8'))
             data_bytes.extend(data)
@@ -68,7 +72,7 @@ while (True):
             ser.write(bytes(cmd_string,'utf-8'))
             res = ser.readline()
             print(res.decode(encoding='utf-8',errors='ignore').strip('\r\n'))
-        elif cmd_parts[0] == "flash_image":
+        elif cmd_parts[0] == "flash_image" or cmd_parts[0] == "flash_image_sram":
             handle_command_flash_image(cmd)
         elif cmd == "exit":
             exit(0)
