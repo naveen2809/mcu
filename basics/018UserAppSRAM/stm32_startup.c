@@ -1,6 +1,8 @@
 #include <stdint.h>
 
-#define APP_SRAM_START          0x20010000U
+#define APP_SRAM_START          0x20008000U
+#define APP_SRAM_SIZE           (64 * 1024)
+#define APP_STACK_START         ((APP_SRAM_START) + (APP_SRAM_SIZE))
 
 //Linker script symbols
 extern uint32_t _sdata;
@@ -104,10 +106,11 @@ void FPU_Handler(void) __attribute__((weak, alias("Default_Handler")));
 
 void Default_Handler(void);
 int main(void);
+void __libc_init_array(void);
 
 uint32_t vectors[] __attribute__((section(".isr_vector"))) = 
 {
-    APP_SRAM_START,
+    APP_STACK_START,
     (uint32_t)&Reset_Handler,
     (uint32_t)&NMI_Handler,
     (uint32_t)&HardFault_Handler,
@@ -223,6 +226,7 @@ void Reset_Handler(void)
     }
 
     //Initialize the standard C library
+    __libc_init_array();
 
     //Update the Vector Table Offset Register (VTOR)
     pVTOR = (uint32_t *) 0xE000ED08UL;

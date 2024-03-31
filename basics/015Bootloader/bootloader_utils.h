@@ -10,7 +10,9 @@
 #define DATA_ADDRESS        0x08060000UL
 #define IMAGE_ADDRESS       0x08010000UL
 #define IMAGE_ADDRESS_SRAM  0x08020000UL
-#define APP_SRAM_START      0x20010000UL
+#define APP_SRAM_START      0x20008000UL
+
+#define EXT_FLASH_PAGE_SIZE 256
 
 void start_app(uint32_t sp, uint32_t pc);
 
@@ -24,6 +26,7 @@ void handle_command_data_read(void);
 void handle_command_data_write(void);
 void handle_command_flash_image(void);
 void handle_command_flash_image_sram(void);
+void handle_command_start_app_sram_ext_flash(void);
 void handle_command_soft_reset(void);
 void handle_command_system_reset(void);
 

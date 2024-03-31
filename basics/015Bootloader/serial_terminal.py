@@ -4,7 +4,7 @@ ser = serial.Serial()
 ser.port = "/dev/ttyUSB0"
 ser.baudrate = "9600"
 ser.open()
-cmd_list = ["version", "start_app", "start_app_sram", "sector_erase", "mass_erase", "data_read", "data_write","soft_reset","system_reset"]
+cmd_list = ["version", "start_app", "start_app_sram", "start_app_sram_ext_flash", "sector_erase", "mass_erase", "data_read", "data_write","soft_reset","system_reset"]
 
 def handle_command_flash_image(cmd):
     ser = serial.Serial()

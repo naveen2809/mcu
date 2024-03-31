@@ -4,6 +4,7 @@
 #include <string.h>
 #include "bootloader_utils.h"
 #include "flash_driver.h"
+#include "at45dbxx_flash_memory_driver.h"
 
 //Linker script symbols
 extern uint32_t __bootrom_start__;
@@ -15,6 +16,8 @@ char CmdBuffer[CMD_BUF_LEN];
 uint32_t CmdLen;
 uint8_t *pData;
 char RxBuffer[RX_BUF_LEN];
+
+uint8_t data_bytes[EXT_FLASH_PAGE_SIZE];
 
 void handle_command(void)
 {
@@ -44,6 +47,10 @@ void handle_command(void)
 	else if(mystrcmp(command_name,"start_app_sram",command_name_length))
 	{
 		handle_command_start_app_sram();
+	}
+	else if(mystrcmp(command_name,"start_app_sram_ext_flash",command_name_length))
+	{
+		handle_command_start_app_sram_ext_flash();
 	}
     else if(mystrcmp(command_name,"data_read",command_name_length))
 	{
@@ -153,6 +160,58 @@ void handle_command_start_app_sram(void)
 	}
     
     printf("Starting application...\r\n");
+
+    //Jumping to the application program by calling its reset handler
+	app_ptr = (uint32_t *) APP_SRAM_START;
+	app_sp = (volatile uint32_t) app_ptr[0];
+	app_pc = (volatile uint32_t) app_ptr[1];
+	
+	start_app(app_sp,app_pc);
+
+	return;
+}
+
+void handle_command_start_app_sram_ext_flash(void)
+{
+    uint32_t *app_ptr;
+	uint32_t app_sp;
+	uint32_t app_pc;
+
+	uint32_t i, image_length;
+	uint8_t *pSRAM;
+	uint32_t cur_buf_size;
+	uint8_t current_page = 0;
+
+	uint8_t page_address[3] = {0,0,0};
+
+	//Copy Image from External Flash to SRAM
+	image_length = getarg(CmdBuffer,CmdLen,1);
+	pSRAM = (uint8_t *) APP_SRAM_START;
+	
+	while(image_length > 0)
+	{
+		if(image_length > EXT_FLASH_PAGE_SIZE)
+		{
+			cur_buf_size = EXT_FLASH_PAGE_SIZE;
+			image_length -= EXT_FLASH_PAGE_SIZE;
+		}
+		else
+		{
+			cur_buf_size = image_length;
+			image_length = 0;
+		}
+		
+		page_address[1] = current_page++;
+		at45dbxx_page_read((uint8_t *)page_address, (uint8_t *)data_bytes, cur_buf_size);
+
+		for(i=0;i<cur_buf_size;i++)
+		{
+			*pSRAM++ = data_bytes[i];	
+		}	
+
+	}
+    
+    printf("Starting application loaded into SRAM from External Flash...\r\n");
 
     //Jumping to the application program by calling its reset handler
 	app_ptr = (uint32_t *) APP_SRAM_START;

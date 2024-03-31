@@ -34,6 +34,12 @@ int main(void)
 	//Configuring the UART
 	configure_uart();
 
+	//Configure the SPI Peripheral
+	configure_spi();
+
+	//Configure the FLASH Module
+	at45dbxx_configure_flash();
+
 	//Configuring LED GPIO
 	EnablePeriClk(GPIOA);
 	GPIOSetMode(GPIOA, GPIO_PIN_5, GPIO_MODE_OUTPUT);
