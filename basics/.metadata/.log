@@ -11423,3 +11423,36 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-27 14:33:09.738
 !MESSAGE Started RMI Server, listening on port 41337
+!SESSION 2024-04-01 13:50:13.235 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-01 13:50:20.925
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-01 13:50:20.999
+!MESSAGE Log4j initialized with config file /home/naveen/Code/mcu/basics/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-01 13:50:28.158
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-04-02 14:09:16.917
+!MESSAGE Indexed 'test_middleware' (36 sources, 100 headers) in 4.8 sec: 7,776 declarations; 48,985 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0035%)
+!SESSION 2024-04-04 16:48:23.447 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-04-04 16:48:32.872
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-04-04 16:48:32.936
+!MESSAGE Log4j initialized with config file /home/naveen/Code/mcu/basics/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-04-04 16:48:39.145
+!MESSAGE Started RMI Server, listening on port 41337
