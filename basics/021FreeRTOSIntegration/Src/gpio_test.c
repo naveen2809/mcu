@@ -17,21 +17,15 @@ static void task_blue_led(void *params);
 
 static void NVIC_SetPriorityGrouping(void);
 
-static void delay(uint32_t count)
-{
-	uint32_t j;
-	for(j=0;j<count;j++);
-}
+static TaskHandle_t task_green_led_handle;
+static TaskHandle_t task_orange_led_handle;
+static TaskHandle_t task_red_led_handle;
+static TaskHandle_t task_blue_led_handle;
 
 int main(void)
 {
 
 	BaseType_t status;
-
-	TaskHandle_t task_green_led_handle;
-	TaskHandle_t task_orange_led_handle;
-	TaskHandle_t task_red_led_handle;
-	TaskHandle_t task_blue_led_handle;
 
 	NVIC_SetPriorityGrouping();
 	vInitPrioGroupValue();
@@ -74,7 +68,7 @@ static void task_green_led(void *params)
 	while(1)
 	{
 		GPIOTogglePin(GPIOD, GPIO_PIN_12);
-		delay(250000);
+		vTaskDelay(250);
 	}
 }
 
@@ -83,7 +77,7 @@ static void task_orange_led(void *params)
 	while(1)
 	{
 		GPIOTogglePin(GPIOD, GPIO_PIN_13);
-		delay(500000);
+		vTaskDelay(500);
 	}
 }
 
@@ -92,16 +86,36 @@ static void task_red_led(void *params)
 	while(1)
 	{
 		GPIOTogglePin(GPIOD, GPIO_PIN_14);
-		delay(1000000);
+		vTaskDelay(750);
 	}
 }
 
 static void task_blue_led(void *params)
 {
+	
+	uint32_t task_resumed = 0;
+	TickType_t os_tick_count;
+
+	vTaskSuspend(task_green_led_handle);
+	vTaskSuspend(task_orange_led_handle);
+	vTaskSuspend(task_red_led_handle);
+
 	while(1)
 	{
 		GPIOTogglePin(GPIOD, GPIO_PIN_15);
-		delay(125000);
+		vTaskDelay(1000);
+
+		os_tick_count = xTaskGetTickCount();
+		
+		if(task_resumed == 0 && os_tick_count >= 60000)
+		{
+
+			vTaskResume(task_green_led_handle);
+			vTaskResume(task_orange_led_handle);
+			vTaskResume(task_red_led_handle);
+			task_resumed = 1;
+		}
+
 	}
 }
 

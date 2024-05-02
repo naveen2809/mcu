@@ -26,3 +26,7 @@ $(BUILDDIR)/$(EXECUTABLE).elf: $(OBJS)
 
 clean:
 	rm -rf $(BUILDDIR)
+	rm Src/*.o 
+	rm ThirdParty/FreeRTOS/*.o 
+	rm ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F/*.o 
+	rm ThirdParty/FreeRTOS/portable/MemMang/*.o
