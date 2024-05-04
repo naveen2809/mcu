@@ -1,0 +1,61 @@
+/*
+ * w5500_driver.h
+ *
+ *  Created on: 04-May-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_W5500_DRIVER_H_
+#define INC_W5500_DRIVER_H_
+
+#define W5500_PORT		GPIOA
+#define SS_PIN			4
+
+#define COMMON_MR_ADDR_OFFSET			0x0000U
+#define COMMON_GAR_ADDR_OFFSET			0x0001U
+#define COMMON_SUBR_ADDR_OFFSET			0x0005U
+#define COMMON_SHAR_ADDR_OFFSET			0x0009U
+#define COMMON_SIPR_ADDR_OFFSET			0x000FU
+#define COMMON_INTLEVEL_ADDR_OFFSET		0x0013U
+#define COMMON_IR_ADDR_OFFSET			0x0015U
+#define COMMON_IMR_ADDR_OFFSET			0x0016U
+#define COMMON_SIR_ADDR_OFFSET			0x0017U
+#define COMMON_SIMR_ADDR_OFFSET			0x0018U
+#define COMMON_RTR_ADDR_OFFSET			0x0019U
+#define COMMON_RCR_ADDR_OFFSET			0x001BU
+#define COMMON_PTIMER_ADDR_OFFSET		0x001CU
+#define COMMON_PMAGIC_ADDR_OFFSET		0x001DU
+#define COMMON_PHAR_ADDR_OFFSET			0x001EU
+#define COMMON_PSID_ADDR_OFFSET			0x0024U
+#define COMMON_PMRU_ADDR_OFFSET			0x0026U
+#define COMMON_UIPR_ADDR_OFFSET			0x0028U
+#define COMMON_UPORTR_ADDR_OFFSET		0x002CU
+#define COMMON_PHYCFGR_ADDR_OFFSET		0x002EU
+#define COMMON_VERSIONR_ADDR_OFFSET		0x0039U
+
+/*
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+#define SOCKET_
+*/
+
+uint8_t get_w5500_chip_version(void);
+
+#endif /* INC_W5500_DRIVER_H_ */

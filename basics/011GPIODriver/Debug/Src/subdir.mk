@@ -7,17 +7,17 @@
 C_SRCS += \
 ../Src/syscalls.c \
 ../Src/sysmem.c \
-../Src/uart_printf_test.c 
+../Src/w5500_test.c 
 
 OBJS += \
 ./Src/syscalls.o \
 ./Src/sysmem.o \
-./Src/uart_printf_test.o 
+./Src/w5500_test.o 
 
 C_DEPS += \
 ./Src/syscalls.d \
 ./Src/sysmem.d \
-./Src/uart_printf_test.d 
+./Src/w5500_test.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -27,7 +27,7 @@ Src/%.o Src/%.su: ../Src/%.c Src/subdir.mk
 clean: clean-Src
 
 clean-Src:
-	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/uart_printf_test.d ./Src/uart_printf_test.o ./Src/uart_printf_test.su
+	-$(RM) ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su ./Src/w5500_test.d ./Src/w5500_test.o ./Src/w5500_test.su
 
 .PHONY: clean-Src
 

@@ -1,0 +1,13 @@
+/*
+ * w5500_driver.h
+ *
+ *  Created on: 04-May-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_W5500_DRIVER_H_
+#define INC_W5500_DRIVER_H_
+
+
+
+#endif /* INC_W5500_DRIVER_H_ */
