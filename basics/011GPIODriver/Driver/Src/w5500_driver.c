@@ -6,6 +6,7 @@
  */
 
 #include <stdint.h>
+#include <stdio.h>
 #include "stm32f4xx.h"
 #include "gpio_driver.h"
 #include "spi_driver.h"
@@ -87,6 +88,22 @@ uint8_t w5500_read_common_mode_reg(void)
 	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
 
 	return rx_buf[3];
+}
+
+void w5500_set_common_mode_reg(uint8_t value)
+{
+	uint8_t tx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x00;
+	tx_buf[2] = 0x04;
+	tx_buf[3] = value;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
 }
 
 void w5500_configure_gw_ip_address(uint8_t *addr)
@@ -280,3 +297,317 @@ void w5500_get_mac_address(uint8_t *addr)
 
 	return;
 }
+
+void w5500_set_common_interrupt_register(uint8_t value)
+{
+	uint8_t tx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x15;
+	tx_buf[2] = 0x04;
+	tx_buf[3] = value;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint8_t w5500_read_common_interrupt_register(void)
+{
+	uint8_t tx_buf[4];
+	uint8_t rx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x15;
+	tx_buf[2] = 0x00;
+	tx_buf[3] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return rx_buf[3];
+}
+
+void w5500_set_socket_interrupt_register(uint8_t value)
+{
+	uint8_t tx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x17;
+	tx_buf[2] = 0x04;
+	tx_buf[3] = value;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint8_t w5500_read_socket_interrupt_register(void)
+{
+	uint8_t tx_buf[4];
+	uint8_t rx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x17;
+	tx_buf[2] = 0x00;
+	tx_buf[3] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return rx_buf[3];
+}
+
+void w5500_set_socket0_mode_register(uint8_t value)
+{
+	uint8_t tx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x00;
+	tx_buf[2] = 0x0C;
+	tx_buf[3] = value;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint8_t w5500_read_socket0_mode_register(void)
+{
+	uint8_t tx_buf[4];
+	uint8_t rx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x00;
+	tx_buf[2] = 0x08;
+	tx_buf[3] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return rx_buf[3];
+}
+
+void w5500_set_socket0_control_register(uint8_t value)
+{
+	uint8_t tx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x01;
+	tx_buf[2] = 0x0C;
+	tx_buf[3] = value;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint8_t w5500_read_socket0_control_register(void)
+{
+	uint8_t tx_buf[4];
+	uint8_t rx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x01;
+	tx_buf[2] = 0x08;
+	tx_buf[3] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return rx_buf[3];
+}
+
+void w5500_set_socket0_interrupt_register(uint8_t value)
+{
+	uint8_t tx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x02;
+	tx_buf[2] = 0x0C;
+	tx_buf[3] = value;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint8_t w5500_read_socket0_interrupt_register(void)
+{
+	uint8_t tx_buf[4];
+	uint8_t rx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x02;
+	tx_buf[2] = 0x08;
+	tx_buf[3] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return rx_buf[3];
+}
+
+uint8_t w5500_read_socket0_status_register(void)
+{
+	uint8_t tx_buf[4];
+	uint8_t rx_buf[4];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x03;
+	tx_buf[2] = 0x08;
+	tx_buf[3] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,4);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return rx_buf[3];
+}
+
+void w5500_set_socket0_source_port(uint16_t value)
+{
+	uint8_t tx_buf[5];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x04;
+	tx_buf[2] = 0x0C;
+	tx_buf[3] = (uint8_t) (value >> 8);
+	tx_buf[4] = (uint8_t) (value & 0x00FF);
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,5);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint16_t w5500_read_socket0_source_port(void)
+{
+	uint8_t tx_buf[5];
+	uint8_t rx_buf[5];
+	uint16_t value;
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x04;
+	tx_buf[2] = 0x08;
+	tx_buf[3] = 0x00;
+	tx_buf[4] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,5);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	value = (rx_buf[3] << 8);
+	value += rx_buf[4];
+
+	return value;
+}
+
+void w5500_set_socket0_destination_port(uint16_t value)
+{
+	uint8_t tx_buf[5];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x10;
+	tx_buf[2] = 0x0C;
+	tx_buf[3] = (uint8_t) (value >> 8);
+	tx_buf[4] = (uint8_t) (value & 0x00FF);
+
+	printf("tx_buf[3]: 0x%X\r\n",tx_buf[3]);
+	printf("tx_buf[4]: 0x%X\r\n",tx_buf[4]);
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,5);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+uint16_t w5500_read_socket0_destination_port(void)
+{
+	uint8_t tx_buf[5];
+	uint8_t rx_buf[5];
+	uint16_t value;
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x10;
+	tx_buf[2] = 0x08;
+	tx_buf[3] = 0x00;
+	tx_buf[4] = 0x00;
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPIMasterRecvData(SPI_DEV,tx_buf,rx_buf,5);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	printf("rx_buf[3]: 0x%X\r\n",rx_buf[3]);
+	printf("rx_buf[4]: 0x%X\r\n",rx_buf[4]);
+
+	value = (rx_buf[3] << 8);
+	value += rx_buf[4];
+
+	printf("Value: %d\r\n",value);
+
+	return value;
+}
+
+void w5500_set_socket0_destination_ip_address(uint8_t *addr)
+{
+	uint8_t tx_buf[7];
+
+	tx_buf[0] = 0x00;
+	tx_buf[1] = 0x0C;
+	tx_buf[2] = 0x0C;
+
+	tx_buf[3] = addr[0];
+	tx_buf[4] = addr[1];
+	tx_buf[5] = addr[2];
+	tx_buf[6] = addr[3];
+
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+	SPISendData(SPI_DEV,tx_buf,7);
+	GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+
+	return;
+}
+
+void w5500_socket0_write_data(uint8_t *addr,uint32_t len)
+{
+	uint8_t * tx_buf;
+	uint32_t i;
+	tx_buf = (uint8_t *) malloc(len+3);
+
+	if(tx_buf != NULL)
+	{
+		tx_buf[0] = 0x00;
+		tx_buf[1] = 0x00;
+		tx_buf[2] = 0x14;
+
+		for(i=0;i<len;i++)
+		{
+			tx_buf[i+3] = addr[i];
+		}
+
+		GPIOWritePin(W5500_PORT,SS_PIN,GPIO_LOW);
+		SPISendData(SPI_DEV,tx_buf,(len+3));
+		GPIOWritePin(W5500_PORT,SS_PIN,GPIO_HIGH);
+	}
+
+	return;
+}
+

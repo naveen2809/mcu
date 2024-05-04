@@ -1,0 +1,85 @@
+/*
+ * w5500_driver.h
+ *
+ *  Created on: 04-May-2024
+ *      Author: naveen
+ */
+
+#ifndef INC_W5500_DRIVER_H_
+#define INC_W5500_DRIVER_H_
+
+#define W5500_PORT		GPIOA
+#define SS_PIN			4
+
+#define COMMON_MR_ADDR_OFFSET			0x0000U
+#define COMMON_GAR_ADDR_OFFSET			0x0001U
+#define COMMON_SUBR_ADDR_OFFSET			0x0005U
+#define COMMON_SHAR_ADDR_OFFSET			0x0009U
+#define COMMON_SIPR_ADDR_OFFSET			0x000FU
+#define COMMON_INTLEVEL_ADDR_OFFSET		0x0013U
+#define COMMON_IR_ADDR_OFFSET			0x0015U
+#define COMMON_IMR_ADDR_OFFSET			0x0016U
+#define COMMON_SIR_ADDR_OFFSET			0x0017U
+#define COMMON_SIMR_ADDR_OFFSET			0x0018U
+#define COMMON_RTR_ADDR_OFFSET			0x0019U
+#define COMMON_RCR_ADDR_OFFSET			0x001BU
+#define COMMON_PTIMER_ADDR_OFFSET		0x001CU
+#define COMMON_PMAGIC_ADDR_OFFSET		0x001DU
+#define COMMON_PHAR_ADDR_OFFSET			0x001EU
+#define COMMON_PSID_ADDR_OFFSET			0x0024U
+#define COMMON_PMRU_ADDR_OFFSET			0x0026U
+#define COMMON_UIPR_ADDR_OFFSET			0x0028U
+#define COMMON_UPORTR_ADDR_OFFSET		0x002CU
+#define COMMON_PHYCFGR_ADDR_OFFSET		0x002EU
+#define COMMON_VERSIONR_ADDR_OFFSET		0x0039U
+
+#define SOCKET_MR_ADDR_OFFSET			0x0000U
+#define SOCKET_CR_ADDR_OFFSET			0x0001U
+#define SOCKET_IR_ADDR_OFFSET			0x0002U
+#define SOCKET_SR_ADDR_OFFSET			0x0003U
+#define SOCKET_PORT_ADDR_OFFSET			0x0004U
+#define SOCKET_DHAR_ADDR_OFFSET			0x0006U
+#define SOCKET_DIPR_ADDR_OFFSET			0x000CU
+#define SOCKET_DPORT_ADDR_OFFSET		0x0010U
+#define SOCKET_MSSR_ADDR_OFFSET			0x0012U
+#define SOCKET_TOS_ADDR_OFFSET			0x0015U
+#define SOCKET_TTL_ADDR_OFFSET			0x0016U
+#define SOCKET_RXBUF_SIZE_ADDR_OFFSET	0x001EU
+#define SOCKET_TXBUF_SIZE_ADDR_OFFSET	0x001FU
+#define SOCKET_TX_FSR_ADDR_OFFSET		0x0020U
+#define SOCKET_TX_RD_ADDR_OFFSET		0x0022U
+#define SOCKET_TX_WR_ADDR_OFFSET		0x0024U
+#define SOCKET_RX_RSR_ADDR_OFFSET		0x0026U
+#define SOCKET_RX_RD_ADDR_OFFSET		0x0028U
+#define SOCKET_RX_WR_ADDR_OFFSET		0x002AU
+#define SOCKET_IMR_ADDR_OFFSET			0x002CU
+#define SOCKET_FRAG_ADDR_OFFSET			0x002DU
+#define SOCKET_KPALVTR_ADDR_OFFSET		0x002FU
+
+/* Common APIs */
+void w5500_configure_pins(void);
+uint8_t w5500_get_chip_version(void);
+uint8_t w5500_read_phy_cfgr(void);
+void w5500_configure_phy(void);
+uint8_t w5500_read_common_mode_reg(void);
+void w5500_configure_gw_ip_address(uint8_t *addr);
+void w5500_get_gw_ip_address(uint8_t *addr);
+void w5500_configure_subnet_mask(uint8_t *subnet_mask);
+void w5500_get_subnet_mask(uint8_t *subnet_mask);
+void w5500_configure_ip_address(uint8_t *addr);
+void w5500_get_ip_address(uint8_t *addr);
+void w5500_configure_mac_address(uint8_t *addr);
+void w5500_get_mac_address(uint8_t *addr);
+void w5500_set_common_interrupt_register(uint8_t value);
+uint8_t w5500_read_common_interrupt_register(void);
+void w5500_set_socket_interrupt_register(uint8_t value);
+uint8_t w5500_read_socket_interrupt_register(void);
+
+/* Socket Specific APIs */
+void w5500_set_socket0_mode_register(uint8_t value);
+uint8_t w5500_read_socket0_mode_register(void);
+void w5500_set_socket0_control_register(uint8_t value);
+uint8_t w5500_read_socket0_control_register(void);
+uint8_t w5500_read_socket0_status_register(void);
+
+#endif /* INC_W5500_DRIVER_H_ */

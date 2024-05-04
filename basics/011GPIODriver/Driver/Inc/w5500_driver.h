@@ -56,10 +56,12 @@
 #define SOCKET_FRAG_ADDR_OFFSET			0x002DU
 #define SOCKET_KPALVTR_ADDR_OFFSET		0x002FU
 
+/* Common APIs */
 void w5500_configure_pins(void);
 uint8_t w5500_get_chip_version(void);
 uint8_t w5500_read_phy_cfgr(void);
 void w5500_configure_phy(void);
+void w5500_set_common_mode_reg(uint8_t value);
 uint8_t w5500_read_common_mode_reg(void);
 void w5500_configure_gw_ip_address(uint8_t *addr);
 void w5500_get_gw_ip_address(uint8_t *addr);
@@ -69,5 +71,25 @@ void w5500_configure_ip_address(uint8_t *addr);
 void w5500_get_ip_address(uint8_t *addr);
 void w5500_configure_mac_address(uint8_t *addr);
 void w5500_get_mac_address(uint8_t *addr);
+void w5500_set_common_interrupt_register(uint8_t value);
+uint8_t w5500_read_common_interrupt_register(void);
+void w5500_set_socket_interrupt_register(uint8_t value);
+uint8_t w5500_read_socket_interrupt_register(void);
+
+/* Socket Specific APIs */
+void w5500_set_socket0_mode_register(uint8_t value);
+uint8_t w5500_read_socket0_mode_register(void);
+void w5500_set_socket0_control_register(uint8_t value);
+uint8_t w5500_read_socket0_control_register(void);
+void w5500_set_socket0_interrupt_register(uint8_t value);
+uint8_t w5500_read_socket0_interrupt_register(void);
+uint8_t w5500_read_socket0_status_register(void);
+
+void w5500_set_socket0_source_port(uint16_t value);
+uint16_t w5500_read_socket0_source_port(void);
+void w5500_set_socket0_destination_port(uint16_t value);
+uint16_t w5500_read_socket0_destination_port(void);
+void w5500_set_socket0_destination_ip_address(uint8_t *addr);
+void w5500_socket0_write_data(uint8_t *addr,uint32_t len);
 
 #endif /* INC_W5500_DRIVER_H_ */

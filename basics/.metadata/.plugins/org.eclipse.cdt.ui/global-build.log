@@ -1,21 +1,34 @@
-13:38:49 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+21:18:29 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-gcc "../Src/w5500_test.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I/home/naveen/Code/mcu/basics/011GPIODriver/Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/w5500_test.d" -MT"Src/w5500_test.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Src/w5500_test.o"
+../Src/w5500_test.c: In function 'main':
+../Src/w5500_test.c:35:11: warning: unused variable 'port_value' [-Wunused-variable]
+   35 |  uint16_t port_value;
+      |           ^~~~~~~~~~
+../Src/w5500_test.c:33:10: warning: unused variable 'socket_interrupt_register' [-Wunused-variable]
+   33 |  uint8_t socket_interrupt_register;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/w5500_test.c:32:10: warning: unused variable 'common_interrupt_register' [-Wunused-variable]
+   32 |  uint8_t common_interrupt_register;
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Src/w5500_test.c:22:10: warning: unused variable 'w5500_common_mode_reg' [-Wunused-variable]
+   22 |  uint8_t w5500_common_mode_reg;
+      |          ^~~~~~~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "011GPIODriver.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/011GPIODriver/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="011GPIODriver.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: 011GPIODriver.elf
  
 arm-none-eabi-size   011GPIODriver.elf 
 arm-none-eabi-objdump -h -S  011GPIODriver.elf  > "011GPIODriver.list"
    text	   data	    bss	    dec	    hex	filename
-  10656	    108	   1628	  12392	   3068	011GPIODriver.elf
+  13040	    108	   1668	  14816	   39e0	011GPIODriver.elf
 Finished building: default.size.stdout
  
 Finished building: 011GPIODriver.list
  
-13:38:54 **** Incremental Build of configuration Debug for project 011GPIODriver ****
+21:18:41 **** Incremental Build of configuration Debug for project 011GPIODriver ****
 make -j8 all 
 arm-none-eabi-size   011GPIODriver.elf 
    text	   data	    bss	    dec	    hex	filename
-  10656	    108	   1628	  12392	   3068	011GPIODriver.elf
+  13040	    108	   1668	  14816	   39e0	011GPIODriver.elf
 Finished building: default.size.stdout
  
