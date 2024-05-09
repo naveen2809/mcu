@@ -71,9 +71,6 @@
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec.39134843" name="MCU Output Converter Motorola S-rec with symbols" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.objcopy.symbolsrec"/>
 						</toolChain>
 					</folderInfo>
-					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.787874085" name="uart_printf_test.c" rcbsApplicability="disable" resourcePath="Src/uart_printf_test.c" toolsToInvoke="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.377058075">
-						<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904.377058075" name="MCU GCC Compiler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.242314904"/>
-					</fileInfo>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.803493109" name="common_utilities.h" rcbsApplicability="disable" resourcePath="Driver/Inc/common_utilities.h" toolsToInvoke=""/>
 					<fileInfo id="com.st.stm32cube.ide.mcu.gnu.managedbuild.config.exe.debug.1499879528.608678991" name="ds3231_rtc_driver.h" rcbsApplicability="disable" resourcePath="Driver/Inc/ds3231_rtc_driver.h" toolsToInvoke=""/>
 					<sourceEntries>
