@@ -535,31 +535,31 @@ static void process_cmd(void)
 		if(RxBuf[0] == '1')
 		{
 			app_state = APP_STATE_LED;
-			xTaskNotify(task_handle_led,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_led,0,eNoAction,NULL);
 		}
 		else if(RxBuf[0] == '2')
 		{
 			app_state = APP_STATE_RTC;
-			xTaskNotify(task_handle_rtc,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_rtc,0,eNoAction,NULL);
 		}
 		else
 		{
-			xTaskNotify(task_handle_menu,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_menu,0,eNoAction,NULL);
 		}
 	}
 	else if(app_state == APP_STATE_LED)
 	{
-		xTaskNotify(task_handle_led,0,eNoAction);
+		xTaskNotifyFromISR(task_handle_led,0,eNoAction,NULL);
 	}
 	else if(app_state == APP_STATE_RTC)
 	{
-		xTaskNotify(task_handle_rtc,0,eNoAction);
+		xTaskNotifyFromISR(task_handle_rtc,0,eNoAction,NULL);
 	}
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	xTaskNotifyFromISR(task_handle_cmd,0,eNoAction,NULL);
+	process_cmd();
 }
 
 static void task_led_pattern_1(void *params)

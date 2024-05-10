@@ -58,7 +58,6 @@ uint8_t app_state = APP_STATE_MENU;
 TaskHandle_t task_handle_menu;
 TaskHandle_t task_handle_led;
 TaskHandle_t task_handle_rtc;
-TaskHandle_t task_handle_cmd;
 
 /* USER CODE END PV */
 
@@ -70,9 +69,7 @@ static void MX_USART2_UART_Init(void);
 static void task_menu(void *params);
 static void task_led(void *params);
 static void task_rtc(void *params);
-static void task_cmd(void *params);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
-static void process_cmd(void);
 static void task_led_pattern_1(void *params);
 static void task_led_pattern_2(void *params);
 /* USER CODE END PFP */
@@ -138,8 +135,8 @@ int main(void)
   status = xTaskCreate(task_rtc,"rtc_task",1024,NULL,2,&task_handle_rtc);
   configASSERT(status == pdPASS);
 
-  status = xTaskCreate(task_cmd,"cmd_task",1024,NULL,2,&task_handle_cmd);
-  configASSERT(status == pdPASS);
+  //status = xTaskCreate(task_cmd,"cmd_task",1024,NULL,2,&task_handle_cmd);
+  //configASSERT(status == pdPASS);
 
   //status = xTaskCreate(task_print,"print_task",1024,NULL,2,&task_handle_print);
   //configASSERT(status == pdPASS);
@@ -535,31 +532,31 @@ static void process_cmd(void)
 		if(RxBuf[0] == '1')
 		{
 			app_state = APP_STATE_LED;
-			xTaskNotify(task_handle_led,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_led,0,eNoAction,NULL);
 		}
 		else if(RxBuf[0] == '2')
 		{
 			app_state = APP_STATE_RTC;
-			xTaskNotify(task_handle_rtc,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_rtc,0,eNoAction,NULL);
 		}
 		else
 		{
-			xTaskNotify(task_handle_menu,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_menu,0,eNoAction,NULL);
 		}
 	}
 	else if(app_state == APP_STATE_LED)
 	{
-		xTaskNotify(task_handle_led,0,eNoAction);
+		xTaskNotifyFromISR(task_handle_led,0,eNoAction,NULL);
 	}
 	else if(app_state == APP_STATE_RTC)
 	{
-		xTaskNotify(task_handle_rtc,0,eNoAction);
+		xTaskNotifyFromISR(task_handle_rtc,0,eNoAction,NULL);
 	}
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-	xTaskNotifyFromISR(task_handle_cmd,0,eNoAction,NULL);
+	process_cmd();
 }
 
 static void task_led_pattern_1(void *params)

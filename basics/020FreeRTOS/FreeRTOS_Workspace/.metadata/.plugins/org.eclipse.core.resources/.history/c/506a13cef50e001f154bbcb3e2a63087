@@ -535,25 +535,25 @@ static void process_cmd(void)
 		if(RxBuf[0] == '1')
 		{
 			app_state = APP_STATE_LED;
-			xTaskNotify(task_handle_led,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_led,0,eNoAction,NULL);
 		}
 		else if(RxBuf[0] == '2')
 		{
 			app_state = APP_STATE_RTC;
-			xTaskNotify(task_handle_rtc,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_rtc,0,eNoAction,NULL);
 		}
 		else
 		{
-			xTaskNotify(task_handle_menu,0,eNoAction);
+			xTaskNotifyFromISR(task_handle_menu,0,eNoAction,NULL);
 		}
 	}
 	else if(app_state == APP_STATE_LED)
 	{
-		xTaskNotify(task_handle_led,0,eNoAction);
+		xTaskNotifyFromISR(task_handle_led,0,eNoAction,NULL);
 	}
 	else if(app_state == APP_STATE_RTC)
 	{
-		xTaskNotify(task_handle_rtc,0,eNoAction);
+		xTaskNotifyFromISR(task_handle_rtc,0,eNoAction,NULL);
 	}
 }
 
