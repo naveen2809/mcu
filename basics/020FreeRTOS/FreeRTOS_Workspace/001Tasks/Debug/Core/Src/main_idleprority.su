@@ -1,0 +1,8 @@
+../Core/Src/main_idleprority.c:74:5:main	32	static,ignoring_inline_asm
+../Core/Src/main_idleprority.c:137:6:SystemClock_Config	88	static
+../Core/Src/main_idleprority.c:184:13:MX_GPIO_Init	56	static
+../Core/Src/main_idleprority.c:319:13:task_green_led	16	static
+../Core/Src/main_idleprority.c:328:13:delay	24	static
+../Core/Src/main_idleprority.c:337:13:configure_led_gpios	32	static
+../Core/Src/main_idleprority.c:361:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main_idleprority.c:378:6:Error_Handler	4	static,ignoring_inline_asm

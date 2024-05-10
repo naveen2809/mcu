@@ -6,12 +6,12 @@
 ../ThirdParty/FreeRTOS/queue.c:616:16:xQueueGiveMutexRecursive	40	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:671:16:xQueueTakeMutexRecursive	40	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:744:19:xQueueCreateCountingSemaphore	32	static,ignoring_inline_asm
-../ThirdParty/FreeRTOS/queue.c:771:12:xQueueGenericSend	72	static,ignoring_inline_asm
+../ThirdParty/FreeRTOS/queue.c:771:12:xQueueGenericSend	64	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:983:12:xQueueGenericSendFromISR	72	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:1150:12:xQueueGiveFromISR	64	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:1318:12:xQueueReceive	72	static,ignoring_inline_asm
-../ThirdParty/FreeRTOS/queue.c:1461:12:xQueueSemaphoreTake	80	static,ignoring_inline_asm
-../ThirdParty/FreeRTOS/queue.c:1680:12:xQueuePeek	80	static,ignoring_inline_asm
+../ThirdParty/FreeRTOS/queue.c:1461:12:xQueueSemaphoreTake	72	static,ignoring_inline_asm
+../ThirdParty/FreeRTOS/queue.c:1680:12:xQueuePeek	72	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:1831:12:xQueueReceiveFromISR	80	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:1926:12:xQueuePeekFromISR	64	static,ignoring_inline_asm
 ../ThirdParty/FreeRTOS/queue.c:1981:13:uxQueueMessagesWaiting	24	static,ignoring_inline_asm
@@ -32,4 +32,3 @@
 ../ThirdParty/FreeRTOS/queue.c:2721:10:vQueueAddToRegistry	24	static
 ../ThirdParty/FreeRTOS/queue.c:2751:18:pcQueueGetName	24	static
 ../ThirdParty/FreeRTOS/queue.c:2780:10:vQueueUnregisterQueue	24	static
-../ThirdParty/FreeRTOS/queue.c:2811:10:vQueueWaitForMessageRestricted	32	static
