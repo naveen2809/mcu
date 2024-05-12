@@ -1,0 +1,2 @@
+../Driver/Src/common_utils.c:12:6:configure_uart	8	static
+../Driver/Src/common_utils.c:41:6:UART_SendChar	16	static

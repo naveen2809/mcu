@@ -5,3 +5,5 @@
 1715512038421	Delete resource '004SoftwareTimers/Common'
 1715512074298	Delete resource '004SoftwareTimers/Drivers/Common'
 1715512129118	Delete resource '004SoftwareTimers/Core/Inc/Common'
+1715528907558	Delete resource '006MutexBareMetal/Driver'
+1715534991999	Delete resource '005MutexExample'
