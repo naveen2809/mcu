@@ -61,12 +61,6 @@ TaskHandle_t task_handle_rtc;
 TaskHandle_t task_handle_cmd;
 TaskHandle_t task_handle_print;
 
-TaskHandle_t task_handle_led_pattern_1;
-TaskHandle_t task_handle_led_pattern_2;
-
-uint8_t task_handle_led_pattern_1_created = 0;
-uint8_t task_handle_led_pattern_2_created = 0;
-
 QueueHandle_t print_queue;
 
 /* USER CODE END PV */
@@ -85,8 +79,6 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 static void process_cmd(void);
 static void task_led_pattern_1(void *params);
 static void task_led_pattern_2(void *params);
-static void activate_led_pattern_1(void);
-static void activate_led_pattern_2(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -405,6 +397,11 @@ static void task_menu(void *params)
 static void task_led(void *params)
 {
 	char *msg = "\r\n LED Control\r\nChoose Pattern 1 or Pattern 2 (0 to Exit): ";
+	BaseType_t status;
+	uint8_t task_handle_led_pattern_1_created = 0;
+	uint8_t task_handle_led_pattern_2_created = 0;
+	TaskHandle_t task_handle_led_pattern_1;
+	TaskHandle_t task_handle_led_pattern_2;
 
     while(1)
     {
@@ -419,11 +416,48 @@ static void task_led(void *params)
     		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
     		if(RxBuf[0] == '1')
     		{
-    			activate_led_pattern_1();
+    			if(task_handle_led_pattern_1_created == 0)
+    			{
+    				status = xTaskCreate(task_led_pattern_1,"led_pattern_1",1024,NULL,1,&task_handle_led_pattern_1);
+    				configASSERT(status == pdPASS);
+    				task_handle_led_pattern_1_created = 1;
+    				if(task_handle_led_pattern_2_created == 1)
+    				{
+    					vTaskSuspend(task_handle_led_pattern_2);
+    				}
+    			}
+    			else
+    			{
+    				if(task_handle_led_pattern_2_created == 1)
+    				{
+    				    vTaskSuspend(task_handle_led_pattern_2);
+    				}
+
+    				vTaskResume(task_handle_led_pattern_1);
+    			}
     		}
     		else if(RxBuf[0] == '2')
 			{
-    			activate_led_pattern_2();
+    			if(task_handle_led_pattern_2_created == 0)
+    			{
+    				status = xTaskCreate(task_led_pattern_2,"led_pattern_2",1024,NULL,1,&task_handle_led_pattern_2);
+    				configASSERT(status == pdPASS);
+
+    				task_handle_led_pattern_2_created = 1;
+    				if(task_handle_led_pattern_1_created == 1)
+    				{
+    					vTaskSuspend(task_handle_led_pattern_1);
+    				}
+    			}
+    			else
+    			{
+    				if(task_handle_led_pattern_1_created == 1)
+    				{
+    				    vTaskSuspend(task_handle_led_pattern_1);
+    				}
+
+    				vTaskResume(task_handle_led_pattern_2);
+    			}
 			}
     		else if(RxBuf[0] == '0')
     		{
@@ -437,43 +471,48 @@ static void task_led(void *params)
 
     		}
     	}
+
     }
 }
 
 static void task_rtc(void *params)
 {
-    char *msg = "\r\n RTC Menu\r\nChoose 1 or 2 (0 to Exit): ";
-
     while(1)
     {
-    	if(app_state != APP_STATE_RTC)
-    	{
-        	xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
-        }
-        else
+    	char *msg = "\r\n RTC Menu\r\nChoose 1 or 2 (0 to Exit): ";
+
+        while(1)
         {
-        	xQueueSend(print_queue,&msg,portMAX_DELAY);
-        	HAL_UART_Receive_IT(&huart2,RxBuf,1);
-        	xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
-        	if((char) RxBuf[0] == '1')
+        	if(app_state != APP_STATE_RTC)
         	{
-
-        	}
-        	else if((char) RxBuf[0] == '2')
-    		{
-
-    		}
-        	else if((char) RxBuf[0] == '0')
-        	{
-        		//Return to Menu Task
-        		app_state = APP_STATE_MENU;
-        		xTaskNotify(task_handle_menu,0,eNoAction);
         		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
         	}
         	else
         	{
+        		xQueueSend(print_queue,&msg,portMAX_DELAY);
+        		HAL_UART_Receive_IT(&huart2,RxBuf,1);
+        		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
+        		if((char) RxBuf[0] == '1')
+        		{
 
+        		}
+        		else if((char) RxBuf[0] == '2')
+    			{
+
+    			}
+        		else if((char) RxBuf[0] == '0')
+        		{
+        		   //Return to Menu Task
+        			app_state = APP_STATE_MENU;
+        			xTaskNotify(task_handle_menu,0,eNoAction);
+        			xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
+        		}
+        		else
+        		{
+
+        		}
         	}
+
         }
     }
 }
@@ -560,57 +599,6 @@ static void task_led_pattern_2(void *params)
 		HAL_GPIO_TogglePin(GPIOD,LD3_Pin);
 		HAL_GPIO_TogglePin(GPIOD,LD5_Pin);
 		vTaskDelay(250);
-	}
-}
-
-static void activate_led_pattern_1(void)
-{
-	BaseType_t status;
-
-	if(task_handle_led_pattern_1_created == 0)
-	{
-		status = xTaskCreate(task_led_pattern_1,"led_pattern_1",1024,NULL,1,&task_handle_led_pattern_1);
-		configASSERT(status == pdPASS);
-		task_handle_led_pattern_1_created = 1;
-		if(task_handle_led_pattern_2_created == 1)
-		{
-			vTaskSuspend(task_handle_led_pattern_2);
-		}
-	}
-	else
-	{
-		if(task_handle_led_pattern_2_created == 1)
-		{
-		    vTaskSuspend(task_handle_led_pattern_2);
-		}
-
-		vTaskResume(task_handle_led_pattern_1);
-	}
-}
-
-static void activate_led_pattern_2(void)
-{
-	BaseType_t status;
-
-	if(task_handle_led_pattern_2_created == 0)
-	{
-		status = xTaskCreate(task_led_pattern_2,"led_pattern_2",1024,NULL,1,&task_handle_led_pattern_2);
-		configASSERT(status == pdPASS);
-
-		task_handle_led_pattern_2_created = 1;
-		if(task_handle_led_pattern_1_created == 1)
-		{
-			vTaskSuspend(task_handle_led_pattern_1);
-		}
-	}
-	else
-	{
-		if(task_handle_led_pattern_1_created == 1)
-		{
-		    vTaskSuspend(task_handle_led_pattern_1);
-		}
-
-		vTaskResume(task_handle_led_pattern_2);
 	}
 }
 
