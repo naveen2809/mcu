@@ -1,10 +1,10 @@
-23:20:51 **** Incremental Build of configuration Debug for project 003RTOSProject ****
+14:27:11 **** Incremental Build of configuration Debug for project 003RTOSProject ****
 make -j8 all 
 arm-none-eabi-size   003RTOSProject.elf 
    text	   data	    bss	    dec	    hex	filename
-  30352	     32	  84592	 114976	  1c120	003RTOSProject.elf
+  32664	     32	  84600	 117296	  1ca30	003RTOSProject.elf
 Finished building: default.size.stdout
  
 
-23:20:51 Build Finished. 0 errors, 0 warnings. (took 227ms)
+14:27:11 Build Finished. 0 errors, 0 warnings. (took 167ms)
 

@@ -59,6 +59,9 @@ TaskHandle_t task_handle_menu;
 TaskHandle_t task_handle_led;
 TaskHandle_t task_handle_rtc;
 TaskHandle_t task_handle_cmd;
+TaskHandle_t task_handle_print;
+
+QueueHandle_t print_queue;
 
 /* USER CODE END PV */
 
@@ -71,6 +74,7 @@ static void task_menu(void *params);
 static void task_led(void *params);
 static void task_rtc(void *params);
 static void task_cmd(void *params);
+static void task_print(void *params);
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart);
 static void process_cmd(void);
 static void task_led_pattern_1(void *params);
@@ -90,9 +94,6 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	BaseType_t status;
-
-	QueueHandle_t cmd_queue;
-	QueueHandle_t print_queue;
 
   /* USER CODE END 1 */
 
@@ -141,11 +142,8 @@ int main(void)
   status = xTaskCreate(task_cmd,"cmd_task",1024,NULL,2,&task_handle_cmd);
   configASSERT(status == pdPASS);
 
-  //status = xTaskCreate(task_print,"print_task",1024,NULL,2,&task_handle_print);
-  //configASSERT(status == pdPASS);
-
-  cmd_queue = xQueueCreate(10,sizeof(uint8_t));
-  configASSERT(cmd_queue != NULL);
+  status = xTaskCreate(task_print,"print_task",1024,NULL,2,&task_handle_print);
+  configASSERT(status == pdPASS);
 
   print_queue = xQueueCreate(10,sizeof(unsigned long));
   configASSERT(print_queue != NULL);
@@ -390,7 +388,7 @@ static void task_menu(void *params)
 
     while(1)
     {
-    	HAL_UART_Transmit(&huart2,(uint8_t *)menu_msg,strlen(menu_msg),HAL_MAX_DELAY);
+    	xQueueSend(print_queue,&menu_msg,portMAX_DELAY);
     	HAL_UART_Receive_IT(&huart2,RxBuf,1);
     	xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
     }
@@ -413,7 +411,7 @@ static void task_led(void *params)
     	}
     	else
     	{
-    		HAL_UART_Transmit(&huart2,(uint8_t *)msg,strlen(msg),HAL_MAX_DELAY);
+    		xQueueSend(print_queue,&msg,portMAX_DELAY);
     		HAL_UART_Receive_IT(&huart2,RxBuf,1);
     		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
     		if(RxBuf[0] == '1')
@@ -491,7 +489,7 @@ static void task_rtc(void *params)
         	}
         	else
         	{
-        		HAL_UART_Transmit(&huart2,(uint8_t *)msg,strlen(msg),HAL_MAX_DELAY);
+        		xQueueSend(print_queue,&msg,portMAX_DELAY);
         		HAL_UART_Receive_IT(&huart2,RxBuf,1);
         		xTaskNotifyWait(0,0,NULL,portMAX_DELAY);
         		if((char) RxBuf[0] == '1')
@@ -554,6 +552,24 @@ static void process_cmd(void)
 	else if(app_state == APP_STATE_RTC)
 	{
 		xTaskNotify(task_handle_rtc,0,eNoAction);
+	}
+}
+
+static void task_print(void *params)
+{
+
+	uint8_t *msg;
+
+	while(1)
+	{
+		if(print_queue != NULL)
+		{
+			if(xQueueReceive(print_queue,&msg,portMAX_DELAY) == pdTRUE)
+			{
+				HAL_UART_Transmit(&huart2,(uint8_t *)msg,strlen((char *)msg),HAL_MAX_DELAY);
+			}
+
+		}
 	}
 }
 

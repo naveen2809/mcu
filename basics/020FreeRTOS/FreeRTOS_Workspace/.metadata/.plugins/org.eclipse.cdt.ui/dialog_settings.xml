@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="${workspace_loc:/${ProjName}/Core/Common/ThirdParty/SEGGER/Config}"/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
@@ -8,7 +9,7 @@
 		<item key="askReindex.detail" value="0"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item key="size.width" value="681"/>
+		<item key="size.width" value="705"/>
 		<item key="size.height" value="227"/>
 	</section>
 	<section name="org.eclipse.cdt.internal.ui.text.QuickOutline">
