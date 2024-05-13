@@ -1,0 +1,10 @@
+15:06:54 **** Incremental Build of configuration Debug for project 007FreeRTOSSemaphoreExample ****
+make -j8 all 
+arm-none-eabi-size   007FreeRTOSSemaphoreExample.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27776	     28	  84636	 112440	  1b738	007FreeRTOSSemaphoreExample.elf
+Finished building: default.size.stdout
+ 
+
+15:06:54 Build Finished. 0 errors, 0 warnings. (took 224ms)
+

@@ -1,21 +1,21 @@
-22:58:21 **** Incremental Build of configuration Debug for project 006MutexBareMetal ****
+15:06:49 **** Incremental Build of configuration Debug for project 007FreeRTOSSemaphoreExample ****
 make -j8 all 
-arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F407G_DISC1 -DSTM32F4 -DSTM32F407VGTx -c -I../Inc -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/SEGGER" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/OS" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/Config" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/include" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/006MutexBareMetal/Driver/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
-arm-none-eabi-gcc -o "006MutexBareMetal.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/006MutexBareMetal/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="006MutexBareMetal.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 006MutexBareMetal.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/include" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/Config" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/SEGGER" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/OS" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "007FreeRTOSSemaphoreExample.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/007FreeRTOSSemaphoreExample/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="007FreeRTOSSemaphoreExample.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 007FreeRTOSSemaphoreExample.elf
  
-arm-none-eabi-size   006MutexBareMetal.elf 
-arm-none-eabi-objdump -h -S  006MutexBareMetal.elf  > "006MutexBareMetal.list"
+arm-none-eabi-size   007FreeRTOSSemaphoreExample.elf 
+arm-none-eabi-objdump -h -S  007FreeRTOSSemaphoreExample.elf  > "007FreeRTOSSemaphoreExample.list"
    text	   data	    bss	    dec	    hex	filename
-  21000	     16	  80480	 101496	  18c78	006MutexBareMetal.elf
+  27776	     28	  84636	 112440	  1b738	007FreeRTOSSemaphoreExample.elf
 Finished building: default.size.stdout
  
-Finished building: 006MutexBareMetal.list
+Finished building: 007FreeRTOSSemaphoreExample.list
  
-22:58:26 **** Incremental Build of configuration Debug for project 006MutexBareMetal ****
+15:06:54 **** Incremental Build of configuration Debug for project 007FreeRTOSSemaphoreExample ****
 make -j8 all 
-arm-none-eabi-size   006MutexBareMetal.elf 
+arm-none-eabi-size   007FreeRTOSSemaphoreExample.elf 
    text	   data	    bss	    dec	    hex	filename
-  21000	     16	  80480	 101496	  18c78	006MutexBareMetal.elf
+  27776	     28	  84636	 112440	  1b738	007FreeRTOSSemaphoreExample.elf
 Finished building: default.size.stdout
  
