@@ -36,14 +36,14 @@
 /* USER CODE BEGIN PD */
 #define DWT_CTRL			(*(volatile uint32_t *) 0xE0001000U)
 
-#define GREEN_LED_PERIOD		400
-#define BLUE_LED_PERIOD			100
+#define GREEN_LED_PERIOD		50
+#define BLUE_LED_PERIOD			10
 #define GREEN_LED_PIN			LD4_Pin
 #define BLUE_LED_PIN			LD6_Pin
 #define RED_LED_PIN				LD5_Pin
 #define BLUE_LED_BLINK_COUNT	3
-#define SEM_GIVE_COUNT			5
-#define SEM_TAKE_WAIT			(50)
+#define SEM_GIVE_COUNT			1
+#define SEM_TAKE_WAIT			(20)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -330,14 +330,14 @@ static void task_green_led(void *params)
 
 	while(1)
 	{
+		toggle_green_led();
 		count++;
 		if(count >= SEM_GIVE_COUNT)
 		{
 			count = 0;
 			xSemaphoreGive(LedSemaphore);
+			SEGGER_SYSVIEW_PrintfHost("LedSemaphore Give from task_green_led");
 		}
-
-		toggle_green_led();
 	}
 }
 
@@ -347,11 +347,13 @@ static void task_blue_led(void *params)
 	{
 		if(xSemaphoreTake(LedSemaphore,SEM_TAKE_WAIT) == pdTRUE)
 		{
+			SEGGER_SYSVIEW_PrintfHost("LedSemaphore Take Success in task_blue_led");
 			turn_off_red_led();
 			blink_blue_led();
 		}
 		else
 		{
+			SEGGER_SYSVIEW_PrintfHost("LedSemaphore Take Fail in task_blue_led");
 			turn_on_red_led();
 		}
 	}
@@ -360,8 +362,10 @@ static void task_blue_led(void *params)
 static void toggle_green_led(void)
 {
 	HAL_GPIO_WritePin(GPIOD,GREEN_LED_PIN,1);
+	SEGGER_SYSVIEW_PrintfHost("Turning On Green LED");
 	vTaskDelay(GREEN_LED_PERIOD);
 	HAL_GPIO_WritePin(GPIOD,GREEN_LED_PIN,0);
+	SEGGER_SYSVIEW_PrintfHost("Turning Off Green LED");
 	vTaskDelay(GREEN_LED_PERIOD);
 }
 
@@ -372,8 +376,10 @@ static void blink_blue_led(void)
 	for(i=0;i<BLUE_LED_BLINK_COUNT;i++)
 	{
 		HAL_GPIO_WritePin(GPIOD,BLUE_LED_PIN,1);
+		SEGGER_SYSVIEW_PrintfHost("Turning On Blue LED");
 		vTaskDelay(BLUE_LED_PERIOD);
 		HAL_GPIO_WritePin(GPIOD,BLUE_LED_PIN,0);
+		SEGGER_SYSVIEW_PrintfHost("Turning Off Blue LED");
 		vTaskDelay(BLUE_LED_PERIOD);
 	}
 }
