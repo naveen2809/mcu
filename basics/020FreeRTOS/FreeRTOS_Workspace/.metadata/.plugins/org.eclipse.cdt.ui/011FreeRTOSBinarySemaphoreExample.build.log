@@ -1,0 +1,10 @@
+13:53:53 **** Incremental Build of configuration Debug for project 011FreeRTOSBinarySemaphoreExample ****
+make -j8 all 
+arm-none-eabi-size   011FreeRTOSBinarySemaphoreExample.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26884	     28	  87700	 114612	  1bfb4	011FreeRTOSBinarySemaphoreExample.elf
+Finished building: default.size.stdout
+ 
+
+13:53:53 Build Finished. 0 errors, 0 warnings. (took 225ms)
+

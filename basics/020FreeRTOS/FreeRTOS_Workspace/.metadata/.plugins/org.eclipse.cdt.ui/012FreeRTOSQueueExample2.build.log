@@ -1,0 +1,17 @@
+15:25:38 **** Incremental Build of configuration Debug for project 012FreeRTOSQueueExample2 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/include" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/Config" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/SEGGER" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/OS" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "012FreeRTOSQueueExample2.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/012FreeRTOSQueueExample2/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="012FreeRTOSQueueExample2.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 012FreeRTOSQueueExample2.elf
+ 
+arm-none-eabi-size   012FreeRTOSQueueExample2.elf 
+arm-none-eabi-objdump -h -S  012FreeRTOSQueueExample2.elf  > "012FreeRTOSQueueExample2.list"
+   text	   data	    bss	    dec	    hex	filename
+  27140	     28	  87708	 114876	  1c0bc	012FreeRTOSQueueExample2.elf
+Finished building: default.size.stdout
+ 
+Finished building: 012FreeRTOSQueueExample2.list
+ 
+
+15:25:39 Build Finished. 0 errors, 0 warnings. (took 426ms)
+

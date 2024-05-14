@@ -1,0 +1,10 @@
+16:49:12 **** Incremental Build of configuration Debug for project 010FreeRTOSQueue ****
+make -j8 all 
+arm-none-eabi-size   010FreeRTOSQueue.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27036	     28	  87700	 114764	  1c04c	010FreeRTOSQueue.elf
+Finished building: default.size.stdout
+ 
+
+16:49:12 Build Finished. 0 errors, 0 warnings. (took 228ms)
+

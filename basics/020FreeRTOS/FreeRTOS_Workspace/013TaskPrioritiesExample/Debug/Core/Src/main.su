@@ -1,0 +1,10 @@
+../Core/Src/main.c:78:5:main	32	static,ignoring_inline_asm
+../Core/Src/main.c:138:6:SystemClock_Config	88	static
+../Core/Src/main.c:185:13:MX_GPIO_Init	56	static
+../Core/Src/main.c:319:13:task_1	16	static
+../Core/Src/main.c:335:13:task_2	16	static
+../Core/Src/main.c:343:13:task_3	16	static
+../Core/Src/main.c:351:13:delay	24	static
+../Core/Src/main.c:361:17:get_delay_count	8	static
+../Core/Src/main.c:376:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/main.c:393:6:Error_Handler	4	static,ignoring_inline_asm
