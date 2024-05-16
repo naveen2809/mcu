@@ -1,21 +1,14 @@
-17:43:40 **** Incremental Build of configuration Debug for project 013TaskPrioritiesExample ****
+11:21:11 **** Incremental Build of configuration Debug for project 015ProducerConsumer ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F407xx -c -I../Core/Inc -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/include" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/FreeRTOS/portable/GCC/ARM_CM4F" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/Config" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/SEGGER" -I"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/Common/ThirdParty/SEGGER/OS" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "013TaskPrioritiesExample.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/013TaskPrioritiesExample/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="013TaskPrioritiesExample.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: 013TaskPrioritiesExample.elf
+arm-none-eabi-gcc -o "015ProducerConsumer.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/015ProducerConsumer/STM32F407VGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="015ProducerConsumer.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 015ProducerConsumer.elf
  
-arm-none-eabi-size   013TaskPrioritiesExample.elf 
-arm-none-eabi-objdump -h -S  013TaskPrioritiesExample.elf  > "013TaskPrioritiesExample.list"
+arm-none-eabi-size   015ProducerConsumer.elf 
+arm-none-eabi-objdump -h -S  015ProducerConsumer.elf  > "015ProducerConsumer.list"
    text	   data	    bss	    dec	    hex	filename
-  26780	    128	  87600	 114508	  1bf4c	013TaskPrioritiesExample.elf
+  25036	     28	  87588	 112652	  1b80c	015ProducerConsumer.elf
 Finished building: default.size.stdout
  
-Finished building: 013TaskPrioritiesExample.list
- 
-17:43:46 **** Incremental Build of configuration Debug for project 013TaskPrioritiesExample ****
-make -j8 all 
-arm-none-eabi-size   013TaskPrioritiesExample.elf 
-   text	   data	    bss	    dec	    hex	filename
-  26780	    128	  87600	 114508	  1bf4c	013TaskPrioritiesExample.elf
-Finished building: default.size.stdout
+Finished building: 015ProducerConsumer.list
  

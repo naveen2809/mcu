@@ -2477,3 +2477,40 @@ java.lang.NullPointerException
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at java.base/java.lang.Thread.run(Thread.java:829)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-14 20:12:09.001
+!MESSAGE Indexed '014TaskISRSynchronization' (21 sources, 81 headers) in 1.33 sec: 4,387 declarations; 18,272 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0088%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10004 2024-05-14 20:22:06.257
+!MESSAGE Failed to execute MI command:
+-stack-list-frames 0 0
+Error message from debugger back end:
+Invalid thread id: 1
+!STACK 0
+java.lang.Exception: Invalid thread id: 1
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-14 20:34:41.803
+!MESSAGE Indexed '014TaskISRSynchronization' (37 sources, 117 headers) in 1.11 sec: 9,501 declarations; 51,739 references; 0 unresolved inclusions; 1 syntax errors; 3 unresolved names (0.0049%)
+
+!ENTRY org.eclipse.core.resources 4 566 2024-05-16 10:07:10.521
+!MESSAGE Workspace was not properly initialized or has already shutdown.
+!SESSION 2024-05-16 10:08:53.305 -----------------------------------------------
+eclipse.buildId=Version 1.11.2
+java.version=11.0.16
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-05-16 10:09:16.188
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-05-16 10:09:16.243
+!MESSAGE Log4j initialized with config file /home/naveen/Code/mcu/basics/020FreeRTOS/FreeRTOS_Workspace/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-05-16 10:09:19.587
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-16 10:10:30.304
+!MESSAGE Indexed '015ProducerConsumer' (21 sources, 81 headers) in 3.79 sec: 4,387 declarations; 18,272 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0088%)

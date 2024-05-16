@@ -1,0 +1,10 @@
+11:14:18 **** Incremental Build of configuration Debug for project 014TaskISRSynchronization ****
+make -j8 all 
+arm-none-eabi-size   014TaskISRSynchronization.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27928	     28	  87700	 115656	  1c3c8	014TaskISRSynchronization.elf
+Finished building: default.size.stdout
+ 
+
+11:14:19 Build Finished. 0 errors, 0 warnings. (took 229ms)
+
