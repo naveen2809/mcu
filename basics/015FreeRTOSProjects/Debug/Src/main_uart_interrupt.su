@@ -1,0 +1,5 @@
+../Src/main_uart_interrupt.c:33:5:main	32	static,ignoring_inline_asm
+../Src/main_uart_interrupt.c:63:13:task_uart_interrupt	24	static
+../Src/main_uart_interrupt.c:97:6:USART2_IRQHandler	16	static
+../Src/main_uart_interrupt.c:109:13:NVIC_SetPriorityGrouping	16	static
+../Src/main_uart_interrupt.c:124:13:configure_uart	8	static

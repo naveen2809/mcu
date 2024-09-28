@@ -1,0 +1,11 @@
+../Drivers/Src/gpio_driver.c:11:6:GPIOSetMode	24	static
+../Drivers/Src/gpio_driver.c:21:9:GPIOReadPin	32	static
+../Drivers/Src/gpio_driver.c:34:6:GPIOWritePin	24	static
+../Drivers/Src/gpio_driver.c:42:6:GPIOTogglePin	24	static
+../Drivers/Src/gpio_driver.c:49:6:GPIOWritePort	24	static
+../Drivers/Src/gpio_driver.c:56:10:GPIOReadIDR	24	static
+../Drivers/Src/gpio_driver.c:63:10:GPIOReadODR	24	static
+../Drivers/Src/gpio_driver.c:70:6:GPIOSetAltFn	24	static
+../Drivers/Src/gpio_driver.c:81:6:GPIOSetOutputType	24	static
+../Drivers/Src/gpio_driver.c:89:6:GPIOSetPullUpDownConfig	24	static
+../Drivers/Src/gpio_driver.c:97:6:GPIOSetOutputSpeed	24	static

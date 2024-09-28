@@ -1,0 +1,3 @@
+../Drivers/Src/dma_driver.c:14:6:DMA_Config	16	static
+../Drivers/Src/dma_driver.c:64:6:DMA_PeripheralEnable	16	static
+../Drivers/Src/dma_driver.c:69:6:DMA_PeripheralDisable	16	static

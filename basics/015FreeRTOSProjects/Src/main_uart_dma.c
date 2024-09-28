@@ -1,89 +1,116 @@
 #include <stdint.h>
-#include <string.h>
 #include <stdio.h>
 #include "stm32f4xx.h"
-#include "usart_driver.h"
 #include "gpio_driver.h"
+#include "usart_driver.h"
 #include "dma_driver.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "semphr.h"
+
+#define SCB_AIRCR_VECTKEY_Msk (0xFFFFUL << SCB_AIRCR_VECTKEY_Pos)
+#define SCB_AIRCR_PRIGROUP_Msk (7UL << SCB_AIRCR_PRIGROUP_Pos)
+#define SCB_AIRCR_VECTKEY_Pos 16U
+#define SCB_AIRCR_PRIGROUP_Pos 8U
 
 #define UART_TX_PIN						GPIO_PIN_2
 #define UART_RX_PIN						GPIO_PIN_3
-#define BUTTON_PIN						GPIO_PIN_0
-#define SLEEP_COUNT						500000
-#define BUTTON_IRQ_NO					6
-#define SYSCFG_EXTI_CR_ADDR				(0x40013800UL + 0x08UL)
-#define EXTI_IMR_ADDR					0x40013C00UL
-#define EXTI_PR_ADDR					(0x40013C00UL + 0x14UL)
-#define EXTI_RTSR_ADDR					(0x40013C00UL + 0x08UL)
-#define EXTI_INTERRUPT_PIN_NUM			0
+
 #define DMA1_STREAM6_IRQ_NO				17
 
 struct USART_Handle_t Test_USART;
 struct DMA_Handle_t Test_DMA;
 
-char message[]="UART Message through DMA\r\n";
-int transfer_done = 0;
+static void task_uart_dma(void *params);
+static void NVIC_SetPriorityGrouping(void);
+static void configure_uart(void);
+static void configure_dma(void);
 
-void configure_uart(void);
-void configure_button(void);
-void configure_dma(void);
-void send_using_dma(void);
-void UART_SendChar(uint8_t ch);
-void delay(void);
+static TaskHandle_t task_uart_dma_handle;
+static SemaphoreHandle_t xSemaphore;
 
-void EXTI0_IRQHandler(void)
+char message[]="Hello World!!!\r\n";
+
+int main(void)
 {
-	uint32_t *pEXTI_PR = (uint32_t *) EXTI_PR_ADDR;
 
-	//printf("Printf() function redirected to UART!\r\n");
+	BaseType_t status;
 
+	NVIC_SetPriorityGrouping();
 
-	//Trigger DMA transfer from memory to UART by setting configuration in UART CR register
+	configure_uart();
+	configure_dma();
+
+	traceSTART();
+
+	status = xTaskCreate(task_uart_dma,"Task_UART_DMA",200,NULL,2,&task_uart_dma_handle);
+  	configASSERT(status == pdPASS);
+
+  	xSemaphore = xSemaphoreCreateBinary();
+  	configASSERT(xSemaphore != NULL);
+
+  	vTaskStartScheduler();
+
+	/* Loop forever */
+	while(1)
+	{
+		
+	}
+
+	return 0;
+}
+
+static void task_uart_dma(void *params)
+{
+	//Triggering the DMA for the first time
 	Test_USART.pUSART->USART_CR3 |= (1 << USART_CR3_DMAT);
 
-	delay(); // For de-bouncing the input button
+	while(1)
+	{
+		if(xSemaphoreTake(xSemaphore,portMAX_DELAY) == pdTRUE)
+		{
+			//Configure the number of bytes to be transferred
+			Test_DMA.pDMA_Stream->DMA_NDTR = Test_DMA.DMA_Config.DMA_Num_Bytes;
 
-	// Clearing the EXTI_PR Register
-	*pEXTI_PR |= (1 << EXTI_INTERRUPT_PIN_NUM);
+			//Enable DMA
+			DMA_PeripheralEnable(&Test_DMA);
+
+			Test_USART.pUSART->USART_CR3 |= (1 << USART_CR3_DMAT);
+		}
+	}
 }
 
 void DMA1_Stream6_IRQHandler(void)
 {
+	BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+
 	//Clear the configuration in UART CR register
 	Test_USART.pUSART->USART_CR3 &= ~(1 << USART_CR3_DMAT);
 
 	//Clear DMA TCIE Interrupt Flag
 	Test_DMA.pDMA_Cont->DMA_HIFCR |= (1 << 21);
 
-	//Configure the number of bytes to be transferred
-	Test_DMA.pDMA_Stream->DMA_NDTR = Test_DMA.DMA_Config.DMA_Num_Bytes;
+	SEGGER_SYSVIEW_Print("Inside DMA Transfer Complete ISR");
 
-	//Enable DMA
-	DMA_PeripheralEnable(&Test_DMA);
-
-	Test_USART.pUSART->USART_CR3 |= (1 << USART_CR3_DMAT);
+	xSemaphoreGiveFromISR(xSemaphore, &xHigherPriorityTaskWoken);
 }
 
-int main(void)
+static void NVIC_SetPriorityGrouping(void)
 {
-	configure_uart();
-	configure_button();
-	configure_dma();
 
-	Test_USART.pUSART->USART_CR3 |= (1 << USART_CR3_DMAT);
+	uint32_t *pSCB_AIRCR = (uint32_t *) 0xE000ED0CUL;
 
-	while(1)
-	{
-		//transfer_done = 0;
-		//Test_USART.pUSART->USART_CR3 |= (1 << USART_CR3_DMAT);
-		//while(transfer_done == 0);
-		delay();
-	}
+	uint32_t value = *pSCB_AIRCR;
 
-	return 0;
+	value &= ~((uint32_t)(SCB_AIRCR_VECTKEY_Msk | SCB_AIRCR_PRIGROUP_Msk));
+
+	value = value | ((uint32_t)0x5FAUL << SCB_AIRCR_VECTKEY_Pos) | (0x3 << SCB_AIRCR_PRIGROUP_Pos);
+
+	*pSCB_AIRCR = value;
+
 }
 
-void configure_uart(void)
+static void configure_uart(void)
 {
 	//GPIO Pin Configuration
 	EnablePeriClk(GPIOA);
@@ -112,33 +139,7 @@ void configure_uart(void)
 	USART_PeripheralEnable(&Test_USART);
 }
 
-void configure_button(void)
-{
-
-	uint32_t *pAPB2ENR = (uint32_t *) APB2_ENR_ADDR;
-	uint32_t *pEXTI_IMR	= (uint32_t *) EXTI_IMR_ADDR;
-	uint32_t *pEXTI_RTSR = (uint32_t *) EXTI_RTSR_ADDR;
-	uint32_t *pSYSCFG_EXTI_CR_ADDR = (uint32_t *) SYSCFG_EXTI_CR_ADDR;
-
-	//GPIO Pin Configuration
-	EnablePeriClk(GPIOA);
-	GPIOSetMode(GPIOA,BUTTON_PIN,GPIO_MODE_INPUT);
-
-	//Button Interrupt Configuration
-
-	// 1. Configuring the EXTI Controller (External Interrupt Controller)
-
-	*pEXTI_IMR |= (1 << EXTI_INTERRUPT_PIN_NUM);  	// Setting the Interrupt Mask Register
-	*pEXTI_RTSR |= (1 << EXTI_INTERRUPT_PIN_NUM); 	// Setting the Rising Trigger Set Register
-
-	*pAPB2ENR |= (1 << 14);							// Enabling the clock for the System Configuration Block
-	*pSYSCFG_EXTI_CR_ADDR &= ~(0x000F);       		// Enabling GPIOA Port O input on EXTI0 line
-
-	// 2. // Enabling the interrupt for the button
-	NVIC_EnableIRQ(BUTTON_IRQ_NO);					// Enabling the interrupt
-}
-
-void configure_dma(void)
+static void configure_dma(void)
 {
 	Test_DMA.pDMA_Cont = (struct DMA_Controller_RegDef_t *) DMA1;
 	Test_DMA.pDMA_Stream = (struct DMA_Stream_RegDef_t *) DMA1_STREAM_6;
@@ -160,24 +161,6 @@ void configure_dma(void)
 	DMA_PeripheralEnable(&Test_DMA);
 
 	// Enable the DMA TC Interrupt
+	NVIC_SetPriority(NVIC_PRIO_REG_BASE,DMA1_STREAM6_IRQ_NO,100);
 	NVIC_EnableIRQ(DMA1_STREAM6_IRQ_NO);		// Enabling the interrupt
-}
-
-void send_using_dma(void)
-{
-
-	delay();
-
-	Test_USART.pUSART->USART_CR3 |= (1 << USART_CR3_DMAT);
-}
-
-void UART_SendChar(uint8_t ch)
-{
-	USART_SendData(&Test_USART, &ch, 1);
-}
-
-void delay(void)
-{
-	uint32_t j;
-	for(j=0;j<SLEEP_COUNT;j++);
 }
